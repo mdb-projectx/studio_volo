@@ -670,6 +670,7 @@ p.back-link { clear: left; }
 
 /* Form Validation */
 .validation-advice { clear:both; min-height:13px; margin:3px 0 0; padding-left:13px; font-size:11px; line-height:13px; background:url(../images/validation_advice_bg.gif) 2px 3px no-repeat; color:#eb340a; }
+.validation-advice-top { clear:both; min-height:13px; margin:3px 0 0; font-size:11px; line-height:13px; color:#eb340a; }
 .validation-failed { border:1px solid #eb340a !important; background:#faebe7 !important; }
 .validation-passed {}
 p.required { font-size:11px; float: left; color:#EB340A; }

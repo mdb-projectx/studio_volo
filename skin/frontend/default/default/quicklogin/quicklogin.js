@@ -157,7 +157,23 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							    }else{
 								if ((typeof response.message) == 'string') {
 								$j('.errormsg').html(response.message);
-								} 
+								}
+								var newHeight;
+                		                                var checkHeight = setInterval(function(){
+        	                                               newHeight = $j('#regis-form').height();
+	                                                        if(newHeight != origHeight) {
+	                                                                clearInterval(checkHeight);
+	                                                                checkHeight = 0;
+                                                                	$j('#alogin').colorbox.resize({
+                                                                	        innerWidth: 390,
+                                                        	                innerHeight: (460 - 386 + newHeight)
+                                                	                });
+                                        	                }
+                                	                        setTimeout(function() {
+                        	                                        clearInterval(checkHeight);
+                	                                                checkHeight = 0;}, 100);
+		                                                }, 10);
+ 
 								return false;
 							}
 							},
