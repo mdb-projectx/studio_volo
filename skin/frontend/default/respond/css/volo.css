@@ -113,12 +113,12 @@ TYPOGRAPHY
  **************************************************/
  
 body {
-	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	font-family: "Lato", "Open Sans", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	line-height: 21px;
 }
 input,textarea,button,select {
-	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	font-family: "Lato", "Open Sans", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	color: #252525;
 }
@@ -277,8 +277,8 @@ body {
 /* MENU */
 #menu {
 	position: relative;
-	width: 700px;
-	padding: 0 125px;
+	width: 835px;
+	padding: 0 0 0 125px;
 	border-bottom: 1px dotted #a8a8a8;
 	height: 29px;
 	z-index: 5;
@@ -398,6 +398,12 @@ width:  80px;
 
 #menu li:nth-child(8) a {
         width: 90px;
+}
+
+#menu li:nth-child(9) a {
+        width: 135px;
+	text-align: right;
+	color: #a8a8a8;
 }
 
 /* level two */
@@ -569,19 +575,19 @@ width:  80px;
 }
 
 #links .col:nth-child(1) {
-	width: 130px;
+	width: 110px;
 }
 
 #links .col:nth-child(2) {
-        width: 130px;
+        width: 125px;
 }
 
 #links .col:nth-child(3) {
-        width: 80px;
+        width: 75px;
 }
 
 #links .col:nth-child(4) {
-        width: 90px;
+        width: 85px;
 }
 
 #links .col:nth-child(5) {
@@ -598,6 +604,11 @@ width:  80px;
 
 #links .col:nth-child(8) {
         width: 85px;
+}
+
+#links .col:nth-child(9) {
+	width: 90px;
+	text-align: right;
 }
 
 #links .heading {
@@ -627,10 +638,6 @@ width:  80px;
 
 #links p {
 	line-height: 25px;
-}
-
-#links .col:last-child a {
-	text-decoration: underline;
 }
 
 #links .col:last-child a:hover,#links .col:last-child a:active {
@@ -735,7 +742,7 @@ height: 480px;
 }
 
 #value h2 {
-	font: bold 30px/83px "Open Sans Condensed", "Open Sans", Arial, Helvetica, sans-serif;
+	font: 30px/83px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 /* PROMOTIONS */
@@ -871,6 +878,7 @@ CATEGORIES & PRODUCTS
 	line-height: 30px;
 	font-size: 11px;
 	color: #949494;
+	letter-spacing: 0.09em;
 }
 #breadcrumbs a {
 	color: #949494;	
@@ -881,7 +889,8 @@ CATEGORIES & PRODUCTS
 
 .category-title h1 {
 	padding: 0 0 20px 5px;
-	font: bold 36px/36px "Open Sans Condensed", "Open Sans", Arial, Helvetica, sans-serif;
+	font: 36px/36px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
 }
 #category li {
 	float: left;
@@ -1150,7 +1159,7 @@ CATEGORIES & PRODUCTS
 	width: 200px;
 	height: 40px;
 	color: #fff;
-	font: bold 15px "Open Sans Condensed", "Open Sans", Arial, Helvetica, sans-serif;
+	font: bold 14px/18px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
 	border: 0;
 }
 #cart-view {
@@ -1227,19 +1236,26 @@ CATEGORIES & PRODUCTS
 #title {
 	position: absolute;
 	width: 207px;
-	top: 30px;
-	left: 0;
+	top: 20px;
+	left: 15px;
 }
 #title p {
 	width: 100%;
+	font-size: 12px;
+	letter-spacing: 0.1em;
 	text-align: center;
+}
+#title p.first {
+	font-family: 'Flamenco', cursive;
+	font-size: 48px;
+	line-height: 45px;
 }
 #photo {
 }
 #thumbs {
 	float: left;
 	width: 500px;
-	padding: 58px 0 10px 0;
+	padding: 61px 0 10px 0;
 }
 #thumbs li {
 	float: left;
@@ -1318,10 +1334,11 @@ CATEGORIES & PRODUCTS
 	width: 208px;
         height: 40px;
         color: #fff;
-        font: 18px/18px "Open Sans Condensed", "Open Sans", Arial, Helvetica, sans-serif;
+        font: 18px/18px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	border: 0;
 	background-color: black;
+	letter-spacing: 0.06em;
 }
 #price #ajax_loader {
 	width: auto;
@@ -1345,11 +1362,23 @@ CATEGORIES & PRODUCTS
 	font-weight: bold;
 	border: 1px solid #666;
 }
+#price .add-to-links li:nth-child(2) {
+        float: left;
+        width: 72px;
+        height: 17px;
+        text-align: center;
+        line-height: 18px;
+        font-size: 10px;
+        font-weight: bold;
+        border: 1px solid #666;
+	margin-left: 6px;
+}
 #price .add-to-links li:last-child {
 	display: none;
 }
 #price .add-to-links li a {
 	font-family: 'Lato', sans-serif;
+	text-transform: uppercase;
 }
 #price input:hover {
 	background-position: 0 100%;
@@ -1363,7 +1392,8 @@ CATEGORIES & PRODUCTS
 	line-height: 20px;
 	color: #000;
 	font-size: 10px;
-	font-family: Myriad Pro;
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
 	text-transform: uppercase;
 }
 #related p {
@@ -1469,6 +1499,7 @@ CATEGORIES & PRODUCTS
 	float: left;
 	padding: 25px 10px 0;
 	width: 185px;
+	min-height: 317px;
 	background-color: #f0f0f0;
 }
 #details .extra .photo {
@@ -1478,15 +1509,15 @@ CATEGORIES & PRODUCTS
 	width: 73px;
 	height: 73px;
 }
-#details .extra .name {
-	font: 14px Pacifico, "Open Sans", Arial, Helvetica, sans-serif;
-}
 #details .extra h4 {
 	font-weight: bold;
 	float: left;
 	width: 85px;
 	margin: 0;
-	padding: 0;
+	padding: 15px 0 0 0;
+	font-size: 10px;
+	line-height: 15px;
+	text-transform: uppercase;
 }
 #details .extra h4:nth-child(2) {
 	margin-top: 0;
@@ -1499,6 +1530,7 @@ CATEGORIES & PRODUCTS
 	font-size: 12px;
 	line-height: 28px;
 	font-family: 'Lato', sans-serif;
+	font-style: italic;
 }
 #details .extra ul {
 	margin-bottom: 21px;
@@ -1517,7 +1549,9 @@ CATEGORIES & PRODUCTS
 }
 .dimensions h4, .details h4 {
 	text-transform: uppercase;
+	font-size: 10px;
 	font-weight: 700;
+	line-height: 28px;
 }
 #details a {
 	text-decoration: underline
@@ -1538,7 +1572,7 @@ CATEGORIES & PRODUCTS
 	font-style: normal;
 }
 .specs dl, .specs p {
-	font-style: italic;
+	font-size: 12px;
 	line-height: 30px;
 }
 
@@ -1956,7 +1990,7 @@ BASKET
 	height: 35px;
 	background: url(../images/volo/cartbutton3.png);
 	color: #252525;
-	font: bold 18px/35px "Open Sans Condensed", "Open Sans", Arial, Helvetica, sans-serif;
+	font: bold 18px/35px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
 	text-align: center;
 	-webkit-transition: none;
 	-moz-transition: none;
