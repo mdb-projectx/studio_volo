@@ -70,6 +70,11 @@
                     <template>page/3columns.phtml</template>
                     <layout_handle>page_three_columns</layout_handle>
                 </three_columns>
+				<invite_friend module="page" translate="label">
+                    <label>Invite Friend</label>
+                    <template>page/invite_friend.phtml</template>
+                    <layout_handle>invite_friend</layout_handle>
+                </invite_friend>
             </layouts>
         </page>
     </global>

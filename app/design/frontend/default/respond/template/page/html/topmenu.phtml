@@ -33,16 +33,8 @@
 ?>
 <?php $_menu = $this->getHtml('level-top') ?>
 <?php if($_menu): ?>
-<div class="nav-container">
-	<script type="text/javascript">
-		//<![CDATA[
-			$j(document).ready(function(){
-					$j('#nav').mobileMenu();
-			});
-		//]]>
-	</script>
-    <ul id="nav">
-        <?php echo $_menu ?>
-    </ul>
-</div>
+<ul id="menu">
+	<?php echo $_menu ?>
+	<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('menu_extra')->toHtml() ?> 
+</ul>
 <?php endif ?>

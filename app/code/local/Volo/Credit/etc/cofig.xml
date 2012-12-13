@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+	<global>
+		<modules>
+                <volo_refer>
+                        <version>0.1.0</version>
+                </volo_refer>
+        </modules>
+	<blocks>
+            <refer>
+                <rewrite>
+		 <refer>Volo_Refer_Block_Refer</refer>
+		</rewrite>
+            </refer>
+	 </blocks>
+
+        </global>
+	   <frontend>
+                <routers>
+                        <refer>
+                                <use>standard</use>
+                                <args>
+                                      <module>Volo_Refer</module>
+                                      <frontName>refer</frontName>
+                                </args>
+                        </refer>
+                </routers>
+		<layout>
+			<updates>
+				<refer>
+		   		      <file>helloworld.xml</file>
+				</refer>
+			</updates>
+       		</layout>
+        </frontend>
+</config>

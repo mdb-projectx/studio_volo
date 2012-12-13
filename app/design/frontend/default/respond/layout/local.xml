@@ -42,15 +42,20 @@
 			
 			
 			<!-- Remove print.css and styles-ie.css, styles are now all in styles.css to reduce http request -->
-			<action method="removeItem"><type>skin_css</type><name>css/print.css</name></action>
-			<action method="removeItem"><type>skin_css</type><name>css/styles-ie.css</name><params/></action>
-			<action method="addItem"><type>skin_css</type><name>css/colorbox.css</name></action>
+			<!--<action method="removeItem"><type>skin_css</type><name>css/print.css</name></action>
+			<action method="removeItem"><type>skin_css</type><name>css/styles-ie.css</name><params/></action>-->
+			<action method="addItem"><type>skin_css</type><name>css/volo.css</name></action>
 
 			<!-- <action method="addItem"><type>skin_js</type><name>js/jquery.mobile-1.1.0.min.js</name></action> -->
-			<action method="addItem"><type>skin_js</type><name>js/jquery-1.7.2.min.js</name></action>
-			<action method="addItem"><type>skin_js</type><name>js/respond.min.js</name></action>
-			<action method="addItem"><type>skin_js</type><name>js/select-menu.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/modernizr-2.6.2.min.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/jquery-1.8.2.min.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/jquery-ui-1.9.1.custom.min.js</name></action>			
+			<!--<action method="addItem"><type>skin_js</type><name>js/respond.min.js</name></action>-->
+			<!--<action method="addItem"><type>skin_js</type><name>js/select-menu.js</name></action>-->
 			<action method="addItem"><type>skin_js</type><name>js/jquery.colorbox.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/waypoints.min.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/firstImpression.min.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/ui.spinner.min</name></action>
 			<action method="addItem"><type>skin_js</type><name>js/volo.js</name></action>
 		</reference>
 
@@ -61,22 +66,27 @@
 		<reference name="header">
 		
 			<block type="page/template_links" name="top.links.custom" as="topLinksCustom">
+				<action method="addLink" translate="label title" module="customer"><label>Account &amp; Help</label><url helper="customer/getAccountUrl"/><title>Account &amp; Help</title><prepare/><urlParams/><position>10</position></action>
 				<!--
 				<block type="wishlist/links" name="wishlist_link"/>
 				<action method="addLinkBlock"><blockName>wishlist_link</blockName></action>
 				-->
 				<block type="checkout/links" name="checkout_cart_link">
-					<action method="addCartLink"></action>
-					<!--
-					<action method="addCheckoutLink"></action>
-					-->
+					<action method="addCartLink"><title>Cart</title></action>
+					<!--<action method="addCheckoutLink"></action>-->
 				</block>
-				<action method="addLink" translate="label title" module="customer"><label>My Account</label><url helper="customer/getAccountUrl"/><title>My Account</title><prepare/><urlParams/><position>10</position></action>
+			</block>	
+			
+			<block type="cms/block" name="header_links">
+				<action method="setBlockId"><block_id>header_links</block_id></action>
 			</block>
 			
 			<block type="directory/currency" name="top_currency" template="directory/currency.phtml"/>
-			<block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
+			<block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml" />
 			
+			<remove name="top.search"></remove>
+			<remove name="top_currency"></remove>
+			  
 			<reference name="top.bar">
 				<action method="unsetChild"><alias>topSearch</alias></action>
 			</reference>
@@ -106,12 +116,21 @@
 
 		<reference name="footer">
 			<action method="unsetChild"><alias>cms_footer_links</alias></action>
-			<action method="unsetChild"><alias>footer_links</alias></action>
-			<block type="cms/block" name="footer_block">
-					<action method="setBlockId"><block_id>footer_block</block_id></action>
+			
+			
+			<block type="cms/block" name="footer_cols">
+				<action method="setBlockId"><block_id>footer_cols</block_id></action>
 			</block>
+			<block type="cms/block" name="footer_links">
+				<action method="setBlockId"><block_id>footer_links</block_id></action>
+			</block>
+		
+
 			<block type="directory/currency" name="currency_footer" as="currency_footer" template="directory/currency.phtml"/>
 			<block type="page/switch" name="store_language_footer" as="store_language_footer" template="page/switch/languages.phtml"/>
+			
+			<action method="unsetChild"><alias>currency_footer</alias></action>
+			<action method="unsetChild"><alias>store_language_footer</alias></action>
 		</reference>
 
 
@@ -124,7 +143,7 @@ Category default layout
 
     <catalog_category_default translate="label">
         <reference name="root">
-            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
         <reference name="left">
             <action method="unsetChild"><alias>currency</alias></action>        
@@ -137,7 +156,7 @@ Category layered navigation layout
 
     <catalog_category_layered translate="label">
         <reference name="root">
-            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
         </reference>
         <reference name="left">
             <action method="unsetChild"><alias>currency</alias></action>        
@@ -146,9 +165,6 @@ Category layered navigation layout
 
     <catalog_category_layered_nochildren translate="label">
         <remove name="right.reports.product.viewed"/>
-        <reference name="left">
-            <!--block type="reports/product_viewed" name="left.reports.product.viewed" template="reports/product_viewed.phtml"/-->
-        </reference>
     </catalog_category_layered_nochildren>
 	
 <!--
@@ -160,14 +176,13 @@ Category layered navigation layout
 			<action method="setTemplate"><template>page/1column.phtml</template></action>
 		</reference>
 		<reference name="head">
-			<action method="addItem"><type>skin_js</type><name>js/galleria-1.2.7.min.js</name></action>
-			<action method="addItem"><type>skin_js</type><name>js/galleria.classic.min.js</name></action>
-			<action method="addItem"><type>skin_css</type><name>css/galleria.classic.css</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/jquery.nivo.zoom.pack.js</name></action>
 		</reference>
 		<reference name="product.info">
 			<action method="unsetChild">
 				<name>info_tabs</name>
 			</action>
+			<!--
 			<block type="catalog/product_view_tabs" name="product.info.tabs" as="info_tabs" template="catalog/product/view/tabs.phtml" >
 				<action method="addTab" translate="title" module="catalog">
 					<alias>description</alias>
@@ -193,26 +208,25 @@ Category layered navigation layout
 					<block>tag/product_list</block>
 					<template>tag/list.phtml</template>
 				</action>
-				<!-- neat trick to include a CMS Static block directly in the tab -->
 				<action method="addTab" translate="title" module="catalog">
 					<alias>shipping</alias>
 					<title>Shipping Costs</title>
 					<block>cms/block</block>
 					<template>null</template>
 				</action>
-				<!-- define the CMS block ID for the shipping info tab -->
 				<block type="cms/block" name="product.info.tabs.shipping" as="shipping">
 					<action method="setBlockId"><block_id>tab-product-shipping</block_id></action>
 				</block>
 			</block>
+			-->
+			<block type="catalog/product_list_related" name="catalog.product.related" template="catalog/product/list/related.phtml"/>
 		</reference>
+		<!--
 		<reference name="upsell_products">
-            <action method="setColumnCount"><columns>5</columns></action>
-            <action method="setItemLimit"><type>upsell</type><limit>5</limit></action>
+            <action method="setColumnCount"><columns>3</columns></action>
+            <action method="setItemLimit"><type>upsell</type><limit>3</limit></action>
         </reference>
-        <reference name="left">
-            <block type="catalog/product_list_related" name="catalog.product.related" before="-" template="catalog/product/list/related.phtml"/>
-        </reference>
+		-->
 	 </catalog_product_view>	
 	 
 <!-- 
@@ -221,7 +235,6 @@ Category layered navigation layout
 	
 	<cms_index_index>
 		<reference name="head">
-			<action method="addItem"><type>skin_js</type><name>js/jquery.flexslider.js</name></action>
 		</reference>
     </cms_index_index>
 	

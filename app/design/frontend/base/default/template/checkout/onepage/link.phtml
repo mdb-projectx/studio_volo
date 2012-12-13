@@ -25,5 +25,28 @@
  */
 ?>
 <?php if ($this->isPossibleOnepageCheckout()):?>
-    <button type="button" title="<?php echo $this->__('Proceed to Checkout') ?>" class="button btn-proceed-checkout btn-checkout<?php if ($this->isDisabled()):?> no-checkout<?php endif; ?>"<?php if ($this->isDisabled()):?> disabled="disabled"<?php endif; ?> onclick="window.location='<?php echo $this->getCheckoutUrl() ?>';"><span><span><?php echo $this->__('Proceed to Checkout') ?></span></span></button>
+
+	<?php if($this->helper('customer')->isLoggedIn()) :?>
+		<button type="button" title="<?php echo $this->__('Proceed to Checkout') ?>" class="button btn-proceed-checkout btn-checkout<?php if ($this->isDisabled()):?> no-checkout<?php endif; ?>"<?php if ($this->isDisabled()):?> disabled="disabled"<?php endif; ?> onclick="window.location='<?php echo $this->getCheckoutUrl() ?>';"><span><span><?php echo $this->__('Proceed to Checkout') ?></span></span></button>
+	<?php else :?>	
+		<?php $_links = $this->getLinks(); ?>
+		<script type="text/javascript">
+		var URL = '<?php echo $this->getUrl(); ?>';
+		</script>
+		<p>
+		<ul class="links"<?php if($this->getName()): ?> id="<?php echo $this->getName() ?>"<?php endif;?>>
+			<?php foreach($_links as $_link): ?>
+				<?php if($_link->getLabel() != 'Log In'): ?>
+				<li<?php if($_link->getIsFirst()||$_link->getIsLast()): ?> class="<?php if($_link->getIsFirst()): ?>first<?php endif; ?><?php if($_link->getIsLast()): ?> last<?php endif; ?>"<?php endif; ?> <?php echo $_link->getLiParams() ?>><?php echo $_link->getBeforeText() ?><a href="<?php echo $_link->getUrl() ?>" title="<?php echo $_link->getTitle() ?>" <?php echo $_link->getAParams() ?>><?php echo $_link->getLabel() ?></a><?php echo $_link->getAfterText() ?></li>
+				<?php endif; ?>
+			<?php endforeach; ?>
+			 <?php if(!$this->helper('customer')->isLoggedIn()) :?>
+
+			 <li><button type="button" title="<?php echo $this->__('Proceed to Checkout') ?>" class="alogin button btn-proceed-checkout btn-checkout<?php if ($this->isDisabled()):?> no-checkout<?php endif; ?>"<?php if ($this->isDisabled()):?> disabled="disabled"<?php endif; ?> id="alogin" href="javascript:void(0)"><span><span><?php echo $this->__('Proceed to Checkout') ?></span></span></button></li>
+			 <?php endif; ?>
+		</ul>
+		</p>
+		<script type="text/javascript" src="<?php echo $this->getSkinUrl('quicklogin/tinybox.js') ?>"></script>
+		<script type="text/javascript" src="<?php echo $this->getSkinUrl('quicklogin/quicklogin.js') ?>"></script>
+	<?php endif; ?>		
 <?php endif?>

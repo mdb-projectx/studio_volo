@@ -34,8 +34,329 @@
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
 <script type="text/javascript">
+
+function close() {
+	jQuery('#modal_wrap').hide();
+	jQuery('#modal_box').hide();
+	jQuery('#screen_filter').hide();
+}
+
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+
 </script>
+<div id="product">
+	<div id="title">
+	<p class="first">COOPER</p>
+	<p>3 SEATER SOFA</p>
+	<p><?php echo $this->getChildHtml('product_type_data') ?></p>
+	</div>
+	<?php echo $this->getChildHtml('media') ?>	
+<div id="screen_filter"></div>
+<div id="modal_wrap">
+<div id="modal_box">
+<table id="table_border" cellspacing="0">
+    <tbody>
+	<tr class="top"><td class="left"></td><td class="center"></td><td class="right"></td></tr>
+	<tr class="body"><td class="left"></td><td class="center"></td><td class="right"></td></tr>
+	<tr class="bottom"><td class="left"></td><td class="center"></td><td class="right"></td></tr>
+    </tbody>
+</table>
+<div id="cart-close">
+	<a href="javascript:close();"></a>
+</div>
+<div id="cart-wrap">
+    <div id="cart-padding">
+	<div id="cart-top">
+	<div id="cart-photo">
+		<img src="images/cartproduct.jpg" alt="" />
+	</div>
+	
+	<table id="cart-contents">
+		<tr class="product">
+			<td class="c-left">Irvine 3 Seater Sofa, Deep Blue was successfully added to your basket</td>
+			<td class="c-right">$589</td>
+		</tr>
+<!--
+		<tr class="delivery">
+			<td class="c-left">Standard delivery</td>
+			<td class="c-right">$44.90</td>
+		</tr>
+		<tr class="total">
+			<td class="c-left">Savings compared with high street, $296</span></td>
+			<td class="c-right">Total $633.90</span></td>
+		</tr>
+-->
+	</table>
+	
+	<div id="cart-view" class="cf">
+		<button type="button" title="View Your Basket" class="view-basket" onclick="location.href='/checkout/cart/'">
+			<span><span>View Your Basket</span></span>
+		</button>
+	</div>
+	</div>
+	<div id="cart-related" class="cf">
+		<h3>You may also like</h3>
+		<ul>
+			<li>
+				<p class="image"><a href="#"><img src="" alt="" /></a></p>
+				<p class="details"><a href="#"><span class="name"></span> <span class="new"></span> Typical retail price <span class="old"></span> </a></p>
+				<p class="control"><a href="#" class="add-to-basket">Add to basket</a> | <a href"" class="info">More info</a></p>
+			</li>
+			<li>
+                                <p class="image"><a href="#"><img src="" alt="" /></a></p>
+                                <p class="details"><a href="#"><span class="name"></span> <span class="new"></span> Typical retail price <span class="old"></span> </a></p>
+                                <p class="control"><a href="#" class="add-to-basket">Add to basket</a> | <a href"" class="info">More info</a></p>
+                        </li>
+			<li>
+                                <p class="image"><a href="#"><img src="" alt="" /></a></p>
+                                <p class="details"><a href="#"><span class="name"></span> <span class="new"></span> Typical retail price <span class="old"></span> </a></p>
+                                <p class="control"><a href="#" class="add-to-basket">Add to basket</a> | <a href"" class="info">More info</a></p>
+                        </li>
+
+		</ul>
+	</div>
+</div>
+</div>
+</div>
+</div>
+
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+	<input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+	<input type="hidden" name="related_product" id="related-products-field" value="" />
+	<div id="price">
+	<!--
+        <p><strong><?php echo $this->getChildHtml('product_type_data') ?></strong></p>
+	<p class="typical">Typical retail price <span>$<?php echo (float)$_product->getData('price_typical'); ?></span>
+	-->
+	<?php if (!$this->hasOptions()):?>
+                <div class="add-to-box">
+                    <?php if($_product->isSaleable()): ?>
+                        <?php echo $this->getChildHtml('addtocart') ?>
+			<?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                            <span class="or"><?php echo $this->__('OR') ?></span>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php echo $this->getChildHtml('addto') ?>
+                </div>
+            <?php elseif (!$_product->isSaleable()): ?>
+                <div class="add-to-box">
+                    <?php echo $this->getChildHtml('addto') ?>
+                </div>
+            <?php endif; ?>
+
+	</div>
+    </form>
+	
+	<div id="details" class="cf">
+		<div class="features">
+			<ul>
+				<?php if($_product->getFeature_title()) { ?>
+					<li class="cf">
+						<div class="thumb">
+                                                        <?php
+                                                                $_img = $this->helper('catalog/image')->init($_product, 'feature_image')->resize(520,270);
+                                                                echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>';
+                                                        ?>
+                                                </div>
+						<div class="desc">
+							<h3><?php echo $_product->getData('feature_title'); ?></h3>
+							<p><?php echo $_product->getData('feature_content'); ?></p>
+						</div>
+					</li>
+				<?php } if($_product->getFeature_title2()) { ?>
+					<li class="cf">
+						<div class="desc">
+							<h3><?php echo $_product->getData('feature_title2'); ?></h3>
+							<p><?php echo $_product->getData('feature_content2'); ?></p>
+						</div>
+						<div class="thumb">
+							<?php
+								$_img = $this->helper('catalog/image')->init($_product, 'feature_image2')->resize(520,270);
+								echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>';
+							?>
+						</div>
+					</li>
+				<?php } if($_product->getFeature_title3()) { ?>
+					<li class="cf">
+						<div class="desc">
+							<h3><?php echo $_product->getData('feature_title3'); ?></h3>
+							<p><?php echo $_product->getData('feature_content3'); ?></p>
+						</div>
+						<div class="thumb">
+							<?php
+								$_img = $this->helper('catalog/image')->init($_product, 'feature_image3')->resize(520,270);
+								echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>';
+							?>
+						</div>
+					</li>
+				<?php } if($_product->getFeature_title4()) { ?>
+					<li class="cf">
+						<div class="desc">
+							<h3><?php echo $_product->getData('feature_title4'); ?></h3>
+							<p><?php echo $_product->getData('feature_content4'); ?></p>
+						</div>
+						<div class="thumb">
+							<?php 
+								$_img = $this->helper('catalog/image')->init($_product, 'feature_image4')->resize(520,270);
+								echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>';
+							?>
+						</div>
+					</li>
+				<?php } ?>				
+			</ul>
+		</div>			
+		<div class="extra">
+			<?php if($_product->getQuote()): ?>
+				<?php if($_product->getQuote_avatar()) { ?>
+					<div class="photo"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'quote_avatar')->resize(67,67); ?>" alt="" /></div>
+				<?php } ?>
+				<h4><span class="name"><?php echo $_product->getData('quote_author'); ?></span><?php if($_product->getQuote_role()) { ?>, <?php echo $_product->getData('quote_role'); } ?></h4>
+				<p>&ldquo;<?php echo $_product->getData('quote'); ?>&rdquo;</p>
+			<?php endif; ?>
+			<!--
+			<h4>Why shop with Made.com</h4>
+			<ul>
+			<li>Our award-winning concept connects you directly to the makers. So you get beautifully crafted designs without the high street mark up. <a href="/about.html">Read the full story.</a></li>
+			<li>We've delivered to thousands of happy customers. Get their take by flicking through a few of <a href="/about.html">their home snaps</a>.</li>
+			</ul>
+			<h4>Delivery and returns</h4>
+			<ul>
+			<li>Freshly made and ready for dispatch within <?php echo $_product->getData('delivery_time'); ?>. <a href="/delivery.html">Get the delivery low-down.</a></li>
+			<li>We hope you love it. But if you don't, you can <a href="/returns.html">return it</a> to us within 7 days for a quick and fuss-free refund.</li>
+			</ul>
+			<?php if($_product->getDimensions() || $_product->getDimensions_diagram()): ?>
+				<div class="specs cf">
+					<h4>Product Dimensions</h4>
+					<?php echo $_product->getData('dimensions'); ?>
+					<?php if($_product->getDimensions_diagram()) { ?><p><a href="<?php echo $this->helper('catalog/image')->init($_product, 'dimensions_diagram')->resize(); ?>" class="colorbox">View dimensions diagram</a></p><?php } ?>
+				</div>
+			<?php endif; ?>
+			<?php if($_product->getDetails()): ?>
+				<div class="specs cf">
+					<h4>Product Details</h4>
+					<?php echo $_product->getData('details'); ?>
+				</div>
+			<?php endif; ?>
+			-->
+		</div>
+		<div class="dimensions">
+			<?php if($_product->getDimensions() || $_product->getDimensions_diagram()): ?>
+                                <div class="specs cf">
+                                        <h4>Product Dimensions</h4>
+                                        <?php echo $_product->getData('dimensions'); ?>
+                                        <?php if($_product->getDimensions_diagram()) { ?><p><a href="<?php echo $this->helper('catalog/image')->init($_product, 'dimensions_diagram')->resize(); ?>" class="colorbox">View dimensions diagram</a></p><?php } ?>
+                                </div>
+                        <?php endif; ?>
+		</div>	
+		<div class="details">
+			<?php if($_product->getDetails()): ?>
+                                <div class="specs cf">
+                                        <h4>Product Details</h4>
+                                        <?php echo $_product->getData('details'); ?>
+                                </div>
+                        <?php endif; ?>
+
+		</div>
+	</div>
+	<?php echo $this->getChildHtml('catalog.product.related') ?>
+	
+</div>
+<script type="text/javascript">
+//<![CDATA[
+	var productAddToCartForm = new VarienForm('product_addtocart_form');
+	productAddToCartForm.submit = function(button, url) {
+		if (this.validator.validate()) {
+			var form = this.form;
+			var oldUrl = form.action;
+
+			if (url) {
+			   form.action = url;
+			}
+			var e = null;
+			// Start of our new ajax code
+			if (!url) {
+		                url = jQuery('#product_addtocart_form').attr('action');
+		            }
+		            url = url.replace("checkout/cart", "ajax/index"); // New Code
+		            var data = jQuery('#product_addtocart_form').serialize();
+		            data += '&isAjax=1';
+     			    jQuery('#ajax_loader').show();
+			    //alert('url');
+		            try {
+				jQuery.ajax({
+		                      url: url,
+		                      dataType: 'json',
+		                      type : 'post',
+		                      data: data,
+		                      success: function(data){
+						jQuery('#ajax_loader').hide();
+						//alert(data.status + ": " + data.message);
+						//alert(data.itemcount);
+						jQuery('#tertiary .top-link-cart').text(data.itemcount).attr('title',data.itemcount);
+						jQuery('#cart-photo img').attr('src', data.productImage);
+						jQuery('#cart-contents .product .c-left').text(data.productName + ' was successfully added to your basket');
+						jQuery('#cart-contents .product .c-right').text(data.productPrice);
+						for(var i=0; i<data.related.length; i++) {
+							jQuery('#cart-related li:eq('+i+') .image img').attr('src', data.related[i]['image']);
+							jQuery('#cart-related li:eq('+i+') .image a').attr('href', data.related[i]['link']);
+							jQuery('#cart-related li:eq('+i+') .details a').attr('href', data.related[i]['link']);
+							jQuery('#cart-related li:eq('+i+') .details .name').text(data.related[i]['name']);
+							jQuery('#cart-related li:eq('+i+') .details .new').text(data.related[i]['price']);
+							jQuery('#cart-related li:eq('+i+') .details .old').text(data.related[i]['retailprice']);
+							jQuery('#cart-related li:eq('+i+') .control .add-to-basket').attr('href', data.related[i]['addlink']);
+							jQuery('#cart-related li:eq('+i+') .control .info').attr('href', data.related[i]['link']);
+							jQuery('#cart-related li:eq('+i+')').show();
+						}
+						jQuery('#screen_filter').show();
+						jQuery('#modal_box').show();
+						jQuery('#modal_wrap').show();
+						var t = setTimeOut('close()',5000);
+		                      },
+				      error: function(data){
+					   alert("error");
+				      }
+		                });
+		            } catch (e) {
+		            }
+		            // End of our new ajax code
+			this.form.action = oldUrl;
+			if (e) {
+				throw e;
+			}
+
+			if (button && button != 'undefined') {
+				button.disabled = true;
+			}
+		}
+	}.bind(productAddToCartForm);
+
+	productAddToCartForm.submitLight = function(button, url){
+		if(this.validator) {
+			var nv = Validation.methods;
+			delete Validation.methods['required-entry'];
+			delete Validation.methods['validate-one-required'];
+			delete Validation.methods['validate-one-required-by-name'];
+			if (this.validator.validate()) {
+				if (url) {
+					this.form.action = url;
+				}
+				this.form.submit();
+			}
+			Object.extend(Validation.methods, nv);
+		}
+	}.bind(productAddToCartForm);
+	
+	// Feature popups
+	$j('body').nivoZoom();
+	$j('.colorbox').colorbox();
+//]]>
+</script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+<script type="text/javascript" src="http://platform.tumblr.com/v1/share.js"></script>	
+	
+			<?php /*
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
 <div class="product-view">
     <div class="product-essential">
@@ -49,12 +370,6 @@
                 <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
         </div>
 		
-		<div class="product-img-box">
-			<div id="galleria">
-				<?php echo $this->getChildHtml('media') ?>
-			</div>
-        </div>
-
         <div class="product-shop">           
 
             <?php if ($this->canEmailToFriend()): ?>
@@ -64,9 +379,8 @@
             <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
             <?php echo $this->getChildHtml('alert_urls') ?>
             <?php echo $this->getChildHtml('product_type_data') ?>
-            <?php echo $this->getTierPriceHtml() ?>
             <?php echo $this->getChildHtml('extrahint') ?>
-
+			
             <?php if (!$this->hasOptions()):?>
                 <div class="add-to-box">
                     <?php if($_product->isSaleable()): ?>
@@ -78,7 +392,6 @@
                     <?php echo $this->getChildHtml('addto') ?>
                 </div>
             <?php endif; ?>
-
             <?php if ($_product->getShortDescription()):?>
                 <div class="short-description">
                     <h2><?php echo $this->__('Quick Overview') ?></h2>
@@ -98,50 +411,6 @@
             <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
         <?php endif;?>
     </form>
-    <script type="text/javascript">
-    //<![CDATA[
-        var productAddToCartForm = new VarienForm('product_addtocart_form');
-        productAddToCartForm.submit = function(button, url) {
-            if (this.validator.validate()) {
-                var form = this.form;
-                var oldUrl = form.action;
-
-                if (url) {
-                   form.action = url;
-                }
-                var e = null;
-                try {
-                    this.form.submit();
-                } catch (e) {
-                }
-                this.form.action = oldUrl;
-                if (e) {
-                    throw e;
-                }
-
-                if (button && button != 'undefined') {
-                    button.disabled = true;
-                }
-            }
-        }.bind(productAddToCartForm);
-
-        productAddToCartForm.submitLight = function(button, url){
-            if(this.validator) {
-                var nv = Validation.methods;
-                delete Validation.methods['required-entry'];
-                delete Validation.methods['validate-one-required'];
-                delete Validation.methods['validate-one-required-by-name'];
-                if (this.validator.validate()) {
-                    if (url) {
-                        this.form.action = url;
-                    }
-                    this.form.submit();
-                }
-                Object.extend(Validation.methods, nv);
-            }
-        }.bind(productAddToCartForm);
-    //]]>
-    </script>
     </div>
 
     <div class="product-collateral">
@@ -149,3 +418,5 @@
         <?php echo $this->getChildHtml('product_additional_data') ?>
     </div>
 </div>
+
+*/ ?>

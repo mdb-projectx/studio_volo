@@ -24,10 +24,46 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="footer-container">
-    <div class="footer">
-            <?php echo $this->getChildHtml('footer_block') ?>
-    </div>
-	<address><?php echo $this->getCopyright() ?></address>
-</div>
 
+</div><!-- end #wrapper -->
+
+<div id="footer-wrap">	
+	<div id="footer">
+	
+		<div id="subscribe" class="cf">
+			<div id="newsletter-area">
+				<p>Join our newsletter and get $10 off<br />
+				<input type="text" value="" placeholder="ENTER YOUR EMAIL HERE" /><input type="submit" value="SUBMIT" />
+			</div>
+			<div id="follow">
+				Get to know us better<br />
+				<div class="social">
+			                <div class="social-button">
+			                        <div class="fb-like" data-href="http://stage.davincidecor.com/rebecca/html-demo1/product.html" data-send="false" data-layout="button_count" data-width="92" data-show-faces="false"></div>
+			                </div>
+			                <div class="social-button">
+			                        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="92">Tweet</a>
+			                </div>
+			                <div class="social-button">
+			                        <a href="http://pinterest.com/pin/create/button/?url=staging.studiovolo.com" class="pin-it-button" count-layout="horizontal"><img border="0" src="http://assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+			                </div>
+			        </div>
+			</div>
+		
+		</div>
+		
+		<div id="links" class="cf">
+			<?php echo $this->getChildHtml('footer_cols') ?>
+		</div>	
+	</div>
+<!--
+	<div id="meta">
+		<div id="terms">
+			<?php echo $this->getChildHtml('footer_links') ?>
+		</div>
+		<div id="address">
+			<?php echo $this->getCopyright() ?>
+		</div>
+	</div>
+-->
+</div>

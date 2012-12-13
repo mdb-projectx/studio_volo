@@ -27,22 +27,39 @@
  * @var Mage_Page_Block_Html_Header $this
  */
 ?>
+
+<div id="header-wrap">
+<div id="header">
+	<h1><a href="<?php echo $this->getUrl('') ?>"><?php echo  Mage::app()->getWebsite()->getName(); ?></a></h1>
+	
+	<div id="secondary">
+		<?php echo $this->getChildHtml('header_links') ?>
+	</div>
+	
+	<div id="tertiary">
+		<?php echo $this->getChildHtml('topLinksCustom') ?>
+	</div>
+</div>	
+</div>
+
+<?php /*
 <div class="header-container">
     <div class="header">
 		<div class="quick-access">
-			<?php echo $this->getChildHtml('store_language') ?>
-			<?php echo $this->getChildHtml('top_currency') ?>
-			<?php echo $this->getChildHtml('topLinksCustom') ?>
 		</div>
         <?php if ($this->getIsHomePage()):?>
         <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
         <?php else:?>
         <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
         <?php endif?>
-		<?php echo $this->getChildHtml('topSearch') ?>
-        <?php echo $this->getChildHtml('topMenu') ?>
+		<!--<?php echo $this->getChildHtml('topSearch') ?>-->
     </div>
 
     <?php echo $this->getChildHtml('topBar') ?>
     <?php echo $this->getChildHtml('topContainer'); ?>
 </div>
+*/ ?>
+
+<div id="wrapper">
+	<?php echo $this->getChildHtml('topMenu') ?>
+    <?php echo $this->getChildHtml('topBar') ?>
