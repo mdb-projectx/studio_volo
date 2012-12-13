@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+	<global>
+		<modules>
+                <volo_credit>
+                        <version>0.1.0</version>
+                </volo_credit>
+        </modules>
+	<blocks>
+            <credit>
+		<rewrite>
+		    <credit>Volo_Credit_Block_Credit</credit>
+		</rewrite>
+            </credit>
+	 </blocks>
+
+        </global>
+	   <frontend>
+                <routers>
+                        <credit>
+                                <use>standard</use>
+                                <args>
+                                      <module>Volo_Credit</module>
+                                      <frontName>refer</frontName>
+                                </args>
+                        </credit>
+                </routers>
+		<layout>
+			<updates>
+				<credit>
+		   		      <file>credit.xml</file>
+				</credit>
+			</updates>
+       		</layout>
+        </frontend>
+</config>

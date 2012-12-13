@@ -51,14 +51,16 @@
 	<h3>Create an Account</h3>
 	<form action="#" method="post" id="regis-form" class="frm-regis">
 		<div class="errormsg validation-advice-top"></div>
-		<p>
-			<label for="firstname">First Name</label>
-			<input id="firstname" class="input-text required-entry" type="text" title="First Name" value="" name="firstname" />
-		</p>
-		<p>
-			<label for="lastname">Last Name</label>
-			<input id="lastname" class="input-text required-entry" type="text" title="Last Name" value="" name="lastname" />
-		</p>
+<!-- Removed on 11/12/2012 https://basecamp.com/1772300/projects/1246319-volo/todos/22599451-checkout-signup
+                <p>
+                        <label for="firstname">First Name</label>
+                        <input id="firstname" class="input-text" type="text" title="First Name" value="" name="firstname" />
+                </p>
+                <p>
+                        <label for="lastname">Last Name</label>
+                        <input id="lastname" class="input-text" type="text" title="Last Name" value="" name="lastname" />
+                </p>
+-->
 		<p>
 			<label for="email_address">Email</label>
 			<input id="email_address" class="input-text validate-email required-entry" type="text" title="Email Address" value="" name="email" />
@@ -81,6 +83,12 @@
 		<p>
 			<button type="submit" class="action-btn">Sign Up</button>
 		</p>
+		<p class="existing">
+                        <a href="#" onclick="$j('#signup-wrap').stop(true,true).slideUp(); $j('#login-wrap').stop(true,true).slideDown(); $j('#alogin').colorbox.resize({
+                                                        innerWidth: 390,
+                                                        innerHeight: 278,
+                                                }); return false;">Already have an account?</a>
+                </p>
 	</form>
 <!--
 	<div style="display:none;" id="fpass2" class="cf">
@@ -102,24 +110,25 @@
 -->
 </div>
 
-
- <div style="display:none;" id="fpass" class="cf">
+<div style="display:none;" id="fpass" class="cf">
+	<h3>Forgot Password</h3>
                 <form class="for-pass" id="forgot-form" method="post" action="<?php echo $this->getUrl('customer/account/ajaxForgotPassword/') ?>">
-                        <p style="padding-left: 30px;"><?php echo $this->__('Please enter your email to get the password') ?></p>
+			<p class="error" style="display:none; padding-left:30px; margin:0 0 15px 0; font-size:12px;"></p>
+			<p class="control" style="display:none; padding-left:40px; font-size:12px; text-align:center;">This Pop-up will be closed in 5 seconds</p>
+                        <p style="padding-left: 30px; margin:0 0 15px 0; font-size:13px;"><?php echo $this->__('Please enter your email to get the password') ?></p>
                         <p>
                                 <label class="required" for="email"><?php echo $this->__('Email') ?></label>
                                 <input type="text" title="Email Address" class="input-text required-entry validate-email" id="forgot_email" value="" name="forgotemail">
                         </p>
                         <p>
                                 <button type="submit" class="action-btn"><?php echo $this->__('Submit') ?></button>
-                        </p>
-                        <p class="forgot">
-                                <a href="#" onclick="$j('#login-wrap').stop(true,true).slideDown(); $j('#fpass').stop(true,true).slideUp(); return false;">return to login</a>
-                        </p>
                 </form>
-        </div>
 
+	<p class="forgot">
+		<a href="#" onclick="$j('#login-wrap').stop(true,true).slideDown(); $j('#fpass').stop(true,true).slideUp(); return false;">return to login</a>
+        </p>
 
+</div>
 
 <script type="text/javascript">
 	//<![CDATA[	

@@ -127,6 +127,5 @@ var checkurl = URL + "customer/account/signupformpopup/";
 				   }
 				},
 				onFailure: function(){ alert('Something went wrong...') }
-			 });
- 
+			});
         }

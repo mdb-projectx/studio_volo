@@ -35,8 +35,10 @@
 						<p>
 							<a href="<?php echo $_item->getProductUrl() ?>">
 								<span class="name"><?php echo $this->htmlEscape($_item->getName()) ?></span>
+<!--
 								<span class="old">$<?php echo (float)$_item->getData('price_typical'); ?></span>
 								<span class="new"><?php echo $this->getPriceHtml($_item, true, '-related') ?></span>
+-->
 							</a>
 						</p>
 					</li>

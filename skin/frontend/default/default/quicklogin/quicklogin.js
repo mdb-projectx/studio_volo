@@ -114,7 +114,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 			  
 		}	
             /*Ajax Register Customer Function */
-                function registerAjax() {	
+                function registerAjax() {
 					var origHeight = $j('#regis-form').height();		
 						
 					 var valid = new Validation('regis-form');
@@ -145,6 +145,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							if (response.success){
 							       //alert('Successfully Registered');
 								   redirectTime = "1";
+								/*
 								   var path=window.location.pathname;
 								   path=path.replace('/index.php/','');		
 									if ((path=='checkout/cart/') || (path=='checkout/cart/#'))
@@ -152,7 +153,8 @@ var checkurl = URL + "customer/account/signupformpopup/";
 										path='checkout/onepage/';
 									}
 								   redirectURL = URL+path;
-								   //redirectURL = URL + "customer/account";
+								*/
+								   redirectURL = URL + "checkout/onepage";
 								   setTimeout("location.href = redirectURL;",redirectTime);
 							    }else{
 								if ((typeof response.message) == 'string') {
@@ -205,7 +207,10 @@ var checkurl = URL + "customer/account/signupformpopup/";
 				
 		        }	
 		/*Forget Password Function */
-		function forgetpass(){	
+		function forgetpass(){
+		var origHeight = $j('#forgot-form').height();
+		var valid = new Validation('forgot-form');
+                if(valid.validate()){
 			var req2 = new Ajax.Request(URL + "customer/account/ajaxForgotPassword/",
 			 {
 				method:'post',
@@ -213,9 +218,17 @@ var checkurl = URL + "customer/account/signupformpopup/";
 				onSuccess: function(transport){
 				   var response = eval('(' + transport.responseText + ')');
 				   if(response.success){
-					  alert(response.message);
-					  TINY.box.hide();
-					 
+					$j('#forgot-form p.error').text(response.message).show();
+					$j('#forgot-form p.control').show();
+					$j('#fpass p').not('.error, .control').hide();
+					newHeight = $j('#forgot-form').height();
+					$j('#alogin').colorbox.resize({
+                                                innerWidth: 390,
+                                                innerHeight: (460 - 386 + newHeight)
+                                        });
+					setTimeout(function() {
+						$j('#cboxClose').click();
+					}, 5000);
 
 				   }else{
 					 alert(response.message);
@@ -223,5 +236,22 @@ var checkurl = URL + "customer/account/signupformpopup/";
 				},
 				onFailure: function(){ alert('Something went wrong...') }
 			 });
- 
+ 		} else {
+			var newHeight;
+                        var checkHeight = setInterval(function(){
+                        	newHeight = $j('#forgot-form').height();
+                        	if(newHeight != origHeight) {
+                        		clearInterval(checkHeight);
+	                        	checkHeight = 0;
+                                        $j('#alogin').colorbox.resize({
+                                        	innerWidth: 390,
+                                                innerHeight: (460 - 386 + newHeight + 70)
+                                        });
+                                }
+                                setTimeout(function() {
+                                	clearInterval(checkHeight);
+                                checkHeight = 0;}, 100);
+                        }, 10);
+                        return false;
+		}
         }

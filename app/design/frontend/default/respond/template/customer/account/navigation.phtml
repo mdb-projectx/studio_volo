@@ -34,7 +34,7 @@
             <?php $_index = 1; ?>
             <?php $_count = count($_links); ?>
             <?php foreach ($_links as $_link): ?>
-		<?php if ($_link->getLabel() != "My Downloadable Products" && $_link->getLabel() != "Billing Agreements" && $_link->getLabel() != "My Applications" && $_link->getLabel() != "Newsletter Subscriptions" && $_link->getLabel() != "Recurring Profiles" && $_link->getLabel() != "My Product Reviews" && $_link->getLabel() != "My Wishlist"):?>
+		<?php if ($_link->getLabel() != "My Downloadable Products" && $_link->getLabel() != "Billing Agreements" && $_link->getLabel() != "My Applications" && $_link->getLabel() != "Newsletter Subscriptions" && $_link->getLabel() != "Recurring Profiles" && $_link->getLabel() != "My Product Reviews"):?>
                 <?php $_last = ($_index++ >= $_count); ?>
                 <?php if ($this->isActive($_link)): ?>
                     <li class="current<?php echo ($_last ? ' last' : '') ?>"><strong><?php echo $_link->getLabel() ?></strong></li>
