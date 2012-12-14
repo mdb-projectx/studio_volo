@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+	<global>
+		<modules>
+                <volo_invitefriend>
+                        <version>0.1.0</version>
+                </volo_invitefriend>
+        </modules>
+	<blocks>
+            <invitefriend>
+		<rewrite>
+		    <invitefriend>Volo_Invitefriend_Block_Invitefriend</invitefriend>
+		</rewrite>
+            </invitefriend>
+	 </blocks>
+
+        </global>
+	   <frontend>
+                <routers>
+                        <invitefriend>
+                                <use>standard</use>
+                                <args>
+                                      <module>Volo_Invitefriend</module>
+                                      <frontName>invitefriend</frontName>
+                                </args>
+                        </invitefriend>
+                </routers>
+		<layout>
+			<updates>
+				<invitefriend>
+		   		      <file>invitefriend.xml</file>
+				</invitefriend>
+			</updates>
+       		</layout>
+        </frontend>
+</config>
