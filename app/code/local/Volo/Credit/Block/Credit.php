@@ -2,10 +2,9 @@
 
 class Volo_Credit_Block_Credit extends Mage_Core_Block_Template
 {
-	 public function getCredit()
+        public function getCredit()
     {
         $Id= Mage::getSingleton('customer/session')->getCustomer()->getId();
-var_dump($Id);
         $write_old = Mage::getSingleton('core/resource')->getConnection('core_write');
         $select="CALL salesrule_coupon_getcoupon('".$Id."')";
         if ($row = $write_old->fetchRow($select))
@@ -17,13 +16,8 @@ var_dump($Id);
         {
                         $result='User not found';
         }
-
-//      print_r($result);
-
-        $response = Mage::helper('core')->jsonEncode($response);
-//        $this->getResponse()->setBody($response);
-
-        return $result;
+        return $response;
     }
 
 }
+?>

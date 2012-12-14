@@ -1,3 +1,4 @@
 <?php $_result=$this->getCredit() ?>
-<p> This is the first module </p>
-<p><?php echo $_result ?></p>
+<p><b>Invite Code : </b><?php echo $_result['invite'] ?></p>
+<p><b>Private Code : </b><?php echo $_result['private'] ?></p>
+<p><b>Discount Amount : </b><?php echo $_result['discount_amount']+0; ?></p>
