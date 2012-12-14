@@ -1,3 +1,46 @@
-<?php $_result=$this->getCredit() ?>
-<p> This is the first module </p>
-<p><?php echo $_result ?></p>
+<?php $_invitecode=$this->getInviteCode() ?>
+<h2>Invite Friends And Share $40</h2>
+<div>
+	<p>Get $20 off each friend you refer who makes their first purchase.</p>
+	<p>Your friend also gets $15 off with the discount code you give them. Everyone wins!</p>
+</div>
+<div>
+	<form id="email_invite_form">	
+		<h3>Email invitations to Friends</h3>
+		<Textarea type='text' id='invite_email' name='invite_email'></Textarea>
+		
+		<div class="message">
+			<h4>Message</h4>
+			<Textarea id="invite_message" name="invite_message">
+			Hi, check out Volodesign.com - my new favourite site. They create beautifully designed furniture and leisure accessories, with prices up to 70% off high street. Best of all, enter <?php echo $_invitecode;?> at checkout for $15 off your first order!
+			</Textarea>
+		</div>
+		<input type="button" id="submit_invite" name="submit" value="SEND INVITES">
+	</form>
+	<p> - OR -</p>
+	<p>Share your invite link</p>
+	<input type="text" id="share" name="share" value="<?php echo $_invitecode;?>">
+	<input type="button" id="facebook" name="facebook" value="Share ivites on facebook">
+	<input type="button" id="twitter" name="twitter" value="Share invites on twitter">
+</div>
+<script type="text/javascript">
+//<![CDATA[
+	$j('#submit_invite').bind('click', function(){
+		var data = jQuery('#email_invite_form').serialize();
+		data += '&isAjax=1';
+		alert(data);
+		$j.ajax({
+			url: '/invitefriend/index/sendinvite',
+			dataType: 'json',
+			type : 'post',		
+			data : data,
+			success: function(data){
+				alert(data.result);
+			},
+			error: function(data){
+				alert("error");
+			}
+		});
+	});
+//]]>
+</script>
