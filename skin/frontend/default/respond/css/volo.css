@@ -2152,6 +2152,13 @@ BASKET
 	margin: 0 0 5px;
 }
 
+/* summary in checkout sidebar */
+#checkout-review {
+	margin-top: 71px;
+	border: 1px solid #d9d9d9;
+	padding: 10px;
+	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
+}
 #checkout-review h2 {
 	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
 	font-weight: bold;
@@ -2159,12 +2166,6 @@ BASKET
 	text-transform: uppercase;	
 	color: #000;
 	padding: 0 0 10px;
-}
-#checkout-review {
-	margin-top: 71px;
-	border: 1px solid #d9d9d9;
-	padding: 10px;
-	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
 }
 #checkout-review .product img, #checkout-review .remove, #checkout-review .quantity, #checkout-review td.price {
 	display: none;
@@ -2194,7 +2195,62 @@ BASKET
 	border-bottom: 0;
 }
 
+/* table in checkout step 5 */
+#checkout-review-table {
+	margin: 20px 0 0;
+}
+#checkout-review-table td, #checkout-review-table th {
+	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif !important;
+}
+#checkout-review-table th {
+	padding: 8px 0;
+	background: #FFF;
+	color: #000;
+	font-weight: bold;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;	
+	border-bottom: 1px solid #000;
+}
+#checkout-review-table td, #checkout-review-table-wrapper .adjustment {
+	padding: 0 0 8px;
+	border-bottom: 1px dotted #d9d9d9;
+}
+#checkout-review-table td.name {
+	padding: 8px 0 0;
+	border-bottom: 0;
+}
+#checkout-review-table-wrapper .adjustment, #checkout-review-table-wrapper #total {
+	padding: 8px 0;
+}
+#checkout-review-table-wrapper .adjustment .value, #checkout-review-table-wrapper #total .value {
+	float: right;
+	width: 100px;
+	text-align: right;
+}
+#checkout-review-table-wrapper #total {
+	margin: 0 0 20px;
+	font-weight: bold;
+}
 
+.monkey-multisubscribe h1 {
+	font-size: 16px !important;
+	line-height: 18px !important;
+	border: 0 !important;
+	padding: 0 !important;
+}
+#review-buttons-container {
+	padding: 5px 0 0 !important;
+}
+#review-buttons-container .f-left {
+	float: none !important;
+}
+#review-buttons-container .btn-checkout {
+	height: 35px;
+	font: bold 18px/35px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	text-align: center;
+}
 
 
 /**************************************************

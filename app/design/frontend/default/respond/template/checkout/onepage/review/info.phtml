@@ -27,7 +27,6 @@
 <?php echo $this->getChildHtml('items_before'); ?>
 <div id="checkout-review-table-wrapper">
     <table class="data-table cart-table-items" id="checkout-review-table">
-        <?php echo $this->getChildHtml('totals'); ?>
         <thead>
             <tr>
                 <th><?php echo $this->__('Product Name') ?></th>
@@ -38,6 +37,7 @@
             <?php echo $this->getItemHtml($_item)?>
         <?php endforeach ?>
     </table>
+    <?php echo $this->getChildHtml('totals'); ?>
 </div>
 <?php echo $this->getChildHtml('items_after'); ?>
 <script type="text/javascript">
