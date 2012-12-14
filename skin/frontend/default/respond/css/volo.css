@@ -2430,3 +2430,64 @@ PRIVACY POLICY & RETURN POLICY
         list-style: disc;
         line-height: 20px;
 }
+
+
+/*************************************************
+DISCOUNT BALANCE PAGE
+**************************************************/
+
+#credit-wrapper {
+	padding: 0 0 30px;
+	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+}
+#credit-wrapper h2 {
+	padding: 20px 0 10px 0;
+	font: 34px/36px Flamenco, "Open Sans", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	border-bottom: 1px dotted #d9d9d9;
+}
+#credit-wrapper h3 {
+	padding: 30px 0 5px 0;
+	font: 16px/18px Flamenco, "Open Sans", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	border-bottom: 3px solid #000;
+}
+#credit-wrapper .wrapper {
+	padding: 10px 0;
+}
+#credit-wrapper .left {
+	float: left;
+	margin: 0;
+	width: 299px;
+}
+#credit-wrapper .right {
+	float: right;
+	margin: 0;
+	width: 640px;
+	padding-left: 10px;
+	border-left: 1px dotted #d9d9d9;
+}
+#credit-wrapper td {
+	padding: 0 10px;
+}
+#credit-wrapper td {
+	font: bold 14px/21px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+}
+#credit-wrapper input {
+	font: 18px/21px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	border: 1px dotted #000;
+	padding: 2px;
+	width: 150px;
+	background: #fcfce3;
+}
+#credit-wrapper .button {
+	background: #000;
+	border-color: #000;
+	color: #FFF;
+	font-size: 12px;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	text-decoration: none;
+}

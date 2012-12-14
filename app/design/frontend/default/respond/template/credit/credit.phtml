@@ -1,4 +1,44 @@
 <?php $_result=$this->getCredit() ?>
+<?php /*
 <p><b>Invite Code : </b><?php echo $_result['invite'] ?></p>
 <p><b>Private Code : </b><?php echo $_result['private'] ?></p>
 <p><b>Discount Amount : </b><?php echo $_result['discount_amount']+0; ?></p>
+*/ ?>
+
+<div id="credit-wrapper">
+
+	<h2>Invite-a-Friend Discounts</h2>
+
+	<h3>Get a Discount</h3>
+
+	<div class="wrapper cf">
+		<div class="left">
+			<p>You get $20 off for each friend you refer who makes their first purchase.</p>
+		</div>
+		<div class="right">
+			<table>
+				<tr>
+					<td>You've currently earned</td>
+					<td><span>$<?php echo $_result['discount_amount']+0; ?></span></td>
+				</tr>
+				<tr>
+					<td>Claim your discount by using this code during checkout</td>
+					<td><input type="text" value="<?php echo $_result['private'] ?>" readonly="readonly"></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<h3>Give a Discount</h3>
+
+	<div class="wrapper cf">
+		<div class="left">
+			<p>Give your friends $20 off when they make their first order! Have them enter this code during checkout to claim the discount:<br>
+			<input type="text" value="<?php echo $_result['invite'] ?>" readonly="readonly"></p>
+		</div>
+		<div class="right">
+			<a href="#" class="button">Invite friends &raquo;</a>
+		</div>
+	</div>
+
+</div>
