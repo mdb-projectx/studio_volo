@@ -550,6 +550,7 @@ input {}
 	line-height: 18px;
 	width: 92%;
 	
+	/* remove styling ><
 	-webkit-box-shadow: inset 2px 5px 10px #f6f6f6;
 	box-shadow: inset 2px 5px 10px #f6f6f6;
 
@@ -558,13 +559,18 @@ input {}
 	-o-transition: all 0.3s ease-out;
 	-ms-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
+	*/
 }
 .input-box input.input-text:focus {
 	outline: none;
+	
+	
+	border: 1px solid #888;
 
+	/*
 	-webkit-box-shadow: inset 2px 5px 10px #fff;
 	box-shadow: inset 2px 5px 10px #fff;
-
+	*/
 }
 
 .form-alt li { margin: 9px 0; }

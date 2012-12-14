@@ -117,10 +117,31 @@ body {
 	font-size: 13px;
 	line-height: 21px;
 }
-input,textarea,button,select {
+input,textarea,button,select,.button {
 	font-family: "Lato", "Open Sans", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	color: #252525;
+	
+	/* remove fanciness */
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	-ms-transition: none;
+	transition: none;
+
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	text-shadow: none;
+}
+select, textarea {
+	border: 1px solid #d9d9d9;
+}
+select {
+	background: #FFF;
+	border: 1px solid #d9d9d9;
+	padding: 5px;
+	height: 30px;
+	line-height: 30px;
 }
 
 input {
@@ -889,8 +910,10 @@ CATEGORIES & PRODUCTS
 
 .category-title h1 {
 	padding: 0 0 20px 5px;
-	font: 36px/36px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+	font: 36px/36px Flamenco, Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font-weight: normal;
 	text-transform: uppercase;
+	letter-spacing: 0.1em;
 }
 #category li {
 	float: left;
@@ -925,14 +948,16 @@ CATEGORIES & PRODUCTS
 #category li a:hover .name, #category li a:active .name {
 	text-decoration: underline
 }
+/*
 #category li .oldprice {
 	display: block;
 	text-decoration: line-through !important;
 	color: #949494;
 }
+*/
 #category li .newprice {
 	display: block;
-	font-size: 18px;
+	font-size: 13px;
 	line-height: 24px;
 }
 
@@ -1883,10 +1908,35 @@ INVITE FRIENDS
 BASKET
 **************************************************/
 
-#basket h2 {
+#basket, #checkout {
+	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
+}
+#basket h2, #checkout h1 {
 	padding: 20px 0 10px 5px;
-	font: bold 36px/36px "Open Sans Condensed", "Open Sans", Arial, Helvetica, sans-serif;
+	font: 40px/40px Flamenco, "Open Sans", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
 	border-bottom: 1px dotted #e0e0e0;
+}
+#checkout .step-title, #checkout .step-title h2 {
+	font: 18px/24px "Open Sans", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+#checkout .step-title .number {
+	display: block;
+	float: left;
+	width: 24px;
+	text-align: center;
+	top: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	font: 18px/24px "Open Sans", Arial, Helvetica, sans-serif !important;
+	background: #999;
+	color: #FFF;
+}
+#checkout .active .step-title .number {
+	background: #000;
 }
 
 #basket table {
@@ -1896,6 +1946,9 @@ BASKET
 	border-bottom: 1px solid #949494;
 	width: 100px;
 	text-align: right;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 0.05em;
 }
 #basket td {
 	border-bottom: 1px solid #e0e0e0;
@@ -1935,6 +1988,7 @@ BASKET
 	width: 50px;
 	border: 1px solid #d9d9d9;
 	color: #4a4a4a;
+	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
 }
 #basket .subtotal {
 	padding-right: 5px;
@@ -1986,23 +2040,37 @@ BASKET
 #basket .checkout input, #basket .checkout button {
 	border: 0;
 	padding: 0;
-	width: 190px;
+	width: 262px;
 	height: 35px;
+	/*
 	background: url(../images/volo/cartbutton3.png);
 	color: #252525;
-	font: bold 18px/35px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+	*/
+	background: #000;
+	color: #FFF;
+	border-color: #000;
+	font: bold 18px/35px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
 	text-align: center;
-	-webkit-transition: none;
-	-moz-transition: none;
-	-o-transition: none;
-	-ms-transition: none;
-	transition: none;
 }
+/*
 #basket .checkout input:hover, #basket .checkout button:hover {
 	background-position: 0 100%;
 }
+*/
 #shopping-cart-table tfoot td {
 	padding-right: 105px;
+}
+
+#basket .btn-update {
+	background: #f0f0f0;
+	color: #000;
+	border-color: #d9d9d9;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
 }
 
 #basket #discount {
@@ -2010,7 +2078,7 @@ BASKET
 	padding: 30px 5px 0 0;
 }
 #basket #discount input {
-	margin: 0 8px;
+	margin: 0 8px 0 4px;
 	padding: 2px 0 2px 5px;
 	border: 1px solid #d9d9d9;
 	width: 93px;
@@ -2019,19 +2087,21 @@ BASKET
 	color: #4a4a4a;
 }
 #basket #discount button {
+	font-size: 12px;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;	
+	background: #f0f0f0;
+	color: #000;
+	border: 1px solid #d9d9d9;
+	text-transform: uppercase;
 	height: 24px;
 	line-height: 24px;
 	padding: 0 10px;
+	/*
 	border: 0;
-	text-transform: uppercase;
 	background: url(../images/volo/button.png) 100% -2px;
-	color: #252525;
+	color: #252525; */
 	text-align: center;
-	-webkit-transition: none;
-	-moz-transition: none;
-	-o-transition: none;
-	-ms-transition: none;
-	transition: none;
 }
 #basket #discount button:hover {
 	background-position: 100% -30px;
@@ -2049,14 +2119,81 @@ BASKET
 #basket #total {
 	text-align: right;
 	padding: 35px 5px 15px;
-	font-size: 24px;
-	line-height: 24px;
+	font-size: 18px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	line-height: 18px;
 }
 #basket .adjustment {
 	text-align: right;
 	padding: 5px 5px 0;
 }
 
+
+#checkout {
+	padding-bottom: 30px;
+}
+#checkout .button {
+	background: #000;
+	border-color: #000;
+	color: #fff;
+	font-size: 12px;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;	
+	padding: 0 40px;
+}
+#checkout p.required {
+	margin: 0 0 24px;
+	display: block;
+	clear: both;
+	float: none;
+}
+#checkout .form-list li + li.control {
+	margin: 0 0 5px;
+}
+
+#checkout-review h2 {
+	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;	
+	color: #000;
+	padding: 0 0 10px;
+}
+#checkout-review {
+	margin-top: 71px;
+	border: 1px solid #d9d9d9;
+	padding: 10px;
+	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
+}
+#checkout-review .product img, #checkout-review .remove, #checkout-review .quantity, #checkout-review td.price {
+	display: none;
+}
+#checkout-review td, #checkout-review .totals div {
+	line-height: 16px;
+	min-height: 16px;
+	padding: 4px 0;
+	border-bottom: 1px dotted #d9d9d9;
+}
+#checkout-review .totals div {
+	clear: both;
+}
+#checkout-review .subtotal {
+	width: 70px;
+	text-align: right;
+}
+#checkout-review .totals div span {
+	display: block;
+	float: right;
+	width: 70px;
+	text-align: right;
+}
+#checkout-review .totals div#total {
+	font-weight: bold;
+	color: #000;
+	border-bottom: 0;
+}
 
 
 /**************************************************
