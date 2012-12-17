@@ -26,7 +26,6 @@
 ?>
 
 <div id="checkout">
-
 	<div class="page-title">
 		<h1><?php echo $this->__('Checkout') ?></h1>
 	</div>
@@ -63,10 +62,11 @@
         failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
     );	
 	
+	<?php /* update sidebar summary every time button is click, and apply tax if needed */ ?>
 	$j("#checkoutSteps button").on("click", function(event){
 		var reviewUrl = '<?php echo $this->getUrl('checkout/onepage/review') ?>';
 		
-		$j.get(reviewUrl, function(data) {			
+		$j.get(reviewUrl, function(data) {
 			$j('#checkout-review .totals .adjustment').remove();
 			$j('#checkout-review .totals #total').remove();
 			
@@ -74,11 +74,22 @@
 			$j($dom).find('.adjustment').each(function() {
 				$j('#checkout-review .totals').append('<div class="adjustment"></div>');
 				$j('#checkout-review .totals .adjustment').last().append($j(this).html());		
-			});			
+			});
 			$j($dom).find('#total').each(function() {
 				$j('#checkout-review .totals').append('<div id="total"></div>');
 				$j('#checkout-review .totals #total').append($j(this).html());		
-			});						
+			});	
+		}).error(function() { 			
+			$j('#checkout-review .totals .adjustment').each(function() {
+				if($j(this).html().indexOf("Tax") >= 0) {
+					$j(this).remove();
+				}
+			});
+				
+			if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12) || ($j('#shipping\\:same_as_billing').is(':checked') && $j('#billing\\:region_id').val() == 12) ) {
+				$j('#checkout-review #total').before( '<div class="adjustment"></div>');
+				$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$' + (parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',','')) / 100 * 8.75).toFixed(2) + '</span>');
+			}
 		});
 	});
 //]]>
