@@ -54,13 +54,32 @@
 //<![CDATA[
     var accordion = new Accordion('checkoutSteps', '.step-title', true);
     <?php if($this->getActiveStep()): ?>
-    accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');
+    accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');	
     <?php endif ?>
     var checkout = new Checkout(accordion,{
         progress: '<?php echo $this->getUrl('checkout/onepage/progress') ?>',
         review: '<?php echo $this->getUrl('checkout/onepage/review') ?>',
         saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
         failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
-    );
+    );	
+	
+	$j("#checkoutSteps button").on("click", function(event){
+		var reviewUrl = '<?php echo $this->getUrl('checkout/onepage/review') ?>';
+		
+		$j.get(reviewUrl, function(data) {			
+			$j('#checkout-review .totals .adjustment').remove();
+			$j('#checkout-review .totals #total').remove();
+			
+			var $dom = data;			
+			$j($dom).find('.adjustment').each(function() {
+				$j('#checkout-review .totals').append('<div class="adjustment"></div>');
+				$j('#checkout-review .totals .adjustment').last().append($j(this).html());		
+			});			
+			$j($dom).find('#total').each(function() {
+				$j('#checkout-review .totals').append('<div id="total"></div>');
+				$j('#checkout-review .totals #total').append($j(this).html());		
+			});						
+		});
+	});
 //]]>
 </script>
