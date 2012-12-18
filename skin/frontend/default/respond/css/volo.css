@@ -1251,15 +1251,16 @@ CATEGORIES & PRODUCTS
 }
 #title {
         position: absolute;
-        width: 207px;
+        width: 300px;
         top: 20px;
-        left: 15px;
+        left: 0;
 }
 #title p {
         width: 100%;
         font-size: 12px;
         letter-spacing: 0.1em;
         text-align: center;
+	text-transform: uppercase;
 }
 #title p.first {
         font-family: 'Flamenco', cursive;
@@ -1436,7 +1437,7 @@ CATEGORIES & PRODUCTS
         opacity:0.5;
 }
 #related .recommended li.hover {
-        background: url(../images/volo/hoverrel.png) no-repeat 30px 0;
+        background: url(../images/volo/hoverrel.png) no-repeat 5px 0;
 }
 #related .recommended li:first-child {
         padding-left: 0;
@@ -1515,7 +1516,7 @@ CATEGORIES & PRODUCTS
         float: left;
         padding: 25px 10px 0;
         width: 185px;
-        min-height: 317px;
+        min-height: 350px;
         background-color: #f0f0f0;
 }
 #details .extra .photo {
@@ -1590,6 +1591,20 @@ CATEGORIES & PRODUCTS
 .specs dl, .specs p {
         font-size: 12px;
         line-height: 30px;
+}
+
+.specs p.heading, .specs p.attribute {
+	float: left;
+}
+
+.specs p.heading {
+	margin-right: 5px;
+}
+
+.specs table {
+	float: left;
+	width: 100%;
+	margin-bottom: 15px;
 }
 
 /*

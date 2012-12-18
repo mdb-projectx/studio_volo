@@ -46,8 +46,8 @@ function close() {
 </script>
 <div id="product">
 	<div id="title">
-	<p class="first">COOPER</p>
-	<p>3 SEATER SOFA</p>
+	<p class="first"><?php echo $_product->getData('featured_name'); ?></p>
+	<p><?php echo $_product->getData('descriptive_name'); ?></p>
 	<p><?php echo $this->getChildHtml('product_type_data') ?></p>
 	</div>
 	<?php echo $this->getChildHtml('media') ?>	
@@ -243,19 +243,45 @@ function close() {
 			<?php if($_product->getDimensions() || $_product->getDimensions_diagram()): ?>
                                 <div class="specs cf">
                                         <h4>Product Dimensions</h4>
-                                        <?php echo $_product->getData('dimensions'); ?>
-                                        <?php if($_product->getDimensions_diagram()) { ?><p><a href="<?php echo $this->helper('catalog/image')->init($_product, 'dimensions_diagram')->resize(); ?>" class="colorbox">View dimensions diagram</a></p><?php } ?>
+					<table width="100%" border="0">
+					<tbody>
+                                        <tr><td><p class="heading">General Dimensions: </p><p class="attribute"><?php echo $_product->getData('general_dimensions'); ?></p></td></tr>
+                                        <tr><td><p class="heading">Seating Height: </p><p class="attribute"><?php echo $_product->getData('seating_height'); ?></p></td></tr>
+                                        <tr><td><p class="heading">Packaging Dimensions: </p><p class="attribute"><?php echo $_product->getData('packaging_dimensions'); ?></p></td></tr>
+					</tbody>
+					</table>
+                                        <!--<?php if($_product->getDimensions_diagram()) { ?><p><a href="<?php echo $this->helper('catalog/image')->init($_product, 'dimensions_diagram')->resize(); ?>" class="colorbox">View dimensions diagram</a></p><?php } ?>-->
+					<h4>Delivery</h4>
+					<table width="100%" border="0">
+                                        <tbody>
+                                        <tr><td><p class="attribute"><?php echo $_product->getData('delivery'); ?></p></td></tr>
+                                        </tbody>
+                                        </table>
+					<h4>Returns</h4>
+                                        <table width="100%" border="0">
+                                        <tbody>
+                                        <tr><td><p class="attribute"><?php echo $_product->getData('return'); ?></p></td></tr>
+                                        </tbody>
+                                        </table>
                                 </div>
                         <?php endif; ?>
 		</div>	
 		<div class="details">
-			<?php if($_product->getDetails()): ?>
                                 <div class="specs cf">
                                         <h4>Product Details</h4>
+					<table width="100%" border="0">
+					<tbody>
+                                        <tr><td><p class="heading">Frame:</p><p class="attribute"><?php echo $_product->getData('frame'); ?></p></td></tr>
+                                        <tr><td><p class="heading">Legs:</p><p class="attribute"><?php echo $_product->getData('legs'); ?></p></td></tr>
+                                        <tr><td><p class="heading">Suspension: </p><p class="attribute"><?php echo $_product->getData('suspension'); ?></p></td></tr>
+                                        <tr><td><p class="heading">Filling: </p><p class="attribute"><?php echo $_product->getData('filling'); ?></p></td></tr>
+                                        <tr><td><p class="heading">Fabric: </p><p class="attribute"><?php echo $_product->getData('fabric'); ?></p></td></tr>
+                                        <tr><td><p class="heading">Care: </p><p class="attribute"><?php echo $_product->getData('care'); ?></p></td></tr>
+                                        <tr><td><p class="heading">Assembly: </p><p class="attribute"><?php echo $_product->getData('assembly'); ?></p></td></tr>
+                                        <tr><td><p class="heading">Weight: </p><p class="attribute"><?php echo $_product->getData('weight'); ?></p></td></tr>
+					</table>
                                         <?php echo $_product->getData('details'); ?>
                                 </div>
-                        <?php endif; ?>
-
 		</div>
 	</div>
 	<?php echo $this->getChildHtml('catalog.product.related') ?>

@@ -844,7 +844,6 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
         return Mage::helper('customer/address')->isVatValidationEnabled($store);
     }
 
-
 	public function getcouponcodeAction()
 {
 	$Id= Mage::getSingleton('customer/session')->getCustomer()->getId();

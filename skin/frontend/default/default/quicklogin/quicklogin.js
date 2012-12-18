@@ -77,7 +77,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 						{
 							path='checkout/onepage/';
 						}
-                       redirectURL = URL+path;
+			                       redirectURL = URL+"checkout/onepage/";
 					   setTimeout("location.href = redirectURL;",redirectTime);
 					}else{
 					    if ((typeof response.message) == 'string') {
