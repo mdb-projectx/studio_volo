@@ -2438,6 +2438,98 @@ PRIVACY POLICY & RETURN POLICY
         line-height: 20px;
 }
 
+/*************************************************
+SEND AN INVITE PAGE
+**************************************************/
+
+#sendinvite {
+	padding: 0 0 20px;
+	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+}
+#sendinvite h2 {
+	padding: 20px 0 10px 0;
+	font: 34px/36px Flamenco, "Open Sans", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	border-bottom: 1px dotted #d9d9d9;
+}
+#sendinvite .intro {
+	float: left;
+	padding: 30px 0 0;
+	width: 280px;
+}
+#sendinvite .intro p {
+	margin-bottom: 30px;
+	font: 21px/30px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	color: #222;
+}
+#sendinvite .forms {
+	float: right;
+	padding: 30px 0 0;
+	width: 640px;
+}
+#sendinvite .forms h3 {
+	width: 320px;
+	margin-bottom: 18px;
+	font: 14px/18px Flamenco, "Open Sans", Arial, Helvetica, sans-serif;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	text-align: center;
+}
+#emaillist {
+	width: 320px;
+}
+#sendinvite input[type="text"] {
+	margin: 0 0 10px;
+	width: 302px;
+}
+#addemail {
+	font-weight: bold;
+}
+#addemail span {
+	font-weight: normal;
+	text-decoration: underline;
+	cursor: pointer;
+}
+#sendinvite .message h4 {
+	padding: 5px 0;
+	font-weight: bold;
+	color: #999;
+}
+#sendinvite .divide {
+	text-align: center;
+	width: 320px;
+	padding: 18px 0;
+}
+#sendinvite .message textarea {
+	margin: 0 0 10px;
+	width: 622px;
+}
+#sendinvite input[type="text"], #sendinvite textarea {
+	padding: 8px;
+	border: 1px solid #e0e0e0;
+	background: #FFF;
+	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+}
+#sendinvite input[type="submit"], #sendinvite input[type="button"], #sendinvite .sharebuttons a {
+	background: #000;
+	color: #FFF;
+	width: 320px;
+	padding: 9px;
+	text-align: center;
+	font: bold 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	text-align: center;
+}
+#sendinvite .sharebuttons a {
+	margin: 0 0 10px;
+	display: block;
+	width: 302px;
+}
+#sendinvite .sharebuttons a:hover {
+	text-decoration: none;
+}
 
 /*************************************************
 DISCOUNT BALANCE PAGE
