@@ -25,11 +25,13 @@ class Volo_Invitefriend_IndexController extends Mage_Core_Controller_Front_Actio
 			$email=$this->getRequest()->getParam('invite_email_'.$i, false);
 			if(filter_var($email, FILTER_VALIDATE_EMAIL))
 			{
+				$firstname= Mage::getSingleton('customer/session')->getCustomer()->getFirstname();
+				$lastname= Mage::getSingleton('customer/session')->getCustomer()->getLastname();
 				$mail = Mage::getModel('core/email');
                                 $mail->setToEmail($email);
                                 $mail->setBody($invite_message);
-                                $mail->setSubject('Volodesign');
-                                $mail->setFromEmail('voloproject@gmail.com');
+                                $mail->setSubject($firstname.' '.$lastname.' just gifted you a $20 voucher at Volo!');
+                                $mail->setFromEmail('contact@volodesign.com');
                                 $mail->setFromName('Volodesign');
                                 $mail->setType('html');// YOu can use Html or text as Mail format
 
@@ -49,6 +51,18 @@ class Volo_Invitefriend_IndexController extends Mage_Core_Controller_Front_Actio
 $response=array('result'=>$result);
 		$response = Mage::helper('core')->jsonEncode($response);
 		$this->getResponse()->setBody($response);
+	}
+
+	public function referAction()
+	{
+		$coupon_code = $this->getRequest()->getParam('code', false);
+		if ($coupon_code != '') 
+		{
+			Mage::getSingleton("checkout/session")->setData("coupon_code",$coupon_code);
+			Mage::getSingleton('checkout/cart')->getQuote()->setCouponCode($coupon_code)->save();
+			Mage::getSingleton('core/session')->addSuccess($this->__('Coupon was automatically applied'));
+    		}
+		 $this->_redirectUrl('/');
 	}
 }
 ?>

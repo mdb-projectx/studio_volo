@@ -821,6 +821,24 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
         $this->_redirect('*/*/edit');
     }
 
+    public function updateAction()
+    {
+	$Id= Mage::getSingleton('customer/session')->getCustomer()->getId();
+	$customer = Mage::getSingleton('customer/session')->getCustomer()->getData();  
+	if(Mage::getSingleton('customer/session')->isLoggedIn()){  
+ 	   if	(empty($customer['firstname']) && empty($customer['lastname']))	{
+		$select="SELECT * FROM `newsletter_subscriber` where customer_id='".$Id."'";
+		var_dump($this->getRequest());
+		var_dump($customer);
+	   }
+	}   else   {	
+	   return false;
+	}
+
+        print_r($result);
+//      print_r(Mage::helper('core')->jsonEncode($row));
+    }
+
     /**
      * Filtering posted data. Converting localized data if needed
      *

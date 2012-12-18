@@ -1437,7 +1437,7 @@ CATEGORIES & PRODUCTS
         opacity:0.5;
 }
 #related .recommended li.hover {
-        background: url(../images/volo/hoverrel.png) no-repeat 5px 0;
+        background: url(../images/volo/hoverrel.png) no-repeat 0 0;
 }
 #related .recommended li:first-child {
         padding-left: 0;
