@@ -824,19 +824,28 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     public function updateAction()
     {
 	$Id= Mage::getSingleton('customer/session')->getCustomer()->getId();
-	$customer = Mage::getSingleton('customer/session')->getCustomer()->getData();  
+	$customer = Mage::getModel('customer/customer')->load($Id)->getData();
+//	var_dump($this->getRequest()->getParam("firstname"));
+//	var_dump($this->getRequest()->getParam("lastname"));
+//	 var_dump($Id);
 	if(Mage::getSingleton('customer/session')->isLoggedIn()){  
  	   if	(empty($customer['firstname']) && empty($customer['lastname']))	{
-		$select="SELECT * FROM `newsletter_subscriber` where customer_id='".$Id."'";
-		var_dump($this->getRequest());
-		var_dump($customer);
+		if   ($this->getRequest()->getParam("firstname")!="" || $this->getRequest()->getParam("lastname")!="") {
+//		var_dump($Id);
+		$write = Mage::getSingleton('core/resource')->getConnection('core_write');
+		$sql = "INSERT INTO customer_entity_varchar (entity_type_id, attribute_id, entity_id, value) VALUES (?, ?, ?, ?)";
+		$write->query($sql, array('1', '5', $Id, $this->getRequest()->getParam("firstname")));
+                $sql = "INSERT INTO customer_entity_varchar (entity_type_id, attribute_id, entity_id, value) VALUES (?, ?, ?, ?)";
+		$write->query($sql, array('1', '7', $Id, $this->getRequest()->getParam("lastname")));
+		$result = 1;
+		}
 	   }
 	}   else   {	
-	   return false;
+		$result = 0;
 	}
 
         print_r($result);
-//      print_r(Mage::helper('core')->jsonEncode($row));
+//      print_r(Mage::helper('core')->jsonEncode($title));
     }
 
     /**

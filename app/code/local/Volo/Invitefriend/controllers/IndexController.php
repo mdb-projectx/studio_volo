@@ -15,7 +15,8 @@ class Volo_Invitefriend_IndexController extends Mage_Core_Controller_Front_Actio
         }	
     }
 
-	public function sendinviteAction()
+
+public function sendinviteAction()
 	{
 		$result=true;
 		$emailcounter = $this->getRequest()->getParam('email_counter', false);
@@ -27,23 +28,35 @@ class Volo_Invitefriend_IndexController extends Mage_Core_Controller_Front_Actio
 			{
 				$firstname= Mage::getSingleton('customer/session')->getCustomer()->getFirstname();
 				$lastname= Mage::getSingleton('customer/session')->getCustomer()->getLastname();
-				$mail = Mage::getModel('core/email');
-                                $mail->setToEmail($email);
-                                $mail->setBody($invite_message);
-                                $mail->setSubject($firstname.' '.$lastname.' just gifted you a $20 voucher at Volo!');
-                                $mail->setFromEmail('contact@volodesign.com');
-                                $mail->setFromName('Volodesign');
-                                $mail->setType('html');// YOu can use Html or text as Mail format
 
-                                try {
-                                        $mail->send();
-                //Mage::getSingleton('core/session')->addSuccess('Your request has been sent');
-                                }
-                                catch (Exception $e) {
-                //Mage::getSingleton('core/session')->addError('Unable to send.');
-                                        $result=false;
-                                }
 
+	$service_url = 'http://mandrillapp.com/api/1.0/messages/send.json';
+    $curl = curl_init($service_url);
+    $curl_post_data = array(
+        "key" => "8de2f48d-6932-4918-9af1-ebd722957d68",
+		'message' => array(
+			"html" => $invite_message,
+			"text" => $invite_message,
+			"from_email" => "contact@volodesign.com",
+			"from_name" => "Volodesign",
+			"subject" => $firstname." ".$lastname." just gifted you a $20 voucher at Volo!",
+			"to" => array(array("email" => $email)),
+			"track_opens" => true,
+			"track_clicks" => true,
+			"auto_text" => true
+		)
+    );
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($curl, CURLOPT_HEADER, 0);
+	curl_setopt($curl, CURLOPT_POST, true);
+	curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($curl_post_data));  
+	curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, TRUE);
+	$curl_response = curl_exec($curl);
+	curl_close($curl);
+	if (!$curl_response)
+	{
+		$result=false;
+	}
 			}
 		}
 

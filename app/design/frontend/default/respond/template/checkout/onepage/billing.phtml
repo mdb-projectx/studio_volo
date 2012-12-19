@@ -24,6 +24,11 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<?php if(Mage::helper('customer')->getCustomer()->getData('firstname') != "" && Mage::helper('customer')->getCustomer()->getData('lastname') != ""): ?>
+<input type="hidden" id="filter" value="0" />
+<?php else: ?>
+<input type="hidden" id="filter" value="1" />
+<?php endif; ?>
 <form id="co-billing-form" action="">
 <fieldset>
     <ul class="form-list">
@@ -205,6 +210,7 @@
 </form>
 <script type="text/javascript">
 //<![CDATA[
+    var $j = jQuery.noConflict();
     var billing = new Billing('co-billing-form', '<?php echo $this->getUrl('checkout/onepage/getAddress') ?>address/', '<?php echo $this->getUrl('checkout/onepage/saveBilling') ?>');
     var billingForm = new VarienForm('co-billing-form');
 
@@ -214,18 +220,29 @@
     var billingRegionUpdater = new RegionUpdater('billing:country_id', 'billing:region', 'billing:region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'billing:postcode');
 
     function updateName() {
-	var reloadurl = "hk.yahoo.com";
-	new Ajax.Request(reloadurl, {
-		method: 'post',
-		parameters: 'Params_Here',
-		onComplete: function(transport)   {
-			alert("123");
+	var firstname = $j('.name-firstname input').val();
+	var lastname = $j('.name-lastname input').val();
+	var filter = $j('#filter').val();
+	if (filter > 0)	{
+	if (firstname != "" && lastname != "") {
+	new Ajax.Request("/index.php/customer/account/update", {
+		method: 'get',
+		parameters: 'firstname='+firstname+'&lastname='+lastname,
+		onSuccess: function(transport) {
+			//alert(transport.responseText);
+			//if (transport.responseText == 1) {$j('#filter').val(0);}
 		},
-		onError: function()   {
-			alert("error");
+		onComplete: function(transport)   {
+			//Completed
+		},
+		onFailure: function() {
+			alert("Error Occured");
 		}
 	});
-	alert("update Name");
+	} else {
+	  //alert("Names cannot be empty");
+	}
+	}
     }
 
 //]]>
