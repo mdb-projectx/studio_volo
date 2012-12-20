@@ -20,7 +20,10 @@ public function sendinviteAction()
 	{
 		$result=true;
 		$emailcounter = $this->getRequest()->getParam('email_counter', false);
+		$discount_code = $this->getRequest()->getParam('discount_code', false); 		
 		$invite_message = $this->getRequest()->getParam('invite_message', false);
+
+		$invite_message.='<br><a href="http://staging.studiovolo.com/invitefriend/index/refer?code='.$discount_code.'">Start Shopping</a>';
 		for ($i=0; $i<=$emailcounter; $i++)
 		{
 			$email=$this->getRequest()->getParam('invite_email_'.$i, false);
@@ -38,13 +41,14 @@ public function sendinviteAction()
 			"html" => $invite_message,
 			"text" => $invite_message,
 			"from_email" => "contact@volodesign.com",
-			"from_name" => "Volodesign",
-			"subject" => $firstname." ".$lastname." just gifted you a $20 voucher at Volo!",
+			"from_name" =>  $firstname." ".$lastname,
+			"subject" => $firstname." ".$lastname." just gifted you a $25 voucher at Volo!",
 			"to" => array(array("email" => $email)),
 			"track_opens" => true,
 			"track_clicks" => true,
 			"auto_text" => true
-		)
+		),
+	"tags"=>array("Invite Friend")
     );
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($curl, CURLOPT_HEADER, 0);
