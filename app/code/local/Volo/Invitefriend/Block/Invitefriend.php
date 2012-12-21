@@ -17,7 +17,7 @@ class Volo_Invitefriend_Block_Invitefriend extends Mage_Core_Block_Template
 
 	public function getBaseURL()
 	{
-		return Mage::getBaseUrl();
+		return Mage::getBaseUrl('web', true);
 	}
 }
 ?>

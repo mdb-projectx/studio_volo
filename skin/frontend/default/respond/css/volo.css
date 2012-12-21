@@ -1270,6 +1270,7 @@ CATEGORIES & PRODUCTS
 #photo {
 }
 #thumbs {
+	position: relative;
         float: left;
         width: 500px;
         padding: 61px 0 10px 0;
@@ -1298,7 +1299,11 @@ CATEGORIES & PRODUCTS
 }
 #thumbs .social {
         display: none;
-        float: right;
+	position: absolute;
+	width: 100px;
+	height: 200px;
+	bottom: -170px;
+	right: -200px;
         padding: 6px 0 0;
 }
 #thumbs .social .social-button {

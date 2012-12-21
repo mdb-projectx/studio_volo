@@ -42,7 +42,6 @@ function close() {
 }
 
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
-
 </script>
 <div id="product">
 	<div id="title">
@@ -289,6 +288,11 @@ function close() {
 </div>
 <script type="text/javascript">
 //<![CDATA[
+
+jQuery('.add-to-links li:eq(1)').on('hover', function() {
+	jQuery('#thumbs .social').show();
+});
+
 	var productAddToCartForm = new VarienForm('product_addtocart_form');
 	productAddToCartForm.submit = function(button, url) {
 		if (this.validator.validate()) {
