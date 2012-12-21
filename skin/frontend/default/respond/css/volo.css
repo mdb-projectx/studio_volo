@@ -2193,7 +2193,8 @@ BASKET
 #checkout-review .totals div span {
 	display: block;
 	float: right;
-	width: 70px;
+	/* width: 70px; */
+	padding-left: 5px;
 	text-align: right;
 }
 #checkout-review .totals div#total {

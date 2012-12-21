@@ -25,9 +25,12 @@
  */
 ?>
 <?php if(strstr($this->getTotal()->getTitle(), 'Discount')) { ?>
-	<div id="discountAmount"><?php echo $this->helper('checkout')->formatPrice($this->getTotal()->getValue()) ?></div>
+	<div class="adjustment cf" id="discountAmount">
+		<?php echo $this->escapeHtml($this->getTotal()->getTitle()); ?>
+		<span class="value"><?php echo $this->helper('checkout')->formatPrice($this->getTotal()->getValue()) ?></span>
+	</div>
 <?php } else { ?>
-	<div class="adjustment">
+	<div class="adjustment cf">
 		<?php echo $this->escapeHtml($this->getTotal()->getTitle()); ?>
 		<span class="value"><?php echo $this->helper('checkout')->formatPrice($this->getTotal()->getValue()) ?></span>
 	</div>

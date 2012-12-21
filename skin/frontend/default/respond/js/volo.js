@@ -176,7 +176,7 @@ $j(document).ready(function() {
 			min: 0
 		});
 		
-		$j('#discount .value').html($j('#discountAmount').html());
+		$j('#discount .value').html($j('#discountAmount .value').html());
 	}
 
 });
