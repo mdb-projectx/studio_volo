@@ -278,7 +278,7 @@ function close() {
                                         <tr><td><p class="heading">Fabric: </p><p class="attribute"><?php echo $_product->getData('fabric'); ?></p></td></tr>
                                         <tr><td><p class="heading">Care: </p><p class="attribute"><?php echo $_product->getData('care'); ?></p></td></tr>
                                         <tr><td><p class="heading">Assembly: </p><p class="attribute"><?php echo $_product->getData('assembly'); ?></p></td></tr>
-                                        <tr><td><p class="heading">Weight: </p><p class="attribute"><?php echo $_product->getData('weight'); ?></p></td></tr>
+                                        <tr><td><p class="heading">Weight: </p><p class="attribute"><?php echo round($_product->getData('weight')); ?> lbs</p></td></tr>
 					</table>
                                         <?php echo $_product->getData('details'); ?>
                                 </div>

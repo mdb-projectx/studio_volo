@@ -11,6 +11,7 @@ class Volo_Invitefriend_IndexController extends Mage_Core_Controller_Front_Actio
         }
         else
         {
+		Mage::getSingleton('customer/session')->setBeforeAuthUrl(Mage::helper("core/url")->getCurrentUrl());
                 $this->_redirectUrl('/customer/account/login');
         }	
     }
@@ -22,8 +23,8 @@ public function sendinviteAction()
 		$emailcounter = $this->getRequest()->getParam('email_counter', false);
 		$discount_code = $this->getRequest()->getParam('discount_code', false); 		
 		$invite_message = $this->getRequest()->getParam('invite_message', false);
-
-		$invite_message.='<br><a href="http://staging.studiovolo.com/invitefriend/index/refer?code='.$discount_code.'">Start Shopping</a>';
+		$baseurl = Mage::getBaseUrl();
+		$invite_message.='<br><a href="'.$baseurl.'invitefriend/index/refer?code='.$discount_code.'">Start Shopping</a>';
 		for ($i=0; $i<=$emailcounter; $i++)
 		{
 			$email=$this->getRequest()->getParam('invite_email_'.$i, false);
@@ -46,9 +47,9 @@ public function sendinviteAction()
 			"to" => array(array("email" => $email)),
 			"track_opens" => true,
 			"track_clicks" => true,
-			"auto_text" => true
-		),
-	"tags"=>array("Invite Friend")
+			"auto_text" => true,
+			"tags"=>array("Invite Friend")
+		)
     );
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($curl, CURLOPT_HEADER, 0);

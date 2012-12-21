@@ -27,9 +27,10 @@
 <div id="related" class="cf">
 	<?php if($this->getItems()->getSize()): ?>
 		<div class="recommended cf">
-			<h3>Recommended Items</h3>
+			<h3>Recommended Items</h3> <?php echo count($this->getItems()) ?>
 			<ul>
 				<?php foreach($this->getItems() as $key=>$_item): ?>
+					<?php if ($i < 4): ?>
 					<li>
 						<p><a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(188,116); ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a></p>
 						<p>
@@ -42,11 +43,13 @@
 							</a>
 						</p>
 					</li>
+					<?php $i++; ?>
+					<?php endif ?>
 				<?php endforeach ?>
 			</ul>
 		</div>			
 	<?php endif ?>
-	
+<!--	
 	<?php 
 	$_product = $this->getProduct(); 
 	$cats = $_product->getCategoryIds();
@@ -68,7 +71,7 @@
 	}
 	?>
 </div>
-		
+-->		
 		
 		<?php /*
         <?php foreach($this->getItems() as $_item): ?>
