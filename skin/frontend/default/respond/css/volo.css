@@ -336,15 +336,15 @@ body {
         text-decoration: none;
 }
 
-/*
 #menu li:last-child a {
         font-family: "Lato", "Open Sans", Arial, Helvetica, sans-serif;
         font-size: 10px;
-        font-weight: normal;
-        text-transform: uppercase;
+ /*       font-weight: normal;
+        text-transform: uppercase;*/
         letter-spacing: 0;
 }
 
+/*
 #menu li:nth-child(1) a  {
 
 width:  44px;
@@ -426,36 +426,6 @@ width:  80px;
         color: #a8a8a8;
 }
 
-#menu li.search {
-	width: 135px;
-}
-#menu li.search label {
-	display: block;
-	float: right;
-	width: 45px;
-	cursor: pointer;
-	font-size: 10px;
-	text-transform: uppercase;
-	letter-spacing: 0;
-	line-height: 29px;
-	text-align: center;
-	color: #A8A8A8;
-	font-family: 'Lato', sans-serif;
-	text-align: right;
-}
-#menu li.search input {
-	float: left;
-	margin: 6px 0 0;
-	padding: 0;
-	border: 0;
-	width: 90px;
-	height: 15px;
-	line-height: 15px;
-	font-size: 12px;
-	font-family: 'Lato', sans-serif;
-    color: #4a4a4a;
-}
-
 /* level two */
 #menu ul {
         width: 138px;
@@ -498,6 +468,38 @@ width:  80px;
 #menu li.hover ul li a:hover,#menu li.hover ul li a:active {
         text-decoration: underline;
 }
+
+
+#menu li.search {
+	width: 135px;
+}
+#menu li.search label {
+	display: block;
+	float: right;
+	width: 45px;
+	cursor: pointer;
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0;
+	line-height: 29px;
+	text-align: center;
+	color: #A8A8A8;
+	font-family: 'Lato', sans-serif;
+	text-align: right;
+}
+#menu li.search input {
+	float: left;
+	margin: 6px 0 0;
+	padding: 0;
+	border: 0;
+	width: 90px;
+	height: 15px;
+	line-height: 15px;
+	font-size: 12px;
+	font-family: 'Lato', sans-serif;
+    color: #4a4a4a;
+}
+
 
 .no-js #menu ul {
         display: block;
@@ -1335,6 +1337,8 @@ CATEGORIES & PRODUCTS
 	bottom: -170px;
 	right: -200px;
         padding: 6px 0 0;
+	background-image: url("/images/share_frame.png");
+	background-repeat: no-repeat;
 }
 #thumbs .social .social-button {
         float: left;
@@ -1343,6 +1347,32 @@ CATEGORIES & PRODUCTS
 #thumbs .social .social-button:last-child {
         float: left;
         width: 61px;
+}
+#product .social {
+	display: none;
+	position: absolute;
+        width: 114px;
+        bottom: -140px;
+        right: 0px;
+        padding: 0;
+	
+}
+#product .social .buttons	{
+	width: 94px;
+	height: 102px;
+	margin-top: 30px;
+	padding: 20px 10px;
+	background-color: white;
+	background-image: url("..//images/volo/share_frame.png");
+        background-repeat: no-repeat;
+}
+#product .social .social-button {
+        float: left;
+        width: 92px;
+	text-align: left;
+}
+#product .social .social-button .fb-like {
+	float: left;
 }
 #product_addtocart_form {
         float: right;
@@ -2212,9 +2242,6 @@ BASKET
 #checkout-review .product img, #checkout-review .remove, #checkout-review .quantity, #checkout-review td.price {
 	display: none;
 }
-#checkout-review table {
-	width: 100%;
-}
 #checkout-review td, #checkout-review .totals div {
 	line-height: 16px;
 	min-height: 16px;
@@ -2686,4 +2713,44 @@ DISCOUNT BALANCE PAGE
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-decoration: none;
+}
+
+/*************************************************
+CREATE ACCOUNT PAGE
+**************************************************/
+
+.account-create {
+	font: 300 12px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.account-create .form-list {
+	width: 100%;
+}
+
+.account-create .page-title h1 {
+	font: 300 30px/83px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.account-create h2.legend {
+	float: left;
+	width: 100%;
+	font: 300 14px/40px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.account-create .back-link a {
+	font: 300 14px/40px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.account-create .button {
+	border: 0;
+	padding: 0;
+	width: 262px;
+	height: 35px;
+	background: black;
+	color: white;
+	border-color: black;
+	font: bold 16px/24px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	text-align: center;
 }

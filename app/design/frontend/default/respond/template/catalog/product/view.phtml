@@ -142,7 +142,22 @@ function close() {
                     <?php echo $this->getChildHtml('addto') ?>
                 </div>
             <?php endif; ?>
-
+	<div class="social">
+		<div class="buttons">
+                <div class="social-button">
+                        <div class="fb-like" data-href="http://stage.davincidecor.com/rebecca/html-demo1/product.html" data-send="false" data-layout="button_count" data-width="92" data-show-faces="false"></div>
+                </div>
+                <div class="social-button">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="92">Tweet</a>
+                </div>
+                <div class="social-button">
+                        <a href="http://pinterest.com/pin/create/button/?url=<?php echo urlencode($this->helper('catalog/image')->init($_product, 'image')->resize()); ?>" class="pin-it-button" count-layout="horizontal"><img border="0" src="http://assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+                </div>
+                <div class="social-button">
+                        <a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
+                </div>
+		</div>
+	</div>
 	</div>
     </form>
 	
@@ -244,9 +259,9 @@ function close() {
                                         <h4>Product Dimensions</h4>
 					<table width="100%" border="0">
 					<tbody>
-                                        <tr><td><p class="heading">General Dimensions: </p><p class="attribute"><?php echo $_product->getData('general_dimensions'); ?></p></td></tr>
-                                        <tr><td><p class="heading">Seating Height: </p><p class="attribute"><?php echo $_product->getData('seating_height'); ?></p></td></tr>
-                                        <tr><td><p class="heading">Packaging Dimensions: </p><p class="attribute"><?php echo $_product->getData('packaging_dimensions'); ?></p></td></tr>
+                                        <?php if($_product->getData('general_dimensions')): ?><tr><td><p class="heading">General Dimensions: </p><p class="attribute"><?php echo $_product->getData('general_dimensions'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('seating_height')): ?><tr><td><p class="heading">Seating Height: </p><p class="attribute"><?php echo $_product->getData('seating_height'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('packaging_dimensions')): ?><tr><td><p class="heading">Packaging Dimensions: </p><p class="attribute"><?php echo $_product->getData('packaging_dimensions'); ?></p></td></tr><?php endif ?>
 					</tbody>
 					</table>
                                         <!--<?php if($_product->getDimensions_diagram()) { ?><p><a href="<?php echo $this->helper('catalog/image')->init($_product, 'dimensions_diagram')->resize(); ?>" class="colorbox">View dimensions diagram</a></p><?php } ?>-->
@@ -270,16 +285,15 @@ function close() {
                                         <h4>Product Details</h4>
 					<table width="100%" border="0">
 					<tbody>
-                                        <tr><td><p class="heading">Frame:</p><p class="attribute"><?php echo $_product->getData('frame'); ?></p></td></tr>
-                                        <tr><td><p class="heading">Legs:</p><p class="attribute"><?php echo $_product->getData('legs'); ?></p></td></tr>
-                                        <tr><td><p class="heading">Suspension: </p><p class="attribute"><?php echo $_product->getData('suspension'); ?></p></td></tr>
-                                        <tr><td><p class="heading">Filling: </p><p class="attribute"><?php echo $_product->getData('filling'); ?></p></td></tr>
-                                        <tr><td><p class="heading">Fabric: </p><p class="attribute"><?php echo $_product->getData('fabric'); ?></p></td></tr>
-                                        <tr><td><p class="heading">Care: </p><p class="attribute"><?php echo $_product->getData('care'); ?></p></td></tr>
-                                        <tr><td><p class="heading">Assembly: </p><p class="attribute"><?php echo $_product->getData('assembly'); ?></p></td></tr>
-                                        <tr><td><p class="heading">Weight: </p><p class="attribute"><?php echo round($_product->getData('weight')); ?> lbs</p></td></tr>
+                                        <?php if($_product->getData('frame')): ?><tr><td><p class="heading">Frame:</p><p class="attribute"><?php echo $_product->getData('frame'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('legs')): ?><tr><td><p class="heading">Legs:</p><p class="attribute"><?php echo $_product->getData('legs'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('suspension')): ?><tr><td><p class="heading">Suspension: </p><p class="attribute"><?php echo $_product->getData('suspension'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('filling')): ?><tr><td><p class="heading">Filling: </p><p class="attribute"><?php echo $_product->getData('filling'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('fabric')): ?><tr><td><p class="heading">Fabric: </p><p class="attribute"><?php echo $_product->getData('fabric'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('care')): ?><tr><td><p class="heading">Care: </p><p class="attribute"><?php echo $_product->getData('care'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('assembly')): ?><tr><td><p class="heading">Assembly: </p><p class="attribute"><?php echo $_product->getData('assembly'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('weight')): ?><tr><td><p class="heading">Weight: </p><p class="attribute"><?php echo round($_product->getData('weight')); ?> lbs</p></td></tr><?php endif ?>
 					</table>
-                                        <?php echo $_product->getData('details'); ?>
                                 </div>
 		</div>
 	</div>
@@ -290,7 +304,11 @@ function close() {
 //<![CDATA[
 
 jQuery('.add-to-links li:eq(1)').on('hover', function() {
-	jQuery('#thumbs .social').show();
+	jQuery('#product .social').show();
+});
+
+jQuery('#product .social').on('mouseleave', function() {
+        jQuery('#product .social').hide();
 });
 
 	var productAddToCartForm = new VarienForm('product_addtocart_form');

@@ -11,6 +11,7 @@ class Volo_Credit_IndexController extends Mage_Core_Controller_Front_Action
         }
         else
         {
+		Mage::getSingleton('customer/session')->setBeforeAuthUrl(Mage::helper("core/url")->getCurrentUrl());
                 $this->_redirectUrl('/customer/account/login');
         }
     }
