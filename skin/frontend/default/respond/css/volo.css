@@ -2182,6 +2182,9 @@ BASKET
 #checkout-review .product img, #checkout-review .remove, #checkout-review .quantity, #checkout-review td.price {
 	display: none;
 }
+#checkout-review table {
+	width: 100%;
+}
 #checkout-review td, #checkout-review .totals div {
 	line-height: 16px;
 	min-height: 16px;
