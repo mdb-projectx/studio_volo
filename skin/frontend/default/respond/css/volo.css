@@ -336,6 +336,7 @@ body {
         text-decoration: none;
 }
 
+/*
 #menu li:last-child a {
         font-family: "Lato", "Open Sans", Arial, Helvetica, sans-serif;
         font-size: 10px;
@@ -344,7 +345,6 @@ body {
         letter-spacing: 0;
 }
 
-/*
 #menu li:nth-child(1) a  {
 
 width:  44px;
@@ -424,6 +424,36 @@ width:  80px;
         width: 135px;
         text-align: right;
         color: #a8a8a8;
+}
+
+#menu li.search {
+	width: 135px;
+}
+#menu li.search label {
+	display: block;
+	float: right;
+	width: 45px;
+	cursor: pointer;
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 0;
+	line-height: 29px;
+	text-align: center;
+	color: #A8A8A8;
+	font-family: 'Lato', sans-serif;
+	text-align: right;
+}
+#menu li.search input {
+	float: left;
+	margin: 6px 0 0;
+	padding: 0;
+	border: 0;
+	width: 90px;
+	height: 15px;
+	line-height: 15px;
+	font-size: 12px;
+	font-family: 'Lato', sans-serif;
+    color: #4a4a4a;
 }
 
 /* level two */

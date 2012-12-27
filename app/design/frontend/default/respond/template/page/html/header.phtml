@@ -61,5 +61,10 @@
 */ ?>
 
 <div id="wrapper">
+<ul id="menu">
 	<?php echo $this->getChildHtml('topMenu') ?>
-    <?php echo $this->getChildHtml('topBar') ?>
+	<li class="search">
+		<?php echo $this->getChildHtml('topSearch') ?>
+	</li>
+</ul>
+<?php echo $this->getChildHtml('topBar') ?>

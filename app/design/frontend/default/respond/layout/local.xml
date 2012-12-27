@@ -84,7 +84,6 @@
 			<block type="directory/currency" name="top_currency" template="directory/currency.phtml"/>
 			<block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml" />
 			
-			<remove name="top.search"></remove>
 			<remove name="top_currency"></remove>
 			  
 			<reference name="top.bar">
