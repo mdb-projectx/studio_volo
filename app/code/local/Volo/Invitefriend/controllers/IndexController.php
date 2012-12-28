@@ -72,7 +72,7 @@ $invite_html ='
 													<tr>
 														<td valign="top" align="center" height="390" style="border-collapse: collapse;"><table border="0" cellpadding="30" cellspacing="0" width="630" height="390" id="contentBody">
 																<tr>
-																	<td align="left" width="630" height="330" valign="top" style="border-collapse: collapse;display:block;">															
+																	<td align="left" width="580" height="330" valign="top" style="border-collapse: collapse;display:block;">															
 																		<p style="margin: 0;font-family: Lato,\'Lucida Sans Unicode\',\'Lucida Grande\',Arial,Helvetica,sans-serif;font-size: 14px;line-height: 21px;">
 																			Hi, check out VoloDesign.com &mdash; my new favorite site.<br><br>
 																			They create beautifully designed furniture and leisure accessories, with prices up to 70% off high street. Best of all, enter <b>'.$discount_code.'</b> at checkout of $25 off your first order!<br><br>
