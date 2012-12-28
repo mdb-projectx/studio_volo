@@ -285,7 +285,11 @@ function close() {
                                         <h4>Product Details</h4>
 					<table width="100%" border="0">
 					<tbody>
-                                        <?php if($_product->getData('frame')): ?><tr><td><p class="heading">Frame:</p><p class="attribute"><?php echo $_product->getData('frame'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('finish')): ?><tr><td><p class="heading">Finish: </p><p class="attribute"><?php echo $_product->getData('finish'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('material')): ?><tr><td><p class="heading">Material: </p><p class="attribute"><?php echo $_product->getData('material'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('stackable')): ?><tr><td><p class="heading">Stackable: </p><p class="attribute"><?php echo $_product->getData('stackable'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('outdoor')): ?><tr><td><p class="heading">Outdoor: </p><p class="attribute"><?php echo $_product->getData('outdoor'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('frame')): ?><tr><td><p class="heading">Frame:</p><p class="attribute"><?php echo $_product->getData('frame'); ?></p></td></tr><?php endif ?>
                                         <?php if($_product->getData('legs')): ?><tr><td><p class="heading">Legs:</p><p class="attribute"><?php echo $_product->getData('legs'); ?></p></td></tr><?php endif ?>
                                         <?php if($_product->getData('suspension')): ?><tr><td><p class="heading">Suspension: </p><p class="attribute"><?php echo $_product->getData('suspension'); ?></p></td></tr><?php endif ?>
                                         <?php if($_product->getData('filling')): ?><tr><td><p class="heading">Filling: </p><p class="attribute"><?php echo $_product->getData('filling'); ?></p></td></tr><?php endif ?>
