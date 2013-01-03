@@ -1,4 +1,6 @@
-<?php $_result=$this->getCredit() ?>
+<?php $_result=$this->getCredit();?>
+<?php $_history=$this->getHistory();?>
+<?php $_total=$this->getCreditTotal();?>
 <?php /*
 <p><b>Invite Code : </b><?php echo $_result['invite'] ?></p>
 <p><b>Private Code : </b><?php echo $_result['private'] ?></p>
@@ -40,5 +42,29 @@
 			<a href="#" class="button">Invite friends &raquo;</a>
 		</div>
 	</div>
+
+	<h3>History of Credit Earned</h3>
+	<div class="wrapper cf">
+                <div class="left">
+                </div>
+                <div class="right">
+			<table>
+			<tr>
+				<td>Friend's Name</td><td>Date of Purchase</td><td>Credit Earned</td>
+			</tr>
+			<?php 
+				foreach($_history as $values)
+				{
+					echo "<tr><td>".$values['customer_firstname']." ".$values['customer_lastname']."</td><td>".$values['created_at']."</td><td><p>".($values['amount']+0)."</td></tr>";
+				}
+			?>
+			<tr>
+				<td>Total Credit Earned: </td><td></td><td><?php echo $_total;?></td>
+			</tr>
+			</table>
+                </div>
+        </div>
+
+
 
 </div>
