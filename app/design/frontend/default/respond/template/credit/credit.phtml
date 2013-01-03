@@ -55,7 +55,7 @@
 			<?php 
 				foreach($_history as $values)
 				{
-					echo "<tr><td>".$values['customer_firstname']." ".$values['customer_lastname']."</td><td>".$values['created_at']."</td><td><p>".($values['amount']+0)."</td></tr>";
+					echo "<tr class='history'><td>".$values['customer_firstname']." ".$values['customer_lastname']."</td><td>".$values['created_at']."</td><td><p>".($values['amount']+0)."</td></tr>";
 				}
 			?>
 			<tr>

@@ -61,7 +61,11 @@
                 <span class="nobr"><a href="<?php echo $this->getViewUrl($_order) ?>"><?php echo $this->__('View Order') ?></a>
                     <?php /*<span class="separator">|</span><a href="<?php echo $this->getTrackUrl($_order) ?>"><?php echo $this->__('Track Order') ?></a>&nbsp;*/ ?>
                     <?php if ($this->helper('sales/reorder')->canReorder($_order)) : ?>
-                    <span class="separator">|</span> <a href="<?php echo $this->getReorderUrl($_order) ?>" class="link-reorder"><?php echo $this->__('Reorder') ?></a>
+                    <span class="separator">|</span> 
+<?php foreach ($_order->getShipmentsCollection() as $_shipment): ?>
+<a href="#" onclick="popWin('<?php echo $this->helper('shipping')->getTrackingPopupUrlBySalesModel($_shipment) ?>','trackshipment','width=800,height=600,top=0,left=0,resizable=yes,scrollbars=yes'); return false;" title="<?php echo $this->__('Track this shipment') ?>"><?php echo $this->__('Track Order') ?></a>
+<?php endforeach; ?>
+	<?php /*<a href="<?php echo $this->getReorderUrl($_order) ?>" class="link-reorder"><?php echo $this->__('Reorder') ?></a>*/?>
                 <?php endif ?>
                 </span>
             </td>
