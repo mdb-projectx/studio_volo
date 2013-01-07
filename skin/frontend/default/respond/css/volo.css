@@ -2717,6 +2717,10 @@ DISCOUNT BALANCE PAGE
 	text-decoration: none;
 }
 
+#credit-wrapper table.history td{
+	font-weight: normal !important;
+	font-size : 12px !important;
+}
 
 /*************************************************
 CREATE ACCOUNT PAGE
