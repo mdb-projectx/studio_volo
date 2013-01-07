@@ -2722,6 +2722,15 @@ DISCOUNT BALANCE PAGE
 	font-size : 12px !important;
 }
 
+#credit-wrapper table.history p{
+        font-weight: bold !important;
+}
+
+#credit-wrapper table.history .balance{
+	font: bold 14px/21px Lato, "Open Sans", Arial, Helvetica, sans-serif !important;
+}
+
+
 /*************************************************
 CREATE ACCOUNT PAGE
 **************************************************/

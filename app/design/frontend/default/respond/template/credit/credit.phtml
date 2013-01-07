@@ -18,36 +18,35 @@
 			<p>You get $20 off for each friend you refer who makes their first purchase.</p>
 		</div>
 		<div class="right">
-			<table>
-				<tr>
-					<td>You've currently earned</td>
-					<td><span>$<?php echo $_result['discount_amount']+0; ?></span></td>
-				</tr>
-				<tr>
-					<td>Claim your discount by using this code during checkout</td>
-					<td><input type="text" value="<?php echo $_result['private'] ?>" readonly="readonly"></td>
-				</tr>
-			</table>
-		</div>
-	</div>
-	<div class="wrapper cf">
-                <div class="left">
-                        <p>History of Credit Earned</p>
-                </div>
-                <div class="right">
-                        <table class="history">
+			 <table class="history">
                         <tr>
-                                <td>Friend's Name</td><td>Date of Purchase</td><td>Credit Earned</td>
+                                <td><p>Friend's Name</p></td><td><p>Date of Purchase</p></td><td><p>Credit Earned</p></td>
                         </tr>
                         <?php
                                 foreach($_history as $values)
                                 {
-                                        echo "<tr><td>".$values['customer_firstname']." ".$values['customer_lastname']."</td><td>".$values['created_at']."</td><td><p>".($values['amount']+0)."</td></tr>";
+                                        echo "<tr><td>".$values['customer_firstname']." ".$values['customer_lastname']."</td><td>".$values['created_at']."</td><td>$".($values['amount']+0)."</td></tr>";
                                 }
                         ?>
                         <tr>
-                                <td>Total Credit Earned: </td><td></td><td><?php echo $_total;?></td>
+                                <td><p>Total Credit Earned: </p></td><td></td><td><p>$<?php echo $_total;?></p></td>
                         </tr>
+                        <tr>
+                                <td class="balance">Current Reward Balance : </td><td></td><td class="balance">$<?php echo $_result['discount_amount']+0; ?></td>
+                        </tr>
+
+                        </table>
+		</div>
+	</div>
+	<div class="wrapper cf">
+                <div class="left">
+                </div>
+                <div class="right">
+			<table>
+                                <tr>
+                                        <td>Claim your discount by using this code during checkout</td>
+                                        <td><input type="text" value="<?php echo $_result['private'] ?>" readonly="readonly"></td>
+                                </tr>
                         </table>
                 </div>
         </div>
