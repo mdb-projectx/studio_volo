@@ -45,9 +45,9 @@ function close() {
 </script>
 <div id="product">
 	<div id="title" style="display:none;">
-	<p class="first"><?php echo $_product->getData('featured_name'); ?></p>
-	<p><?php echo $_product->getData('descriptive_name'); ?></p>
-	<p><?php echo $this->getChildHtml('product_type_data') ?></p>
+		<p class="first"><?php echo $_product->getData('featured_name'); ?></p>
+		<p><?php echo $_product->getData('descriptive_name'); ?></p>
+		<p><?php echo $this->getChildHtml('product_type_data') ?></p>
 	</div>
 	<?php echo $this->getChildHtml('media') ?>	
 <div id="screen_filter"></div>
