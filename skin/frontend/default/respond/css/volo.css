@@ -914,7 +914,7 @@ HOMEPAGE
 
 
 /**************************************************
-CATEGORIES & PRODUCTS
+CATEGORIES & PRODUCTS & SEARCH
 **************************************************/
 
 #breadcrumbs {
@@ -932,14 +932,19 @@ CATEGORIES & PRODUCTS
         padding: 0 5px;
 }
 
-.category-title h1 {
+.category-title h1, #search .page-title h1 {
 	padding: 0 0 20px 5px;
 	font: 36px/36px Flamenco, Lato, "Open Sans", Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 }
-#category li {
+#search .page-title h1 {
+	padding: 10px 0 15px 5px;
+	font-size: 18px;
+	line-height: 24px;
+}
+#category li, #search li {
         float: left;
         margin: 0 0 15px;
         padding: 0 5px;
@@ -947,14 +952,14 @@ CATEGORIES & PRODUCTS
         text-align: center;
         line-height: 15px;
 }
-#category .ro {
+#category .ro, #search .ro {
         display: block;
         margin: 0 0 10px;
         width: 310px;
         height: 192px;
         position: relative;
 }
-#category .ro img {
+#category .ro img, #search .ro img {
         position: absolute;
         padding: 1px;
         width: 308px;
@@ -963,13 +968,15 @@ CATEGORIES & PRODUCTS
         top: 0;
         left: 0;
 }
-#category .ro img:first-child {
+#category .ro img:first-child, #search .ro img:first-child {
         background: url(../images/volo/hovercat.png);
 }
-#category li a:hover, #category li a:active {
+#category li a:hover, #category li a:active,
+#search li a:hover, #search li a:active {
         text-decoration: none;
 }
-#category li a:hover .name, #category li a:active .name {
+#category li a:hover .name, #category li a:active .name,
+#search li a:hover .name, #search li a:active .name {
         text-decoration: underline
 }
 /*
@@ -979,7 +986,7 @@ CATEGORIES & PRODUCTS
 	color: #949494;
 }
 */
-#category li .newprice {
+#category li .newprice, #search li .newprice {
 	display: block;
 	font-size: 13px;
 	line-height: 24px;
@@ -2243,6 +2250,9 @@ BASKET
 }
 #checkout-review .product img, #checkout-review .remove, #checkout-review .quantity, #checkout-review td.price {
 	display: none;
+}
+#checkout-review table {
+	width: 100%;
 }
 #checkout-review td, #checkout-review .totals div {
 	line-height: 16px;
