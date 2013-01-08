@@ -124,10 +124,10 @@ $j(document).ready(function() {
 	
 	
 	/****************************************
-	CATEGORY PAGE
+	CATEGORY PAGE & SEARCH
 	****************************************/
 	
-	if($j('body').hasClass('catalog-category-view')) { 
+	if($j('body').hasClass('catalog-category-view') || $j('#search').length > 0) { 
 		
 		$j('#category a.ro').mouseenter(function() {
 			$j(this).children().last().stop(true.true).animate({
