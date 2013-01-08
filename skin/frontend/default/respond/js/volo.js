@@ -129,7 +129,7 @@ $j(document).ready(function() {
 	
 	if($j('body').hasClass('catalog-category-view') || $j('#search').length > 0) { 
 		
-		$j('#category a.ro').mouseenter(function() {
+		$j('#category a.ro, #search a.ro').mouseenter(function() {
 			$j(this).children().last().stop(true.true).animate({
 				opacity: 0
 			}, 300);
