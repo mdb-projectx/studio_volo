@@ -1215,7 +1215,7 @@ CATEGORIES & PRODUCTS & SEARCH
         width: 200px;
         height: 40px;
         color: #fff;
-        font: bold 14px/18px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+        font: bold 13px/18px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
         border: 0;
 }
 #cart-view {
@@ -1291,9 +1291,9 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #title {
         position: absolute;
-        width: 300px;
+        width: 420px;
         bottom: 9px;
-        left: 400px;
+        left: 280px;
 }
 #title p {
         width: 100%;
@@ -1312,7 +1312,7 @@ CATEGORIES & PRODUCTS & SEARCH
 #thumbs {
 	position: relative;
         float: left;
-        width: 400px;
+        width: 280px;
         padding: 61px 0 10px 0;
 	min-height: 25px;
 }
@@ -1455,7 +1455,7 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #price .add-to-links li:nth-child(2) {
         float: left;
-        width: 72px;
+        width: 71px;
         height: 17px;
         text-align: center;
         line-height: 18px;
@@ -2117,10 +2117,10 @@ BASKET
 	padding: 15px 0;
 	text-align: right;
 }
-#basket .checkout input, #basket .checkout button {
+#basket .checkout input, #basket .checkout button, #login-wrap button#send2{
 	border: 0;
 	padding: 0;
-	width: 262px;
+	width: 200px;
 	height: 35px;
 	/*
 	background: url(../images/volo/cartbutton3.png);
@@ -2129,7 +2129,7 @@ BASKET
 	background: #000;
 	color: #FFF;
 	border-color: #000;
-	font: bold 18px/35px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: bold 13px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
@@ -2476,11 +2476,17 @@ LOGIN POPUP
         width: 250px;
         height: 28px;
         line-height: 28px;
-        font-size: 15px;
-        font-weight: bold;
-        background: url(../images/volo/button2.png);
-        color: #252525;
+	border: 0;
+        padding: 0;
+        background: #000;
+        color: #FFF;
+        border-color: #000;
+        font: bold 13px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-align: center;
 }
+
 #signup-wrap button {
         float: none;
         width: 330px;
@@ -2531,12 +2537,27 @@ LOGIN POPUP
 PRIVACY POLICY & RETURN POLICY
 **************************************************/
 
-#privacy, #return {
+#privacy	{
+	width: 800px;
+	margin: 0 auto;
+}
+
+#return {
         width: 93%;
         margin: 0 auto;
         padding: 0 0 30px 0;
         font-family: "Lato", sans-serif;
         overflow: hidden;
+}
+
+#privacy h1, #privacy h1	{
+	float: left;
+	width: 100%;
+	font-size: 19px;
+	font-family: "Lato", sans-serif;
+	line-height: 40px;
+	text-align: left;
+	margin-top: 80px;
 }
 
 #privacy h2, #return h2 {
@@ -2545,6 +2566,7 @@ PRIVACY POLICY & RETURN POLICY
         font-weight: bold;
         line-height: 30px;
         margin: 10px 0 20px 0;
+	text-align: left;
 }
 
 #privacy .paragraph, #return .paragraph {
@@ -2555,6 +2577,7 @@ PRIVACY POLICY & RETURN POLICY
 
 #privacy .paragraph p, #return .paragraph p {
         margin: 10px 0 15px 0;
+	text-align: left;
 }
 
 #privacy ul {
@@ -2572,6 +2595,7 @@ PRIVACY POLICY & RETURN POLICY
         padding: 5px 0;
         list-style: disc;
         line-height: 20px;
+	text-align: left;
 }
 
 /*************************************************
@@ -2647,6 +2671,8 @@ SEND AN INVITE PAGE
 	background: #FFF;
 	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
 }
+}
+#sendinvite input[type="submit"], #sendinvite input[type="button"], #sendinvite .sharebuttons a {
 #sendinvite input[type="submit"], #sendinvite input[type="button"], #sendinvite .sharebuttons a {
 	background: #000;
 	color: #FFF;
@@ -2778,5 +2804,3 @@ CREATE ACCOUNT PAGE
 	font: bold 16px/24px Lato, "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
-	text-align: center;
-}
