@@ -727,19 +727,19 @@ HOMEPAGE
 #slider {
 	position: relative;
 	width: 960px;
-	height: 480px;
+	height: 550px;
 }
 #slider ul {
 	position: relative;
 	width: 960px; /* overwritten in js */
-	height: 480px;
+	height: 550px;
 }
 #slider li,#slider .prevcover,#slider .nextcover {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 960px;
-	height: 480px;
+	height: 550px;
 	display: none;
 }
 #slider li#first,.js #slider li {
@@ -763,7 +763,7 @@ HOMEPAGE
 }
 #slider .prev,#slider .next {
 	position: absolute;
-	top: 217px;
+	top: 252px;
 	left: -38px;
 	width: 28px;
 	height: 47px;
