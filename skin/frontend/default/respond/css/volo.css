@@ -187,6 +187,7 @@ body {
 	text-align: left;
 }
 .page {
+	min-width: 960px;
 	max-width: 100%;
 	overflow: hidden;
 }
