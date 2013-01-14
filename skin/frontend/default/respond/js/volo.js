@@ -168,7 +168,7 @@ $j(document).ready(function() {
 	
 	
 	/****************************************
-	PRODUCT PAGE
+	CHECKOUT
 	****************************************/
 	
 	if($j('body').hasClass('checkout-cart-index')) { 
@@ -177,6 +177,32 @@ $j(document).ready(function() {
 		});
 		
 		$j('#discount .value').html($j('#discountAmount .value').html());
+	}
+	
+	/****************************************
+	WISHLIST 
+	****************************************/
+	
+	if($j('body').hasClass('wishlist-index-index')) { 
+		$j('input.qty').spinner({
+			min: 0
+		});
+		
+		$j('#wishlist-table textarea').each(function() {
+			if( $j(this).val() == '') {
+				$j(this).val('Comments...');
+			}
+		});
+		
+		$j('#wishlist-table textarea').focus(function() {
+			if( $j(this).val() == 'Comments...') {
+				$j(this).val('');
+			}
+		}).blur(function() {
+			if( $j(this).val() == '') {
+				$j(this).val('Comments...');
+			}
+		});
 	}
 
 });
