@@ -753,7 +753,6 @@ div.pages>strong { position: absolute; overflow: hidden; clip: rect(0 0 0 0); he
 .toolbar label {  }
 
 /* Data Table */
-/*
 .data-table { width:100%; }
 .data-table tr.odd  { background:#fff }
 .data-table tr.even { background:#fcfcfc; }
@@ -783,7 +782,6 @@ div.pages>strong { position: absolute; overflow: hidden; clip: rect(0 0 0 0); he
 
 .data-table tbody td .option-label { font-weight:bold; font-style:italic; }
 .data-table tbody td .option-value { padding-left:10px; }
-*/
 
 /* Generic Info Box */
 .info-box { margin:0 0 15px; }
