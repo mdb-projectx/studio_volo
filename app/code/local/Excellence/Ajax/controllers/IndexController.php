@@ -21,7 +21,6 @@ class Excellence_Ajax_IndexController extends Mage_Checkout_CartController
 				$product = $this->_initProduct();
 				$related = $this->getRequest()->getParam('related_product');
 
-
 $_product=Mage::getModel('catalog/product')->load($params['product']);
 $relatedProductsId=$_product->getRelatedProductIds();
     $relatedProducts=array();
@@ -80,7 +79,7 @@ $response['related'] = $relatedProducts;
 					$response['sidebar'] = $sidebar;
 					$response['productName'] = $product->getName();
 					$response['productPrice'] = Mage::helper('core')->formatPrice($product->getPrice(), false);
-					$response['productImage'] = $product->getImageUrl();
+					$response['productImage'] = str_replace('75x75','107x79',$_product->getThumbnailUrl());
 					$itemCount = 0;
 					//$itemCount = Mage::helper('checkout/cart')->getCart()->getItemsCount();
 					$session = Mage::getSingleton('checkout/session');

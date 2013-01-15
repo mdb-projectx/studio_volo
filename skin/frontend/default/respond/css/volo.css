@@ -935,7 +935,7 @@ CATEGORIES & PRODUCTS & SEARCH
 
 .category-title h1, #search .page-title h1 {
 	padding: 0 0 20px 5px;
-	font: 36px/36px Flamenco, Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 25px/36px Flamenco, Lato, "Open Sans", Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
@@ -1172,8 +1172,8 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #cart-photo img {
         float: left;
-        width: 216px;
-        height: 161px;
+        width: 106px;
+        height: 78px;
         margin-top: 5px;
 }
 #cart-contents {
@@ -1214,7 +1214,8 @@ CATEGORIES & PRODUCTS & SEARCH
         background-color: black;
         float: right;
         width: 200px;
-        height: 40px;
+        height: 35px;
+	padding: 0;
         color: #fff;
         font: bold 13px/18px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
         border: 0;
@@ -1294,7 +1295,7 @@ CATEGORIES & PRODUCTS & SEARCH
         position: absolute;
         width: 420px;
         bottom: 9px;
-        left: 280px;
+        left: 290px;
 }
 #title p {
         width: 100%;
@@ -1305,7 +1306,7 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #title p.first {
         font-family: 'Flamenco', cursive;
-        font-size: 29px;
+        font-size: 17px;
         line-height: 30px;
 }
 #photo {
@@ -1314,15 +1315,26 @@ CATEGORIES & PRODUCTS & SEARCH
 	position: relative;
         float: left;
         width: 280px;
-        padding: 61px 0 10px 0;
+        padding: 21px 0 10px 0;
 	min-height: 25px;
 }
+#thumbs ul {
+	float: left;
+	width: 280px;
+	padding-bottom: 20px;
+	overflow: hidden;
+}
+
 #thumbs li {
         float: left;
         padding: 1px 6px 1px 1px;
         width: 48px;
         height: 23px;
 }
+#thumbs li.current a {
+	border: 1px solid #A8A8A8;
+}
+
 #thumbs li:last-child {
         padding: 1px;
 }
