@@ -709,7 +709,7 @@ p.required { font-size:11px; float: left; color:#EB340A; }
 .breadcrumbs li strong { font-weight:bold; }
 
 /* Page Heading */
-.page-title { width:100%; overflow:hidden; font-family: "Lato"; font-size: 20px; line-height: 46px; margin-bottom: 10px;}
+.page-title { width:100%; overflow:hidden; font-family: "Open Sans", Arial, Helvetica, sans-serif; font-size: 20px; line-height: 46px; margin-bottom: 10px;}
 .page-title h1,
 .page-title h2 { }
 .page-title .separator {   }
