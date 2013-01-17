@@ -953,11 +953,15 @@ CATEGORIES & PRODUCTS & SEARCH
         text-align: center;
         line-height: 15px;
 }
+#category li	{
+	padding-top: 50px;
+	margin-bottom: 40px;
+}
 #category .ro, #search .ro {
         display: block;
         margin: 0 0 10px;
         width: 310px;
-        height: 192px;
+        height: 240px;
         position: relative;
 }
 #category .ro img, #search .ro img {
@@ -1172,8 +1176,8 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #cart-photo img {
         float: left;
-        width: 106px;
-        height: 78px;
+        width: 216px;
+        height: 134px;
         margin-top: 5px;
 }
 #cart-contents {
@@ -1217,13 +1221,13 @@ CATEGORIES & PRODUCTS & SEARCH
         height: 35px;
 	padding: 0;
         color: #fff;
-        font: bold 13px/18px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+        font: 12px/18px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
         border: 0;
 }
 #cart-view {
         position: absolute;
         right: 33px;
-        top: 160px;
+        top: 140px;
 }
 #cart-view a {
         float: right;
@@ -1508,7 +1512,7 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #related .recommended {
         float: left;
-        width: 100%;
+        width: 700px;
         padding: 0 0 5px;
 }
 #related .recommended li {
@@ -1517,8 +1521,12 @@ CATEGORIES & PRODUCTS & SEARCH
         padding: 0 50px 0 0;
         text-align: center;
 }
-#related .recommended li img {
+#related .recommended li img, #related .collection p img {
         padding: 1px;
+}
+#related .collection p img	{
+	width: 188px;
+	height: 116px;
 }
 #related .recommended li.hover img {
         opacity:0.5;
@@ -1533,7 +1541,10 @@ CATEGORIES & PRODUCTS & SEARCH
 #related .recommended li:last-child {
         padding-right: 0;
 }
-#related .recommended li p a {
+#related .recommended li p a, #related .collection p a {
+	display: block;
+	width: 100%;
+	text-align: center;
         font-family: 'Lato', sans-serif;
         font-size: 10px;
 }
@@ -2207,7 +2218,7 @@ BASKET & WISHLIST
 	background: #000;
 	color: #FFF;
 	border-color: #000;
-	font: bold 13px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font:12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
