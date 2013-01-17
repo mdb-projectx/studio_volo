@@ -110,12 +110,12 @@ TYPOGRAPHY
  **************************************************/
 
 body {
-        font-family: "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
         font-size: 13px;
         line-height: 21px;
 }
 input,textarea,button,select,.button {
-	font-family: "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	color: #252525;
 	
@@ -186,8 +186,7 @@ body {
 	width: 960px;
 	text-align: left;
 }
-.page {
-	min-width: 960px;
+.main {
 	max-width: 100%;
 	overflow: hidden;
 }
@@ -326,7 +325,7 @@ body {
         line-height: 29px;
         text-align: center;
         color: #4a4a4a;
-        font-family: 'Lato';
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 #menu li.hover a {
@@ -338,7 +337,7 @@ body {
 }
 
 #menu li:last-child a {
-        font-family: "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
         font-size: 10px;
  /*       font-weight: normal;
         text-transform: uppercase;*/
@@ -485,7 +484,7 @@ width:  80px;
 	line-height: 29px;
 	text-align: center;
 	color: #A8A8A8;
-	font-family: 'Lato', sans-serif;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	text-align: right;
 }
 #menu li.search input {
@@ -497,7 +496,7 @@ width:  80px;
 	height: 15px;
 	line-height: 15px;
 	font-size: 12px;
-	font-family: 'Lato', sans-serif;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	color: #4a4a4a;
 	text-align: right;
 }
@@ -527,7 +526,7 @@ width:  80px;
         margin: 0 auto;
         width: 960px;
         text-align: left;
-        font-family: "Lato", sans-serif;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 #subscribe {
@@ -591,7 +590,7 @@ width:  80px;
         float: left;
         text-align: left;
         font-size: 10px;
-        font-family: "Lato", sans-serif;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 #follow {
@@ -599,7 +598,7 @@ width:  80px;
         width: 479px;
         height: 65px;
         font-size: 10px;
-        font-family: "Lato", sans-serif;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
         text-align: left;
 }
 
@@ -728,19 +727,19 @@ HOMEPAGE
 #slider {
 	position: relative;
 	width: 960px;
-	height: 550px;
+	height: 480px;
 }
 #slider ul {
 	position: relative;
 	width: 960px; /* overwritten in js */
-	height: 550px;
+	height: 480px;
 }
 #slider li,#slider .prevcover,#slider .nextcover {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 960px;
-	height: 550px;
+	height: 480px;
 	display: none;
 }
 #slider li#first,.js #slider li {
@@ -764,7 +763,7 @@ HOMEPAGE
 }
 #slider .prev,#slider .next {
 	position: absolute;
-	top: 252px;
+	top: 217px;
 	left: -38px;
 	width: 28px;
 	height: 47px;
@@ -788,7 +787,7 @@ HOMEPAGE
 }
 
 #value h2 {
-        font: 300 30px/83px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+        font: 300 30px/83px "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 /* PROMOTIONS */
@@ -935,7 +934,7 @@ CATEGORIES & PRODUCTS & SEARCH
 
 .category-title h1, #search .page-title h1 {
 	padding: 0 0 20px 5px;
-	font: 25px/36px Flamenco, Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 25px/36px "Open Sans", Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
@@ -945,17 +944,21 @@ CATEGORIES & PRODUCTS & SEARCH
 	font-size: 18px;
 	line-height: 24px;
 }
-#category li, #search li {
+#category li	{
+	float: left;
+        margin: 0 0 40px;
+        padding: 50px 5px 0;
+        width: 310px;
+        text-align: center;
+        line-height: 15px;
+}
+#search li {
         float: left;
         margin: 0 0 15px;
         padding: 0 5px;
         width: 310px;
         text-align: center;
         line-height: 15px;
-}
-#category li	{
-	padding-top: 50px;
-	margin-bottom: 40px;
 }
 #category .ro, #search .ro {
         display: block;
@@ -1177,7 +1180,7 @@ CATEGORIES & PRODUCTS & SEARCH
 #cart-photo img {
         float: left;
         width: 216px;
-        height: 134px;
+        height: 133px;
         margin-top: 5px;
 }
 #cart-contents {
@@ -1218,10 +1221,9 @@ CATEGORIES & PRODUCTS & SEARCH
         background-color: black;
         float: right;
         width: 200px;
-        height: 35px;
-	padding: 0;
+        height: 40px;
         color: #fff;
-        font: 12px/18px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+        font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
         border: 0;
 }
 #cart-view {
@@ -1252,7 +1254,7 @@ CATEGORIES & PRODUCTS & SEARCH
         border-top: 1px dotted #d9d9d9;
 }
 #cart-related h3 {
-        font: 300 18px/20px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+        font: 300 18px/20px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #cart-related ul {
         float: left;
@@ -1299,7 +1301,7 @@ CATEGORIES & PRODUCTS & SEARCH
         position: absolute;
         width: 420px;
         bottom: 9px;
-        left: 290px;
+        left: 320px;
 }
 #title p {
         width: 100%;
@@ -1309,7 +1311,7 @@ CATEGORIES & PRODUCTS & SEARCH
 	text-transform: uppercase;
 }
 #title p.first {
-        font-family: 'Flamenco', cursive;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
         font-size: 17px;
         line-height: 30px;
 }
@@ -1319,26 +1321,15 @@ CATEGORIES & PRODUCTS & SEARCH
 	position: relative;
         float: left;
         width: 280px;
-        padding: 21px 0 10px 0;
+        padding: 20px 0 28px 0;
 	min-height: 25px;
 }
-#thumbs ul {
-	float: left;
-	width: 280px;
-	padding-bottom: 20px;
-	overflow: hidden;
-}
-
 #thumbs li {
         float: left;
         padding: 1px 6px 1px 1px;
         width: 48px;
         height: 23px;
 }
-#thumbs li.current a {
-	border: 1px solid #A8A8A8;
-}
-
 #thumbs li:last-child {
         padding: 1px;
 }
@@ -1351,6 +1342,9 @@ CATEGORIES & PRODUCTS & SEARCH
         width: 48px;
         height: 23px;
         border:1px solid #ffffff;
+}
+#thumbs li.current a	{
+	border: 1px solid #a8a8a8;
 }
 #thumbs li a:hover {
         border: 1px solid #a8a8a8;
@@ -1442,7 +1436,7 @@ CATEGORIES & PRODUCTS & SEARCH
         width: 208px;
         height: 35px;
         color: #fff;
-        font: 13px/18px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+        font: 13px/18px "Open Sans", Arial, Helvetica, sans-serif;
         text-transform: uppercase;
         border: 0;
         background-color: black;
@@ -1500,7 +1494,7 @@ CATEGORIES & PRODUCTS & SEARCH
         line-height: 20px;
         color: #000;
         font-size: 10px;
-        font-family: 'Lato', sans-serif;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
         font-weight: 700;
         text-transform: uppercase;
 }
@@ -1508,7 +1502,17 @@ CATEGORIES & PRODUCTS & SEARCH
         line-height: 1.2em;
 }
 #related img {
-        margin-bottom: 10px;
+	width: 188px;
+	height: 116px;
+        margin-bottom: 0;
+	padding: 1px;
+}
+#related .collection p a	{
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	font-size: 10px;
 }
 #related .recommended {
         float: left;
@@ -1521,12 +1525,8 @@ CATEGORIES & PRODUCTS & SEARCH
         padding: 0 50px 0 0;
         text-align: center;
 }
-#related .recommended li img, #related .collection p img {
+#related .recommended li img {
         padding: 1px;
-}
-#related .collection p img	{
-	width: 188px;
-	height: 116px;
 }
 #related .recommended li.hover img {
         opacity:0.5;
@@ -1541,11 +1541,8 @@ CATEGORIES & PRODUCTS & SEARCH
 #related .recommended li:last-child {
         padding-right: 0;
 }
-#related .recommended li p a, #related .collection p a {
-	display: block;
-	width: 100%;
-	text-align: center;
-        font-family: 'Lato', sans-serif;
+#related .recommended li p a {
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
         font-size: 10px;
 }
 #related .recommended .old {
@@ -1592,14 +1589,14 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #details .features .desc h3 {
         font-size: 16px;
-        font-family: 'Flamenco', cursive;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
         text-transform: uppercase;
         margin-bottom: 5px;
 }
 #details .features .desc p {
         line-height: 18px;
         font-size: 12px;
-        font-family: 'Lato', cursive;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 #details .features .thumb {
         float: left;
@@ -1636,7 +1633,7 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #details .extra h4:nth-child(2) {
         margin-top: 0;
-        font-family: 'Lato', sans-serif;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 #details .extra p {
         float: left;
@@ -1644,7 +1641,7 @@ CATEGORIES & PRODUCTS & SEARCH
         margin: 0 5px;
         font-size: 12px;
         line-height: 28px;
-        font-family: 'Lato', sans-serif;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
         font-style: italic;
 }
 #details .extra ul {
@@ -1660,7 +1657,7 @@ CATEGORIES & PRODUCTS & SEARCH
         padding: 25px 10px 0 62px;
 }
 #details .dimensions .cf, #details .details .cf {
-        font-family: 'Lato', sans-serif !important;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif; !important;
 }
 .dimensions h4, .details h4 {
         text-transform: uppercase;
@@ -1682,7 +1679,7 @@ CATEGORIES & PRODUCTS & SEARCH
 .details .specs dt, .details .specs dd {
         font-size: 12px;
         line-height: 28px;
-        font-family: 'Lato', sans-serif !important;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif; !important;
         text-decoration: none;
         font-style: normal;
 }
@@ -1734,9 +1731,7 @@ CATEGORIES & PRODUCTS & SEARCH
         left: -159px !important;
         border: 10px solid #FFF !important;
 }
-li:first-child .nivoLarge, li:nth-child(3) .nivoLarge {
-	left: 0 !important;
-}
+
 
 a.nivoZoom img.nivoLarge {
         -moz-box-shadow: 0 2px 8px #888;
@@ -1947,13 +1942,13 @@ INVITE FRIENDS
 }
 #invite h2 {
         padding: 30px 0;
-        font: 300 30px/30px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+        font: 300 30px/30px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #earn {
         padding: 0 0 30px;
 }
 #earn h3 {
-        font: 300 18px/20px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+        font: 300 18px/20px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #earn .you {
         float: left;
@@ -2011,21 +2006,18 @@ INVITE FRIENDS
 
 
 /**************************************************
-BASKET & WISHLIST
+BASKET
 **************************************************/
 
-#basket, #checkout, .my-wishlist {
-	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
+#basket, #checkout {
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;	
 }
-#basket h2, #checkout h1, .my-wishlist h1 {
-	display: block;
-	float: none;
+#basket h2, #checkout h1 {
 	padding: 20px 0 10px 5px;
-	font: 40px/40px Flamenco, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 40px/40px "Open Sans", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	border-bottom: 1px dotted #e0e0e0;
-	text-align: left;
 }
 #checkout .step-title, #checkout .step-title h2 {
 	font: 18px/24px "Open Sans", Arial, Helvetica, sans-serif;
@@ -2048,47 +2040,37 @@ BASKET & WISHLIST
 	background: #000;
 }
 
-#basket table, #wishlist-table {
+#basket table {
 	width: 100%;
 }
-#basket th, #wishlist-table th {
+#basket th {
 	border-bottom: 1px solid #949494;
-	background: #FFF;
 	width: 100px;
 	text-align: right;
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 0.05em;
 }
-#basket td, #wishlist-table td {
+#basket td {
 	border-bottom: 1px solid #e0e0e0;
-	background: #FFF;
 	padding: 5px 0;
 	text-align: right;
 	vertical-align: middle;
 	color: #4a4a4a;
 }
-#basket .product, #wishlist-table th:first-child, #wishlist-table td:first-child {
+#basket .product {
 	padding-left: 5px;
 	text-align: left;
 	width: auto;
+}
+#basket .product img {
 	vertical-align: middle;
+	margin-right: 10px;
 }
-#basket .product img, #wishlist-table td:first-child img {
-	margin: 0 10px 0 0;
-	vertical-align: middle;
-}
-#wishlist-table th:first-child, #wishlist-table td:first-child {
-	width: 119px;
-}
-#wishlist-table td:nth-child(2) {
-	text-align: left;
-	width: 180px;
-}
-#basket td.remove, #wishlist-table td:nth-child(3) {
+#basket td.remove {
 	padding-right: 10px;
 }
-#basket .remove a, #wishlist-table .btn-remove {
+#basket .remove a {
 	display: block;
 	margin: 0;
 	float: right;
@@ -2100,43 +2082,34 @@ BASKET & WISHLIST
 	overflow: hidden;
 	font-size: 0.1em;
 }
-#basket .remove a:hover, #wishlist-table .btn-remove:hover {
+#basket .remove a:hover {
 	background-position: 0 100%;
 }
-#basket .quantity input, #wishlist-table .qty {
+#basket .quantity input {
 	width: 50px;
 	border: 1px solid #d9d9d9;
 	color: #4a4a4a;
-	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #basket .subtotal {
 	padding-right: 5px;
 }
-#wishlist-table th:nth-child(3), #wishlist-table td:nth-child(3) {
-	width: 65px;
-}
-#wishlist-table th:nth-child(4), #wishlist-table td:nth-child(4) {
-	width: 130px;
-}
-#wishlist-table th:nth-child(5), #wishlist-table td:nth-child(5) {
-	width: 91px;
-}
 
-.ui-spinner {
+#basket .ui-spinner {
 	display: block;
 }
-.ui-spinner-input {
+#basket .quantity .ui-spinner-input {
 	margin: 0 15px 0 0;
 	padding: 4px 0 4px 10px;
-	border-right: 0 !important;
+	border-right: 0;
 	width: 34px;
 	height: 18px;
 	line-height: 18px;
 }
-.ui-spinner {
+#basket .ui-spinner {
 	position: relative;
 }
-.ui-spinner-button {
+#basket .ui-spinner-button {
 	position: absolute;
 	right: 0;
 	width: 15px;
@@ -2144,64 +2117,23 @@ BASKET & WISHLIST
 	background: url(../images/volo/spinner.png);
 	text-indent: -9999em;
 }
-.ui-spinner-up {
+#basket .ui-spinner-up {
 	top: 0;
 }
-.ui-spinner-up:hover {
+#basket .ui-spinner-up:hover {
 	background-position: 100% 0;
 }
-.ui-spinner-down {
+#basket .ui-spinner-down {
 	top: 14px;
 	background-position: 0 100%;
 }
-.ui-spinner-down:hover {
+#basket .ui-spinner-down:hover {
 	background-position: 100% 100%;
 }
-.ui-spinner-button .ui-icon {
+#basket .ui-spinner-button .ui-icon {
 	display: none;
 }
 
-#wishlist-table textarea {
-	width: 120px;
-	height: 54px;
-	border: 1px solid #d9d9d9;
-	margin-left: 5px;
-	background: #FFF;
-	color: #4a4a4a;
-	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
-}
-#wishlist-table .cart-cell {
-	float: left;
-	padding-left: 15px;
-	width: 76px;
-}
-#wishlist-table .cart-button {
-	float: right;
-	width: 100px;
-	text-align: right;
-}
-#wishlist-table th:last-child {
-	padding-right: 100px;
-}
-#wishlist-table td:last-child {
-	text-align: left;
-}
-#wishlist-table .btn-cart, #wishlist-view-form .buttons-set .button {	
-	background: #000;
-	border-color: #000;
-	color: #fff;
-	font-size: 10px;
-	text-transform: uppercase;	
-	padding: 0 !important;
-	width: 90px;
-	text-align: center;
-}
-#wishlist-view-form .buttons-set .button {	
-	font-size: 12px;
-	width: auto;
-	letter-spacing: 0.05em;
-	padding: 0 10px !important;
-}
 #basket .checkout {
 	padding: 15px 0;
 	text-align: right;
@@ -2218,7 +2150,7 @@ BASKET & WISHLIST
 	background: #000;
 	color: #FFF;
 	border-color: #000;
-	font:12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
@@ -2327,10 +2259,10 @@ BASKET & WISHLIST
 	margin-top: 71px;
 	border: 1px solid #d9d9d9;
 	padding: 10px;
-	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #checkout-review h2 {
-	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;	
@@ -2420,7 +2352,7 @@ BASKET & WISHLIST
 }
 #review-buttons-container .btn-checkout {
 	height: 35px;
-	font: bold 18px/35px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: bold 18px/35px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
@@ -2430,11 +2362,11 @@ BASKET & WISHLIST
 
 #checkout-success {
 	padding: 30px 0 30px;
-	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #checkout-success h1 {
 	padding: 0;
-    font: bold 14px/24px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: bold 14px/24px "Open Sans", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	border-bottom: 1px solid #000;
@@ -2478,7 +2410,7 @@ BASKET & WISHLIST
 	width: 180px;
 	background: #000;
 	color: #FFF;
-	font: bold 16px/36px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: bold 16px/36px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
@@ -2570,7 +2502,7 @@ LOGIN POPUP
         background: #000;
         color: #FFF;
         border-color: #000;
-        font: bold 13px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+        font: bold 13px/18px "Open Sans", Arial, Helvetica, sans-serif;
         letter-spacing: 0.05em;
         text-transform: uppercase;
         text-align: center;
@@ -2635,7 +2567,7 @@ PRIVACY POLICY & RETURN POLICY
         width: 93%;
         margin: 0 auto;
         padding: 0 0 30px 0;
-        font-family: "Lato", sans-serif;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
         overflow: hidden;
 }
 
@@ -2643,7 +2575,7 @@ PRIVACY POLICY & RETURN POLICY
 	float: left;
 	width: 100%;
 	font-size: 19px;
-	font-family: "Lato", sans-serif;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	line-height: 40px;
 	text-align: left;
 	margin-top: 80px;
@@ -2693,11 +2625,11 @@ SEND AN INVITE PAGE
 
 #sendinvite {
 	padding: 0 0 20px;
-	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #sendinvite h2 {
 	padding: 20px 0 10px 0;
-	font: 34px/36px Flamenco, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 34px/36px "Open Sans", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	border-bottom: 1px dotted #d9d9d9;
@@ -2709,7 +2641,7 @@ SEND AN INVITE PAGE
 }
 #sendinvite .intro p {
 	margin-bottom: 30px;
-	font: 21px/30px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 21px/30px "Open Sans", Arial, Helvetica, sans-serif;
 	color: #222;
 }
 #sendinvite .forms {
@@ -2720,7 +2652,7 @@ SEND AN INVITE PAGE
 #sendinvite .forms h3 {
 	width: 320px;
 	margin-bottom: 18px;
-	font: 14px/18px Flamenco, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 14px/18px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
@@ -2758,7 +2690,7 @@ SEND AN INVITE PAGE
 	padding: 8px;
 	border: 1px solid #e0e0e0;
 	background: #FFF;
-	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #sendinvite input[type="submit"], #sendinvite input[type="button"], #sendinvite .sharebuttons a {
 	background: #000;
@@ -2766,7 +2698,7 @@ SEND AN INVITE PAGE
 	width: 320px;
 	padding: 9px;
 	text-align: center;
-	font: bold 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: bold 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	text-align: center;
@@ -2786,18 +2718,18 @@ DISCOUNT BALANCE PAGE
 
 #credit-wrapper {
 	padding: 0 0 30px;
-	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #credit-wrapper h2 {
 	padding: 20px 0 10px 0;
-	font: 34px/36px Flamenco, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 34px/36px "Open Sans", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	border-bottom: 1px dotted #d9d9d9;
 }
 #credit-wrapper h3 {
 	padding: 30px 0 5px 0;
-	font: 16px/18px Flamenco, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 16px/18px "Open Sans", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	border-bottom: 3px solid #000;
@@ -2821,10 +2753,10 @@ DISCOUNT BALANCE PAGE
 	padding: 0 10px;
 }
 #credit-wrapper td {
-	font: bold 14px/21px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: bold 14px/21px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #credit-wrapper input {
-	font: 18px/21px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: 18px/21px "Open Sans", Arial, Helvetica, sans-serif;
 	border: 1px dotted #000;
 	padding: 2px;
 	width: 150px;
@@ -2850,7 +2782,7 @@ DISCOUNT BALANCE PAGE
 }
 
 #credit-wrapper table.history .balance{
-	font: bold 14px/21px Lato, "Open Sans", Arial, Helvetica, sans-serif !important;
+	font: bold 14px/21px "Open Sans", Arial, Helvetica, sans-serif; !important;
 }
 
 
@@ -2859,7 +2791,7 @@ CREATE ACCOUNT PAGE
 **************************************************/
 
 .account-create {
-	font: 300 12px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+	font: 300 12px "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .account-create .form-list {
@@ -2867,17 +2799,17 @@ CREATE ACCOUNT PAGE
 }
 
 .account-create .page-title h1 {
-	font: 300 30px/83px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+	font: 300 30px/83px "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .account-create h2.legend {
 	float: left;
 	width: 100%;
-	font: 300 14px/40px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+	font: 300 14px/40px "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .account-create .back-link a {
-	font: 300 14px/40px "Lato", "Open Sans", Arial, Helvetica, sans-serif;
+	font: 300 14px/40px "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .account-create .button {
@@ -2888,6 +2820,6 @@ CREATE ACCOUNT PAGE
 	background: black;
 	color: white;
 	border-color: black;
-	font: bold 16px/24px Lato, "Open Sans", Arial, Helvetica, sans-serif;
+	font: bold 16px/24px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
