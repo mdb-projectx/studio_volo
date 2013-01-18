@@ -115,8 +115,7 @@
 
 		<reference name="footer">
 			<action method="unsetChild"><alias>cms_footer_links</alias></action>
-			
-			
+
 			<block type="cms/block" name="footer_cols">
 				<action method="setBlockId"><block_id>footer_cols</block_id></action>
 			</block>
