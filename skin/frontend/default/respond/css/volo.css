@@ -1731,7 +1731,9 @@ CATEGORIES & PRODUCTS & SEARCH
         left: -159px !important;
         border: 10px solid #FFF !important;
 }
-
+li:first-child .nivoLarge, li:nth-child(3) .nivoLarge {
+	left: 0 !important;
+}
 
 a.nivoZoom img.nivoLarge {
         -moz-box-shadow: 0 2px 8px #888;

@@ -29,8 +29,8 @@
 		<div class="recommended cf">
 			<h3>Recommended Items</h3>
 			<ul>
-				<?php foreach($this->getItems() as $key=>$_item): ?>
-					<?php if ($i < 4): ?>
+				<?php $i = 0; foreach($this->getItems() as $key=>$_item): ?>
+					<?php if ($i < 3): ?>
 					<li>
 						<p><a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(188,116); ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a></p>
 						<p>
@@ -44,7 +44,7 @@
 						</p>
 					</li>
 					<?php $i++; ?>
-					<?php endif ?>
+					<?php else: break; endif; ?>
 				<?php endforeach ?>
 			</ul>
 		</div>			
