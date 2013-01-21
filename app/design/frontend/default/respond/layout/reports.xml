@@ -29,12 +29,29 @@
 <layout version="0.1.0">
     <default>
         <!-- Mage_Reports -->
+	<!--
+	<reference name="content">
+            <block type="reports/product_viewed" before="right.permanent.callout" name="right.reports.product.viewed" template="reports/product_viewed.phtml" />
+            <block type="reports/product_compared" before="right.permanent.callout" name="right.reports.product.compared" template="reports/product_compared.phtml" />
+        </reference>
+	-->
         <reference name="right">
+            <block type="reports/product_viewed" before="right.permanent.callout" name="right.reports.product.viewed" template="reports/product_viewed.phtml" />
+            <block type="reports/product_compared" before="right.permanent.callout" name="right.reports.product.compared" template="reports/product_compared.phtml" />
+        </reference>
+	<reference name="before_content_end">
             <block type="reports/product_viewed" before="right.permanent.callout" name="right.reports.product.viewed" template="reports/product_viewed.phtml" />
             <block type="reports/product_compared" before="right.permanent.callout" name="right.reports.product.compared" template="reports/product_compared.phtml" />
         </reference>
     </default>
 <!--
+    <catalog_product_view translate="label">
+        <reference name="before_content_end">
+            <block type="reports/product_viewed" before="right.permanent.callout" name="right.reports.product.viewed" template="reports/product_viewed.phtml" />
+            <block type="reports/product_compared" before="right.permanent.callout" name="right.reports.product.compared" template="reports/product_compared.phtml" />
+        </reference>
+    </catalog_product_view>
+
     <catalog_category_layered_nochildren translate="label">
         <label>Catalog Category (Without Subcategories)</label>
         <remove name="right.reports.product.viewed" />

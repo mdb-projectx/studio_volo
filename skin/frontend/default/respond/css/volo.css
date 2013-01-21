@@ -1300,7 +1300,7 @@ CATEGORIES & PRODUCTS & SEARCH
 #title {
         position: absolute;
         width: 420px;
-        bottom: 9px;
+        top: 14px;
         left: 320px;
 }
 #title p {
@@ -2825,3 +2825,51 @@ CREATE ACCOUNT PAGE
 	font: bold 16px/24px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
+}
+
+/*===============================
+Recently Viewed Items
+===============================*/
+
+.block-viewed	{
+	padding: 10px 0 ;
+	margin: 0;
+	border-top: 1px dotted #a8a8a8;
+}
+
+.block-viewed .block-title span	{
+	line-height: 20px;
+	letter-spacing: 0;
+	color: #000;
+	font-size: 10px;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+#recently-viewed-items	{
+	float: left;
+	width: 100%;
+	overflow: hidden;
+}
+
+#recently-viewed-items .item	{
+	float: left;
+	width: 25%;
+}
+
+#recently-viewed-items .item a	{
+	display: block;
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+}
+
+#recently-viewed-items .product-name	{
+	float: left;
+	width: 100%;
+	color: #000;
+	font-size: 10px;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	text-align: center;
+}
