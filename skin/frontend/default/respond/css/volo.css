@@ -297,8 +297,8 @@ body {
 /* MENU */
 #menu {
         position: relative;
-        width: 835px;
-        padding: 0 0 0 125px;
+        width: 100%;
+        padding: 0;
         border-bottom: 1px dotted #a8a8a8;
         height: 29px;
         z-index: 5;
@@ -307,6 +307,7 @@ body {
 /* level one */
 #menu li {
         float: left;
+	width: 12%;
         zoom: 1;
         position: relative;
 }
@@ -318,8 +319,9 @@ body {
 
 #menu li a {
         display: block;
+	width: 100%;
         padding: 0;
-        font-size: 10px;
+        font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 0.09em;
         line-height: 29px;
@@ -334,6 +336,22 @@ body {
 
 #menu li.hover a:hover,#menu li.hover a:active {
         text-decoration: none;
+}
+
+#menu li:nth-child(1)	{
+	width: 9%;
+}
+
+#menu li:nth-child(2)   {
+        width: 9%;
+}
+
+#menu li:nth-child(3)   {
+        width: 9%;
+}
+
+#menu li:nth-child(5)   {
+        width: 9%;
 }
 
 #menu li:last-child a {
@@ -387,7 +405,6 @@ width:  80px;
 
 }
 
- */
 #menu li:nth-child(1) a {
         width: 80px;
 }
@@ -419,11 +436,15 @@ width:  80px;
 #menu li:nth-child(8) a {
         width: 90px;
 }
-
+*/
 #menu li:nth-child(9) a {
         width: 135px;
         text-align: right;
         color: #a8a8a8;
+}
+
+#menu li.level1	{
+	width: 100%;
 }
 
 /* level two */
@@ -471,7 +492,10 @@ width:  80px;
 
 
 #menu li.search {
+	position: absolute;
 	width: 135px;
+	right: 10px;
+
 }
 #menu li.search label {
 	display: block;
@@ -515,6 +539,53 @@ width:  80px;
 #menu ul ul {
         left: 100%;
         top: 0;
+}
+
+/* header links */
+
+#tertiary .first	{
+	position: relative;
+}
+
+#tertiary .first .submenu	{
+	display: none;
+	position: absolute;
+	width: 200px;
+	height: auto;
+	top: 0px;
+	left: -80px;
+	padding: 32px 0 0;
+
+	background-image: url("../images/volo/share_frame_big.png");
+	background-repeat: no-repeat;
+}
+
+#tertiary .first:hover .submenu, #tertiary .first .submenu:hover	{
+	display: block;
+}
+
+#tertiary .first .submenu ul	{
+	width: 100%;
+	overflow: hidden;
+}
+
+#tertiary .first .submenu ul li	{
+	float: left;
+	width: 100%;
+	border: 0;
+}
+
+#tertiary .first .submenu ul li::before	{
+	content: "";
+}
+
+#tertiary .first .submenu ul li a	{
+	float: left;
+	width: 180px;
+	padding: 0 10px;
+	line-height: 30px;
+	text-align: left;
+	border: 0;
 }
 
 /* FOOTER */

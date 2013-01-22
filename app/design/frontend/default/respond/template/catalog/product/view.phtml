@@ -295,6 +295,9 @@ function close() {
                                         <?php if($_product->getData('filling')): ?><tr><td><p class="heading">Filling: </p><p class="attribute"><?php echo $_product->getData('filling'); ?></p></td></tr><?php endif ?>
                                         <?php if($_product->getData('fabric')): ?><tr><td><p class="heading">Fabric: </p><p class="attribute"><?php echo $_product->getData('fabric'); ?></p></td></tr><?php endif ?>
                                         <?php if($_product->getData('care')): ?><tr><td><p class="heading">Care: </p><p class="attribute"><?php echo $_product->getData('care'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('adjustable')): ?><tr><td><p class="heading">Adjustable: </p><p class="attribute"><?php echo $_product->getData('adjustable'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('bulb')): ?><tr><td><p class="heading">Bulb: </p><p class="attribute"><?php echo $_product->getData('bulb'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('switch')): ?><tr><td><p class="heading">Switch: </p><p class="attribute"><?php echo $_product->getData('switch'); ?></p></td></tr><?php endif ?>
                                         <?php if($_product->getData('assembly')): ?><tr><td><p class="heading">Assembly: </p><p class="attribute"><?php echo $_product->getData('assembly'); ?></p></td></tr><?php endif ?>
                                         <?php if($_product->getData('weight')): ?><tr><td><p class="heading">Weight: </p><p class="attribute"><?php echo round($_product->getData('weight')); ?> lbs</p></td></tr><?php endif ?>
 					</table>
