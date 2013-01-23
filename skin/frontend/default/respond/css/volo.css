@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,700');
-@import url('https://fonts.googleapis.com/css?family=Flamenco:300,400');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic');
+/* @import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,700');
++@import url('https://fonts.googleapis.com/css?family=Flamenco:300,400'); */ 
 
 /**************************************************
 RESET
@@ -170,6 +171,20 @@ strong,b {
 
 em,i {
         font-style: italic;
+}
+
+
+.page-title h1 {
+	display: block;
+	float: none;
+ 	padding: 20px 0 10px 5px;
+ 	font: 25px/36px "Open Sans", Arial, Helvetica, sans-serif;
+ 	text-transform: uppercase;
+ 	letter-spacing: 0.1em;
+	text-align: left;
+}
+.col2-left-layout .col-main .page-title h1 {
+	padding-left: 0;
 }
 
 /**************************************************
@@ -1013,7 +1028,7 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #search .page-title h1 {
 	padding: 10px 0 15px 5px;
-	font-size: 18px;
+	font-size: 25px;
 	line-height: 24px;
 }
 #category li	{
@@ -1551,7 +1566,7 @@ CATEGORIES & PRODUCTS & SEARCH
         display: none;
 }
 #price .add-to-links li a {
-        font-family: 'Lato', sans-serif;
+        font-family: "Open Sans", Arial, Helvetica, sans-serif;
         text-transform: uppercase;
 }
 #price input:hover {
@@ -2084,13 +2099,13 @@ BASKET & WISHLIST
 **************************************************/
 
 #basket, #checkout, .my-wishlist {
- 	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
+ 	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;	
 }
 #basket h2, #checkout h1, .my-wishlist h1 {
 	display: block;
 	float: none;
  	padding: 20px 0 10px 5px;
- 	font: 40px/40px Flamenco, "Open Sans", Arial, Helvetica, sans-serif;
+ 	font: 25px/36px "Open Sans", Arial, Helvetica, sans-serif;
  	text-transform: uppercase;
  	letter-spacing: 0.1em;
  	border-bottom: 1px dotted #e0e0e0;
@@ -2236,7 +2251,7 @@ BASKET & WISHLIST
 	margin-left: 5px;
 	background: #FFF;
 	color: #4a4a4a;
-	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif;	
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;	
 }
 #wishlist-table .cart-cell {
 	float: left;
@@ -2444,7 +2459,7 @@ BASKET & WISHLIST
 	margin: 20px 0 0;
 }
 #checkout-review-table td, #checkout-review-table th {
-	font: 12px/18px Lato, "Open Sans", Arial, Helvetica, sans-serif !important;
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif !important;
 }
 #checkout-review-table th {
 	padding: 8px 0;
@@ -2712,7 +2727,7 @@ PRIVACY POLICY & RETURN POLICY
 #privacy h1, #privacy h1	{
 	float: left;
 	width: 100%;
-	font-size: 19px;
+	font-size: 25px;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	line-height: 40px;
 	text-align: left;
@@ -2937,7 +2952,7 @@ CREATE ACCOUNT PAGE
 }
 
 .account-create .page-title h1 {
-	font: 300 30px/83px "Open Sans", Arial, Helvetica, sans-serif;
+	font: 300 25px/83px "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .account-create h2.legend {
