@@ -3024,3 +3024,55 @@ Recently Viewed Items
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	text-align: center;
 }
+
+
+/**************************************************
+DESIGNERS PAGE
+ **************************************************/
+
+#designers {
+	margin: 0 auto 30px;
+	width: 960px;
+	min-height: 640px;
+	background: url(http://staging.studiovolo.com/skin/frontend/default/respond/images/volo/designers.jpg) no-repeat;
+	font: 13px "Open Sans", Arial, Helvetica, sans-serif;
+	colro: #202020;
+}
+#designers h1 {
+	font-size: 25px;
+	line-height: 25px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-weight: normal;
+}
+#designers h2 {
+	font-size: 21px;
+	font-weight: bold;
+}
+#designers .support p {
+	margin: 21px 0;
+}
+#designers strong {
+	text-transform: uppercase;
+}
+#designers .support {
+	float: left;
+	width: 460px;
+	padding: 35px 150px 0 30px;
+	line-height: 21px;
+}
+#designers .details {
+	float: right;
+	padding: 21px 0 0;
+	width: 295px;
+	line-height: 20px;
+}
+#designers .details p {
+	margin: 20px 0;
+}
+#designers a {
+	text-decoration: underline;
+}
+#designers a:hover {
+	text-decoration: none;
+}
