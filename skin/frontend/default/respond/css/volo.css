@@ -813,6 +813,7 @@ HOMEPAGE
 
 #slider {
 	position: relative;
+	margin-top: 15px;
 	width: 960px;
 	height: 550px;
 }
