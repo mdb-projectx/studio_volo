@@ -10,6 +10,19 @@ $j(document).ready(function() {
 		$j('ul:first',this).stop(true,true).fadeOut(0);
     });
 	
+	/* MENU SEARCH EXTENSION */
+	$j(".search #search").on("focus", function()	{
+		$j(this).animate({
+			width: "90%"
+		}, 500);
+	})
+
+	 $j(".search #search").on("focusout", function()    {
+                $j(this).animate({
+                        width: "75px"
+                }, 500);
+        })
+
 	/* STICKY HEADER */
 	
 	$j('#menu').waypoint(function(event, direction) {

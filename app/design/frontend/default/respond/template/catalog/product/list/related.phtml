@@ -58,11 +58,15 @@
 		if($_cat->getParentCategory()->getName() == 'Collections') { ?>
 		
 			<div class="collection">
-				<h3>Part of the&hellip;</h3>
+				<h3>Part of the Collection</h3>
+				<ul>
+				<li>
 				<?php if ($_cat->getThumbnail()): ?>
 					<p><a href="<?php echo $_cat->getURL(); ?>"><img src="<?php echo Mage::getBaseUrl('media').'catalog/category/'.$_cat->getThumbnail(); ?>" alt="<?php echo $_cat->getName(); ?><" /></a></p>
 				<?php endif; ?>
 				<p><a href="<?php echo $_cat->getURL(); ?>"><?php echo $_cat->getName(); ?></a></p>
+				</li>
+				</ul>
 			</div>
 
 		<?php

@@ -26,7 +26,9 @@ $relatedProductsId=$_product->getRelatedProductIds();
     $relatedProducts=array();
     foreach($relatedProductsId as $relatedProductId)
     {   
-	$image = Mage::getModel('catalog/product')->load($relatedProductId)->getImageUrl();
+	$_relatedProduct = Mage::getModel('catalog/product')->load($relatedProductId);
+	$image = Mage::getModel('catalog/product_media_config')->getMediaUrl($_relatedProduct->getThumbnail());
+	//$image = Mage::getModel('catalog/product')->load($relatedProductId)->getImageUrl();
 	$name = Mage::getModel('catalog/product')->load($relatedProductId)->getName();
 	$price = Mage::getModel('catalog/product')->load($relatedProductId)->getPrice();
 	$price = Mage::helper('core')->formatPrice($price, false);

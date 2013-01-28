@@ -98,17 +98,17 @@ function close() {
 		<ul>
 			<li>
 				<p class="image"><a href="#"><img src="" alt="" /></a></p>
-				<p class="details"><a href="#"><span class="name"></span> <span class="new"></span> Typical retail price <span class="old"></span> </a></p>
+				<p class="details"><a href="#"><span class="name"></span> <span class="new"></span><!-- Typical retail price <span class="old"></span> --></a></p>
 				<p class="control"><a href="#" class="add-to-basket">Add to basket</a> | <a href"" class="info">More info</a></p>
 			</li>
 			<li>
                                 <p class="image"><a href="#"><img src="" alt="" /></a></p>
-                                <p class="details"><a href="#"><span class="name"></span> <span class="new"></span> Typical retail price <span class="old"></span> </a></p>
+                                <p class="details"><a href="#"><span class="name"></span> <span class="new"></span><!-- Typical retail price <span class="old"></span> --></a></p>
                                 <p class="control"><a href="#" class="add-to-basket">Add to basket</a> | <a href"" class="info">More info</a></p>
                         </li>
 			<li>
                                 <p class="image"><a href="#"><img src="" alt="" /></a></p>
-                                <p class="details"><a href="#"><span class="name"></span> <span class="new"></span> Typical retail price <span class="old"></span> </a></p>
+                                <p class="details"><a href="#"><span class="name"></span> <span class="new"></span><!-- Typical retail price <span class="old"></span> --></a></p>
                                 <p class="control"><a href="#" class="add-to-basket">Add to basket</a> | <a href"" class="info">More info</a></p>
                         </li>
 
@@ -356,7 +356,7 @@ jQuery('#product .social').on('mouseleave', function() {
 							jQuery('#cart-related li:eq('+i+') .details a').attr('href', data.related[i]['link']);
 							jQuery('#cart-related li:eq('+i+') .details .name').text(data.related[i]['name']);
 							jQuery('#cart-related li:eq('+i+') .details .new').text(data.related[i]['price']);
-							jQuery('#cart-related li:eq('+i+') .details .old').text(data.related[i]['retailprice']);
+							//jQuery('#cart-related li:eq('+i+') .details .old').text(data.related[i]['retailprice']);
 							jQuery('#cart-related li:eq('+i+') .control .add-to-basket').attr('href', data.related[i]['addlink']);
 							jQuery('#cart-related li:eq('+i+') .control .info').attr('href', data.related[i]['link']);
 							jQuery('#cart-related li:eq('+i+')').show();

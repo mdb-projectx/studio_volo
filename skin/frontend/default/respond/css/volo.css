@@ -187,6 +187,10 @@ em,i {
 	padding-left: 0;
 }
 
+.col1-layout .col-main	{
+	min-height: 500px;
+}
+
 /**************************************************
 LAYOUT
  **************************************************/
@@ -226,7 +230,7 @@ body {
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 
         height: 47px;
-        display: none;
+        display: none !important;
 }
 
 #header {
@@ -555,9 +559,9 @@ width:  80px;
 #menu li.search .input-text	{
 	font-size: 12px;
 	font-family: Arial,Helvetica,sans-serif;
-	width: 100px;
+	width: 75px;
 	float: right;
-	height: 2.3em;
+	height: 2.2em;
 	padding-left: 5px;
 	padding-right: 20px;
 	text-overflow: ellipsis;
@@ -1121,7 +1125,7 @@ CATEGORIES & PRODUCTS & SEARCH
         display: block;
         margin: 0 0 10px;
         width: 310px;
-        height: 240px;
+        height: 220px;
         position: relative;
 }
 #category .ro img, #search .ro img {
@@ -1377,13 +1381,16 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #cart-view .view-basket {
         text-transform: uppercase;
-        background-color: black;
+        background-color: #5b5b5b;
         float: right;
         width: 200px;
         height: 40px;
         color: #fff;
         font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
         border: 0;
+}
+#cart-view .view-basket:hover	{
+	background-color: #4f4f4f;
 }
 #cart-view {
         position: absolute;
@@ -1434,7 +1441,6 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #cart-related .new {
         display: block;
-        font-weight: bold;
 }
 #cart-related .old {
         text-decoration: line-through !important;
@@ -1598,8 +1604,11 @@ CATEGORIES & PRODUCTS & SEARCH
         font: 13px/18px "Open Sans", Arial, Helvetica, sans-serif;
         text-transform: uppercase;
         border: 0;
-        background-color: black;
+        background-color: #5b5b5b;
         letter-spacing: 0.06em;
+}
+#price .add-to-cart .button:hover {
+	background-color: #4f4f4f;
 }
 #price #ajax_loader {
         width: auto;
@@ -1678,6 +1687,11 @@ CATEGORIES & PRODUCTS & SEARCH
         width: 700px;
         padding: 0 0 5px;
 }
+#related .recommended ul	{
+	float: left;
+	padding: 70px 0;
+	overflow: hidden;
+}
 #related .recommended li {
         float: left;
         width: 200px;
@@ -1720,7 +1734,11 @@ CATEGORIES & PRODUCTS & SEARCH
         width: 200px;
         padding: 0;
 }
-
+#related .collection ul	{
+	float: left;
+	padding: 70px 0;
+	overflow: hidden;
+}
 #details {
         border-bottom: 1px dotted #a8a8a8;
 }
@@ -2212,7 +2230,6 @@ BASKET & WISHLIST
 	width: 100px;
 	text-align: right;
 	text-transform: uppercase;
-	font-weight: bold;
 	letter-spacing: 0.05em;
 }
 #basket td, #wishlist-table td {
@@ -2342,14 +2359,16 @@ BASKET & WISHLIST
 	text-align: left;
 }
 #wishlist-table .btn-cart, #wishlist-view-form .buttons-set .button {	
-	background: #000;
-	border-color: #000;
+	background: #5b5b5b;
 	color: #fff;
 	font-size: 10px;
 	text-transform: uppercase;	
 	padding: 0 !important;
 	width: 90px;
 	text-align: center;
+}
+#wishlist-table .btn-cart:hover, #wishlist-view-form .buttons-set .button:hover	{
+	background-color: #4f4f4f;
 }
 #wishlist-view-form .buttons-set .button {	
 	font-size: 12px;
@@ -2372,13 +2391,16 @@ BASKET & WISHLIST
 	background: url(../images/volo/cartbutton3.png);
 	color: #252525;
 	*/
-	background: #000;
+	background: #5b5b5b;
 	color: #FFF;
 	border-color: #000;
 	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
+}
+#basket .checkout input, #basket .checkout button:hover	{
+	background-color: #4f4f4f;
 }
 /*
 #basket .checkout input:hover, #basket .checkout button:hover {
@@ -2390,15 +2412,15 @@ BASKET & WISHLIST
 }
 
 #basket .btn-update {
-	background: #f0f0f0;
-	color: #000;
-	border-color: #d9d9d9;
+	background: #acacac;
+	color: white;
 	font-size: 12px;
-	font-weight: bold;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 }
-
+#basket .btn-update:hover	{
+	background-color: #9d9d9d;
+}
 #basket #discount {
 	text-align: right;
 	padding: 30px 5px 0 0;
@@ -2416,9 +2438,8 @@ BASKET & WISHLIST
 	font-size: 12px;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;	
-	background: #f0f0f0;
-	color: #000;
-	border: 1px solid #d9d9d9;
+	background: #acacac;
+	color: white;
 	text-transform: uppercase;
 	height: 24px;
 	line-height: 24px;
@@ -2430,6 +2451,7 @@ BASKET & WISHLIST
 	text-align: center;
 }
 #basket #discount button:hover {
+	background-color: #9d9d9d;
 	background-position: 100% -30px;
 }
 #basket #discountAmount {
@@ -2461,13 +2483,15 @@ BASKET & WISHLIST
 	padding-bottom: 30px;
 }
 #checkout .button {
-	background: #000;
-	border-color: #000;
+	background-color: #5b5b5b;
 	color: #fff;
 	font-size: 12px;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;	
 	padding: 0 40px;
+}
+#checkout .button:hover	{
+	background-color: #4f4f4f;
 }
 #checkout p.required {
 	margin: 0 0 24px;
@@ -2724,15 +2748,16 @@ LOGIN POPUP
         line-height: 28px;
 	border: 0;
         padding: 0;
-        background: #000;
+        background: #5b5b5b;
         color: #FFF;
-        border-color: #000;
         font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
         letter-spacing: 0.05em;
         text-transform: uppercase;
         text-align: center;
 }
-
+#login-wrap button#send2:hover, #signup-wrap button:hover, #fpass button#send3:hover, #fpass button.action-btn:hover	{
+	background-color: #4f4f4f;
+}
 #signup-wrap button {
         float: none;
         width: 330px;
@@ -2777,6 +2802,17 @@ LOGIN POPUP
 }
 #login-wrap .validation-advice, #forgot-form .validation-advice {
         margin-left: 110px;
+}
+.registered-users button, .new-users button	{
+	color: white;
+	background-color: #5b5b5b;
+	border: none;
+	font: 13px/18px "Open Sans", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+.registered-users button:hover, .new-users button:hover	{
+	background-color: #4f4f4f;
 }
 
 /*************************************************
@@ -3073,6 +3109,7 @@ Recently Viewed Items
 #recently-viewed-items	{
 	float: left;
 	width: 100%;
+	padding: 70px 0;
 	overflow: hidden;
 }
 
