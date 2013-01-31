@@ -266,6 +266,7 @@ body {
 }
 
 #header-wrap #secondary	{
+	width: 300px;
 	padding-top: 14px;
 }
 
@@ -275,12 +276,12 @@ body {
         left: 0;
         line-height: 15px;
         font-size: 10px;
-        width: 480px;
         text-align: left;
         text-transform: uppercase;
 }
 
 #tertiary {
+	width: 560px;
         left: auto;
         right: 0;
         text-align: right;
@@ -610,11 +611,11 @@ width:  80px;
 	position: absolute;
 	width: 200px;
 	height: auto;
-	top: 0px;
+	top: 10px;
 	left: -80px;
-	padding: 32px 0 0;
-
+	padding-bottom: 10px;
 	background-image: url("../images/volo/share_frame_big.png");
+	background-position: 0 -15px;
 	background-repeat: no-repeat;
 }
 
@@ -677,11 +678,13 @@ width:  80px;
 }
 
 #newsletter-area input[type=text] {
+	font-size: 11px;
+	text-indent: 10px;
         border: 1px solid #cacaca;
         border-right: 0;
         width: 187px;
         padding: 0;
-        height: 22px;
+        height: 23px;
         line-height: 23px;
         background: #FFF;
 }
@@ -690,8 +693,6 @@ width:  80px;
 	color:#838383;
 	font-size: 11px;
 	font-style: normal;
-	margin-left: 5px;
-	padding-left: 5px;
 }
 
 :-moz-placeholder { /* Firefox 18- */
@@ -728,7 +729,7 @@ width:  80px;
 #newsletter-area input[type=submit] {
         width: 70px;
         text-align: center;
-        height: 24px;
+        height: 25px;
         line-height: 24px;
         font-weight: bold;
         background: #fff;
@@ -1389,6 +1390,11 @@ CATEGORIES & PRODUCTS & SEARCH
         color: #fff;
         font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
         border: 0;
+
+        -webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 0.25s ease-in;
+        -o-transition:background 0.25s ease-in;
+        transition:background 0.25s ease-in;
 }
 #cart-view .view-basket:hover	{
 	background-color: #4f4f4f;
@@ -1607,6 +1613,11 @@ CATEGORIES & PRODUCTS & SEARCH
         border: 0;
         background-color: #5b5b5b;
         letter-spacing: 0.06em;
+	
+	-webkit-transition: background 0.25s ease-in;
+	-moz-transition:background 0.25s ease-in;  
+	-o-transition:background 0.25s ease-in;  
+	transition:background 0.25s ease-in;
 }
 #price .add-to-cart .button:hover {
 	background-color: #4f4f4f;
@@ -1662,7 +1673,7 @@ CATEGORIES & PRODUCTS & SEARCH
 #related h3 {
         line-height: 20px;
         color: #000;
-        font-size: 10px;
+        font-size: 12px;
         font-family: "Open Sans", Arial, Helvetica, sans-serif;
         font-weight: 700;
         text-transform: uppercase;
@@ -1671,8 +1682,8 @@ CATEGORIES & PRODUCTS & SEARCH
         line-height: 1.2em;
 }
 #related img {
-	width: 188px;
-	height: 116px;
+	width: 235px;
+	height: 145px;
         margin-bottom: 0;
 	padding: 1px;
 }
@@ -1685,28 +1696,28 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #related .recommended {
         float: left;
-        width: 700px;
+        width: 720px;
         padding: 0 0 5px;
 }
 #related .recommended ul	{
 	float: left;
-	padding: 70px 0;
+	padding: 35px 0;
 	overflow: hidden;
 }
 #related .recommended li {
         float: left;
-        width: 200px;
-        padding: 0 50px 0 0;
+        width: 237px;
+        padding: 0 3px 0 0;
         text-align: center;
 }
 #related .recommended li img {
         padding: 1px;
 }
-#related .recommended li.hover img {
+#related .recommended li.hover img, #related .collection li:hover img {
         opacity:0.5;
 }
 #related .recommended li.hover {
-        background: url(../images/volo/hoverrel.png) no-repeat 0 0;
+        /*background: url(../images/volo/hoverrel.png) no-repeat 0 0;*/
 }
 #related .recommended li:first-child {
         padding-left: 0;
@@ -1732,12 +1743,12 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #related .collection {
         float: right;
-        width: 200px;
+        width: 240px;
         padding: 0;
 }
 #related .collection ul	{
 	float: left;
-	padding: 70px 0;
+	padding: 35px 0;
 	overflow: hidden;
 }
 #details {
@@ -1839,7 +1850,7 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 .dimensions h4, .details h4 {
         text-transform: uppercase;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 700;
         line-height: 28px;
 }
@@ -1851,7 +1862,7 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 
 .details .specs h4 {
-        font-size: 10px;
+        font-size: 12px;
         line-height: 28px;
 }
 .details .specs dt, .details .specs dd {
@@ -2229,7 +2240,7 @@ BASKET & WISHLIST
 #basket th, #wishlist-table th {
 	border-bottom: 1px solid #949494;
 	width: 100px;
-	text-align: right;
+	text-align: left;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 }
@@ -2252,11 +2263,11 @@ BASKET & WISHLIST
 	vertical-align: middle;
 }
 #wishlist-table th:first-child, #wishlist-table td:first-child {
-	width: 119px;
+	width: 50px;
 }
 #wishlist-table td:nth-child(2) {
 	text-align: left;
-	width: 180px;
+	width: 80px;
 }
 #basket td.remove, #wishlist-table td:nth-child(3) {
  	padding-right: 10px;
@@ -2264,12 +2275,12 @@ BASKET & WISHLIST
 #basket .remove a, #wishlist-table .btn-remove {
 	display: block;
 	margin: 0;
-	float: right;
-	width: 24px;
+	float: left;
+	width: 79px;
 	height: 0;
 	line-height: 24px;
 	padding: 24px 0 0;
-	background: url(../images/volo/close2.png);
+	background: url(../images/volo/close3.png);
 	overflow: hidden;
 	font-size: 0.1em;
 }
@@ -2277,7 +2288,7 @@ BASKET & WISHLIST
 	background-position: 0 100%;
 }
 #basket .quantity input, #wishlist-table .qty {
-	width: 50px;
+	width: 24px;
 	border: 1px solid #d9d9d9;
 	color: #4a4a4a;
 	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
@@ -2286,10 +2297,12 @@ BASKET & WISHLIST
 	padding-right: 5px;
 }
 #wishlist-table th:nth-child(3), #wishlist-table td:nth-child(3) {
-	width: 65px;
+	width: 165px;
+	text-align: left;
 }
 #wishlist-table th:nth-child(4), #wishlist-table td:nth-child(4) {
-	width: 130px;
+	width: 50px;
+	text-align: right;
 }
 #wishlist-table th:nth-child(5), #wishlist-table td:nth-child(5) {
 	width: 91px;
@@ -2300,9 +2313,9 @@ BASKET & WISHLIST
 }
 .ui-spinner-input {
 	margin: 0 15px 0 0;
-	padding: 4px 0 4px 10px;
+	padding: 4px 10px 4px 10px;
 	border-right: 0 !important;
-	width: 34px;
+	width: 24px;
 	height: 18px;
 	line-height: 18px;
 }
@@ -2345,8 +2358,8 @@ BASKET & WISHLIST
 }
 #wishlist-table .cart-cell {
 	float: left;
-	padding-left: 15px;
-	width: 76px;
+	padding-left: 66px;
+	width: 50px;
 }
 #wishlist-table .cart-button {
 	float: right;
@@ -2367,6 +2380,11 @@ BASKET & WISHLIST
 	padding: 0 !important;
 	width: 90px;
 	text-align: center;
+
+        -webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 1s ease-in;
+        -o-transition:background 1s ease-in;
+        transition:background 1s ease-in;
 }
 #wishlist-table .btn-cart:hover, #wishlist-view-form .buttons-set .button:hover	{
 	background-color: #4f4f4f;
@@ -2376,9 +2394,8 @@ BASKET & WISHLIST
 	width: auto;
 	letter-spacing: 0.05em;
 	padding: 0 10px !important;
+
 }
-
-
 #basket .checkout {
 	padding: 15px 0;
 	text-align: right;
@@ -2399,6 +2416,11 @@ BASKET & WISHLIST
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
+
+        -webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 1s ease-in;
+        -o-transition:background 1s ease-in;
+        transition:background 1s ease-in;
 }
 #basket .checkout input, #basket .checkout button:hover	{
 	background-color: #4f4f4f;
@@ -2418,6 +2440,11 @@ BASKET & WISHLIST
 	font-size: 12px;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
+
+        -webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 1s ease-in;
+        -o-transition:background 1s ease-in;
+        transition:background 1s ease-in;
 }
 #basket .btn-update:hover	{
 	background-color: #9d9d9d;
@@ -2450,6 +2477,11 @@ BASKET & WISHLIST
 	background: url(../images/volo/button.png) 100% -2px;
 	color: #252525; */
 	text-align: center;
+
+        -webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 1s ease-in;
+        -o-transition:background 1s ease-in;
+        transition:background 1s ease-in;
 }
 #basket #discount button:hover {
 	background-color: #9d9d9d;
@@ -2484,12 +2516,19 @@ BASKET & WISHLIST
 	padding-bottom: 30px;
 }
 #checkout .button {
+	width: 180px;
+	height: 35px;
 	background-color: #5b5b5b;
 	color: #fff;
 	font-size: 12px;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;	
 	padding: 0 40px;
+
+        -webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 0.25s ease-in;
+        -o-transition:background 0.25s ease-in;
+        transition:background 0.25s ease-in;
 }
 #checkout .button:hover	{
 	background-color: #4f4f4f;
@@ -2602,7 +2641,7 @@ BASKET & WISHLIST
 }
 #review-buttons-container .btn-checkout {
 	height: 35px;
-	font: bold 18px/35px "Open Sans", Arial, Helvetica, sans-serif;
+	font: 12px/35px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
@@ -2665,6 +2704,44 @@ BASKET & WISHLIST
 	text-transform: uppercase;
 	text-align: center;
 	text-decoration: none;
+}
+/**************************************************
+LOGIN/ REGISTER PAGE
+**************************************************/
+
+.account-login, .account-create	{
+	float: left;
+	width: 440px;
+	padding: 0 20px;
+}
+.account-login .col2-set .col-1	{
+	width: 100%;
+	overflow: hidden;
+}
+.account-login .new-users	{
+	display: none;
+}
+.account-create .page-title h1, .account-login .page-title h1	{
+        font: 300 22px/70px "Open Sans", Arial, Helvetica, sans-serif !important;
+}
+.account-login .input-box input, .account-create .input-box input	{
+	width: 230px;
+	padding: 8px;
+}
+.account-login .form-list .field, .account-create .form-list .field	{
+	width: 100%;
+}
+.account-login .content h2, .account-create h2.legend {
+        float: left;
+        width: 100%;
+        font: 300 12px/40px "Open Sans", Arial, Helvetica, sans-serif;
+}
+.account-login .field, .account-create .field	{
+	padding-bottom: 12px;
+}
+
+.account-login em, .account-create em	{
+	display: none;
 }
 
 /**************************************************
@@ -2805,12 +2882,18 @@ LOGIN POPUP
         margin-left: 110px;
 }
 .registered-users button, .new-users button	{
+	width: 180px;
 	color: white;
 	background-color: #5b5b5b;
 	border: none;
 	font: 13px/18px "Open Sans", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
+
+        -webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 1s ease-in;
+        -o-transition:background 1s ease-in;
+        transition:background 1s ease-in;
 }
 .registered-users button:hover, .new-users button:hover	{
 	background-color: #4f4f4f;
@@ -2955,15 +3038,23 @@ SEND AN INVITE PAGE
 	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #sendinvite input[type="submit"], #sendinvite input[type="button"], #sendinvite .sharebuttons a {
-	background: #000;
+	background: #5b5b5b;
 	color: #FFF;
 	width: 320px;
 	padding: 9px;
 	text-align: center;
-	font: bold 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	text-align: center;
+
+        -webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 0.25s ease-in;
+        -o-transition:background 0.25s ease-in;
+        transition:background 0.25s ease-in;
+}
+#sendinvite input[type="submit"]:hover, #sendinvite input[type="button"]:hover, #sendinvite .sharebuttons a:hover {
+	background-color: #4f4f4f;
 }
 #sendinvite .sharebuttons a {
 	margin: 0 0 10px;
@@ -3025,15 +3116,21 @@ DISCOUNT BALANCE PAGE
 	background: #fcfce3;
 }
 #credit-wrapper .button {
-	background: #000;
-	border-color: #000;
+	background: #5b5b5b;
 	color: #FFF;
 	font-size: 12px;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-decoration: none;
-}
 
+        -webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 0.25s ease-in;
+        -o-transition:background 0.25s ease-in;
+        transition:background 0.25s ease-in;
+}
+#credit-wrapper .button:hover	{
+	background: #4f4f4f;
+}
 #credit-wrapper table.history td{
 	font-weight: normal !important;
 	font-size : 12px !important;
@@ -3061,13 +3158,13 @@ CREATE ACCOUNT PAGE
 }
 
 .account-create .page-title h1 {
-	font: 300 25px/83px "Open Sans", Arial, Helvetica, sans-serif;
+	font: 300 22px/83px "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .account-create h2.legend {
 	float: left;
 	width: 100%;
-	font: 300 14px/40px "Open Sans", Arial, Helvetica, sans-serif;
+	font: 300 12px/40px "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 .account-create .back-link a {
@@ -3077,16 +3174,23 @@ CREATE ACCOUNT PAGE
 .account-create .button {
 	border: 0;
 	padding: 0;
-	width: 262px;
+	width: 180px;
 	height: 35px;
-	background: black;
+	background: #5b5b5b;
 	color: white;
 	border-color: black;
-	font: bold 16px/24px "Open Sans", Arial, Helvetica, sans-serif;
+	font: 13px/18px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
-}
 
+        -webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 1s ease-in;
+        -o-transition:background 1s ease-in;
+        transition:background 1s ease-in;
+}
+.account-create .button:hover	{
+	background: #4f4f4f;
+}
 /*===============================
 Recently Viewed Items
 ===============================*/
@@ -3101,7 +3205,7 @@ Recently Viewed Items
 	line-height: 20px;
 	letter-spacing: 0;
 	color: #000;
-	font-size: 10px;
+	font-size: 12px;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -3110,7 +3214,7 @@ Recently Viewed Items
 #recently-viewed-items	{
 	float: left;
 	width: 100%;
-	padding: 70px 0;
+	padding: 35px 0;
 	overflow: hidden;
 }
 
@@ -3118,7 +3222,9 @@ Recently Viewed Items
 	float: left;
 	width: 25%;
 }
-
+#recently-viewed-items .item:hover img	{
+	opacity: 0.5;
+}
 #recently-viewed-items .item a	{
 	display: block;
 	width: 100%;

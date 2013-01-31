@@ -665,7 +665,7 @@ label.required em { color: red; }
 }
 
 .buttons-set { padding: 9px 0;}
-p.required { font-size: 10px; color: #ccc; }
+p.required { font-size: 10px; color: #ccc; width: 100%; margin-bottom: 10px;}
 p.back-link { clear: left; }
 .button-set { padding: 9px 0; }
 .buttons-set button, .buttons-set p.required { margin-right:10px; float: left; }
@@ -1801,7 +1801,7 @@ top: 25px; }
 
 /* Account Login/Create Pages ============================================================ */
 .account-login .content { min-height:200px; padding:0 10px; }
-.account-login .content h2 { font-size: 13px; line-height: 1.385; }
+.account-login .content h2 { font-size: 12px; line-height: 1.385; }
 .account-login .buttons-set {}
 
 .account-create {}

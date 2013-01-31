@@ -33,7 +33,7 @@
 ?>
 <div class="account-login">
     <div class="page-title">
-        <h1><?php echo $this->__('Login or Create an Account') ?></h1>
+        <h1><?php echo $this->__('Log Into Your Account') ?></h1>
     </div>
     <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
     <?php /* Extensions placeholder */ ?>
@@ -63,9 +63,9 @@
                                 <input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
                             </div>
                         </li>
+			<p class="required"><?php echo $this->__('* Required Fields') ?></p>
                         <?php echo $this->getChildHtml('form.additional.info'); ?>
                     </ul>
-                    <p class="required"><?php echo $this->__('* Required Fields') ?></p>
                 </div>
             </div>
         </div>

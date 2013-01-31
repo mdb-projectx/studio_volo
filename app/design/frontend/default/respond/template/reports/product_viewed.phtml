@@ -35,7 +35,7 @@
         <?php foreach ($_products as $_item): ?>
             <li class="item">
                 <a href="<?php echo $this->getProductUrl($_item) ?>">
-                    <img class="product-image" src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(188, 116) ?>" width="188" height="116" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" />
+                    <img class="product-image" src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(235, 145) ?>" width="235" height="145" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" />
 		    <p class="product-name"><?php echo $this->helper('catalog/output')->productAttribute($_item, $_item->getName() , 'name') ?></p>
                 </a>
             </li>
