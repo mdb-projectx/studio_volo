@@ -41,7 +41,11 @@ $_options = $this->getOptionList();
     </td>
 </tr>
 <?php endif; ?>
-<tr>
+<tr>      
+    <td class="remove">
+        <a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove btn-remove2"><?php echo $this->__('Remove item')?></a>
+	</td>
+	
 	<td class="product">
 		<?php if ($this->hasProductUrl()):?><a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>"><?php endif;?><img src="<?php echo $this->getProductThumbnail()->resize(107,79); ?>" width="107" height="79" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" /><?php if ($this->hasProductUrl()):?></a><?php endif;?>
 
@@ -54,11 +58,7 @@ $_options = $this->getOptionList();
         <?php if ($isVisibleProduct && $this->getOptionList()): ?>
             | <a class="link-edit" href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo $this->__('Edit item parameters') ?>"><?php echo $this->__('Edit') ?></a>
         <?php endif ?>		
-	</td>        
-
-    <td class="remove">
-        <a href="<?php echo $this->getDeleteUrl()?>" title="<?php echo $this->__('Remove item')?>" class="btn-remove btn-remove2"><?php echo $this->__('Remove item')?></a>
-	</td>
+	</td>  
 	
 	<td class="price">
 

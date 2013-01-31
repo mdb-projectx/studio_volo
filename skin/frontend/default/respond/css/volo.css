@@ -2238,7 +2238,7 @@ BASKET & WISHLIST
 	width: 100%;
 }
 #basket th, #wishlist-table th {
-	border-bottom: 1px solid #949494;
+	border-bottom: 1px solid #e0e0e0;
 	width: 100px;
 	text-align: left;
 	text-transform: uppercase;
@@ -2265,18 +2265,26 @@ BASKET & WISHLIST
 #wishlist-table th:first-child, #wishlist-table td:first-child {
 	width: 50px;
 }
-#wishlist-table td:nth-child(2) {
+#basket .product img, #wishlist-table td:nth-child(2) img {
+	margin: 0 10px 0 0;
+	vertical-align: middle;
+}
+#wishlist-table th:first-child, #wishlist-table td:nth-child(2) {
+	width: 119px;
+}
+#wishlist-table td:nth-child(3) {
 	text-align: left;
-	width: 80px;
+	min-width: 250px;
+ 	padding-right: 10px;
 }
 #basket td.remove, #wishlist-table td:nth-child(3) {
  	padding-right: 10px;
  }
 #basket .remove a, #wishlist-table .btn-remove {
 	display: block;
-	margin: 0;
+	margin: 0 0 0 35px;
 	float: left;
-	width: 79px;
+	width: 24px;
 	height: 0;
 	line-height: 24px;
 	padding: 24px 0 0;
@@ -2284,11 +2292,14 @@ BASKET & WISHLIST
 	overflow: hidden;
 	font-size: 0.1em;
 }
+#wishlist-table .btn-remove	{
+	margin: 0 0 0 15px;
+}
 #basket .remove a:hover, #wishlist-table .btn-remove:hover {
 	background-position: 0 100%;
 }
 #basket .quantity input, #wishlist-table .qty {
-	width: 24px;
+	width: 25px;
 	border: 1px solid #d9d9d9;
 	color: #4a4a4a;
 	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
@@ -2296,6 +2307,13 @@ BASKET & WISHLIST
 #basket .subtotal {
 	padding-right: 5px;
 }
+#wishlist-table th, #wishlist-table td {
+	text-align: left;
+}
+#wishlist-table td:nth-child(4) {
+	padding-left: 15px;
+}
+/*
 #wishlist-table th:nth-child(3), #wishlist-table td:nth-child(3) {
 	width: 165px;
 	text-align: left;
@@ -2307,7 +2325,7 @@ BASKET & WISHLIST
 #wishlist-table th:nth-child(5), #wishlist-table td:nth-child(5) {
 	width: 91px;
 }
-
+*/
 .ui-spinner {
 	display: block;
 }
@@ -2358,8 +2376,7 @@ BASKET & WISHLIST
 }
 #wishlist-table .cart-cell {
 	float: left;
-	padding-left: 66px;
-	width: 50px;
+	width: 51px;
 }
 #wishlist-table .cart-button {
 	float: right;
@@ -2390,6 +2407,7 @@ BASKET & WISHLIST
 	background-color: #4f4f4f;
 }
 #wishlist-view-form .buttons-set .button {	
+	background-color: #acacac;
 	font-size: 12px;
 	width: auto;
 	letter-spacing: 0.05em;
@@ -2434,8 +2452,8 @@ BASKET & WISHLIST
 	padding-right: 105px;
 }
 
-#basket .btn-update {
-	background: #acacac;
+#basket .btn-update, #wishist-view-form .buttons-set .btn-share, #wishlist-view-form .buttons-set .btn-update {
+	background: #acacac !important;
 	color: white;
 	font-size: 12px;
 	letter-spacing: 0.05em;

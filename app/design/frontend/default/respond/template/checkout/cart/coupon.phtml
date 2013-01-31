@@ -26,12 +26,12 @@
 ?>
 <form id="discount-coupon-form" action="<?php echo $this->getUrl('checkout/cart/couponPost') ?>" method="post">
 <div id="discount">
-	<label for="coupon_code"><?php echo $this->__('Discount Code') ?></label>
+	<label for="coupon_code"><?php echo $this->__('Promotional Code') ?></label>
 	<input type="hidden" name="remove" id="remove-coupone" value="0" />
 	<input class="input-text" id="coupon_code" name="coupon_code" value="<?php echo $this->htmlEscape($this->getCouponCode()) ?>" />
 	<button type="button" title="<?php echo $this->__('Apply Coupon') ?>" class="button" onclick="discountForm.submit(false)" value="<?php echo $this->__('Apply Coupon') ?>"><?php echo $this->__('Apply') ?></button>
 	<!--<button type="button" title="<?php echo $this->__('Cancel Coupon') ?>" class="button" onclick="discountForm.submit(true)" value="<?php echo $this->__('Cancel Coupon') ?>"><span><span><?php echo $this->__('Cancel Coupon') ?></span></span></button>-->
-	<span class="value">-$0</span>
+	<span class="value">&nbsp;</span>
 </div>
 </form>
 <script type="text/javascript">
