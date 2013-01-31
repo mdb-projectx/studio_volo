@@ -2238,7 +2238,11 @@ BASKET & WISHLIST
 	width: 100%;
 }
 #basket th, #wishlist-table th {
+<<<<<<< HEAD
 	border-bottom: 1px solid #e0e0e0;
+=======
+ 	border-bottom: 1px solid #e0e0e0;
+>>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 	width: 100px;
 	text-align: left;
 	text-transform: uppercase;
@@ -2258,10 +2262,14 @@ BASKET & WISHLIST
 	width: auto;
 	vertical-align: middle;
 }
-#basket .product img, #wishlist-table td:first-child img {
+#wishlist-table th:first-child, #wishlist-table td:first-child {
+	width: 50px;
+}
+#basket .product img, #wishlist-table td:nth-child(2) img {
 	margin: 0 10px 0 0;
 	vertical-align: middle;
 }
+<<<<<<< HEAD
 #wishlist-table th:first-child, #wishlist-table td:first-child {
 	width: 50px;
 }
@@ -2278,9 +2286,18 @@ BASKET & WISHLIST
  	padding-right: 10px;
 }
 #basket td.remove, #wishlist-table td:nth-child(3) {
+=======
+#wishlist-table th:first-child, #wishlist-table td:nth-child(2) {
+	width: 119px;
+}
+#wishlist-table td:nth-child(3) {
+	text-align: left;
+	min-width: 250px;
+>>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
  	padding-right: 10px;
- }
+}
 #basket .remove a, #wishlist-table .btn-remove {
+<<<<<<< HEAD
 	display: block;
 	margin: 0 0 0 35px;
 	float: left;
@@ -2295,17 +2312,38 @@ BASKET & WISHLIST
 #wishlist-table .btn-remove	{
 	margin: 0 0 0 15px;
 }
+=======
+	display: block;
+	margin: 0 0 0 35px;
+	float: left;
+	width: 24px;
+	height: 0;
+	line-height: 24px;
+	padding: 24px 0 0;
+	background: url(../images/volo/close3.png);
+	overflow: hidden;
+	font-size: 0.1em;
+}
+#wishlist-table .btn-remove {
+	margin: 0 0 0 15px;
+}
+>>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 #basket .remove a:hover, #wishlist-table .btn-remove:hover {
 	background-position: 0 100%;
 }
 #basket .quantity input, #wishlist-table .qty {
+<<<<<<< HEAD
 	width: 25px;
+=======
+	width: 25px;
+>>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 	border: 1px solid #d9d9d9;
 	color: #4a4a4a;
 	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #basket .subtotal {
 	padding-right: 5px;
+<<<<<<< HEAD
 }
 #wishlist-table th, #wishlist-table td {
 	text-align: left;
@@ -2314,6 +2352,16 @@ BASKET & WISHLIST
 	padding-left: 15px;
 }
 /*
+=======
+}
+#wishlist-table th, #wishlist-table td {
+	text-align: left;
+}
+#wishlist-table td:nth-child(4) {
+	padding-left: 15px;
+}
+/*
+>>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 #wishlist-table th:nth-child(3), #wishlist-table td:nth-child(3) {
 	width: 165px;
 	text-align: left;
@@ -2325,7 +2373,12 @@ BASKET & WISHLIST
 #wishlist-table th:nth-child(5), #wishlist-table td:nth-child(5) {
 	width: 91px;
 }
+<<<<<<< HEAD
 */
+=======
+*/
+
+>>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 .ui-spinner {
 	display: block;
 }
@@ -2376,6 +2429,10 @@ BASKET & WISHLIST
 }
 #wishlist-table .cart-cell {
 	float: left;
+<<<<<<< HEAD
+=======
+	/* padding-left: 15px; */
+>>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 	width: 51px;
 }
 #wishlist-table .cart-button {
@@ -2452,6 +2509,7 @@ BASKET & WISHLIST
 	padding-right: 105px;
 }
 
+<<<<<<< HEAD
 #basket .btn-update, #wishist-view-form .buttons-set .btn-share, #wishlist-view-form .buttons-set .btn-update {
 	background: #acacac !important;
 	color: white;
@@ -2467,6 +2525,21 @@ BASKET & WISHLIST
 #basket .btn-update:hover	{
 	background-color: #9d9d9d;
 }
+=======
+#basket .btn-update, 
+#wishlist-view-form .buttons-set .btn-share, 
+#wishlist-view-form .buttons-set .btn-update {
+	background: #f0f0f0;
+	color: #000;
+	border-color: #d9d9d9;
+	text-transform: uppercase;
+}
+#basket .btn-update {
+	font-size: 12px;
+	letter-spacing: 0.05em;
+}
+
+>>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 #basket #discount {
 	text-align: right;
 	padding: 30px 5px 0 0;
