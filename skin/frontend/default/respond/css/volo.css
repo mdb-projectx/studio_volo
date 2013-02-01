@@ -2318,9 +2318,6 @@ BASKET & WISHLIST
 #wishlist-table th, #wishlist-table td {
 	text-align: left;
 }
-#wishlist-table td:nth-child(4) {
-	padding-left: 15px;
-}
 .ui-spinner {
 	display: block;
 }
