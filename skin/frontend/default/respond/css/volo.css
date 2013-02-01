@@ -664,7 +664,6 @@ width:  80px;
         border-top: 1px dotted #a8a8a8;
         border-bottom: 1px dotted #a8a8a8;
         line-height: 30px;
-        font-weight: bold;
         text-transform: uppercase;
         color: #4a4a4a;
         text-align: center;
@@ -672,17 +671,16 @@ width:  80px;
 
 #newsletter-area {
         float: left;
-        width: 280px;
+        width: 289px;
         height: 65px;
-        margin-right: 62px;
+        border-right: 1px solid #a8a8a8;
 }
-
 #newsletter-area input[type=text] {
 	font-size: 11px;
 	text-indent: 10px;
         border: 1px solid #cacaca;
         border-right: 0;
-        width: 187px;
+        width: 177px;
         padding: 0;
         height: 23px;
         line-height: 23px;
@@ -751,81 +749,98 @@ width:  80px;
 #newsletter-area p {
         float: left;
         text-align: left;
-        font-size: 10px;
+        font-size: 12px;
         font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 #follow {
         float: left;
-        width: 479px;
+        width: 359px;
         height: 65px;
-        font-size: 10px;
+        font-size: 12px;
         font-family: "Open Sans", Arial, Helvetica, sans-serif;
         text-align: left;
+	padding: 0 10px;
+	border-right: 1px solid #a8a8a8;
 }
 
 #follow .social {
         float: left;
+	width: 100%;
         padding: 3px 0 0;
 }
 #follow .social .social-button {
         float: left;
-        width: 92px;
+        width: 25%;
 }
 #follow .social .social-button:last-child {
         float: left;
         width: 61px;
 }
-
-
+#follow .social .social-button a	{
+	float: left;
+	display: block;
+	width: 66px;
+	height: 14px;
+	text-indent: -99999px;
+	margin: 5px 0px 0px 0px;
+}
+#follow .social .social-button a:hover	{
+	background-position: top;
+}
+#follow .social .social-button .footer_facebook	{
+	background: url('../images/volo/facebook.png') bottom;
+}
+#follow .social .social-button .footer_twitter {
+	margin-top: 6px;
+        background: url('../images/volo/twitter.png') bottom;
+}
+#follow .social .social-button .footer_pinterest {
+	margin-top :4px;
+	height: 18px;
+        background: url('../images/volo/pinterest.png') bottom;
+}
+#follow .social .social-button .footer_houzz {
+	margin-top: 2px;
+	height: 22px;
+        background: url('../images/volo/houzz-new.png') bottom;
+}
+#callus	{
+	float: left;
+	width: 290px;
+}
+#callus p	{
+	font-size: 12px;
+}
 #links {
         padding: 0 0 30px;
 }
 
 #links .col {
         float: left;
-        padding: 0 5px;
-        width: 130px;
+        width: 12.5%;
         font-size: 10px;
 }
-
 #links .col:nth-child(1) {
-        width: 110px;
+        width: 11.5%;
 }
-
 #links .col:nth-child(2) {
-        width: 125px;
-}
-
-#links .col:nth-child(3) {
-        width: 75px;
+        width: 9%;
 }
 
 #links .col:nth-child(4) {
-        width: 85px;
+        width: 13%;
 }
-
 #links .col:nth-child(5) {
-        width: 120px;
+	width: 10.5%;
 }
-
 #links .col:nth-child(6) {
-        width: 90px;
+        width: 13.5%;
 }
-
-#links .col:nth-child(7) {
-        width: 90px;
-}
-
 #links .col:nth-child(8) {
-        width: 85px;
+        width: 16.5%;
+	text-align: right;
 }
-
-#links .col:nth-child(9) {
-        width: 90px;
-        text-align: right;
-}
-
 #links .heading {
         line-height: 30px;
         color: black;
@@ -2199,7 +2214,6 @@ INVITE FRIENDS
 /**************************************************
 BASKET & WISHLIST
 **************************************************/
-
 #basket, #checkout, .my-wishlist {
  	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;	
 }
@@ -2238,14 +2252,11 @@ BASKET & WISHLIST
 	width: 100%;
 }
 #basket th, #wishlist-table th {
-<<<<<<< HEAD
-	border-bottom: 1px solid #e0e0e0;
-=======
  	border-bottom: 1px solid #e0e0e0;
->>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 	width: 100px;
-	text-align: left;
+	text-align: right;
 	text-transform: uppercase;
+	font-weight: bold;
 	letter-spacing: 0.05em;
 }
 #basket td, #wishlist-table td {
@@ -2269,50 +2280,15 @@ BASKET & WISHLIST
 	margin: 0 10px 0 0;
 	vertical-align: middle;
 }
-<<<<<<< HEAD
-#wishlist-table th:first-child, #wishlist-table td:first-child {
-	width: 50px;
-}
-#basket .product img, #wishlist-table td:nth-child(2) img {
-	margin: 0 10px 0 0;
-	vertical-align: middle;
-}
 #wishlist-table th:first-child, #wishlist-table td:nth-child(2) {
 	width: 119px;
 }
 #wishlist-table td:nth-child(3) {
 	text-align: left;
 	min-width: 250px;
- 	padding-right: 10px;
-}
-#basket td.remove, #wishlist-table td:nth-child(3) {
-=======
-#wishlist-table th:first-child, #wishlist-table td:nth-child(2) {
-	width: 119px;
-}
-#wishlist-table td:nth-child(3) {
-	text-align: left;
-	min-width: 250px;
->>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
  	padding-right: 10px;
 }
 #basket .remove a, #wishlist-table .btn-remove {
-<<<<<<< HEAD
-	display: block;
-	margin: 0 0 0 35px;
-	float: left;
-	width: 24px;
-	height: 0;
-	line-height: 24px;
-	padding: 24px 0 0;
-	background: url(../images/volo/close3.png);
-	overflow: hidden;
-	font-size: 0.1em;
-}
-#wishlist-table .btn-remove	{
-	margin: 0 0 0 15px;
-}
-=======
 	display: block;
 	margin: 0 0 0 35px;
 	float: left;
@@ -2327,23 +2303,17 @@ BASKET & WISHLIST
 #wishlist-table .btn-remove {
 	margin: 0 0 0 15px;
 }
->>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 #basket .remove a:hover, #wishlist-table .btn-remove:hover {
 	background-position: 0 100%;
 }
 #basket .quantity input, #wishlist-table .qty {
-<<<<<<< HEAD
 	width: 25px;
-=======
-	width: 25px;
->>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 	border: 1px solid #d9d9d9;
 	color: #4a4a4a;
 	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #basket .subtotal {
 	padding-right: 5px;
-<<<<<<< HEAD
 }
 #wishlist-table th, #wishlist-table td {
 	text-align: left;
@@ -2351,42 +2321,14 @@ BASKET & WISHLIST
 #wishlist-table td:nth-child(4) {
 	padding-left: 15px;
 }
-/*
-=======
-}
-#wishlist-table th, #wishlist-table td {
-	text-align: left;
-}
-#wishlist-table td:nth-child(4) {
-	padding-left: 15px;
-}
-/*
->>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
-#wishlist-table th:nth-child(3), #wishlist-table td:nth-child(3) {
-	width: 165px;
-	text-align: left;
-}
-#wishlist-table th:nth-child(4), #wishlist-table td:nth-child(4) {
-	width: 50px;
-	text-align: right;
-}
-#wishlist-table th:nth-child(5), #wishlist-table td:nth-child(5) {
-	width: 91px;
-}
-<<<<<<< HEAD
-*/
-=======
-*/
-
->>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 .ui-spinner {
 	display: block;
 }
 .ui-spinner-input {
 	margin: 0 15px 0 0;
-	padding: 4px 10px 4px 10px;
+	padding: 4px 0 4px 10px;
 	border-right: 0 !important;
-	width: 24px;
+	width: 34px;
 	height: 18px;
 	line-height: 18px;
 }
@@ -2417,7 +2359,6 @@ BASKET & WISHLIST
 .ui-spinner-button .ui-icon {
 	display: none;
 }
-
 #wishlist-table textarea {
 	width: 120px;
 	height: 54px;
@@ -2429,10 +2370,7 @@ BASKET & WISHLIST
 }
 #wishlist-table .cart-cell {
 	float: left;
-<<<<<<< HEAD
-=======
 	/* padding-left: 15px; */
->>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 	width: 51px;
 }
 #wishlist-table .cart-button {
@@ -2447,30 +2385,23 @@ BASKET & WISHLIST
 	text-align: left;
 }
 #wishlist-table .btn-cart, #wishlist-view-form .buttons-set .button {	
-	background: #5b5b5b;
+	background: #000;
+	border-color: #000;
 	color: #fff;
 	font-size: 10px;
 	text-transform: uppercase;	
 	padding: 0 !important;
 	width: 90px;
 	text-align: center;
-
-        -webkit-transition: background 0.25s ease-in;
-        -moz-transition:background 1s ease-in;
-        -o-transition:background 1s ease-in;
-        transition:background 1s ease-in;
-}
-#wishlist-table .btn-cart:hover, #wishlist-view-form .buttons-set .button:hover	{
-	background-color: #4f4f4f;
 }
 #wishlist-view-form .buttons-set .button {	
-	background-color: #acacac;
 	font-size: 12px;
 	width: auto;
 	letter-spacing: 0.05em;
 	padding: 0 10px !important;
-
 }
+
+
 #basket .checkout {
 	padding: 15px 0;
 	text-align: right;
@@ -2484,21 +2415,13 @@ BASKET & WISHLIST
 	background: url(../images/volo/cartbutton3.png);
 	color: #252525;
 	*/
-	background: #5b5b5b;
+	background: #000;
 	color: #FFF;
 	border-color: #000;
 	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
-
-        -webkit-transition: background 0.25s ease-in;
-        -moz-transition:background 1s ease-in;
-        -o-transition:background 1s ease-in;
-        transition:background 1s ease-in;
-}
-#basket .checkout input, #basket .checkout button:hover	{
-	background-color: #4f4f4f;
 }
 /*
 #basket .checkout input:hover, #basket .checkout button:hover {
@@ -2509,23 +2432,6 @@ BASKET & WISHLIST
 	padding-right: 105px;
 }
 
-<<<<<<< HEAD
-#basket .btn-update, #wishist-view-form .buttons-set .btn-share, #wishlist-view-form .buttons-set .btn-update {
-	background: #acacac !important;
-	color: white;
-	font-size: 12px;
-	letter-spacing: 0.05em;
-	text-transform: uppercase;
-
-        -webkit-transition: background 0.25s ease-in;
-        -moz-transition:background 1s ease-in;
-        -o-transition:background 1s ease-in;
-        transition:background 1s ease-in;
-}
-#basket .btn-update:hover	{
-	background-color: #9d9d9d;
-}
-=======
 #basket .btn-update, 
 #wishlist-view-form .buttons-set .btn-share, 
 #wishlist-view-form .buttons-set .btn-update {
@@ -2539,7 +2445,6 @@ BASKET & WISHLIST
 	letter-spacing: 0.05em;
 }
 
->>>>>>> fb7692ade0977c45d17870dd38be9b499d39e972
 #basket #discount {
 	text-align: right;
 	padding: 30px 5px 0 0;
@@ -2557,8 +2462,9 @@ BASKET & WISHLIST
 	font-size: 12px;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;	
-	background: #acacac;
-	color: white;
+	background: #f0f0f0;
+	color: #000;
+	border: 1px solid #d9d9d9;
 	text-transform: uppercase;
 	height: 24px;
 	line-height: 24px;
@@ -2568,14 +2474,8 @@ BASKET & WISHLIST
 	background: url(../images/volo/button.png) 100% -2px;
 	color: #252525; */
 	text-align: center;
-
-        -webkit-transition: background 0.25s ease-in;
-        -moz-transition:background 1s ease-in;
-        -o-transition:background 1s ease-in;
-        transition:background 1s ease-in;
 }
 #basket #discount button:hover {
-	background-color: #9d9d9d;
 	background-position: 100% -30px;
 }
 #basket #discountAmount {
@@ -2607,22 +2507,13 @@ BASKET & WISHLIST
 	padding-bottom: 30px;
 }
 #checkout .button {
-	width: 180px;
-	height: 35px;
-	background-color: #5b5b5b;
+	background: #000;
+	border-color: #000;
 	color: #fff;
 	font-size: 12px;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;	
 	padding: 0 40px;
-
-        -webkit-transition: background 0.25s ease-in;
-        -moz-transition:background 0.25s ease-in;
-        -o-transition:background 0.25s ease-in;
-        transition:background 0.25s ease-in;
-}
-#checkout .button:hover	{
-	background-color: #4f4f4f;
 }
 #checkout p.required {
 	margin: 0 0 24px;
@@ -2732,7 +2623,7 @@ BASKET & WISHLIST
 }
 #review-buttons-container .btn-checkout {
 	height: 35px;
-	font: 12px/35px "Open Sans", Arial, Helvetica, sans-serif;
+	font: bold 18px/35px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
