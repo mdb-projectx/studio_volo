@@ -2141,17 +2141,6 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 		/*background-position: 0 -30px;*/
 		background-position: 3px -22px;
 }
-		/* top: -10px;
-		right: -10px;
-		background: url(../images/volo/close.png) no-repeat 0 0; */
-		top: 0;
-		right: -2px;
-		background: url(../images/volo/close3.png) no-repeat 3px 2px;
-}
-#cboxClose:hover {
-		/* background-position: 0 -30px; */		
-		background-position: 3px -22px;
-}
 /*
 #cboxPrevious, #cboxNext  {
 		text-indent: -9999px;
