@@ -2137,6 +2137,9 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 		right: -2px;
 		background: url(../images/volo/close3.png) no-repeat 3px 2px;
 }
+.cms-index-index #cboxClose {
+		display: block !important; /* show close button for newsletter popup */
+}
 #cboxClose:hover {
 		/*background-position: 0 -30px;*/
 		background-position: 3px -22px;
@@ -2764,9 +2767,6 @@ BASKET & WISHLIST
 	min-height: 500px;
 }
 
-.block-account .block-title {
-	margin-top: 15px;
-}
 /**************************************************
 LOGIN/ REGISTER PAGE
 **************************************************/
