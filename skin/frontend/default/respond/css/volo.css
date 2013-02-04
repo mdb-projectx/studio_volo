@@ -2141,6 +2141,17 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 		/*background-position: 0 -30px;*/
 		background-position: 3px -22px;
 }
+		/* top: -10px;
+		right: -10px;
+		background: url(../images/volo/close.png) no-repeat 0 0; */
+		top: 0;
+		right: -2px;
+		background: url(../images/volo/close3.png) no-repeat 3px 2px;
+}
+#cboxClose:hover {
+		/* background-position: 0 -30px; */		
+		background-position: 3px -22px;
+}
 /*
 #cboxPrevious, #cboxNext  {
 		text-indent: -9999px;
@@ -2414,6 +2425,7 @@ BASKET & WISHLIST
 }
 #wishlist-table .btn-cart, #wishlist-view-form .buttons-set .button {	
 	background: #5b5b5b;
+	border-color: #5b5b5b;
 	color: #fff;
 	font-size: 10px;
 	text-transform: uppercase;	
@@ -2428,6 +2440,16 @@ BASKET & WISHLIST
 }
 #wishlist-table .btn-cart:hover, #wishlist-view-form .buttons-set .button:hover	{
 	background: #4f4f4f;
+	text-align: center;
+	
+	-webkit-transition: background 0.25s ease-in;
+	-moz-transition:background 0.25s ease-in;  
+	-o-transition:background 0.25s ease-in;  
+	-ms-transition:background 0.25s ease-in;  
+	transition:background 0.25s ease-in;
+}
+#wishlist-table .btn-cart:hover, #wishlist-view-form .buttons-set .button:hover {	
+	background-color: #4f4f4f;
 }
 #wishlist-view-form .buttons-set .button {	
 	font-size: 12px;
@@ -2435,8 +2457,6 @@ BASKET & WISHLIST
 	letter-spacing: 0.05em;
 	padding: 0 10px !important;
 }
-
-
 #basket .checkout {
 	padding: 15px 0;
 	text-align: right;
@@ -2465,13 +2485,27 @@ BASKET & WISHLIST
 #basket .checkout input:hover, #basket .checkout button:hover {
 	background: #4f4f4f;
 }
+#basket .checkout input, #basket .checkout button {
+	background: #5b5b5b;
+	border-color: #5b5b5b;	
+	-webkit-transition: background 0.25s ease-in;
+	-moz-transition:background 0.25s ease-in;  
+	-o-transition:background 0.25s ease-in;  
+	-ms-transition:background 0.25s ease-in;  
+	transition:background 0.25s ease-in;
+}
+#basket .checkout input:hover, #basket .checkout button:hover {
+	background: #4f4f4f;
+}
 #shopping-cart-table tfoot td {
 	padding-right: 105px;
 }
-
 #basket .btn-update, 
 #wishlist-view-form .buttons-set .btn-share, 
-#wishlist-view-form .buttons-set .btn-update {
+#wishlist-view-form .buttons-set .btn-update,
+#basket .btn-update:hover, 
+#wishlist-view-form .buttons-set .btn-share:hover, 
+#wishlist-view-form .buttons-set .btn-update:hover {
 	background: #f0f0f0;
 	color: #000;
 	border-color: #d9d9d9;
@@ -2723,6 +2757,23 @@ BASKET & WISHLIST
 	text-transform: uppercase;
 	text-align: center;
 	text-decoration: none;
+}
+/* ACCOUNT */
+
+/* min height for all account pages */
+
+.customer-account-index .col2-left-layout .col-main,
+.customer-account-edit .col2-left-layout .col-main,
+.customer-address-index .col2-left-layout .col-main,
+.customer-address-form .col2-left-layout .col-main,
+.sales-order-history .col2-left-layout .col-main,
+.sales-order-view .col2-left-layout .col-main,
+.wishlist-index-index  .col2-left-layout .col-main {
+	min-height: 500px;
+}
+
+.block-account .block-title {
+	margin-top: 15px;
 }
 /**************************************************
 LOGIN/ REGISTER PAGE
