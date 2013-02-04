@@ -201,6 +201,7 @@ $j(document).ready(function() {
 			min: 0
 		});
 		
+		/*
 		$j('#wishlist-table textarea').each(function() {
 			if( $j(this).val() == '') {
 				$j(this).val('Comments...');
@@ -216,6 +217,7 @@ $j(document).ready(function() {
 				$j(this).val('Comments...');
 			}
 		});
+		*/
 	}
 
 });

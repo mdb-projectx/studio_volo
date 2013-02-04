@@ -87,13 +87,7 @@ Wishlist pages
                         </action>
                     </block>
                     <block type="wishlist/customer_wishlist_item_column_remove" name="customer.wishlist.item.name" template="wishlist/item/column/name.phtml" />
-					<!--
-                    <block type="wishlist/customer_wishlist_item_column_comment" name="customer.wishlist.item.info" template="wishlist/item/column/info.phtml">
-                        <action method="setTitle" translate="title">
-                            <title>Comments</title>
-                        </action>
-                    </block>
-					-->
+                    <block type="wishlist/customer_wishlist_item_column_comment" name="customer.wishlist.item.info" template="wishlist/item/column/info.phtml" />
                     <block type="wishlist/customer_wishlist_item_column_cart" name="customer.wishlist.item.cart" template="wishlist/item/column/cart.phtml">
                         <action method="setTitle" translate="title">
                             <title>Quantity</title>
