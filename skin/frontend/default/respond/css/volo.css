@@ -183,8 +183,12 @@ em,i {
  	letter-spacing: 0.1em;
 	text-align: left;
 }
-.col2-left-layout .col-main .page-title h1 {
+.col2-left-layout	{
+	margin-top: 15px;
+}
+.col2-left-layout .col-main	{
 	padding-left: 0;
+	min-height: 500px;
 }
 
 .col1-layout .col-main	{
@@ -197,6 +201,7 @@ LAYOUT
 
 body {
 	background: #FFF;
+	color: #2b2b2b;
 	text-align: center;
 }
 #wrapper {
@@ -217,6 +222,7 @@ body {
 		left: 0;
 		height: 70px;
 		width: 100%;
+		color: #4f4f4f;
 		background: #FFF;
 		z-index: 10;
 }
@@ -286,9 +292,19 @@ body {
 		right: 0;
 		text-align: right;
 }
+#secondary a, #seoncdary p	{
+	width: auto;
+	float: left;
+}
+#secondary p:before	{
+	content: "  | ";
+}
+#secondary p:first-child:before	{
+	content: "";
+}
 
 #secondary a,#tertiary a {
-		color: #000;
+	color: #4b4b4b;
 }
 
 #header-wrap #tertiary ul	{
@@ -297,9 +313,7 @@ body {
 
 #header-wrap #secondary a.invite {
 	display: block;
-		color: #000;
 }
-
 #secondary a:hover,#tertiary a:hover {
 
 		text-decoration: underline;
@@ -614,9 +628,6 @@ width:  80px;
 	top: 10px;
 	left: -80px;
 	padding-bottom: 10px;
-	background-image: url("../images/volo/share_frame_big.png");
-	background-position: 0 -15px;
-	background-repeat: no-repeat;
 }
 
 #tertiary .first:hover .submenu, #tertiary .first .submenu:hover	{
@@ -630,14 +641,28 @@ width:  80px;
 
 #tertiary .first .submenu ul li	{
 	float: left;
-	width: 100%;
-	border: 0;
+	width: 198px;
+	border-width: 0px 1px;
+	border-color: #666;
+	border-style: solid;
+	background-color: #FFF;
 }
-
+#tertiary .first .submenu ul li.top	{
+	width: 200px;
+	height: 8px;
+	border: 0;
+	background-image: url("../images/volo/share_frame_big_top.png");^
+        background-repeat: no-repeat;
+}
+#tertiary .first .submenu ul li.bottom	{
+	border-width: 0 1px 1px 1px;
+}
+#tertiary li.last  {
+        display: none;
+}
 #tertiary .first .submenu ul li::before	{
 	content: "";
 }
-
 #tertiary .first .submenu ul li a	{
 	float: left;
 	width: 180px;
@@ -670,10 +695,11 @@ width:  80px;
 }
 
 #newsletter-area {
-		float: left;
-		width: 289px;
-		height: 65px;
-		border-right: 1px solid #a8a8a8;
+	float: left;
+	width: 248px;
+	height: 65px;
+	padding: 0 21px 0 20px;
+	border-right: 1px solid #a8a8a8;
 }
 #newsletter-area input[type=text] {
 	font-size: 11px;
@@ -754,28 +780,27 @@ width:  80px;
 }
 
 #follow {
-		float: left;
-		width: 359px;
-		height: 65px;
-		font-size: 12px;
-		font-family: "Open Sans", Arial, Helvetica, sans-serif;
-		text-align: left;
+	float: left;
+	width: 359px;
+	height: 65px;
+	font-size: 12px;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	text-align: center;
 	padding: 0 10px;
 	border-right: 1px solid #a8a8a8;
 }
 
 #follow .social {
-		float: left;
+	float: left;
 	width: 100%;
-		padding: 3px 0 0;
+	padding: 3px 0 0;
 }
 #follow .social .social-button {
-		float: left;
-		width: 25%;
+	float: left;
+	width: 25%;
 }
 #follow .social .social-button:last-child {
-		float: left;
-		width: 61px;
+	float: left;
 }
 #follow .social .social-button a	{
 	float: left;
@@ -2050,7 +2075,7 @@ Change the following styles to modify the appearance of ColorBox.  They are
 ordered & tabbed in a way that represents the nesting of the generated HTML.
  */
 #cboxOverlay {
-		background: #FFF;
+	background: #000;
 }
 
 #cboxContent {
@@ -2100,19 +2125,22 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 }
 
 #cboxClose {
+		display: none !important;
 		text-indent: -9999px;
 		width: 30px;
 		height: 30px;
 		position: absolute;
-		top: -10px;
+		/*top: -10px;
 		right: -10px;
-		background: url(../images/volo/close.png) no-repeat 0 0;
+		background: url(../images/volo/close.png) no-repeat 0 0;*/
+		top: 0px;
+		right: -2px;
+		background: url(../images/volo/close3.png) no-repeat 3px 2px;
 }
-
 #cboxClose:hover {
-		background-position: 0 -30px;
+		/*background-position: 0 -30px;*/
+		background-position: 3px -22px;
 }
-
 /*
 #cboxPrevious, #cboxNext  {
 		text-indent: -9999px;
@@ -2260,7 +2288,6 @@ BASKET & WISHLIST
 	width: 100px;
 	text-align: right;
 	text-transform: uppercase;
-	font-weight: bold;
 	letter-spacing: 0.05em;
 }
 #basket td, #wishlist-table td {
@@ -2386,14 +2413,21 @@ BASKET & WISHLIST
 	text-align: left;
 }
 #wishlist-table .btn-cart, #wishlist-view-form .buttons-set .button {	
-	background: #000;
-	border-color: #000;
+	background: #5b5b5b;
 	color: #fff;
 	font-size: 10px;
 	text-transform: uppercase;	
 	padding: 0 !important;
 	width: 90px;
 	text-align: center;
+
+	-webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 0.25s ease-in;
+        -o-transition:background 0.25s ease-in;
+        transition:background 0.25s ease-in;	
+}
+#wishlist-table .btn-cart:hover, #wishlist-view-form .buttons-set .button:hover	{
+	background: #4f4f4f;
 }
 #wishlist-view-form .buttons-set .button {	
 	font-size: 12px;
@@ -2416,19 +2450,21 @@ BASKET & WISHLIST
 	background: url(../images/volo/cartbutton3.png);
 	color: #252525;
 	*/
-	background: #000;
+	background: #5b5b5b;
 	color: #FFF;
-	border-color: #000;
 	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
+
+	-webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 0.25s ease-in;
+        -o-transition:background 0.25s ease-in;
+        transition:background 0.25s ease-in;
 }
-/*
 #basket .checkout input:hover, #basket .checkout button:hover {
-	background-position: 0 100%;
+	background: #4f4f4f;
 }
-*/
 #shopping-cart-table tfoot td {
 	padding-right: 105px;
 }
