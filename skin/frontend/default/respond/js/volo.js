@@ -133,9 +133,9 @@ $j(document).ready(function() {
 		});
 		
 		$j('#slider').mouseenter(function() {
-			pauseSlider = true;			console.log('1');
+			pauseSlider = true;			
 		}).mouseleave(function() {
-			pauseSlider = false;			console.log('0');
+			pauseSlider = false;			
 		});
 	}
 	
