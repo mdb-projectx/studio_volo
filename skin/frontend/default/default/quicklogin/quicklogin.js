@@ -101,7 +101,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 						checkHeight = 0;										
 						$j('#alogin').colorbox.resize({
 							innerWidth: 390,
-							innerHeight: 285 - 143 + newHeight
+							innerHeight: (460 - 386 + newHeight)
 						});
 					}					
 					setTimeout(function() { 					
@@ -119,12 +119,12 @@ var checkurl = URL + "customer/account/signupformpopup/";
 						
 					 var valid = new Validation('regis-form');
 					 if(valid.validate()){				 
-					 
+					/*
 						$j('#alogin').colorbox.resize({
 							innerWidth: 390,
 							innerHeight: 460,
 						});
-						
+					*/
 						  var request = new Ajax.Request(
 						URL + "customer/account/ajaxCreate",
 						{
@@ -162,7 +162,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 								}
 								var newHeight;
                 		                                var checkHeight = setInterval(function(){
-        	                                               newHeight = $j('#regis-form').height();
+         	                                                newHeight = $j('#login-form').height();
 	                                                        if(newHeight != origHeight) {
 	                                                                clearInterval(checkHeight);
 	                                                                checkHeight = 0;
@@ -185,10 +185,10 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							parameters: Form.serialize('regis-form')
 						}
 						  );
-					  }else{
+					  } else	{
 						var newHeight;
 						var checkHeight = setInterval(function(){ 		
-							newHeight = $j('#regis-form').height();						
+							newHeight = $j('#login-form').height();
 							if(newHeight != origHeight) {
 								clearInterval(checkHeight);
 								checkHeight = 0;												
@@ -203,7 +203,6 @@ var checkurl = URL + "customer/account/signupformpopup/";
 						}, 10);
 						return false;
 					  }
-			  
 				
 		        }	
 		/*Forget Password Function */

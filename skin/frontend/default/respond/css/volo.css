@@ -492,17 +492,18 @@ width:  80px;
 
 /* level two */
 #menu ul {
-		width: 138px;
-		padding: 0;
-		border: 1px solid #f2f2f2;
-		border-bottom: 1px solid #000;
-		border-top: 0;
-		position: absolute;
-		top: 100%;
-		left: 27px;
-		/* left padding for parent is 38 */
-		background: #FFF;
-		display: none;
+	width: 180px;
+	color: #2b2b2b;
+	padding: 0;
+	border: 1px solid #f2f2f2;
+	border-bottom: 1px solid #f2f2f2;
+	border-top: 0;
+	position: absolute;
+	top: 100%;
+	left: 18px;
+	/* left padding for parent is 38 */
+	background: #FFF;
+	display: none;
 }
 
 #menu li:last-child ul {
@@ -704,15 +705,14 @@ width:  80px;
 #newsletter-area input[type=text] {
 	font-size: 11px;
 	text-indent: 10px;
-		border: 1px solid #cacaca;
-		border-right: 0;
-		width: 177px;
-		padding: 0;
-		height: 23px;
-		line-height: 23px;
-		background: #FFF;
+	border: 1px solid #cacaca;
+	border-right: 0;
+	width: 177px;
+	padding: 0;
+	height: 23px;
+	line-height: 12px;
+	background: #FFF;
 }
-
 ::-webkit-input-placeholder {
 	color:#838383;
 	font-size: 11px;
@@ -930,55 +930,64 @@ HOMEPAGE
 	position: relative;
 	margin-top: 15px;
 	width: 960px;
-	height: 550px;
+	height: 499px;
 }
-#slider ul {
+#sliders {
 	position: relative;
-	width: 960px; /* overwritten in js */
-	height: 550px;
+	width: 960px;
+	height: 460px;
 }
-#slider li,#slider .prevcover,#slider .nextcover {
+#sliders li	{
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 960px;
-	height: 550px;
+	height: 460px;
 	display: none;
 }
-#slider li#first,.js #slider li {
+#sliders li#first	{
 	display: block;
 }
-#slider li.one {
-	left: -1920px;
+#slider ul.nav {
+	position: absolute;
+	top: 470px;
+	width: 960px;
+	height: 18px;
+	border-top: 1px solid #000;
 }
-#slider li.two, #slider .prevcover {
-	left: -960px;
+#slider ul.nav li	{
+	position: absolute;
+	top: -7px;
+	left: 0;
+	width: 240px;
+	height: 15px;
+	padding: 10px 0 0;
+	line-height: 15px;
+	font-size: 10px;
+	display: block;
+	text-align: left;
 }
-#slider li.three, #slider .nextcover {
-	left: 960px;
+#slider ul.nav li.second	{
+	left: 240px;
 }
-#slider li.four {
-	left: 1920px;
+#slider ul.nav li.third	{
+	left: 480px;
 }
 #slider .prevcover,#slider .nextcover {
 	background: #FFF;
 	display: block;
 }
-#slider .prev,#slider .next {
-	position: absolute;
-	top: 252px;
-	left: -38px;
-	width: 28px;
-	height: 47px;
-	background: url(../images/volo/prev.png) no-repeat;
-	text-indent: -9000em;
-	z-index: 10;
-	display: none;
+#slider li.current {
+	color: #949494;
+	font-weight: bold;
 }
-#slider .next {
-	left: auto;
-	right: -38px;
-	background: url(../images/volo/next.png) no-repeat;
+#handle	{
+	position: absolute;
+	top: 467px;
+	left: 0;
+	width: 240px;
+	height: 7px;
+	background: #000;
 }
 
 /* VALUE PROPOSITION */
@@ -988,7 +997,6 @@ HOMEPAGE
 		height: 83px;
 		text-align: center;
 }
-
 #value h2 {
 		font: 300 30px/83px "Open Sans", Arial, Helvetica, sans-serif;
 }
@@ -997,18 +1005,24 @@ HOMEPAGE
 #promotions .col {
 		float: left;
 		padding: 10px 5px 5px;
-		width: 310px;
+		width: 314px;
 }
-
+#promotions .col:first-child, #promotions .col:nth-child(2)	{
+	padding-right: 9px;
+}
 #promotions .promo img {
 		float: left;
 		margin: 0 0 5px;
+		/*
 		border: 1px solid #f0f0f0;
 		border-right: 1px solid #d9d9d9;
 		border-bottom: 1px solid #d9d9d9;
+		*/
+		width: 314px;
+		height: 361px;
 }
 
-/* SOCIAL */
+/* SOCIAL
 #social {
 		clear: both;
 		padding: 15px 0;
@@ -1024,7 +1038,7 @@ HOMEPAGE
 #social .social img {
 		float: left;
 }
-
+*/
 /* SUBSCRIBE POPUP */
 #newsletter-popupbutton {
 		position: fixed;
@@ -2256,10 +2270,9 @@ BASKET & WISHLIST
 	display: block;
 	float: none;
  	padding: 20px 0 10px 5px;
- 	font: 25px/36px "Open Sans", Arial, Helvetica, sans-serif;
+ 	font: 25px/27px "Open Sans", Arial, Helvetica, sans-serif;
  	text-transform: uppercase;
- 	letter-spacing: 0.1em;
- 	border-bottom: 1px dotted #e0e0e0;
+ 	letter-spacing: 0.05em;
 	text-align: left;
 }
 #checkout .step-title, #checkout .step-title h2 {
@@ -2567,19 +2580,19 @@ BASKET & WISHLIST
 	text-align: right;
 	padding: 5px 5px 0;
 }
-
-
 #checkout {
 	padding-bottom: 30px;
 }
 #checkout .button {
-	background: #000;
-	border-color: #000;
+	background: #5b5b5b;
 	color: #fff;
 	font-size: 12px;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;	
 	padding: 0 40px;
+}
+#checkout .button:hover	{
+	background: #4f4f4f;
 }
 #checkout p.required {
 	margin: 0 0 24px;
@@ -2590,7 +2603,6 @@ BASKET & WISHLIST
 #checkout .form-list li + li.control {
 	margin: 0 0 5px;
 }
-
 /* summary in checkout sidebar */
 #checkout-review {
 	margin-top: 71px;
@@ -2689,12 +2701,17 @@ BASKET & WISHLIST
 }
 #review-buttons-container .btn-checkout {
 	height: 35px;
-	font: bold 18px/35px "Open Sans", Arial, Helvetica, sans-serif;
+	font: 12px/35px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	text-align: center;
+	
+	-webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 0.25s ease-in;
+        -o-transition:background 0.25s ease-in;
+        -ms-transition:background 0.25s ease-in;
+        transition:background 0.25s ease-in;
 }
-
 /* Checkout success */
 
 #checkout-success {
@@ -2859,7 +2876,8 @@ LOGIN POPUP
 }
 #login-wrap label, #fpass label {
 		float: left;
-		width: 100px;
+		width: 105px;
+		font-size: 11px;
 		text-align: right;
 		line-height: 28px;
 }
@@ -2917,10 +2935,11 @@ LOGIN POPUP
 		color: #838383;
 }
 #login-wrap .signup {
-		width: 330px;
-		margin: 0 30px;
-		padding: 20px 0;
-		border-top: 1px dotted #d9d9d9;
+	display: none;
+	width: 330px;
+	margin: 0 30px;
+	padding: 20px 0;
+	border-top: 1px dotted #d9d9d9;
 }
 #login-wrap .signup h4 {
 		float: left;
@@ -2943,6 +2962,30 @@ LOGIN POPUP
 #login-wrap .validation-advice, #forgot-form .validation-advice {
 		margin-left: 110px;
 }
+#login-wrap p.radio	{
+	padding-left: 110px;
+}
+#login-wrap p.radio label	{
+	float: left;
+	width: 100px;
+	font-size: 11px;
+}
+#login-wrap p.radio input	{
+	float: left;
+	margin: 7px 5px;
+}
+#login-wrap p.blank	{
+	height: 43px;	
+}
+#login-wrap #regis-form	{
+	display: none;
+	width: 360px;
+	padding: 5px 30px 20px 0;
+}
+#login-wrap #regis-form .step2	{
+	display: none;
+}
+
 .registered-users button, .new-users button	{
 	width: 180px;
 	color: white;
@@ -2952,10 +2995,10 @@ LOGIN POPUP
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
 
-		-webkit-transition: background 0.25s ease-in;
-		-moz-transition:background 1s ease-in;
-		-o-transition:background 1s ease-in;
-		transition:background 1s ease-in;
+	-webkit-transition: background 0.25s ease-in;
+	-moz-transition:background 1s ease-in;
+	-o-transition:background 1s ease-in;
+	transition:background 1s ease-in;
 }
 .registered-users button:hover, .new-users button:hover	{
 	background-color: #4f4f4f;
@@ -3036,24 +3079,26 @@ SEND AN INVITE PAGE
 }
 #sendinvite h2 {
 	padding: 20px 0 10px 0;
-	font: 34px/36px "Open Sans", Arial, Helvetica, sans-serif;
+	font: 25px/ 27px "Open Sans", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.05em;
 	border-bottom: 1px dotted #d9d9d9;
 }
 #sendinvite .intro {
 	float: left;
+	font-size: 17px;
 	padding: 30px 0 0;
-	width: 280px;
+	margin-right: 30px;
+	width: 230px;
 }
 #sendinvite .intro p {
 	margin-bottom: 30px;
-	font: 21px/30px "Open Sans", Arial, Helvetica, sans-serif;
+	font: 17px/30px "Open Sans", Arial, Helvetica, sans-serif;
 	color: #222;
 }
 #sendinvite .forms {
-	float: right;
-	padding: 30px 0 0;
+	float: left;
+	padding: 30px 0 60px;
 	width: 640px;
 }
 #sendinvite .forms h3 {
@@ -3061,15 +3106,14 @@ SEND AN INVITE PAGE
 	margin-bottom: 18px;
 	font: 14px/18px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
-	text-transform: uppercase;
-	text-align: center;
+	text-align: left;
 }
 #emaillist {
 	width: 320px;
 }
 #sendinvite input[type="text"] {
 	margin: 0 0 10px;
-	width: 302px;
+	width: 500px;
 }
 #addemail {
 	font-weight: bold;
@@ -3091,7 +3135,7 @@ SEND AN INVITE PAGE
 }
 #sendinvite .message textarea {
 	margin: 0 0 10px;
-	width: 622px;
+	width: 500px;
 }
 #sendinvite input[type="text"], #sendinvite textarea {
 	padding: 8px;
@@ -3137,10 +3181,8 @@ DISCOUNT BALANCE PAGE
 }
 #credit-wrapper h2 {
 	padding: 20px 0 10px 0;
-	font: 34px/36px "Open Sans", Arial, Helvetica, sans-serif;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	border-bottom: 1px dotted #d9d9d9;
+	font: 25px/27px "Open Sans", Arial, Helvetica, sans-serif;
+	letter-spacing: 0.05em;
 }
 #credit-wrapper h3 {
 	padding: 30px 0 5px 0;

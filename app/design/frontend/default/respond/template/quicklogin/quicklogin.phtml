@@ -5,21 +5,56 @@
 	<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 	<div class="errormsg"></div>
 	<form action="#" method="post" id="login-form" class="frm-login">
-		<p>
+		<p class="email login">
 			<label for="email">Email</label>
 			<input name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" id="email" type="text" class="input-text required-entry" title="<?php echo $this->__('Email Address') ?>" />
 		</p>
-		<p>
+		<p class="password login">
 			<label for="pass">Password</label>
 			<input name="login[password]" type="password" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
 		</p>
+		<p class="blank login"></p>
+		<p class="radio">
+			<label>I'm a new customer</label><input type="radio" name="group1" value="regis" /><label>I've ordered before</label><input type="radio" name="group1" value="login" checked />
+		</p>
 		<p>
-			<button class="action-btn" type="submit" name="send" id="send2"><?php echo $this->__('Login') ?></button>
+			<button class="action-btn" type="submit" name="send" id="send2"><?php echo $this->__('Sign In') ?></button>
 		</p>
 		<p class="forgot">
 			<a href="#" onclick="$j('#login-wrap').stop(true,true).slideUp(); $j('#fpass').stop(true,true).slideDown(); return false;">forgot password?</a>
 		</p>
 	</form>
+	<form action="#" method="post" id="regis-form" class="frm-regis">
+	<div id="regis-form1" class="step1">
+                <p class="regis">
+                        <label for="email_address">Email</label>
+                        <input id="email_address" class="input-text validate-email required-entry" type="text" title="Email Address" value="" name="email" />
+                </p>
+                <p class="radio">
+                        <label>I'm a new customer</label><input type="radio" name="group1" value="regis" /><label>I've ordered before</label><input type="radio" name="group1" value="login" checked />
+                </p>
+                <p>
+                        <button class="action-btn" type="submit" name="send" id="send2" onclick="var valid = new Validation('regis-form1'); if(valid.validate()){ $j('#regis-form .step1').stop(true,true).slideUp(); $j('#regis-form .step2').stop(true, true).slideDown(); return false; } else { return false;  } "><?php echo $this->__('Sign Up') ?></button>
+                </p>
+	</div>
+	<div class="step2">
+		<p class="regis">
+                        <label for="password">Password</label>
+                        <input id="password" class="input-text required-entry validate-password" type="password" title="Password" name="password"/>
+                </p>
+                <p class="regis">
+                        <label for="confirmation">Confirm Password</label>
+                        <input id="confirmation" class="input-text required-entry validate-password" type="password" title="Password" name="confirmation"/>
+                </p>
+                <p class="regis" style="padding: 10px 0 5px;">
+                        <input type="checkbox" name="is_subscribed" title="<?php echo $this->__('Sign Up for Newsletter') ?>" value="1" id="is_subscribed" checked="checked" style="display:none"/>
+                        <label style="width: auto; display: none;" for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
+                </p>
+                <p>
+                        <button class="action-btn" type="submit" name="send" id="send2"><?php echo $this->__('Confirm') ?></button>
+                </p>
+	</div>
+        </form>
 <!--	
 	<div style="display:none;" id="fpass" class="cf">
 		<form class="for-pass" id="forgot-form" method="post" action="<?php echo $this->getUrl('customer/account/ajaxForgotPassword/') ?>">
@@ -45,7 +80,7 @@
 </div>
 
 
-
+<? /*
 <div id="signup-wrap" style="display: none;">
 
 	<h3>Create an Account</h3>
@@ -109,7 +144,7 @@
 
 -->
 </div>
-
+*/ ?>
 <div style="display:none;" id="fpass" class="cf">
 	<h3>Forgot Password</h3>
                 <form class="for-pass" id="forgot-form" method="post" action="<?php echo $this->getUrl('customer/account/ajaxForgotPassword/') ?>">
@@ -132,16 +167,29 @@
 
 <script type="text/javascript">
 	//<![CDATA[	
+	$j('input:radio').on('click', function(e) {
+		$j('#login-form').hide();
+		$j('#regis-form').hide();
+		$j('#' + this.value + '-form').css("display", "block");
+		$j("#login-form input[value='" + this.value + "']").attr("checked", "checked");
+		$j("#regis-form input[value='" + this.value + "']").attr("checked", "checked");
+
+		if (this.value == "regis")	{
+			$j('#login-wrap h3').text('Sign Up Now');
+		} else if (this.value == "login")	{
+			$j('#login-wrap h3').text('Already a Customer?');
+		}
+	})
+
 	$j('#login-form').unbind('submit').submit(function(e) {
 		loginAjax();	
 		e.preventDefault();
 	});		
-	
+
 	$j('#regis-form').unbind('submit').submit(function(e) {
 		registerAjax();
 		e.preventDefault();
 	});	
-
 
 	$j('#forgot-form').unbind('submit').submit(function(e) {
                 forgetpass();
