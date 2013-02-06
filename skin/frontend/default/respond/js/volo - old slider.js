@@ -45,71 +45,94 @@ $j(document).ready(function() {
 
 	/* SLIDER */
 	
-	if($j('body').hasClass('cms-home') && $j('#slider').length > 0) {			
-		$j('#slider').append('<ul class="nav">');
-		$j('#slider .nav').append('<li class="first current">1</li>');
-		$j('#slider .nav').append('<li class="second">2</li>');
-		$j('#slider .nav').append('<li class="third">3</li>');
-		$j('#slider .nav').append('<li class="fourth">4</li>');
-		$j('#slider').append('<div id="handle">&nbsp;</div>');	
-
-		$j('#slider .nav li').mouseenter(function() {			
-			$j('#slider .nav li').removeClass('current');
-			$j(this).addClass('current');
+	if($j('body').hasClass('cms-home')) {
+		if($j('#slider').length > 0) {	
+			var slides = $j('#slider').length;
 			
-			var leftDist;
-			var currClass;
-			if(  $j(this).hasClass('first') ) {
-				leftDist = 0;
-				currClass = 'first';
-			} else if(  $j(this).hasClass('second') ) {
-				leftDist = 240;
-				currClass = 'second';
-			} else if(  $j(this).hasClass('third') ) {
-				leftDist = 480;
-				currClass = 'third';
-			} else if(  $j(this).hasClass('fourth') ) {
-				leftDist = 720;
-				currClass = 'fourth';
-			}
+			$j('#slider').append('<a href="#" class="prev">Prev</a>').append('<a href="#" class="next">Next</a>').append('<div class="prevcover"></div>').append('<div class="nextcover"></div>');
 			
-			$j('#handle').stop(true,false).animate({
-				left: leftDist
-			}, 650, 'easeOutCirc');		
+			$j('#slider li:eq(0)').addClass('current');
+			$j('#slider li:eq(3)').addClass('one');
+			$j('#slider li:eq(4)').addClass('two');
+			$j('#slider li:eq(1)').addClass('three');
+			$j('#slider li:eq(2)').addClass('four');
+			$j('#slider li').css({'display':'block'});
 			
-			$j('#slides li:not(.' + currClass + ')').fadeOut();
-			$j('#slides li.' + currClass).fadeIn();				
-		});
-
-		$j('#slider .nav li').click(function() {			
-			$j('#slider .nav li').removeClass('current');
-			$j(this).addClass('current');
+			$j('#slider').mouseenter(function() {
+				$j('#slider .prev, #slider .next').stop(true,true).fadeIn(300);
+			}).mouseleave(function() {
+				$j('#slider .prev, #slider .next').stop(true,true).fadeOut(150);		
+			});
+		
+			$j('#slider .prev').click(function(e) {
+				
+				if(!$j('#slider').hasClass('inMotion')) {
+					$j('#slider li').each(function() {
+						$j(this).animate({
+							'margin-left': '+=960'
+						}, 750, 'easeInOutQuad');
+					});
+				
+					$j('#slider li').promise().done(function() {			
+						$j('#slider li:eq(4)').detach().prependTo($j('#slider ul'));			
+						$j('#slider li').css({'margin-left':0}).attr('class','');
+						$j('#slider li:eq(0)').addClass('current');
+						$j('#slider li:eq(3)').addClass('one');
+						$j('#slider li:eq(4)').addClass('two');
+						$j('#slider li:eq(1)').addClass('three');
+						$j('#slider li:eq(2)').addClass('four');		
+						$j('#slider').removeClass('inMotion');
+					});
+				}
+				
+				$j('#slider').addClass('inMotion');
 			
-			var leftDist;
-			var currClass;
-			if(  $j(this).hasClass('first') ) {
-				leftDist = 0;
-				currClass = 'first';
-			} else if(  $j(this).hasClass('second') ) {
-				leftDist = 240;
-				currClass = 'second';
-			} else if(  $j(this).hasClass('third') ) {
-				leftDist = 480;
-				currClass = 'third';
-			} else if(  $j(this).hasClass('fourth') ) {
-				leftDist = 720;
-				currClass = 'fourth';
-			}
+				e.preventDefault();
+			}).mouseenter(function() {
+				$j('#slider .prevcover').animate({
+					'opacity': 0.5
+				},300);
+			}).mouseleave(function() {
+				$j('#slider .prevcover').animate({
+					'opacity': 1
+				},75);
+			});
 			
-			$j('#handle').stop(true,false).animate({
-				left: leftDist
-			}, 650, 'easeOutCirc');		
+			$j('#slider .next').click(function(e) {
+				
+				if(!$j('#slider').hasClass('inMotion')) {
+					$j('#slider li').each(function() {
+						$j(this).animate({
+							'margin-left': '-=960'
+						}, 750, 'easeInOutQuad');
+					});
+				
+					$j('#slider li').promise().done(function() {			
+						$j('#slider li:eq(0)').detach().appendTo($j('#slider ul'));			
+						$j('#slider li').css({'margin-left':0}).attr('class','');
+						$j('#slider li:eq(0)').addClass('current');
+						$j('#slider li:eq(3)').addClass('one');
+						$j('#slider li:eq(4)').addClass('two');
+						$j('#slider li:eq(1)').addClass('three');
+						$j('#slider li:eq(2)').addClass('four');		
+						$j('#slider').removeClass('inMotion');
+					});
+				}
+				
+				$j('#slider').addClass('inMotion');
 			
-			$j('#slides li:not(.' + currClass + ')').fadeOut();
-			$j('#slides li.' + currClass).fadeIn();	
-			
-			return false;
-		});
+				e.preventDefault();
+			}).mouseenter(function() {
+				$j('#slider .nextcover').animate({
+					'opacity': 0.5
+				},300);
+			}).mouseleave(function() {
+				$j('#slider .nextcover').animate({
+					'opacity': 1
+				},75);
+			});
+		
+		}
 	}
 	
 	

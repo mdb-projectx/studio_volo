@@ -930,14 +930,14 @@ HOMEPAGE
 	position: relative;
 	margin-top: 15px;
 	width: 960px;
-	height: 499px;
-}
-#slides {
-	position: relative;
-	width: 960px; 
 	height: 460px;
 }
-#slides li {
+#slider ul {
+	position: relative;
+	width: 960px; /* overwritten in js */
+	height: 460px;
+}
+#slider li,#slider .prevcover,#slider .nextcover {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -945,48 +945,40 @@ HOMEPAGE
 	height: 460px;
 	display: none;
 }
-#slides li.first {
+#slider li#first,.js #slider li {
 	display: block;
 }
-#slider ul.nav {
-	position: absolute;
-	top: 470px;
-	width: 960px;
-	height: 18px;
-	border-top: 1px solid #000;
+#slider li.one {
+	left: -1920px;
 }
-#slider ul.nav li {
-	position: absolute;
-	top: -7px;
-	left: 0;
-	width: 240px;
-	height: 15px;
-	padding: 10px 0 0;
-	line-height: 15px;
-	font-size: 10px;
+#slider li.two, #slider .prevcover {
+	left: -960px;
+}
+#slider li.three, #slider .nextcover {
+	left: 960px;
+}
+#slider li.four {
+	left: 1920px;
+}
+#slider .prevcover,#slider .nextcover {
+	background: #FFF;
 	display: block;
-	text-align: left;
 }
-#slider ul.nav li.second {
-	left: 240px;
-}
-#slider ul.nav li.third {
-	left: 480px;
-}
-#slider ul.nav li.fourth {
-	left: 720px;
-}
-#slider li.current {
-	color: #949494;
-	font-weight: bold;
-}
-#handle {
+#slider .prev,#slider .next {
 	position: absolute;
-	top: 467px;
-	left: 0;
-	width: 240px;
-	height: 7px;
-	background: #000;
+	top: 206px;
+	left: -38px;
+	width: 28px;
+	height: 47px;
+	background: url(../images/volo/prev.png) no-repeat;
+	text-indent: -9000em;
+	z-index: 10;
+	display: none;
+}
+#slider .next {
+	left: auto;
+	right: -38px;
+	background: url(../images/volo/next.png) no-repeat;
 }
 
 /* VALUE PROPOSITION */
