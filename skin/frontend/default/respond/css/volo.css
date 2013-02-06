@@ -932,12 +932,12 @@ HOMEPAGE
 	width: 960px;
 	height: 499px;
 }
-#sliders {
+#slides {
 	position: relative;
-	width: 960px;
+	width: 960px; 
 	height: 460px;
 }
-#sliders li	{
+#slides li {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -945,7 +945,7 @@ HOMEPAGE
 	height: 460px;
 	display: none;
 }
-#sliders li#first	{
+#slides li.first {
 	display: block;
 }
 #slider ul.nav {
@@ -955,7 +955,7 @@ HOMEPAGE
 	height: 18px;
 	border-top: 1px solid #000;
 }
-#slider ul.nav li	{
+#slider ul.nav li {
 	position: absolute;
 	top: -7px;
 	left: 0;
@@ -967,21 +967,20 @@ HOMEPAGE
 	display: block;
 	text-align: left;
 }
-#slider ul.nav li.second	{
+#slider ul.nav li.second {
 	left: 240px;
 }
-#slider ul.nav li.third	{
+#slider ul.nav li.third {
 	left: 480px;
 }
-#slider .prevcover,#slider .nextcover {
-	background: #FFF;
-	display: block;
+#slider ul.nav li.fourth {
+	left: 720px;
 }
 #slider li.current {
 	color: #949494;
 	font-weight: bold;
 }
-#handle	{
+#handle {
 	position: absolute;
 	top: 467px;
 	left: 0;
@@ -997,32 +996,34 @@ HOMEPAGE
 		height: 83px;
 		text-align: center;
 }
+
 #value h2 {
 		font: 300 30px/83px "Open Sans", Arial, Helvetica, sans-serif;
 }
 
 /* PROMOTIONS */
+
 #promotions .col {
-		float: left;
-		padding: 10px 5px 5px;
-		width: 314px;
+	float: left;
+	padding: 10px 0 5px;
+	width: 314px;
 }
-#promotions .col:first-child, #promotions .col:nth-child(2)	{
+#promotions .col:first-child, #promotions .col:nth-child(2) {
 	padding-right: 9px;
 }
 #promotions .promo img {
-		float: left;
-		margin: 0 0 5px;
-		/*
-		border: 1px solid #f0f0f0;
-		border-right: 1px solid #d9d9d9;
-		border-bottom: 1px solid #d9d9d9;
-		*/
-		width: 314px;
-		height: 361px;
+	float: left;
+	margin: 0 0 5px;
+	/*
+	border: 1px solid #f0f0f0;
+	border-right: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	*/
+	width: 314px;
+	height: 361px;
 }
 
-/* SOCIAL
+/* SOCIAL 
 #social {
 		clear: both;
 		padding: 15px 0;
@@ -1037,8 +1038,7 @@ HOMEPAGE
 
 #social .social img {
 		float: left;
-}
-*/
+}*/
 /* SUBSCRIBE POPUP */
 #newsletter-popupbutton {
 		position: fixed;
