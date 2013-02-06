@@ -52,7 +52,28 @@ $j(document).ready(function() {
 		$j('#slider .nav').append('<li class="third">3</li>');
 		$j('#slider .nav').append('<li class="fourth">4</li>');
 		$j('#slider').append('<div id="handle">&nbsp;</div>');	
-
+		
+		var sliderTimer; 
+		var pauseSlider = false;
+		
+		function doSlider() {
+			sliderTimer = setTimeout(function() {
+				var nextSlide;
+				if ($j('#slider .nav li.current').index() == 3) {
+					nextSlide = 0;
+				} else {
+					nextSlide = $j('#slider .nav li.current').index() + 1;
+				}
+				
+				if(pauseSlider === false) {
+					$j('#slider .nav li:eq(' + nextSlide + ')').trigger('click');
+				}
+				
+				doSlider();
+			}, 3000);
+		}		
+		doSlider();		
+		
 		$j('#slider .nav li').mouseenter(function() {			
 			$j('#slider .nav li').removeClass('current');
 			$j(this).addClass('current');
@@ -78,7 +99,7 @@ $j(document).ready(function() {
 			}, 650, 'easeOutCirc');		
 			
 			$j('#slides li:not(.' + currClass + ')').fadeOut();
-			$j('#slides li.' + currClass).fadeIn();				
+			$j('#slides li.' + currClass).fadeIn();			
 		});
 
 		$j('#slider .nav li').click(function() {			
@@ -110,8 +131,13 @@ $j(document).ready(function() {
 			
 			return false;
 		});
+		
+		$j('#slider').mouseenter(function() {
+			pauseSlider = true;			console.log('1');
+		}).mouseleave(function() {
+			pauseSlider = false;			console.log('0');
+		});
 	}
-	
 	
 	/****************************************
 	CATEGORY PAGE & SEARCH
