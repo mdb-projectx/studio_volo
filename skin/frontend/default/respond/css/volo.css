@@ -1002,22 +1002,25 @@ HOMEPAGE
 }
 
 /* PROMOTIONS */
-#promotions .col {
-		float: left;
-		padding: 10px 5px 5px;
-		width: 310px;
-}
 
+#promotions .col {
+	float: left;
+	padding: 10px 0 5px;
+	width: 314px;
+}
+#promotions .col:first-child, #promotions .col:nth-child(2) {
+	padding-right: 9px;
+}
 #promotions .promo img {
-		float: left;
-		margin: 0 0 5px;
-		/*
-		border: 1px solid #f0f0f0;
-		border-right: 1px solid #d9d9d9;
-		border-bottom: 1px solid #d9d9d9;
-		*/
-		width: 310px;
-		height: 356px;
+	float: left;
+	margin: 0 0 5px;
+	/*
+	border: 1px solid #f0f0f0;
+	border-right: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	*/
+	width: 314px;
+	height: 361px;
 }
 
 /* SOCIAL 
