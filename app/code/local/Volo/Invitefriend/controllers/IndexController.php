@@ -73,11 +73,9 @@ $invite_html ='
 														<td valign="top" align="center" height="390" style="border-collapse: collapse;"><table border="0" cellpadding="30" cellspacing="0" width="630" height="390" id="contentBody">
 																<tr>
 																	<td align="left" width="580" height="330" valign="top" style="border-collapse: collapse;display:block;">															
-																		<p style="margin: 0;font-family: Lato,\'Lucida Sans Unicode\',\'Lucida Grande\',Arial,Helvetica,sans-serif;font-size: 14px;line-height: 21px;">
-																			Hi, check out VoloDesign.com &mdash; my new favorite site.<br><br>
-																			They create beautifully designed furniture and leisure accessories, with prices up to 70% off high street. Best of all, enter <b>'.$discount_code.'</b> at checkout of $25 off your first order!<br><br>
+																		<p style="margin: 0;font-family: Lato,\'Lucida Sans Unicode\',\'Lucida Grande\',Arial,Helvetica,sans-serif;font-size: 14px;line-height: 21px;">																		
+																			Hi, here\'s a $20 gift voucher for VoloDesign.com. They cut out the middlemen and offer beautiful design at up to 70% off traditional retail. Enter <b>'.$discount_code.'</b> at checkout and you\'ll get $20 off your first order!<br><br>																			
 																			<a href="http://www.volodesign.com"><img src="'.$baseurl.'/skin/frontend/default/respond/invitefriend/shop.png" width="170" height="40" alt="Start Shopping" style="border: 0;height: auto;outline: none;text-decoration: none;"></a><br><br>
-																			Let me know what you think.<br><br>
 																			'.$firstname.' '.$lastname.'
 																		</p>															
 																	</td>
@@ -93,16 +91,7 @@ $invite_html ='
 								<td height="20" style="border-collapse: collapse;line-height:0;font-size:0;"><img src="'.$baseurl.'/skin/frontend/default/respond/invitefriend/table-bottom.png" width="670" height="20" alt="" style="vertical-align:top;display:block;outline: none;text-decoration: none;"></td>
 							</tr>
 							<tr>
-								<td align="center" id="bodyFoot" style="border-collapse: collapse;">
-									<p style="margin: 0 0 24px 0;padding: 0;font-family: Lato,\'Lucida Sans Unicode\',\'Lucida Grande\',Arial,Helvetica,sans-serif;font-size: 12px;line-height: 24px;">
-										<b>What We do&hellip;</b><br>
-										We cut out the middleman and connect you directly with the designers and craftsmen<br>
-										We offer original designs by the freshest industry talent at affordable prices<br>
-										We use highly-skilled furniture makers &mdash; often the same as big brand names<br>
-										We save you 70% on high street stores<br>
-										We deliver to your door and guarantee you good quality
-									</p>
-								</td>
+								<td align="center" id="bodyFoot" style="border-collapse: collapse;"></td>
 							</tr>
 					</table></td>
 				</tr>
