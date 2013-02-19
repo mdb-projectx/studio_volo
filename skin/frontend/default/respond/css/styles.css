@@ -846,7 +846,7 @@ tr.summary-details-excluded { font-style:italic; }
 .link-wishlist { color:#444; }
 .link-reorder {}
 .link-compare { }
-.link-print { /*background:url(../images/i_print.gif) 0 2px no-repeat; padding:3px 0 3px 25px;*/ }
+.link-print { /*background:url(../images/i_print.gif) 0 2px no-repeat; padding:3px 0 3px 25px;*/ font-size: 12px; }
 .link-rss { background:url(../images/i_rss.gif) 0 1px no-repeat; padding-left:18px; line-height:14px; white-space:nowrap; }
 .btn-remove { display:block; width:12px; height:12px; font-size:0; line-height:0; background:url(../images/btn_remove.gif) 0 0 no-repeat; text-indent:-999em; overflow:hidden; margin: 0 2px; }
 .btn-remove2 { display:block; width:16px; height:16px; font-size:0; line-height:0; background:url(../images/btn_trash.gif) 0 0 no-repeat; text-indent:-999em; overflow:hidden; }
@@ -924,8 +924,8 @@ tr.summary-details-excluded { font-style:italic; }
 .block { margin:18px 0;  }
 .block:first-child { margin-top: 0;  }
 .block .block-title { }
-.block .block-title strong { display:block; padding: 10px 0 8pxtext-transform: uppercase; font-size: 12px; letter-spacing: 0.1em; font-family: colaborateboldregular, helvetica, arial, sans-serif; line-height: 1.5; text-transform: uppercase; }
-.block .block-title strong span {}
+.block .block-title strong { display:block; padding: 10px 0 8pxtext-transform: uppercase; font-size: 12px; letter-spacing: 0.1em; font-family: "Open Sans", Arial, Helvetica, sans-serif; line-height: 1.5; text-transform: uppercase; }
+.block .block-title strong span {font-weight: 0; padding: 6px 0px;}
 .block .block-title a { text-decoration:none !important; }
 .block .block-subtitle { }
 .block .block-content {  }
@@ -1892,7 +1892,7 @@ top: 25px; }
 .order-info li.last { border-right:0; }
 .order-info li a { display:block; padding:6px 15px; color:#444; }
 .order-info li a:hover { background-color:#ddd; text-decoration:none; color:#444; }
-.order-info li.current { background-color:#666; font-weight:bold; padding:6px 15px; color:#fff; }
+.order-info li.current { background-color:#666; padding:6px 15px; color:#fff; }
 
 .order-date { margin:10px 0; }
 

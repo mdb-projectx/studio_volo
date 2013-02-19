@@ -321,11 +321,11 @@ One page checkout main layout
                 <block type="checkout/onepage_review_info" name="checkout.review" before="-" template="checkout/onepage/review/info-checkout.phtml"/>
 				<block type="checkout/cart_totals" name="checkout.onepage.review.info.totals" as="totals" template="checkout/onepage/review/totals-checkout.phtml"/>
             </block>
-			
-			
-			
-			
+
         </reference>
+	<reference name="header">
+		<action method="setTemplate"><template>page/html/checkout_header.phtml</template></action>
+	</reference>
         <reference name="content">
             <block type="checkout/onepage" name="checkout.onepage" template="checkout/onepage.phtml">
                 <block type="checkout/onepage_login" name="checkout.onepage.login" as="login" template="checkout/onepage/login.phtml">
@@ -348,6 +348,10 @@ One page checkout main layout
                 <block type="checkout/onepage_review" name="checkout.onepage.review" as="review" template="checkout/onepage/review.phtml"/>
             </block>
         </reference>
+	<reference name="footer">
+                <action method="setTemplate"><template>page/html/checkout_footer.phtml</template></action>
+        </reference>
+
     </checkout_onepage_index>
 
 <!--

@@ -157,12 +157,12 @@ input {
 
 a {
 		text-decoration: none;
-		color: #252525;
+		color: #4b4b4b;
 }
 
 a:hover,a:active {
 		text-decoration: underline;
-		color: #252525;
+		color: #4b4b4b
 }
 
 strong,b {
@@ -172,16 +172,16 @@ strong,b {
 em,i {
 		font-style: italic;
 }
-
-
 .page-title h1 {
 	display: block;
 	float: none;
  	padding: 20px 0 10px 5px;
  	font: 25px/36px "Open Sans", Arial, Helvetica, sans-serif;
- 	text-transform: uppercase;
- 	letter-spacing: 0.1em;
+ 	letter-spacing: 0.05em;
 	text-align: left;
+}
+.my-account .page-title h1 {
+	padding-top: 0px;
 }
 .col2-left-layout	{
 	margin-top: 15px;
@@ -198,7 +198,6 @@ em,i {
 /**************************************************
 LAYOUT
  **************************************************/
-
 body {
 	background: #FFF;
 	color: #2b2b2b;
@@ -249,13 +248,18 @@ body {
 #header-wrap #header {
 		padding: 25px 0 0;
 }
-
 #header h1 {
 		margin: 0 auto;
 		padding: 4px 0 0;
 		height: 32px;
 }
-
+#header-wrap.checkout #header h1	{
+	float: left;
+}
+#header-wrap.checkout #header img	{
+	float: right;
+	padding: 4px 0 0;
+}
 #header-wrap2 #header h1 {
 		padding: 4px 0 0;
 }
@@ -313,6 +317,7 @@ body {
 
 #header-wrap #secondary a.invite {
 	display: block;
+	margin-right: 4px;
 }
 #secondary a:hover,#tertiary a:hover {
 
@@ -505,7 +510,21 @@ width:  80px;
 	background: #FFF;
 	display: none;
 }
-
+#menu li.nav-1 ul.level0	{
+	left: 10px;
+}
+#menu li.nav-2 ul.level0        {
+        left: 8px;
+}
+#menu li.nav-3 ul.level0        {
+        left: 8px;
+}
+#menu li.nav-4 ul.level0        {
+        left: 16px;
+}
+#menu li.nav-5 ul.level0        {
+        left: 6px;
+}
 #menu li:last-child ul {
 		left: auto;
 		right: 4px; /* 1 remainder */
@@ -518,20 +537,19 @@ width:  80px;
 
 #menu ul li a {
 		display: block;
-		padding: 0 10px !important;
-		width: 100% !important;
+		padding: 0 10px;
+		width: 160px !important;
 		font: normal normal normal 12px/23px "Open Sans", Arial, Helvetica, sans-serif !important;
 		text-transform: none !important;
 		letter-spacing: 0 !important;
 		text-align: left;
 }
-
 #menu li.hover ul li a {
 		color: #202020;
 }
 
 #menu li.hover ul li a:hover,#menu li.hover ul li a:active {
-		text-decoration: underline;
+	background: #f5f5f5;
 }
 
 
@@ -696,6 +714,7 @@ width:  80px;
 }
 
 #newsletter-area {
+	position: relative;
 	float: left;
 	width: 248px;
 	height: 65px;
@@ -707,7 +726,7 @@ width:  80px;
 	text-indent: 10px;
 	border: 1px solid #cacaca;
 	border-right: 0;
-	width: 177px;
+	width: 170px;
 	padding: 0;
 	height: 23px;
 	line-height: 12px;
@@ -778,7 +797,11 @@ width:  80px;
 		font-size: 12px;
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
-
+#newsletter-area .validation-advice	{
+	position: absolute;
+	top: 60px;
+	left: 16px;
+}
 #follow {
 	float: left;
 	width: 359px;
@@ -845,6 +868,7 @@ width:  80px;
 		float: left;
 		width: 12.5%;
 		font-size: 10px;
+		min-height: 1px;
 }
 #links .col:nth-child(1) {
 		width: 11.5%;
@@ -1153,7 +1177,6 @@ CATEGORIES & PRODUCTS & SEARCH
 	padding: 0 0 20px 5px;
 	font: 25px/36px "Open Sans", Arial, Helvetica, sans-serif;
 	font-weight: normal;
-	text-transform: uppercase;
 	letter-spacing: 0.1em;
 }
 #search .page-title h1 {
@@ -1730,7 +1753,7 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #related h3 {
 		line-height: 20px;
-		color: #000;
+		color: #2b2b2b;
 		font-size: 12px;
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
 		font-weight: 700;
@@ -1862,11 +1885,11 @@ CATEGORIES & PRODUCTS & SEARCH
 		background-color: #f0f0f0;
 }
 #details .extra .photo {
-		border: 1px solid #cfcfcf;
 		float: left;
-		margin: 0 10px 25px 15px;
-		width: 73px;
-		height: 73px;
+		margin: 4px 14px 29px 19px;
+		width: 67px;
+		height: 67px;
+		background: white;
 }
 #details .extra h4 {
 		font-weight: bold;
@@ -1907,6 +1930,7 @@ CATEGORIES & PRODUCTS & SEARCH
 		font-family: "Open Sans", Arial, Helvetica, sans-serif; !important;
 }
 .dimensions h4, .details h4 {
+		color: #2b2b2b;
 		text-transform: uppercase;
 		font-size: 12px;
 		font-weight: 700;
@@ -1938,11 +1962,16 @@ CATEGORIES & PRODUCTS & SEARCH
 .specs p.heading, .specs p.attribute {
 	float: left;
 }
-
-.specs p.heading {
+.dimensions .specs p.heading	{
 	margin-right: 5px;
 }
-
+.details .specs p.heading {
+	width: 24%;
+	margin-right: 1%;
+}
+.details .specs p.attribute	{
+	width: 75%;
+}
 .specs table {
 	float: left;
 	width: 100%;
@@ -2113,7 +2142,7 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 #cboxLoadedContent {
 		background: #FFF;
 		overflow: hidden !important;
-
+		padding: 0 0 20px;
 }
 
 #cboxLoadingGraphic {
@@ -2271,7 +2300,7 @@ BASKET & WISHLIST
 	float: none;
  	padding: 20px 0 10px 5px;
  	font: 25px/27px "Open Sans", Arial, Helvetica, sans-serif;
- 	text-transform: uppercase;
+ 	text-transform: Capitalize;
  	letter-spacing: 0.05em;
 	text-align: left;
 }
@@ -2590,6 +2619,12 @@ BASKET & WISHLIST
 	letter-spacing: 0.05em;
 	text-transform: uppercase;	
 	padding: 0 40px;
+
+	-webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 0.25s ease-in;
+        -o-transition:background 0.25s ease-in;
+        -ms-transition:background 0.25s ease-in;
+        transition:background 0.25s ease-in;
 }
 #checkout .button:hover	{
 	background: #4f4f4f;
@@ -2649,7 +2684,32 @@ BASKET & WISHLIST
 	color: #000;
 	border-bottom: 0;
 }
-
+#checkout-contact	{
+	margin-top: 15px;
+	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
+}
+#checkout-contact .contact	{
+	width: 140px;
+	margin: 0px auto;
+	overflow: hidden;
+}
+#checkout-contact .contact h3	{
+	color: #792f64;
+	font: bold 14px/20px "Open Sans", Arial, Helvetica, sans-serif;
+}
+#checkout-contact .contact img	{
+	float: left;
+	padding-right: 5px;
+}
+#checkout-contact .contact p.number	{
+	float: left;
+	font: bold 12px/12px "Open Sans", Arial, Helvetica, sans-serif;
+}
+#checkout-contact .contact p.time     {
+        float: left;
+	font: 12px/12px "Open Sans", Arial, Helvetica, sans-serif;;
+	color: #818181;
+}
 /* table in checkout step 5 */
 #checkout-review-table {
 	margin: 20px 0 0;
@@ -2761,15 +2821,27 @@ BASKET & WISHLIST
 #checkout-success p a.invite-button {
 	display: block;
 	margin: 0 auto;
-	width: 180px;
-	background: #000;
-	color: #FFF;
-	font: bold 16px/36px "Open Sans", Arial, Helvetica, sans-serif;
+	width: 100px;
+	background: none repeat scroll 0 0 #5B5B5B;
+	color: #fff;
+	font-size: 12px;
 	letter-spacing: 0.05em;
+	padding: 0 40px;
 	text-transform: uppercase;
-	text-align: center;
+	font-family: "Open Sans",Arial,Helvetica,sans-serif;
+	line-height: 30px;
 	text-decoration: none;
+
+	-webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 0.25s ease-in;
+        -o-transition:background 0.25s ease-in;
+        -ms-transition:background 0.25s ease-in;
+        transition:background 0.25s ease-in;
 }
+#checkout-success p a.invite-button:hover {
+	background-color: #4f4f4f;
+}
+
 /* ACCOUNT */
 
 /* min height for all account pages */
@@ -2797,11 +2869,19 @@ LOGIN/ REGISTER PAGE
 	width: 100%;
 	overflow: hidden;
 }
+.account-login .content	{
+	padding: 0 5px;
+}
 .account-login .new-users	{
 	display: none;
 }
 .account-create .page-title h1, .account-login .page-title h1	{
-		font: 300 22px/70px "Open Sans", Arial, Helvetica, sans-serif !important;
+	font: 300 22px/24px "Open Sans", Arial, Helvetica, sans-serif !important;
+	padding-top: 50px;
+}
+.account-login .page-title h2, .account-create .page-title h2	{
+	font: 300 italic 12px/14px "Open Sans", Arial, Helvetica, sans-serif !important;
+	padding-left: 5px;
 }
 .account-login .input-box input, .account-create .input-box input	{
 	width: 230px;
@@ -2809,6 +2889,10 @@ LOGIN/ REGISTER PAGE
 }
 .account-login .form-list .field, .account-create .form-list .field	{
 	width: 100%;
+}
+.account-login .forgotpass	{
+	font: 300 italic 12px/14px "Open Sans", Arial, Helvetica, sans-serif !important;
+	padding-left: 5px;
 }
 .account-login .content h2, .account-create h2.legend {
 		float: left;
@@ -2818,11 +2902,13 @@ LOGIN/ REGISTER PAGE
 .account-login .field, .account-create .field	{
 	padding-bottom: 12px;
 }
-
 .account-login em, .account-create em	{
 	display: none;
 }
-
+.account-create form	{
+	display: block;
+	padding: 0 5px 50px;
+}
 /**************************************************
 LOGIN POPUP
 **************************************************/
@@ -2835,15 +2921,14 @@ LOGIN POPUP
 		padding: 0 30px;
 		background: #f6f6f6;
 		border-bottom: 1px solid #f3f3f3;
-		font-weight: bold;
 		font-size: 17px;
 		line-height: 40px;
 		color: #4a4a4a;
 }
 #login-wrap form, #fpass form {
 		display: block;
-		width: 360px;
-		padding: 5px 30px 20px 0;
+		width: 330px;
+		padding: 5px 30px 20px;
 }
 #signup-wrap form {
 		display: block;
@@ -2852,6 +2937,16 @@ LOGIN POPUP
 #login-wrap p, #fpass p {
 		clear: both;
 		padding-top: 10px;
+}
+#login-wrap .step1 button       {
+        margin-left: 18% !important;
+        width: 81% !important;
+	float: left !important;
+}
+#login-wrap .step2 button	{
+	margin-left: 30% !important;
+	width: 67% !important;
+	float: left !important;
 }
 #signup-wrap p.existing {
 		font-size: 12px;
@@ -2876,24 +2971,37 @@ LOGIN POPUP
 }
 #login-wrap label, #fpass label {
 		float: left;
-		width: 105px;
+		width: 15%;
+		padding-right: 3%;
 		font-size: 11px;
 		text-align: right;
 		line-height: 28px;
 }
+#login-wrap .step2 label	{
+	width: 27%;
+}
 #signup-wrap label {
 		display: block;
+}
+#login-wrap span	{
+	float: left;
+	font-size: 11px;
+	margin-left: 18%;
+	width: 82%;
 }
 #login-wrap input[type="text"], #login-wrap input[type="password"],
 #signup-wrap input[type="text"], #signup-wrap input[type="password"],
 #fpass input[type="text"] {
-		float: right;
+		float: left;
 		padding: 4px 0 4px 5px;
 		height: 18px;
 		line-height: 18px;
 		font-size: 15px;
-		width: 243px;
+		width: 79%;
 		border: 1px solid #d9d9d9;
+}
+#login-wrap .step2 input[type="text"], #login-wrap .step2 input[type="password"]	{
+	width: 65%;
 }
 #signup-wrap input[type="text"], #signup-wrap input[type="password"] {
 		float: none;
@@ -2902,19 +3010,19 @@ LOGIN POPUP
 #login-wrap button#send2, #signup-wrap button, #fpass button#send3, #fpass button.action-btn {
 		float: right;
 		width: 250px;
-		height: 28px;
-		line-height: 28px;
-	border: 0;
+		height: 40px;
+		line-height: 40px;
+		border: 0;
 		padding: 0;
-		background: #5b5b5b;
+		background: #2da4e4;
 		color: #FFF;
-		font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
-		letter-spacing: 0.05em;
+		font: 14px "Open Sans", Arial, Helvetica, sans-serif;
+		letter-spacing: 1px;
 		text-transform: uppercase;
 		text-align: center;
 }
 #login-wrap button#send2:hover, #signup-wrap button:hover, #fpass button#send3:hover, #fpass button.action-btn:hover	{
-	background-color: #4f4f4f;
+	background-color: rgb(90, 176, 223);
 }
 #signup-wrap button {
 		float: none;
@@ -2922,6 +3030,11 @@ LOGIN POPUP
 }
 #login-wrap button#send2:hover, #signup-wrap button:hover {
 		background-position: 100% -28px;
+}
+#login-wrap #login-form button, #fpass #forgot-form button	{
+	float: left;
+	margin-left: 18%;
+	width: 81%;
 }
 #login-wrap .forgot {
 		padding: 8px 0 0 115px;
@@ -2959,15 +3072,23 @@ LOGIN POPUP
 #login-wrap .signup button:hover {
 		background-position: 100% -28px;
 }
-#login-wrap .validation-advice, #forgot-form .validation-advice {
-		margin-left: 110px;
+#login-wrap .validation-advice	{
+	margin-left: 18%;
+}
+#login-wrap .step2 .validation-advice   {
+        margin-left: 30%;
+}
+#forgot-form .validation-advice {
+	margin-left: 18%;
 }
 #login-wrap p.radio	{
-	padding-left: 110px;
+	padding-left: 18%;
 }
 #login-wrap p.radio label	{
 	float: left;
-	width: 100px;
+	width: 105px;
+	padding: 0;
+	text-align: left;
 	font-size: 11px;
 }
 #login-wrap p.radio input	{
@@ -2977,15 +3098,27 @@ LOGIN POPUP
 #login-wrap p.blank	{
 	height: 43px;	
 }
-#login-wrap #regis-form	{
+#login-wrap #login-form	{
 	display: none;
+}
+#login-wrap #regis-form	{
+	display: block;
 	width: 360px;
-	padding: 5px 30px 20px 0;
+	padding: 5px 30px 20px;
+}
+#login-wrap #regis-form .step1	{
+	width: 330px;
 }
 #login-wrap #regis-form .step2	{
+	width: 330px;
 	display: none;
 }
-
+#login-wrap .errormsg	{
+	width: 330px;
+	margin: 0 auto;
+	font-size: 12px;
+	color: red;
+}
 .registered-users button, .new-users button	{
 	width: 180px;
 	color: white;
@@ -3012,8 +3145,15 @@ PRIVACY POLICY & RETURN POLICY
 	width: 800px;
 	margin: 0 auto;
 }
-
-#return {
+#checkout-modal	{
+	width: 800px;
+	margin: 0 auto;
+	padding: 0 0 30px 0;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	overflow: hidden;
+}
+#return, #shipping, #terms, #privacy {
+		float: none;
 		width: 93%;
 		margin: 0 auto;
 		padding: 0 0 30px 0;
@@ -3021,7 +3161,7 @@ PRIVACY POLICY & RETURN POLICY
 		overflow: hidden;
 }
 
-#privacy h1, #privacy h1	{
+#return h1, #privacy h1, #terms h1, #shipping h1	{
 	float: left;
 	width: 100%;
 	font-size: 25px;
@@ -3031,7 +3171,7 @@ PRIVACY POLICY & RETURN POLICY
 	margin-top: 80px;
 }
 
-#privacy h2, #return h2 {
+#privacy h2, #return h2, #terms h2 {
 		float: left;
 		width: 100%;
 		font-weight: bold;
@@ -3040,18 +3180,19 @@ PRIVACY POLICY & RETURN POLICY
 	text-align: left;
 }
 
-#privacy .paragraph, #return .paragraph {
+#privacy .paragraph, #return .paragraph, #terms .paragraph {
 		float: left;
 		width: 100%;
 		overflow: hidden;
 }
 
-#privacy .paragraph p, #return .paragraph p {
-		margin: 10px 0 15px 0;
-	text-align: left;
+#privacy .paragraph p, #return .paragraph p, #terms  p, #shipping p {
+	float: left;
+	margin: 10px 0 15px 0;
+	text-align: justify;
 }
 
-#privacy ul {
+#privacy ul, #terms ul {
 		float: left;
 		width: 100%;
 		margin: 0;
@@ -3059,7 +3200,7 @@ PRIVACY POLICY & RETURN POLICY
 		overflow: hidden;
 }
 
-#privacy ul li {
+#privacy ul li, #terms ul li {
 		float: left;
 		width: 98%;
 		margin-left: 2%;
@@ -3080,7 +3221,6 @@ SEND AN INVITE PAGE
 #sendinvite h2 {
 	padding: 20px 0 10px 0;
 	font: 25px/ 27px "Open Sans", Arial, Helvetica, sans-serif;
-	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	border-bottom: 1px dotted #d9d9d9;
 }
@@ -3125,7 +3265,6 @@ SEND AN INVITE PAGE
 }
 #sendinvite .message h4 {
 	padding: 5px 0;
-	font-weight: bold;
 	color: #999;
 }
 #sendinvite .divide {
@@ -3308,7 +3447,7 @@ Recently Viewed Items
 .block-viewed .block-title span	{
 	line-height: 20px;
 	letter-spacing: 0;
-	color: #000;
+	color: #2b2b2b;
 	font-size: 12px;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	font-weight: 700;
