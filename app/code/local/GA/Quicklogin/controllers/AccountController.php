@@ -3,7 +3,7 @@ require_once Mage::getModuleDir('controllers', 'Mage_Customer').DS.'AccountContr
 class GA_Quicklogin_AccountController extends Mage_Customer_AccountController
 {
       protected $_validActions = array('create','login','logoutSuccess','forgotpassword','forgotpasswordpost','confirm','confirmation','resetpassword','resetpasswordpost');
-      protected $_customActions = array('signupformpopup','ajaxLogin','ajaxCreate','ajaxForgotPassword');
+      protected $_customActions = array('signupformpopup','ajaxLogin','ajaxCreate','ajaxForgotPassword','ajaxPreCreate');
 
      public function preDispatch()
      {
@@ -123,6 +123,98 @@ class GA_Quicklogin_AccountController extends Mage_Customer_AccountController
 	/**
      * Login post action
      */
+    public function ajaxPreCreateAction()
+    {
+	$session = $this->_getSession();
+        if ($session->isLoggedIn()) {
+            $this->_redirect('*/*/');
+            return;
+        }
+
+        $session->setEscapeMessages(true); // prevent XSS injection in user input
+        if ($this->getRequest()->isPost()) {
+            $errors = array();
+
+            if (!$customer = Mage::registry('current_customer')) {
+                $customer = Mage::getModel('customer/customer')->setId(null);
+            }
+
+            /* @var $customerForm Mage_Customer_Model_Form */
+            $customerForm = Mage::getModel('customer/form');
+            $customerForm->setFormCode('customer_account_create')
+                ->setEntity($customer);
+
+            $customerData = $customerForm->extractData($this->getRequest());
+
+            if ($this->getRequest()->getParam('is_subscribed', false)) {
+                $customer->setIsSubscribed(1);
+            }
+
+            /**
+             * Initialize customer group id
+             */
+            $customer->getGroupId();
+
+            try {
+                $customerErrors = $customerForm->validateData($customerData);
+                if ($customerErrors !== true) {
+                    $errors = array_merge($customerErrors, $errors);
+                } else {
+                    $customerForm->compactData($customerData);
+                }
+
+                $validationResult = count($errors) == 0;
+                $result = array();
+                if (true === $validationResult) {
+			$write_old = Mage::getSingleton('core/resource')->getConnection('core_write');
+			$result='';
+			$select="SELECT COUNT(*) AS fdCount FROM customer_entity WHERE email = '".$customer->getEmail()."'";
+			if ($row = $write_old->fetchRow($select))
+			{
+				if ($row['fdCount'] > 0) {
+					$result['success'] = false;
+					$result['message'] = $this->__('There is already an account with this email address.');
+				} else	{
+					$result['success'] = true;
+				}
+			}
+
+                } else {
+                    $session->setCustomerFormData($this->getRequest()->getPost());
+                    if (is_array($errors)) {
+						$result['success'] = false;
+                        foreach ($errors as $errorMessage) {
+                            //$session->addError($errorMessage);
+							$result['message'] .= $errorMessage;
+                        }
+                    } else {
+                        //$session->addError($this->__('Invalid customer data'));
+						$result['success'] = false;
+						$result['message'] = $this->__('Invalid customer data');
+                    }
+                }
+            } catch (Mage_Core_Exception $e) {
+                $session->setCustomerFormData($this->getRequest()->getPost());
+                if ($e->getCode() === Mage_Customer_Model_Customer::EXCEPTION_EMAIL_EXISTS) {
+                    $url = Mage::getUrl('customer/account/forgotpassword');
+					$result['success'] = false;
+//					$result['message'] = $this->__('There is already an account with this email address. If you are sure that it is your email address.');
+$result['message'] = $this->__('There is already an account with this email address. If you are sure that it is your email address, <a href="#" onclick="$j(\'#signup-wrap\').stop(true,true).slideUp(); $j(\'#fpass\').stop(true,true).slideDown();$j(\'.errormsg\').html(\'\'); return false;">click here</a> to get your password and access your account.');
+
+                } else {
+					$result['success'] = false;
+					$result['message'] = $e->getMessage();
+                   
+                }
+               
+            } catch (Exception $e) {
+              	$result['success'] = false;
+				$result['message'] = $this->__('Cannot save the customer.');
+            }
+        }
+		$this->getResponse()->setBody(Zend_Json::encode($result));
+    }
+
     public function ajaxCreateAction()
     {
         $session = $this->_getSession();

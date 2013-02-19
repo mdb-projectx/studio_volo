@@ -1,24 +1,24 @@
 <div id="login-wrap">
 
-	<h3>Already a Customer?</h3>
+	<h3>Sign In</h3>
 
 	<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 	<div class="errormsg"></div>
 	<form action="#" method="post" id="login-form" class="frm-login">
 		<p class="email login">
 			<label for="email">Email</label>
-			<input name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" id="email" type="text" class="input-text required-entry" title="<?php echo $this->__('Email Address') ?>" />
+			<input name="login[username]" value="<?php echo $this->htmlEscape($this->getUsername()) ?>" id="email" type="text" class="input-text required-entry validate-email" title="<?php echo $this->__('Email Address') ?>" />
+		</p>
+		<? /*<p class="blank login"></p>*/ ?>
+		<p class="radio">
+			<input type="radio" name="group1" value="regis" checked="checked"/><label>I'm a new customer</label><input type="radio" name="group1" value="login" /><label>I've ordered before</label>
 		</p>
 		<p class="password login">
-			<label for="pass">Password</label>
-			<input name="login[password]" type="password" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
-		</p>
-		<p class="blank login"></p>
-		<p class="radio">
-			<label>I'm a new customer</label><input type="radio" name="group1" value="regis" /><label>I've ordered before</label><input type="radio" name="group1" value="login" checked />
-		</p>
+                        <label for="pass">Password</label>
+                        <input name="login[password]" type="password" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
+                </p>
 		<p>
-			<button class="action-btn" type="submit" name="send" id="send2"><?php echo $this->__('Sign In') ?></button>
+			<button class="action-btn" type="submit" name="send" id="send2"><?php echo $this->__('Secure Sign In') ?></button>
 		</p>
 		<p class="forgot">
 			<a href="#" onclick="$j('#login-wrap').stop(true,true).slideUp(); $j('#fpass').stop(true,true).slideDown(); return false;">forgot password?</a>
@@ -28,22 +28,23 @@
 	<div id="regis-form1" class="step1">
                 <p class="regis">
                         <label for="email_address">Email</label>
-                        <input id="email_address" class="input-text validate-email required-entry" type="text" title="Email Address" value="" name="email" />
+                        <input id="email_address" class="input-text required-entry validate-email" type="text" title="Email Address" value="" name="email" />
+			<span>Your order details will be sent to this email address.</span>
                 </p>
                 <p class="radio">
-                        <label>I'm a new customer</label><input type="radio" name="group1" value="regis" /><label>I've ordered before</label><input type="radio" name="group1" value="login" checked />
+                        <input type="radio" name="group1" value="regis" checked="checked" /><label>I'm a new customer</label><input type="radio" name="group1" value="login" /><label>I've ordered before</label>
                 </p>
                 <p>
-                        <button class="action-btn" type="submit" name="send" id="send2" onclick="var valid = new Validation('regis-form1'); if(valid.validate()){ $j('#regis-form .step1').stop(true,true).slideUp(); $j('#regis-form .step2').stop(true, true).slideDown(); return false; } else { return false;  } "><?php echo $this->__('Sign Up') ?></button>
+                        <button class="action-btn" type="submit" name="send" id="send2" onclick="var valid = new Validation('regis-form1'); if(valid.validate()) { preRegisterAjax() } else { return false };"><?php echo $this->__('Secure Sign In') ?></button>
                 </p>
 	</div>
 	<div class="step2">
 		<p class="regis">
-                        <label for="password">Password</label>
+                        <label for="password">Enter a Password</label>
                         <input id="password" class="input-text required-entry validate-password" type="password" title="Password" name="password"/>
                 </p>
                 <p class="regis">
-                        <label for="confirmation">Confirm Password</label>
+                        <label for="confirmation">Type it again</label>
                         <input id="confirmation" class="input-text required-entry validate-password" type="password" title="Password" name="confirmation"/>
                 </p>
                 <p class="regis" style="padding: 10px 0 5px;">
@@ -51,7 +52,7 @@
                         <label style="width: auto; display: none;" for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
                 </p>
                 <p>
-                        <button class="action-btn" type="submit" name="send" id="send2"><?php echo $this->__('Confirm') ?></button>
+                        <button class="action-btn" type="submit" name="send" id="send2"><?php echo $this->__('Create Account') ?></button>
                 </p>
 	</div>
         </form>
@@ -150,7 +151,7 @@
                 <form class="for-pass" id="forgot-form" method="post" action="<?php echo $this->getUrl('customer/account/ajaxForgotPassword/') ?>">
 			<p class="error" style="display:none; padding-left:30px; margin:0 0 15px 0; font-size:12px;"></p>
 			<p class="control" style="display:none; padding-left:40px; font-size:12px; text-align:center;">This Pop-up will be closed in 5 seconds</p>
-                        <p style="padding-left: 30px; margin:0 0 15px 0; font-size:13px;"><?php echo $this->__('Please enter your email to get the password') ?></p>
+                        <p style="margin:0 0 5px 0; font-size:12px;"><?php echo $this->__('Please enter your email to get the password') ?></p>
                         <p>
                                 <label class="required" for="email"><?php echo $this->__('Email') ?></label>
                                 <input type="text" title="Email Address" class="input-text required-entry validate-email" id="forgot_email" value="" name="forgotemail">
@@ -170,15 +171,31 @@
 	$j('input:radio').on('click', function(e) {
 		$j('#login-form').hide();
 		$j('#regis-form').hide();
+		$j('.errormsg').empty();
+                $j('.validation-advice').hide();
 		$j('#' + this.value + '-form').css("display", "block");
 		$j("#login-form input[value='" + this.value + "']").attr("checked", "checked");
 		$j("#regis-form input[value='" + this.value + "']").attr("checked", "checked");
 
 		if (this.value == "regis")	{
-			$j('#login-wrap h3').text('Sign Up Now');
+			$j('#login-wrap h3').text('Sign In');
+			$j('#email_address').val($j('#email').val());
+			$j('#alogin').colorbox.resize({
+				innerHeight: 210,
+			})
 		} else if (this.value == "login")	{
-			$j('#login-wrap h3').text('Already a Customer?');
+			$j('#login-wrap h3').text('Enter email to get started');
+			$j('#email').val($j('#email_address').val());
+			$j('#alogin').colorbox.resize({
+                                innerHeight: 270,
+                        })
 		}
+	})
+
+	$j('input').on('keyup', function(e)	{
+		$j('.errormsg').empty();
+		$j('.validation-advice').hide();
+		$j(this).removeClass('validation-failed');
 	})
 
 	$j('#login-form').unbind('submit').submit(function(e) {

@@ -31,8 +31,10 @@
 	<div id="footer">
 		<div id="subscribe" class="cf">
 			<div id="newsletter-area">
-				<p>Join our newsletter and get $10 off<br />
-				<input type="text" value="" placeholder="Enter your email here" /><input type="submit" value="SUBMIT" />
+				<form action="http://staging.studiovolo.com/index.php/newsletter/subscriber/new/" method="post" id="footer-newsletter-validate-detail">
+					<p>Join our newsletter and get $10 off<br />
+					<input name="email" id="footer-newsletter" class="input-text required-entry-email validate-email" type="text" value="" placeholder="Enter your email here" /><input type="submit" value="SUBMIT" />
+				</form>
 			</div>
 			<div id="follow">
 				Join the conversation<br />
@@ -73,3 +75,11 @@
 	</div>
 -->
 </div>
+
+<script type="text/javascript">
+//<![CDATA[
+    var newsletterSubscriberFormDetail = new VarienForm('footer-newsletter-validate-detail');
+    //Validation.add('required-entry-email', 'Please enter an email address');
+    //new Varien.searchForm('footer-newsletter-validate-detail', 'footer-newsletter', 'Enter your email address');
+//]]>
+</script>

@@ -51,6 +51,8 @@
 
 <script type="text/javascript">
 //<![CDATA[
+
+
     var accordion = new Accordion('checkoutSteps', '.step-title', true);
     <?php if($this->getActiveStep()): ?>
     accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');	

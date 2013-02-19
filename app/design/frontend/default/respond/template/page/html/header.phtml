@@ -67,4 +67,44 @@
 		<?php echo $this->getChildHtml('topSearch') ?>
 	</li>
 </ul>
+
+<!-- Newsletter Button -->
+
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('newsletter_subscribe_popup')->toHtml() ?>
+
+<div id="newsletter-popupbutton"><a class="inline" href="#newsletter-subscribe-popup">Subscribe</a></div>
+<script type="text/javascript">
+//<![CDATA[
+$j(window).load(function() {
+
+	$j('.inline').colorbox({inline:true, initialWidth:900, initialHeight:365, innerWidth:900, innerHeight:365});
+
+	if ( firstImpression('subscribe', 28) ) {
+		// if first visit in 28 days, open the popup
+		$j('.inline').trigger('click');
+	}
+    
+/*
+$j.ajax({
+	type:"POST",
+	url:"/newsletter/subscriber/checkemail",	
+	success: function(data){											
+		if (!(data))
+		{
+			$j('.inline').click();			
+		}
+		else
+		{
+			$j('#newsletter-popupbutton').hide();
+		}
+	},
+	error: function(XMLHttpRequest, textStatus, errorThrown){		
+	}
+});	
+*/
+
+});
+//]]>
+</script>
+
 <?php echo $this->getChildHtml('topBar') ?>
