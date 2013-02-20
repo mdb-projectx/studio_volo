@@ -1,6 +1,6 @@
 <div id="login-wrap">
 
-	<h3>Sign In</h3>
+	<h3>Enter your email to get started</h3>
 
 	<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 	<div class="errormsg"></div>
@@ -178,14 +178,16 @@
 		$j("#regis-form input[value='" + this.value + "']").attr("checked", "checked");
 
 		if (this.value == "regis")	{
-			$j('#login-wrap h3').text('Sign In');
+			//$j('#login-wrap h3').text('Sign In');
 			$j('#email_address').val($j('#email').val());
+			$j('#email_address').focus();
 			$j('#alogin').colorbox.resize({
 				innerHeight: 210,
 			})
 		} else if (this.value == "login")	{
-			$j('#login-wrap h3').text('Enter email to get started');
+			$j('#login-wrap h3').text('Enter your email to get started');
 			$j('#email').val($j('#email_address').val());
+			$j('#pass').focus();
 			$j('#alogin').colorbox.resize({
                                 innerHeight: 270,
                         })

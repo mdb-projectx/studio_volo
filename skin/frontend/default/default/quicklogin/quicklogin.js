@@ -13,7 +13,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 				overlayClose: false,
 				escKey: false,
 				onComplete: function() {
-				
+					$j('#email_address').focus();				
 					$j('#login-wrap .signup button').click(function() {
 						$j('#alogin').colorbox.resize({
 							innerWidth: 390,
@@ -143,6 +143,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							$j('.step2 input').removeClass('validation-failed');
 							$j('.validation-advice').remove();
 							$j('#login-wrap h3').text('Protect Your Account');
+							$j('#password').focus();
 						} else {
 							if ((typeof response.message) == 'string') {
                                                         	$j('.errormsg').html(response.message);

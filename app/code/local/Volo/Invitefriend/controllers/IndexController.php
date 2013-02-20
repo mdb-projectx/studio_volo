@@ -35,7 +35,7 @@ $invite_html ='
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Kelly just gifted you a $25 voucher at VoloDesign.com</title>
+        <title>Kelly just gifted you a $20 voucher at VoloDesign.com</title>
 		<style type="text/css">
 			/* Client-specific Styles */
 			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" button. */
@@ -115,7 +115,7 @@ $invite_html ='
 						"text" => $invite_message,
 						"from_email" => "contact@volodesign.com",
 						"from_name" =>  $firstname." ".$lastname,
-						"subject" => $firstname." ".$lastname." just gifted you a $25 voucher at Volo!",
+						"subject" => $firstname." ".$lastname." just gifted you a $20 voucher at Volo!",
 						"to" => array(array("email" => $email)),
 						"track_opens" => true,
 						"track_clicks" => true,

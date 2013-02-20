@@ -705,7 +705,7 @@ width:  80px;
 
 #subscribe {
 		padding: 35px 0 52px 0;
-		border-top: 1px dotted #a8a8a8;
+		border-top: 1px solid #ddd;
 		border-bottom: 1px dotted #a8a8a8;
 		line-height: 30px;
 		text-transform: uppercase;
@@ -1192,6 +1192,11 @@ CATEGORIES & PRODUCTS & SEARCH
 		text-align: center;
 		line-height: 15px;
 }
+#category li span	{
+	float: left;
+	width: 100%;
+	text-align: left;
+}
 #search li {
 		float: left;
 		margin: 0 0 15px;
@@ -1199,6 +1204,9 @@ CATEGORIES & PRODUCTS & SEARCH
 		width: 310px;
 		text-align: center;
 		line-height: 15px;
+}
+#category .ro	{
+	border-bottom: 1px solid #ddd;
 }
 #category .ro, #search .ro {
 		display: block;
@@ -1227,7 +1235,7 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #category li a:hover .name, #category li a:active .name,
 #search li a:hover .name, #search li a:active .name {
-		text-decoration: underline
+		text-decoration: none;
 }
 /*
 #category li .oldprice {
@@ -1238,7 +1246,7 @@ CATEGORIES & PRODUCTS & SEARCH
 */
 #category li .newprice, #search li .newprice {
 	display: block;
-	font-size: 13px;
+	font-size: 16px;
 	line-height: 24px;
 }
 
@@ -1811,6 +1819,9 @@ CATEGORIES & PRODUCTS & SEARCH
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
 		font-size: 10px;
 }
+#related .recommended li span.name	{
+	display: none;
+}
 #related .recommended .old {
 		display: block;
 		text-decoration: line-through !important;
@@ -1833,14 +1844,14 @@ CATEGORIES & PRODUCTS & SEARCH
 	overflow: hidden;
 }
 #details {
-		border-bottom: 1px dotted #a8a8a8;
+		border-bottom: 1px solid #ddd;
 }
 #details .features {
 		float: left;
 		width: 100%;
 		padding: 24px 0;
-		border-top: 1px dotted #a8a8a8;
-		border-bottom: 1px dotted #a8a8a8;
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
 }
 #details .features li {
 		float: left;
@@ -2141,8 +2152,8 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 
 #cboxLoadedContent {
 		background: #FFF;
-		overflow: hidden !important;
 		padding: 0 0 20px;
+		overflow-x: hidden !important;
 }
 
 #cboxLoadingGraphic {
@@ -2179,6 +2190,10 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 		top: 0px;
 		right: -2px;
 		background: url(../images/volo/close3.png) no-repeat 3px 2px;
+}
+#cboxClose.show	{
+	display: block !important;
+	right: 18px;
 }
 .cms-index-index #cboxClose {
 		display: block !important; /* show close button for newsletter popup */
@@ -2298,7 +2313,7 @@ BASKET & WISHLIST
 #basket h2, #checkout h1, .my-wishlist h1 {
 	display: block;
 	float: none;
- 	padding: 20px 0 10px 5px;
+ 	padding: 0px 0 10px 5px;
  	font: 25px/27px "Open Sans", Arial, Helvetica, sans-serif;
  	text-transform: Capitalize;
  	letter-spacing: 0.05em;
@@ -2989,6 +3004,10 @@ LOGIN POPUP
 	margin-left: 18%;
 	width: 82%;
 }
+#login-wrap input:focus	{
+	border: 1px solid #2da4e4;
+	box-shadow: 0 0 2px 2px #2da4e4;
+}
 #login-wrap input[type="text"], #login-wrap input[type="password"],
 #signup-wrap input[type="text"], #signup-wrap input[type="password"],
 #fpass input[type="text"] {
@@ -3145,22 +3164,34 @@ PRIVACY POLICY & RETURN POLICY
 	width: 800px;
 	margin: 0 auto;
 }
-#checkout-modal	{
-	width: 800px;
+.inlineContent	{
+	display: none;
+}
+.checkout-modal	{
+	width: 700px;
 	margin: 0 auto;
-	padding: 0 0 30px 0;
+	padding: 0;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	overflow: hidden;
+}
+#return.checkout-modal, #shipping.checkout-modal, #terms.checkout-modal, #privacy.checkout-modal	{
+	float: left;
+	width: 600px;
+	margin: 0 0 0 10px;
+	padding: 0;
 	overflow: hidden;
 }
 #return, #shipping, #terms, #privacy {
 		float: none;
 		width: 93%;
-		margin: 0 auto;
+		margin: auto;
 		padding: 0 0 30px 0;
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
-		overflow: hidden;
 }
-
+#return.checkout-modal h1, #privacy.checkout-modal h1, #terms.checkout-modal h1, #shipping.checkout-modal h1        {
+	width: 580px;
+	margin-top: 20px;
+}
 #return h1, #privacy h1, #terms h1, #shipping h1	{
 	float: left;
 	width: 100%;
@@ -3180,7 +3211,10 @@ PRIVACY POLICY & RETURN POLICY
 	text-align: left;
 }
 
-#privacy .paragraph, #return .paragraph, #terms .paragraph {
+.checkout-modal .paragraph	{
+	width: 95%;
+}
+.paragraph {
 		float: left;
 		width: 100%;
 		overflow: hidden;
@@ -3202,8 +3236,8 @@ PRIVACY POLICY & RETURN POLICY
 
 #privacy ul li, #terms ul li {
 		float: left;
-		width: 98%;
-		margin-left: 2%;
+		width: 97%;
+		margin-left: 3%;
 		padding: 5px 0;
 		list-style: disc;
 		line-height: 20px;
@@ -3441,7 +3475,7 @@ Recently Viewed Items
 .block-viewed	{
 	padding: 10px 0 ;
 	margin: 0;
-	border-top: 1px dotted #a8a8a8;
+	border-top: 1px solid #ddd;
 }
 
 .block-viewed .block-title span	{
@@ -3482,6 +3516,7 @@ Recently Viewed Items
 	font-size: 10px;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	text-align: center;
+	display: none;
 }
 
 
