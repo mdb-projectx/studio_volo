@@ -88,12 +88,22 @@
 			$j('#checkout-review .totals .adjustment').each(function() {
 				if($j(this).html().indexOf("Tax") >= 0) {
 					$j(this).remove();
+					$j('#checkout-review #total .priceTaxed').remove();
+					$j('#checkout-review #total .price').show();
 				}
 			});
 				
+			var priceTotal = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
+				
 			if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12) || ($j('#shipping\\:same_as_billing').is(':checked') && $j('#billing\\:region_id').val() == 12) ) {
 				$j('#checkout-review #total').before( '<div class="adjustment"></div>');
-				$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$' + (parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',','')) / 100 * 8.75).toFixed(2) + '</span>');
+				$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$' + (priceTotal / 100 * 8.75).toFixed(2) + '</span>');
+				$j('#checkout-review #total').append('<span class="priceTaxed"></span>');				
+				$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 8.75)).toFixed(2));
+				$j('#checkout-review #total .price').hide();
+			} else {
+				$j('#checkout-review #total .priceTaxed').remove();
+				$j('#checkout-review #total .price').show();
 			}
 		});
 	});
