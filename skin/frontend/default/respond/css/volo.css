@@ -3159,7 +3159,13 @@ LOGIN POPUP
 /*************************************************
 PRIVACY POLICY & RETURN POLICY
 **************************************************/
-
+#aboutus ul	{
+	float: left;
+}
+#aboutus ul li	{
+	margin-left: 20px;
+	list-style: square;
+}
 #privacy	{
 	width: 800px;
 	margin: 0 auto;
@@ -3181,7 +3187,7 @@ PRIVACY POLICY & RETURN POLICY
 	padding: 0;
 	overflow: hidden;
 }
-#return, #shipping, #terms, #privacy {
+#aboutus, #return, #shipping, #terms, #privacy {
 		float: none;
 		width: 93%;
 		margin: auto;
@@ -3220,8 +3226,9 @@ PRIVACY POLICY & RETURN POLICY
 		overflow: hidden;
 }
 
-#privacy .paragraph p, #return .paragraph p, #terms  p, #shipping p {
+#aboutus .paragraph p, #privacy .paragraph p, #return .paragraph p, #terms  p, #shipping p {
 	float: left;
+	width: 100%;
 	margin: 10px 0 15px 0;
 	text-align: justify;
 }
@@ -3528,7 +3535,7 @@ DESIGNERS PAGE
 	margin: 0 auto 30px;
 	width: 960px;
 	min-height: 640px;
-	background: url(http://staging.studiovolo.com/skin/frontend/default/respond/images/volo/designers.jpg) no-repeat;
+	background: url('../images/volo/designers.jpg') no-repeat;
 	font: 13px "Open Sans", Arial, Helvetica, sans-serif;
 	colro: #202020;
 }
@@ -3575,7 +3582,7 @@ DESIGNERS PAGE
 
 #contact.checkout-modal	{
 	width: 660px;
-	padding: 20px 20px 0;
+	padding: 15px 20px 0;
 }
 
 #contact h1	{
@@ -3663,12 +3670,61 @@ DESIGNERS PAGE
 	resize: none;
 	border: 1px solid #8d9a9e;
 	font-size: 13px;
+	background: white;
 	-moz-box-shadow: inset 0px 0px 3px rgba(80, 80, 80, 0.2);
 	-webkit-box-shadow: inset 0px 0px 3px rgba(80, 80, 80, 0.2);
 	box-shadow: inset 0px 0px 3px rgba(80, 80, 80, 0.2);
 }
 
+#contact #contactForm .field span.select	{
+	position: absolute;
+	width: 175px;
+	height: 21px;
+	padding: 8px 24px 0 6px;
+	letter-spacing: 1px;
+	color: #45555f;
+	font-size: 12px;
+	background: url('../images/volo/select-element-bkgd.png') no-repeat -15px -1px;
+	border: 1px solid #e0e1e1;
+	text-transform: uppercase;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	cursor: default;
+	overflow: hidden;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+#contact #contactForm .field select	{
+	border: 6px solid #A5B5BF;
+	position: relative;
+	width: 100%;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	z-index: 0;
+	font-size: 12px;
+	vertical-align: top;
+	color: #45555F;
+}
+
 #contact .buttons-set button	{
 	float: right;
 	margin-right: 15px;
+	width: 180px;
+        color: white;
+        background-color: #5b5b5b;
+        border: none;
+        font: 13px/18px "Open Sans", Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+
+        -webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 1s ease-in;
+        -o-transition:background 1s ease-in;
+        transition:background 1s ease-in;
+}
+
+#contact .buttons-set button:hover	{
+	background-color: #4f4f4f;
 }
