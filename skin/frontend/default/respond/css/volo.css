@@ -3570,3 +3570,105 @@ DESIGNERS PAGE
 #designers a:hover {
 	text-decoration: none;
 }
+
+/* CONTACT US POP UP */
+
+#contact.checkout-modal	{
+	width: 660px;
+	padding: 20px 20px 0;
+}
+
+#contact h1	{
+	float: left;
+	width: 100%;
+	font-size: 24px;
+	text-align: left;
+	margin-bottom: 24px;
+	color: #00a4e4;
+}
+
+.contact-info-sidebar	{
+	float: left;
+	width: 160px;
+	height: 440px;
+	padding-right: 20px;
+	border-right: 1px solid #ccc;
+}
+
+.contact-info-sidebar h3 {
+	margin-bottom: 1px;
+	color: #45555f;
+	font-size: 14px;
+	text-align: left;
+}
+
+.contact-info-sidebar span	{
+	float: left;
+	text-align: left;
+	font-size: 12px;
+}
+
+#contact #contactForm	{
+	float: left;
+	width: 450px;
+	padding-left: 20px;
+}
+
+#contact #contactForm .form-list	{
+	float: left;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+#contact #contactForm .fields    {
+        float: left;
+	margin: 0;
+	padding: 0;
+}
+
+#contact #contactForm .field	{
+	float: left;
+	margin-bottom: 24px;
+}
+
+#contact #contactForm .field label	{
+	float: left;
+	width: 100%;
+	text-align: left;
+}
+
+#contact #contactForm .field .input-box	{
+	float: left;
+	width: 208px;
+}
+
+#contact #contactForm .field .input-box input {
+	width: 194px;
+	padding: 6px;
+	color: #45555f;
+	border: 1px solid #8d9a9e;
+	font-size: 14px;
+	-moz-box-shadow: inset 0px 0px 3px rgba(80, 80, 80, 0.2);
+	-webkit-box-shadow: inset 0px 0px 3px rgba(80, 80, 80, 0.2);
+	box-shadow: inset 0px 0px 3px rgba(80, 80, 80, 0.2);
+}
+
+#contact #contactForm .field textarea {
+	width: 420px;
+	height: 100px;
+	margin-top: 2px;
+	color: #45555f;
+	padding: 4px 6px;
+	resize: none;
+	border: 1px solid #8d9a9e;
+	font-size: 13px;
+	-moz-box-shadow: inset 0px 0px 3px rgba(80, 80, 80, 0.2);
+	-webkit-box-shadow: inset 0px 0px 3px rgba(80, 80, 80, 0.2);
+	box-shadow: inset 0px 0px 3px rgba(80, 80, 80, 0.2);
+}
+
+#contact .buttons-set button	{
+	float: right;
+	margin-right: 15px;
+}
