@@ -43,8 +43,10 @@
 		<?php if($_item->getParentItem()) continue; else $i++; ?>
 			<?php echo $this->getItemHtml($_item) ?>
 		<?php endforeach; ?>
-		<?php echo $this->getChildHtml('order_totals') ?>
 	</tbody>
+</table>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+	<?php echo $this->getChildHtml('order_totals') ?>
 </table>
 
 <?php if ($this->helper('giftmessage/message')->isMessagesAvailable('order', $_order, $_order->getStore()) && $_order->getGiftMessageId()): ?>

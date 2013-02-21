@@ -29,7 +29,7 @@
 <tr>
 	<td valign="top" style="border-collapse: collapse;padding: 16px 0 0 0;">
 		<p style="margin-top: 0;color: #212121;font-size: 13px;line-height: 21px;font-family: Georgia serif;">
-			<strong style="font-size:11px;"><?php echo $this->htmlEscape($_item->getName()) ?></strong>
+			<strong><?php echo $this->htmlEscape($_item->getName()) ?></strong>
 			<?php if ($this->getItemOptions()): ?>
 			<dl style="margin:0; padding:0;">
 				<?php foreach ($this->getItemOptions() as $option): ?>
