@@ -67,6 +67,54 @@ class Mage_Newsletter_SubscriberController extends Mage_Core_Controller_Front_Ac
                     $session->addSuccess($this->__('Confirmation request has been sent.'));
                 }
                 else {
+/**********
+Edwin : Add welcome letter for newsletter sigip
+***********************/
+
+$baseurl = str_replace('/index.php/','',Mage::getBaseUrl());
+                $invite_message.='<br><a href="'.$baseurl.'invitefriend/index/refer?code='.$discount_code.'">Start Shopping</a>';
+
+$invite_html ='The discount code is "VOLONEWS10"';
+
+$invite_message='The discount code is "VOLONEWS10"';
+
+
+if(filter_var($email, FILTER_VALIDATE_EMAIL))
+{
+	$service_url = 'http://mandrillapp.com/api/1.0/messages/send.json';
+	$curl = curl_init($service_url);
+	$curl_post_data = array(
+			"key" => "8de2f48d-6932-4918-9af1-ebd722957d68",
+			'message' => array(
+					"html" => $invite_html,
+					"text" => $invite_message,
+					"from_email" => "contact@volodesign.com",
+					"from_name" =>  "Volo Design",
+					"subject" => "Welcome to VOLO, Just gifted you a $10 voucher at Volo!",
+					"to" => array(array("email" => $email)),
+					"track_opens" => true,
+					"track_clicks" => true,
+					"auto_text" => true,
+					"tags"=>array("newsletter signup")
+			)
+	);
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($curl, CURLOPT_HEADER, 0);
+	curl_setopt($curl, CURLOPT_POST, true);
+	curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($curl_post_data));
+	curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, TRUE);
+	$curl_response = curl_exec($curl);
+	curl_close($curl);
+	if (!$curl_response)
+	{
+			$result=false;
+	}
+}
+
+/*******************
+End of Newletter Signup
+******************/
+
 			Mage::getModel('core/cookie')->set('Subscribed', true);
                     $session->addSuccess($this->__('Thank you for your subscription.'));
                 }
