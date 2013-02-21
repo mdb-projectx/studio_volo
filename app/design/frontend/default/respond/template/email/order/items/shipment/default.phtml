@@ -27,7 +27,7 @@
 <?php $_item = $this->getItem() ?>
 <tr>
 	<td valign="top" style="border-collapse: collapse;padding: 16px 0 0 0;">
-		<p style="margin-top: 0;margin-bottom:21px;color: #212121;font-size: 13px;line-height: 21px;font-family: Georgia serif;">
+		<p style="margin-top: 0;color: #212121;font-size: 13px;line-height: 21px;font-family: Georgia serif;">
 			 <strong><?php echo $this->htmlEscape($_item->getName()) ?></strong>
 			<?php if ($this->getItemOptions()): ?>
 			<dl style="margin:0; padding:0;">
@@ -46,13 +46,13 @@
 	</td>
 	<td class="spacer" style="border-collapse: collapse;padding: 0;">&nbsp;</td>
 	<td valign="top" style="border-collapse: collapse;padding: 16px 0 0 0;">
-		<p style="margin-top: 0;margin-bottom: 21px;color: #212121;font-size: 13px;line-height: 21px;font-family: Georgia serif;">
+		<p style="margin-top: 0;color: #212121;font-size: 13px;line-height: 21px;font-family: Georgia serif;">
 			<?php echo $this->htmlEscape($this->getSku($_item)) ?>
 		</p>
 	</td>
 	<td class="spacer" style="border-collapse: collapse;padding: 0;">&nbsp;</td>
 	<td valign="top" style="border-collapse: collapse;padding: 16px 0 0 0;">
-		<p style="margin-top: 0;margin-bottom: 21px;color: #212121;font-size: 13px;line-height: 21px;font-family: Georgia serif;">
+		<p style="margin-top: 0;color: #212121;font-size: 13px;line-height: 21px;font-family: Georgia serif;">
 			<?php echo $_item->getQty()*1 ?>
 		</p>
 	</td>
