@@ -144,7 +144,10 @@ select {
 input {
 		font-size: 13px;
 }
-
+input:focus	{
+	border: 1px solid #2da4e4;
+        box-shadow: 0 0 2px 2px #2da4e4;	
+}
 ::-webkit-input-placeholder {
 		color: #949494;
 		font-style: italic;
@@ -602,6 +605,7 @@ width:  80px;
 	color: #000;
 	-webkit-border-radius: 0;
 	border: 1px solid #ccc;
+	margin-top: 3px;
 }
 
 #menu li.search .input-text:focus	{	
@@ -615,7 +619,7 @@ width:  80px;
 	right: 7px;
 	padding-right: 2px;
 	background-color: #fff;
-	top: 5px;
+	top: 8px;
 }
 
 .no-js #menu ul {
@@ -2406,6 +2410,10 @@ BASKET & WISHLIST
 	color: #4a4a4a;
 	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 }
+#basket .quantity input:focus, #wishlist-table .qty:focus {
+	border: 1px solid #d9d9d9;
+        box-shadow: none;
+}
 #basket .subtotal {
 	padding-right: 5px;
 }
@@ -3697,13 +3705,9 @@ DESIGNERS PAGE
 }
 
 #contact #contactForm .field select	{
-	border: 6px solid #A5B5BF;
 	position: relative;
 	width: 100%;
-	opacity: 0;
-	filter: alpha(opacity=0);
 	z-index: 0;
-	font-size: 12px;
 	vertical-align: top;
 	color: #45555F;
 }
@@ -3727,4 +3731,8 @@ DESIGNERS PAGE
 
 #contact .buttons-set button:hover	{
 	background-color: #4f4f4f;
+}
+
+#contact .validation-advice	{
+	text-align: left;
 }

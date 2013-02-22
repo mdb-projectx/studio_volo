@@ -186,8 +186,13 @@
 			})
 		} else if (this.value == "login")	{
 			$j('#login-wrap h3').text('Enter your email to get started');
-			$j('#email').val($j('#email_address').val());
-			$j('#pass').focus();
+			email = $j('#email_address').val();
+			$j('#email').val(email);
+			if (!email)	{
+				$j('#email').focus();
+			} else	{
+				$j('#pass').focus();
+			}
 			$j('#alogin').colorbox.resize({
                                 innerHeight: 270,
                         })

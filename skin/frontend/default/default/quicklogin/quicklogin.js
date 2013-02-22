@@ -5,6 +5,8 @@ var checkurl = URL + "customer/account/signupformpopup/";
 			$j('.alogin').colorbox({
 				href:checkurl,
 				title:' ',
+				fixed: true,
+				top: "25%",
 				innerWidth: 390,
 				innerHeight: 210,
 				initialWidth: 390,
