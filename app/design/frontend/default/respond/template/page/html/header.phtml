@@ -75,9 +75,25 @@
 <div id="newsletter-popupbutton"><a class="inline" href="#newsletter-subscribe-popup">Subscribe</a></div>
 <script type="text/javascript">
 //<![CDATA[
-$j(window).load(function() {
+$j(document).ready(function() {
 
-	$j('.inline').colorbox({inline:true, initialWidth:900, initialHeight:365, innerWidth:900, innerHeight:365});
+	$j('#newsletter-subscribe-close a').click(function() {
+		$j.colorbox.close();
+		return false;
+	});
+	$j('.inline').colorbox({
+		inline:true, 
+		initialWidth:498, 
+		initialHeight:335, 
+		innerWidth:498, 
+		innerHeight:335, 
+		className:'plain',
+		onOpen: function() {
+			$j('#newsletter-subscribe-close').show();
+		}, onCleanup: function() {
+			$j('#newsletter-subscribe-close').hide();
+		}
+	});
 
 	if ( firstImpression('subscribe', 28) ) {
 		// if first visit in 28 days, open the popup

@@ -1076,7 +1076,6 @@ HOMEPAGE
 		height: 71px;
 		z-index: 9999;
 }
-
 #newsletter-popupbutton a {
 		display: block;
 		padding: 71px 0 0;
@@ -1086,10 +1085,87 @@ HOMEPAGE
 		font-size: 0.1em;
 		overflow: hidden;
 }
-
 #newsletter-popupbutton a:hover {
 		background-position: 0 100%;
 }
+
+#newsletter-subscribe-close { /* close button */
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	width: 21px;
+	height: 21px;
+	display: none;
+	z-index: 10000;
+}
+#newsletter-subscribe-close a {
+	display: block;
+	width: 21px;
+	height: 21px;
+	background: transparent url(../images/volo/subscribe-close.png) no-repeat 50% 50%;
+	text-indent: 999em;
+	overflow: hidden;
+}
+
+#newsletter-subscribe-popup {
+	position: relative;
+	width: 498px;
+	height: 335px;
+	background: url(../images/volo/subscribe-bg.jpg) no-repeat 50% 50%;
+	text-align: left;
+}
+#newsletter-subscribe-popup .form-subscribe-header {
+	padding: 28px 0 0;
+	font-size: 17px;
+	line-height: 24px;
+	font-weight: bold;
+	text-align: center;
+}
+#newsletter-subscribe-popup .form-subscribe-body {
+	padding: 30px 0 0 35px;
+	width: 225px;
+	font-size: 12px;
+	line-height: 18px;
+}
+#newsletter-subscribe-popup .input-box {
+	position: relative;
+	padding: 42px 0 0 35px;
+	width: 235px;
+	min-height: 0;
+}
+#newsletter-subscribe-popup .input-box input[type='text'] {
+	position: absolute;
+	left: 35px;
+	top: 12px;
+	/* width: 183px; */
+	width: 171px;
+}
+#newsletter-subscribe-popup .input-box button {
+	position: absolute;
+	right: 0;
+	top: 12px;
+	/* width: 183px; */
+	width: 52px;
+	color: #FFF;
+	border-color: #5b5b5b;
+	background-color: #5b5b5b;
+	-webkit-transition: background 0.25s ease-in;
+	-moz-transition:background 0.25s ease-in;
+	-o-transition:background 0.25s ease-in;
+	transition:background 0.25s ease-in;
+}
+#newsletter-subscribe-popup .input-box button:hover {
+	background-color: #4f4f4f;
+}
+#newsletter-subscribe-popup .form-subscribe-footer {
+	padding: 6px 0 0 35px;
+	font-size: 12px;
+	line-height: 18px;
+	color: #999999;
+	font-style: italic;
+}
+
+/* OLD:
 #newsletter-subscribe-popup {
 		text-align: left;
 		padding: 15px;
@@ -1142,20 +1218,8 @@ HOMEPAGE
 		text-transform: uppercase;
 }
 .form-subscribe .validation-advice {
-
 }
-
-/*
-
-	<div class="form-subscribe">
-	<div class="form-subscribe-header">Be the first to know!</div>
-	<div class="form-subscribe-body">Get exclusive deals straight to your inbox</div>
-		<label for="newsletter">Email:</label>
-		<div class="input-box">
-		   <input type="text" name="email" id="newsletter" title="Sign up for our newsletter" class="input-text required-entry validate-email" />
-		</div>
-		<button type="submit" title="Submit" class="button"><span><span>Submit</span></span></button>
-				*/
+*/
 
 
 /**************************************************
@@ -2064,67 +2128,57 @@ ColorBox Core Style:
 The following CSS is consistent between example themes and should not be altered.
  */
 #colorbox,#cboxOverlay,#cboxWrapper {
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 9999;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9999;
 }
-
 #cboxOverlay {
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		background: #FFF;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #FFF;
 }
-
 #cboxMiddleLeft,#cboxBottomLeft {
-		clear: left;
+	clear: left;
 }
-
 #cboxContent {
-		position: relative;
+	position: relative;
 }
-
 #cboxLoadedContent {
-		overflow: auto;
+	overflow: auto;
 }
-
 #cboxTitle {
-		margin: 0;
+	margin: 0;
 }
-
 #cboxLoadingOverlay,#cboxLoadingGraphic {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
-
 #cboxPrevious,#cboxNext,#cboxClose,#cboxSlideshow {
-		cursor: pointer;
+	cursor: pointer;
 }
-
 .cboxPhoto {
-		float: left;
-		margin: auto;
-		border: 0;
-		display: block;
-		max-width: none;
+	float: left;
+	margin: auto;
+	border: 0;
+	display: block;
+	max-width: none;
 }
-
 .cboxIframe {
-		width: 100%;
-		height: 100%;
-		display: block;
-		border: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	border: 0;
 }
-
 #colorbox,#cboxContent,#cboxLoadedContent {
-		-webkit-box-sizing: content-box;
-		-moz-box-sizing: content-box;
-		-ms-box-sizing: content-box;
-		box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+	box-sizing: content-box;
 }
 
 /*
@@ -2135,77 +2189,78 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 #cboxOverlay {
 	background: #000;
 }
-
 #cboxContent {
-		margin-top: 32px;
-		overflow: visible;
-		-webkit-box-shadow: 2px 2px 10px #000;
-		box-shadow: 2px 2px 10px #000;
-		-webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-		box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+	margin-top: 32px;
+	overflow: visible;
+	-webkit-box-shadow: 2px 2px 10px #000;
+	box-shadow: 2px 2px 10px #000;
+	-webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
-
+.plain #cboxContent {
+	margin: 0;
+}
 .cboxIframe {
-		background: #fff;
+	background: #fff;
 }
-
 #cboxError {
-		padding: 50px;
-		border: 1px solid #ccc;
+	padding: 50px;
+	border: 1px solid #ccc;
 }
-
 #cboxLoadedContent {
-		background: #FFF;
-		padding: 0 0 20px;
-		overflow-x: hidden !important;
+	background: #FFF;
+	padding: 0 0 20px;
+	overflow-x: hidden !important;
 }
-
+.plain #cboxLoadedContent {
+	padding: 0;
+}
 #cboxLoadingGraphic {
-		background: url(../images/volo/loading.gif) no-repeat 50% 50%;
+	background: url(../images/volo/loading.gif) no-repeat 50% 50%;
 }
-
 #cboxLoadingOverlay {
-		background: #FFF;
+	background: #FFF;
 }
-
 #cboxTitle {
-		position: absolute;
-		top: -22px;
-		left: 0;
-		color: #000;
+	position: absolute;
+	top: -22px;
+	left: 0;
+	color: #000;
 }
-
 #cboxCurrent {
-		position: absolute;
-		top: -22px;
-		right: 205px;
-		text-indent: -9999px;
+	position: absolute;
+	top: -22px;
+	right: 205px;
+	text-indent: -9999px;
 }
-
 #cboxClose {
-		display: none !important;
-		text-indent: -9999px;
-		width: 30px;
-		height: 30px;
-		position: absolute;
-		/*top: -10px;
-		right: -10px;
-		background: url(../images/volo/close.png) no-repeat 0 0;*/
-		top: 0px;
-		right: -2px;
-		background: url(../images/volo/close3.png) no-repeat 3px 2px;
+	display: none !important;
+	text-indent: -9999px;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	/*top: -10px;
+	right: -10px;
+	background: url(../images/volo/close.png) no-repeat 0 0;*/
+	top: 0px;
+	right: -2px;
+	background: url(../images/volo/close3.png) no-repeat 3px 2px;
 }
 #cboxClose.show	{
 	display: block !important;
 	right: 18px;
 }
 .cms-index-index #cboxClose {
-		display: block !important; /* show close button for newsletter popup */
+	display: block !important; /* show close button for newsletter popup */
 }
 #cboxClose:hover {
-		/*background-position: 0 -30px;*/
-		background-position: 3px -22px;
+	/*background-position: 0 -30px;*/
+	background-position: 3px -22px;
 }
+.plain #cboxTitle, .plain #cboxClose, .plain #cboxClose.show {
+	display: none !important;
+}
+
 /*
 #cboxPrevious, #cboxNext  {
 		text-indent: -9999px;
