@@ -579,7 +579,7 @@ input {}
 .form-list li { display: inline-block; }
 .form-list li, .form-list li .field { float:left; width:45%; margin-right:5%; }
 .form-list li.fields, .form-list li.wide { display: inline-block; width:100%; }
-.form-list li.wide .input-box input.input-text { width:90%; }
+.form-list li.wide .input-box input.input-text { width:91%; }
 
 .form-list li + li.control { margin-top:18px; }
 .form-list li.control + li.control { margin-top:0; }

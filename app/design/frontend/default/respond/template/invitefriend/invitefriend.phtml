@@ -16,7 +16,7 @@
 		<p>Your friend also gets $20 off with the discount code you give them. Everyone wins!</p>
 	</div>
 	<div class="forms">
-		<form id="email_invite_form">	
+		<form id="email_invite_form" action="/invitefriend/index/sendinvite">	
 			<input type="hidden" id="email_counter" name="email_counter" value="0">
 			<input type="hidden" id="discount_code" name="discount_code" value="<?php echo $_invitecode;?>">
 			<h3>Email invitations to Friends</h3>
@@ -49,8 +49,6 @@
 		$j("#email_counter").attr('value',counter);
 	});
 
-
-
 	function sendinvite()
 	{
 		var data = jQuery('#email_invite_form').serialize();
@@ -63,7 +61,10 @@
 				success: function(data){
 						if(data.result)
 						{
-								alert('The invite email has been sent!');
+							window.location.href='/invitefriend/index/success';
+							//alert('The invite email has been sent!');
+						} else	{
+							window.location.href='/invitefriend/index/fail';
 						}
 						//window.location.href='/';
 				},

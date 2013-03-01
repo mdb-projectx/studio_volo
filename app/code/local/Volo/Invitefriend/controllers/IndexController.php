@@ -137,10 +137,11 @@ $invite_html ='
 			}
 		}
 
-//              $response=array('result'=>$invite_email);
+                $response=array('result'=>$invite_email);
 		$response=array('result'=>$result);
 		$response = Mage::helper('core')->jsonEncode($response);
 		$this->getResponse()->setBody($response);
+
 	}
 
         public function referAction()
@@ -154,6 +155,16 @@ $invite_html ='
                 }
                  $this->_redirectUrl('/');
         }
+
+	public function successAction()	{
+		Mage::getSingleton('core/session')->addSuccess('Your invitation was sent. Thank you.');
+                $this->_redirect('*/index');
+	}
+
+	public function failAction()	{
+		Mage::getSingleton('core/session')->addSuccess('Fail to send invitation. Please try again later.');
+                $this->_redirect('*/index');
+	}
 }
 ?>
 
