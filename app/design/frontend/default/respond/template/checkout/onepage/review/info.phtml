@@ -27,7 +27,6 @@
 <?php echo $this->getChildHtml('items_before'); ?>
 <div id="checkout-review-table-wrapper">
     <table class="data-table cart-table-items" id="checkout-review-table">
-        <?php echo $this->getChildHtml('totals'); ?>
         <thead>
             <tr>
                 <th><?php echo $this->__('Product Name') ?></th>
@@ -38,6 +37,7 @@
             <?php echo $this->getItemHtml($_item)?>
         <?php endforeach ?>
     </table>
+    <?php echo $this->getChildHtml('totals'); ?>
 </div>
 <?php echo $this->getChildHtml('items_after'); ?>
 <script type="text/javascript">
@@ -48,7 +48,9 @@
 <div id="checkout-review-submit">
     <?php echo $this->getChildHtml('agreements') ?>
     <div class="buttons-set" id="review-buttons-container">
+<? /*
         <p class="f-left"><?php echo $this->__('Forgot an Item?') ?> <a href="<?php echo $this->getUrl('checkout/cart') ?>"><?php echo $this->__('Edit Your Cart') ?></a></p>
+*/ ?>
         <?php echo $this->getChildHtml('button') ?>
         <span class="please-wait" id="review-please-wait" style="display:none;">
             <img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif') ?>" alt="<?php echo $this->__('Submitting order information...') ?>" title="<?php echo $this->__('Submitting order information...') ?>" class="v-middle" /> <?php echo $this->__('Submitting order information...') ?>

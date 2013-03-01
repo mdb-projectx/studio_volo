@@ -421,6 +421,9 @@ Validation.addAllThese([
     ['required-entry', 'This is a required field.', function(v) {
                 return !Validation.get('IsEmpty').test(v);
             }],
+    ['required-entry-email', 'Please enter an email address.', function(v) {
+                return !Validation.get('IsEmpty').test(v);
+            }],
     ['validate-number', 'Please enter a valid number in this field.', function(v) {
                 return Validation.get('IsEmpty').test(v)
                     || (!isNaN(parseNumber(v)) && /^\s*-?\d*(\.\d*)?\s*$/.test(v));

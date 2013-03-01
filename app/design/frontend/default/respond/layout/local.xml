@@ -84,7 +84,6 @@
 			<block type="directory/currency" name="top_currency" template="directory/currency.phtml"/>
 			<block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml" />
 			
-			<remove name="top.search"></remove>
 			<remove name="top_currency"></remove>
 			  
 			<reference name="top.bar">
@@ -116,8 +115,7 @@
 
 		<reference name="footer">
 			<action method="unsetChild"><alias>cms_footer_links</alias></action>
-			
-			
+
 			<block type="cms/block" name="footer_cols">
 				<action method="setBlockId"><block_id>footer_cols</block_id></action>
 			</block>

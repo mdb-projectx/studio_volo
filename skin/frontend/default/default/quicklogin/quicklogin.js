@@ -5,17 +5,21 @@ var checkurl = URL + "customer/account/signupformpopup/";
 			$j('.alogin').colorbox({
 				href:checkurl,
 				title:' ',
+				fixed: true,
+				top: "25%",
 				innerWidth: 390,
-				innerHeight: 285,
+				innerHeight: 210,
 				initialWidth: 390,
-				initialHeight: 285,
+				initialHeight: 210,
 				opacity: 0.75,
+				overlayClose: false,
+				escKey: false,
 				onComplete: function() {
-				
+					$j('#email_address').focus();				
 					$j('#login-wrap .signup button').click(function() {
 						$j('#alogin').colorbox.resize({
 							innerWidth: 390,
-							innerHeight: 460,
+							innerHeight: 210
 						});
 						
 						$j('#signup-wrap').show();
@@ -48,7 +52,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 			 
 						$j('#alogin').colorbox.resize({
 							innerWidth: 390,
-							innerHeight: 285,
+							innerHeight: 210
 						});
 						
 			    var request = new Ajax.Request(
@@ -77,7 +81,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 						{
 							path='checkout/onepage/';
 						}
-                       redirectURL = URL+path;
+			                       redirectURL = URL+"checkout/onepage/";
 					   setTimeout("location.href = redirectURL;",redirectTime);
 					}else{
 					    if ((typeof response.message) == 'string') {
@@ -101,7 +105,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 						checkHeight = 0;										
 						$j('#alogin').colorbox.resize({
 							innerWidth: 390,
-							innerHeight: 285 - 143 + newHeight
+							innerHeight: (460 - 386 + newHeight)
 						});
 					}					
 					setTimeout(function() { 					
@@ -113,18 +117,62 @@ var checkurl = URL + "customer/account/signupformpopup/";
 			  }
 			  
 		}	
-            /*Ajax Register Customer Function */
+	    /*Ajax Register Customer Function Step 1*/
+		function preRegisterAjax()	{
+			var valid = new Validation('regis-form');
+                        if(valid.validate())	{
+			} else	{
+				//alert('valid');
+				var request = new Ajax.Request(
+				URL + "customer/account/ajaxPreCreate",
+				{
+					method:'post',
+					onComplete: function(){
+						//alert("completed");
+					},
+					onSuccess: function(transport){
+						response = eval('(' + transport.responseText + ')');
+						//alert(response.success);
+						//alert(response.message);
+						if (response.success) {
+							//alert("success");
+							$j('#alogin').colorbox.resize({
+	                                                        innerWidth: 390,
+	                                                        innerHeight: 190
+	                                                });
+							$j('#regis-form .step1').stop(true,true).slideUp(); $j('#regis-form .step2').stop(true, true).slideDown();
+							$j('.errormsg').empty();
+							$j('.step2 input').removeClass('validation-failed');
+							$j('.validation-advice').remove();
+							$j('#login-wrap h3').text('Protect Your Account');
+							$j('#password').focus();
+						} else {
+							if ((typeof response.message) == 'string') {
+                                                        	$j('.errormsg').html(response.message);
+                                                        }
+							return false;
+						}
+					},
+                                        onFailure: function(){
+                                        	alert("Failed, please try again later.");
+                                        },
+                                        parameters: Form.serialize('regis-form')
+				})
+			}
+		}
+
+          /*Ajax Register Customer Function */
                 function registerAjax() {
 					var origHeight = $j('#regis-form').height();		
 						
 					 var valid = new Validation('regis-form');
 					 if(valid.validate()){				 
-					 
+					/*
 						$j('#alogin').colorbox.resize({
 							innerWidth: 390,
 							innerHeight: 460,
 						});
-						
+					*/
 						  var request = new Ajax.Request(
 						URL + "customer/account/ajaxCreate",
 						{
@@ -162,14 +210,16 @@ var checkurl = URL + "customer/account/signupformpopup/";
 								}
 								var newHeight;
                 		                                var checkHeight = setInterval(function(){
-        	                                               newHeight = $j('#regis-form').height();
+         	                                                newHeight = $j('#login-form').height();
 	                                                        if(newHeight != origHeight) {
 	                                                                clearInterval(checkHeight);
 	                                                                checkHeight = 0;
+									/*
                                                                 	$j('#alogin').colorbox.resize({
                                                                 	        innerWidth: 390,
                                                         	                innerHeight: (460 - 386 + newHeight)
                                                 	                });
+									*/
                                         	                }
                                 	                        setTimeout(function() {
                         	                                        clearInterval(checkHeight);
@@ -185,10 +235,10 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							parameters: Form.serialize('regis-form')
 						}
 						  );
-					  }else{
+					  } else	{
 						var newHeight;
 						var checkHeight = setInterval(function(){ 		
-							newHeight = $j('#regis-form').height();						
+							newHeight = $j('#login-form').height();
 							if(newHeight != origHeight) {
 								clearInterval(checkHeight);
 								checkHeight = 0;												
@@ -203,7 +253,6 @@ var checkurl = URL + "customer/account/signupformpopup/";
 						}, 10);
 						return false;
 					  }
-			  
 				
 		        }	
 		/*Forget Password Function */

@@ -1,0 +1,55 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_modern
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+</div><!-- end #wrapper -->
+
+<div id="footer-wrap">	
+	<div id="footer">
+		<div id="subscribe" class="cf"></div>
+		<div id="links" class="cf">
+			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('checkout_footer_cols')->toHtml() ?>
+                </div>
+	</div>
+<!--
+	<div id="meta">
+		<div id="terms">
+			<?php echo $this->getChildHtml('footer_links') ?>
+		</div>
+		<div id="address">
+			<?php echo $this->getCopyright() ?>
+		</div>
+	</div>
+-->
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+    var newsletterSubscriberFormDetail = new VarienForm('footer-newsletter-validate-detail');
+    //Validation.add('required-entry-email', 'Please enter an email address');
+    //new Varien.searchForm('footer-newsletter-validate-detail', 'footer-newsletter', 'Enter your email address');
+//]]>
+</script>

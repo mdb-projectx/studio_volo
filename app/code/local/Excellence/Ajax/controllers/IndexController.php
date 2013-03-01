@@ -21,13 +21,14 @@ class Excellence_Ajax_IndexController extends Mage_Checkout_CartController
 				$product = $this->_initProduct();
 				$related = $this->getRequest()->getParam('related_product');
 
-
 $_product=Mage::getModel('catalog/product')->load($params['product']);
 $relatedProductsId=$_product->getRelatedProductIds();
     $relatedProducts=array();
     foreach($relatedProductsId as $relatedProductId)
     {   
-	$image = Mage::getModel('catalog/product')->load($relatedProductId)->getImageUrl();
+	$_relatedProduct = Mage::getModel('catalog/product')->load($relatedProductId);
+	$image = Mage::getModel('catalog/product_media_config')->getMediaUrl($_relatedProduct->getThumbnail());
+	//$image = Mage::getModel('catalog/product')->load($relatedProductId)->getImageUrl();
 	$name = Mage::getModel('catalog/product')->load($relatedProductId)->getName();
 	$price = Mage::getModel('catalog/product')->load($relatedProductId)->getPrice();
 	$price = Mage::helper('core')->formatPrice($price, false);
@@ -80,7 +81,7 @@ $response['related'] = $relatedProducts;
 					$response['sidebar'] = $sidebar;
 					$response['productName'] = $product->getName();
 					$response['productPrice'] = Mage::helper('core')->formatPrice($product->getPrice(), false);
-					$response['productImage'] = $product->getImageUrl();
+					$response['productImage'] = str_replace('75x75','308x190',$_product->getThumbnailUrl());
 					$itemCount = 0;
 					//$itemCount = Mage::helper('checkout/cart')->getCart()->getItemsCount();
 					$session = Mage::getSingleton('checkout/session');

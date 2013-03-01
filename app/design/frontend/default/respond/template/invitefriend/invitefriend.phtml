@@ -1,0 +1,89 @@
+<?php $_invitecode=$this->getInviteCode(); ?>
+<?php $_baseurl=$this->getBaseURL();?>
+<STYLE TYPE="text/css" MEDIA=screen>
+.share { background: #F8F8F8; border:1px solid #CCC; padding: 8px; margin:0 0 5px 0;}
+.email-friend a {display:block; margin:0 10px 0 0; float:left;clear:both;width:55px;height:20px;background:url(../images/email.png) no-repeat; font-size:0;text-decoration:none; text-indent:-9999px; }
+.tweet { float: left; width: 55px; height:20px; margin-right: 10px;}
+.fbShare { float: left; width: 175px; height: 20px;}
+</STYLE>
+
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+<div id="sendinvite" class="cf">
+	<h2>Invite Friends And Share $40</h2>
+	<div class="intro">
+		<p>Get $20 off each friend you refer who makes their first purchase.</p>
+		<p>Your friend also gets $20 off with the discount code you give them. Everyone wins!</p>
+	</div>
+	<div class="forms">
+		<form id="email_invite_form" action="/invitefriend/index/sendinvite">	
+			<input type="hidden" id="email_counter" name="email_counter" value="0">
+			<input type="hidden" id="discount_code" name="discount_code" value="<?php echo $_invitecode;?>">
+			<h3>Email invitations to Friends</h3>
+			<div id="emaillist">
+				<input type="text" id="invite_email_0" name="invite_email_0" class="invite_email" placeholder="Email">
+			</div>
+			<div id="addemail">+ <span>Add person to invite</span></div>
+			<div class="message">
+				<h4>Message</h4>
+				<Textarea id="invite_message" name="invite_message" disabled>Hi, here's a $20 gift voucher for VoloDesign.com. They cut out the middlemen and offer beautiful design at up to 70% off traditional retail. Enter <?php echo $_invitecode;?> at checkout and you'll get $20 off your first order!</Textarea>
+			</div>
+			<input type="button" id="submit_invite" name="submit" value="Send Invites">
+		</form>
+		<p class="divide"> - or -</p>
+		<h3>Share your invite link</h3>
+		<input type="text" id="share" name="share" value="<?php echo $_baseurl;?>invitefriend/index/refer?code=<?php echo $_invitecode;?>">
+		<div class="sharebuttons cf">
+			<a href="http://www.facebook.com/share.php?u=<?php echo urlencode($_baseurl.'invitefriend/index/refer?code=' . $_invitecode); ?>" target="_blank">Share invites on Facebook</a>
+			<a href="https://twitter.com/intent/tweet?url=<?php echo urlencode($_baseurl.'invitefriend/index/refer?code=' . $_invitecode); ?>&text=<?php echo urlencode('Beautifully designed furniture and leisure accessories, with prices up to 70% off high street!'); ?>" target="_blank">Share invites on Twitter</a>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+	var counter=0;
+	$j('#addemail').bind('click', function(){
+		counter++;
+		$j("#emaillist").append('<input type="text" id="invite_email_'+counter+'" name="invite_email_'+counter+'" class="invite_email" placeholder="Email">');
+		$j("#email_counter").attr('value',counter);
+	});
+
+	function sendinvite()
+	{
+		var data = jQuery('#email_invite_form').serialize();
+		data += '&isAjax=1';
+		$j.ajax({
+				url: '/invitefriend/index/sendinvite',
+				dataType: 'json',
+				type : 'post',
+				data : data,
+				success: function(data){
+						if(data.result)
+						{
+							window.location.href='/invitefriend/index/success';
+							//alert('The invite email has been sent!');
+						} else	{
+							window.location.href='/invitefriend/index/fail';
+						}
+						//window.location.href='/';
+				},
+				error: function(data){
+						alert("error");
+				}
+		});
+	}
+
+	$j('#email_invite_form').unbind('submit').submit(function(e) 
+	{
+		sendinvite();
+		e.preventDefault();
+	});
+
+
+	$j('#submit_invite').bind('click', function(){
+		sendinvite();
+	});
+
+//]]>
+</script>

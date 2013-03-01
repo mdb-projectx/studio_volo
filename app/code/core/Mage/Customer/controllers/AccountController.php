@@ -821,6 +821,33 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
         $this->_redirect('*/*/edit');
     }
 
+    public function updateAction()
+    {
+	$Id= Mage::getSingleton('customer/session')->getCustomer()->getId();
+	$customer = Mage::getModel('customer/customer')->load($Id)->getData();
+//	var_dump($this->getRequest()->getParam("firstname"));
+//	var_dump($this->getRequest()->getParam("lastname"));
+//	 var_dump($Id);
+	if(Mage::getSingleton('customer/session')->isLoggedIn()){  
+ 	   if	(empty($customer['firstname']) && empty($customer['lastname']))	{
+		if   ($this->getRequest()->getParam("firstname")!="" || $this->getRequest()->getParam("lastname")!="") {
+//		var_dump($Id);
+		$write = Mage::getSingleton('core/resource')->getConnection('core_write');
+		$sql = "INSERT INTO customer_entity_varchar (entity_type_id, attribute_id, entity_id, value) VALUES (?, ?, ?, ?)";
+		$write->query($sql, array('1', '5', $Id, $this->getRequest()->getParam("firstname")));
+                $sql = "INSERT INTO customer_entity_varchar (entity_type_id, attribute_id, entity_id, value) VALUES (?, ?, ?, ?)";
+		$write->query($sql, array('1', '7', $Id, $this->getRequest()->getParam("lastname")));
+		$result = 1;
+		}
+	   }
+	}   else   {	
+		$result = 0;
+	}
+
+        print_r($result);
+//      print_r(Mage::helper('core')->jsonEncode($title));
+    }
+
     /**
      * Filtering posted data. Converting localized data if needed
      *
@@ -843,7 +870,6 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
     {
         return Mage::helper('customer/address')->isVatValidationEnabled($store);
     }
-
 
 	public function getcouponcodeAction()
 {

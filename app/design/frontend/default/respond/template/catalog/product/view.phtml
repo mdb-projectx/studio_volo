@@ -42,13 +42,12 @@ function close() {
 }
 
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
-
 </script>
 <div id="product">
-	<div id="title">
-	<p class="first">COOPER</p>
-	<p>3 SEATER SOFA</p>
-	<p><?php echo $this->getChildHtml('product_type_data') ?></p>
+	<div id="title" style="display:none;">
+		<p class="first"><?php echo $_product->getData('featured_name'); ?></p>
+		<p><?php echo $_product->getData('descriptive_name'); ?></p>
+		<p><?php echo $this->getChildHtml('product_type_data') ?></p>
 	</div>
 	<?php echo $this->getChildHtml('media') ?>	
 <div id="screen_filter"></div>
@@ -99,17 +98,17 @@ function close() {
 		<ul>
 			<li>
 				<p class="image"><a href="#"><img src="" alt="" /></a></p>
-				<p class="details"><a href="#"><span class="name"></span> <span class="new"></span> Typical retail price <span class="old"></span> </a></p>
+				<p class="details"><a href="#"><span class="name"></span> <span class="new"></span><!-- Typical retail price <span class="old"></span> --></a></p>
 				<p class="control"><a href="#" class="add-to-basket">Add to basket</a> | <a href"" class="info">More info</a></p>
 			</li>
 			<li>
                                 <p class="image"><a href="#"><img src="" alt="" /></a></p>
-                                <p class="details"><a href="#"><span class="name"></span> <span class="new"></span> Typical retail price <span class="old"></span> </a></p>
+                                <p class="details"><a href="#"><span class="name"></span> <span class="new"></span><!-- Typical retail price <span class="old"></span> --></a></p>
                                 <p class="control"><a href="#" class="add-to-basket">Add to basket</a> | <a href"" class="info">More info</a></p>
                         </li>
 			<li>
                                 <p class="image"><a href="#"><img src="" alt="" /></a></p>
-                                <p class="details"><a href="#"><span class="name"></span> <span class="new"></span> Typical retail price <span class="old"></span> </a></p>
+                                <p class="details"><a href="#"><span class="name"></span> <span class="new"></span><!-- Typical retail price <span class="old"></span> --></a></p>
                                 <p class="control"><a href="#" class="add-to-basket">Add to basket</a> | <a href"" class="info">More info</a></p>
                         </li>
 
@@ -143,7 +142,22 @@ function close() {
                     <?php echo $this->getChildHtml('addto') ?>
                 </div>
             <?php endif; ?>
-
+	<div class="social">
+		<div class="buttons">
+                <div class="social-button">
+                        <div class="fb-like" data-href="http://stage.davincidecor.com/rebecca/html-demo1/product.html" data-send="false" data-layout="button_count" data-width="92" data-show-faces="false"></div>
+                </div>
+                <div class="social-button">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="92">Tweet</a>
+                </div>
+                <div class="social-button">
+                        <a href="http://pinterest.com/pin/create/button/?url=<?php echo urlencode($this->helper('catalog/image')->init($_product, 'image')->resize()); ?>" class="pin-it-button" count-layout="horizontal"><img border="0" src="https://assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+                </div>
+                <div class="social-button">
+                        <a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
+                </div>
+		</div>
+	</div>
 	</div>
     </form>
 	
@@ -243,26 +257,66 @@ function close() {
 			<?php if($_product->getDimensions() || $_product->getDimensions_diagram()): ?>
                                 <div class="specs cf">
                                         <h4>Product Dimensions</h4>
-                                        <?php echo $_product->getData('dimensions'); ?>
-                                        <?php if($_product->getDimensions_diagram()) { ?><p><a href="<?php echo $this->helper('catalog/image')->init($_product, 'dimensions_diagram')->resize(); ?>" class="colorbox">View dimensions diagram</a></p><?php } ?>
+					<table width="100%" border="0">
+					<tbody>
+                                        <?php if($_product->getData('general_dimensions')): ?><tr><td><p class="heading">General Dimensions: </p><p class="attribute"><?php echo $_product->getData('general_dimensions'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('seating_height')): ?><tr><td><p class="heading">Seating Height: </p><p class="attribute"><?php echo $_product->getData('seating_height'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('packaging_dimensions')): ?><tr><td><p class="heading">Packaging Dimensions: </p><p class="attribute"><?php echo $_product->getData('packaging_dimensions'); ?></p></td></tr><?php endif ?>
+					</tbody>
+					</table>
+                                        <!--<?php if($_product->getDimensions_diagram()) { ?><p><a href="<?php echo $this->helper('catalog/image')->init($_product, 'dimensions_diagram')->resize(); ?>" class="colorbox">View dimensions diagram</a></p><?php } ?>-->
+					<h4>Delivery</h4>
+					<table width="100%" border="0">
+                                        <tbody>
+                                        <tr><td><p class="attribute">Freshly made and ready for dispatch within <?php echo $_product->getData('delivery_time'); ?>.</p></td></tr>
+                                        </tbody>
+                                        </table>
+					<h4>Returns</h4>
+                                        <table width="100%" border="0">
+                                        <tbody>
+                                        <tr><td><p class="attribute">We hope you love it. But if you don't, you can return it to us within 7 days for a quick and fuss-free refund.</p></td></tr>
+                                        </tbody>
+                                        </table>
                                 </div>
                         <?php endif; ?>
 		</div>	
 		<div class="details">
-			<?php if($_product->getDetails()): ?>
                                 <div class="specs cf">
                                         <h4>Product Details</h4>
-                                        <?php echo $_product->getData('details'); ?>
+					<table width="100%" border="0">
+					<tbody>
+					<?php if($_product->getData('finish')): ?><tr><td><p class="heading">Finish: </p><p class="attribute"><?php echo $_product->getData('finish'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('material')): ?><tr><td><p class="heading">Material: </p><p class="attribute"><?php echo $_product->getData('material'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('stackable')): ?><tr><td><p class="heading">Stackable: </p><p class="attribute"><?php echo $_product->getData('stackable'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('outdoor')): ?><tr><td><p class="heading">Outdoor: </p><p class="attribute"><?php echo $_product->getData('outdoor'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('frame')): ?><tr><td><p class="heading">Frame:</p><p class="attribute"><?php echo $_product->getData('frame'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('legs')): ?><tr><td><p class="heading">Legs:</p><p class="attribute"><?php echo $_product->getData('legs'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('suspension')): ?><tr><td><p class="heading">Suspension: </p><p class="attribute"><?php echo $_product->getData('suspension'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('filling')): ?><tr><td><p class="heading">Filling: </p><p class="attribute"><?php echo $_product->getData('filling'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('fabric')): ?><tr><td><p class="heading">Fabric: </p><p class="attribute"><?php echo $_product->getData('fabric'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('care')): ?><tr><td><p class="heading">Care: </p><p class="attribute"><?php echo $_product->getData('care'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('adjustable')): ?><tr><td><p class="heading">Adjustable: </p><p class="attribute"><?php echo $_product->getData('adjustable'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('bulb')): ?><tr><td><p class="heading">Bulb: </p><p class="attribute"><?php echo $_product->getData('bulb'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('switch')): ?><tr><td><p class="heading">Switch: </p><p class="attribute"><?php echo $_product->getData('switch'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('assembly')): ?><tr><td><p class="heading">Assembly: </p><p class="attribute"><?php echo $_product->getData('assembly'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('weight')): ?><tr><td><p class="heading">Weight: </p><p class="attribute"><?php echo round($_product->getData('weight')); ?> lbs</p></td></tr><?php endif ?>
+					</table>
                                 </div>
-                        <?php endif; ?>
-
 		</div>
 	</div>
 	<?php echo $this->getChildHtml('catalog.product.related') ?>
-	
 </div>
 <script type="text/javascript">
 //<![CDATA[
+
+jQuery('.add-to-links li:eq(1)').on('hover', function() {
+	jQuery('#product .social').show();
+});
+
+jQuery('#product .social').on('mouseleave', function() {
+        jQuery('#product .social').hide();
+});
+
 	var productAddToCartForm = new VarienForm('product_addtocart_form');
 	productAddToCartForm.submit = function(button, url) {
 		if (this.validator.validate()) {
@@ -281,7 +335,7 @@ function close() {
 		            var data = jQuery('#product_addtocart_form').serialize();
 		            data += '&isAjax=1';
      			    jQuery('#ajax_loader').show();
-			    //alert('url');
+			    //alert(url);
 		            try {
 				jQuery.ajax({
 		                      url: url,
@@ -302,7 +356,7 @@ function close() {
 							jQuery('#cart-related li:eq('+i+') .details a').attr('href', data.related[i]['link']);
 							jQuery('#cart-related li:eq('+i+') .details .name').text(data.related[i]['name']);
 							jQuery('#cart-related li:eq('+i+') .details .new').text(data.related[i]['price']);
-							jQuery('#cart-related li:eq('+i+') .details .old').text(data.related[i]['retailprice']);
+							//jQuery('#cart-related li:eq('+i+') .details .old').text(data.related[i]['retailprice']);
 							jQuery('#cart-related li:eq('+i+') .control .add-to-basket').attr('href', data.related[i]['addlink']);
 							jQuery('#cart-related li:eq('+i+') .control .info').attr('href', data.related[i]['link']);
 							jQuery('#cart-related li:eq('+i+')').show();

@@ -29,9 +29,10 @@
 		<div class="recommended cf">
 			<h3>Recommended Items</h3>
 			<ul>
-				<?php foreach($this->getItems() as $key=>$_item): ?>
+				<?php $i = 0; foreach($this->getItems() as $key=>$_item): ?>
+					<?php if ($i < 3): ?>
 					<li>
-						<p><a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(188,116); ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a></p>
+						<p><a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(235,145); ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a></p>
 						<p>
 							<a href="<?php echo $_item->getProductUrl() ?>">
 								<span class="name"><?php echo $this->htmlEscape($_item->getName()) ?></span>
@@ -42,6 +43,8 @@
 							</a>
 						</p>
 					</li>
+					<?php $i++; ?>
+					<?php else: break; endif; ?>
 				<?php endforeach ?>
 			</ul>
 		</div>			
@@ -55,11 +58,15 @@
 		if($_cat->getParentCategory()->getName() == 'Collections') { ?>
 		
 			<div class="collection">
-				<h3>Part of the&hellip;</h3>
+				<h3>Part of the Collection</h3>
+				<ul>
+				<li>
 				<?php if ($_cat->getThumbnail()): ?>
 					<p><a href="<?php echo $_cat->getURL(); ?>"><img src="<?php echo Mage::getBaseUrl('media').'catalog/category/'.$_cat->getThumbnail(); ?>" alt="<?php echo $_cat->getName(); ?><" /></a></p>
 				<?php endif; ?>
 				<p><a href="<?php echo $_cat->getURL(); ?>"><?php echo $_cat->getName(); ?></a></p>
+				</li>
+				</ul>
 			</div>
 
 		<?php
