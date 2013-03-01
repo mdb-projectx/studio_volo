@@ -2334,6 +2334,7 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 #cboxClose.show	{
 	display: block !important;
 	right: 18px;
+	z-index: 999;
 }
 .cms-index-index #cboxClose {
 		display: block !important; /* show close button for newsletter popup */
