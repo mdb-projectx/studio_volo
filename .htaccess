@@ -115,7 +115,8 @@
 
     Options +FollowSymLinks
     RewriteEngine on
-
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
 ############################################
 ## you can put here your magento root folder
 ## path relative to web root
