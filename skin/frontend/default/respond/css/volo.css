@@ -1076,7 +1076,6 @@ HOMEPAGE
 		height: 71px;
 		z-index: 9999;
 }
-
 #newsletter-popupbutton a {
 		display: block;
 		padding: 71px 0 0;
@@ -1086,7 +1085,6 @@ HOMEPAGE
 		font-size: 0.1em;
 		overflow: hidden;
 }
-
 #newsletter-popupbutton a:hover {
 		background-position: 0 100%;
 }
@@ -1166,16 +1164,15 @@ HOMEPAGE
 	color: #999999;
 	font-style: italic;
 }
-/* OLD
+
+/* OLD:
 #newsletter-subscribe-popup {
 		text-align: left;
 		padding: 15px;
 		height: 335px;
 		background: url(../images/volo/popup-bg.jpg) no-repeat 0 50%;
 }
-#newsletter-subscribe-close	{
-	display: none;
-}
+
 #newsletter-validate-detail {
 		float: right;
 		padding: 0 10px 0 25px;
@@ -1221,20 +1218,8 @@ HOMEPAGE
 		text-transform: uppercase;
 }
 .form-subscribe .validation-advice {
-
 }
-
-/*
-
-	<div class="form-subscribe">
-	<div class="form-subscribe-header">Be the first to know!</div>
-	<div class="form-subscribe-body">Get exclusive deals straight to your inbox</div>
-		<label for="newsletter">Email:</label>
-		<div class="input-box">
-		   <input type="text" name="email" id="newsletter" title="Sign up for our newsletter" class="input-text required-entry validate-email" />
-		</div>
-		<button type="submit" title="Submit" class="button"><span><span>Submit</span></span></button>
-				*/
+*/
 
 
 /**************************************************
@@ -1649,10 +1634,10 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #title p {
 		width: 100%;
-		font-size: 20px;
+		font-size: 12px;
 		letter-spacing: 0.1em;
 		text-align: left;
-		text-transform: none;
+	text-transform: uppercase;
 }
 #title p.first {
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
@@ -1889,7 +1874,8 @@ CATEGORIES & PRODUCTS & SEARCH
 		opacity:0.5;
 }
 #related .recommended li.hover {
-		/*background: url(../images/volo/hoverrel.png) no-repeat 0 0;*/
+		/*background: url(../images/volo/hoverrel.png) no-repeat 0 0;
+*/
 }
 #related .recommended li:first-child {
 		padding-left: 0;
@@ -1954,15 +1940,13 @@ CATEGORIES & PRODUCTS & SEARCH
 #details .features .desc h3 {
 		font-size: 16px;
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
-		color: #333;
-		text-transform: none;
+		text-transform: uppercase;
 		margin-bottom: 5px;
 }
 #details .features .desc p {
 		line-height: 18px;
 		font-size: 12px;
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
-		color: #666;
 }
 #details .features .thumb {
 		float: left;
@@ -2026,7 +2010,7 @@ CATEGORIES & PRODUCTS & SEARCH
 		font-family: "Open Sans", Arial, Helvetica, sans-serif; !important;
 }
 .dimensions h4, .details h4 {
-		color: #666;
+		color: #2b2b2b;
 		text-transform: uppercase;
 		font-size: 12px;
 		font-weight: 700;
@@ -2057,7 +2041,6 @@ CATEGORIES & PRODUCTS & SEARCH
 
 .specs p.heading, .specs p.attribute {
 	float: left;
-	color: #666
 }
 .dimensions .specs p.heading	{
 	margin-right: 5px;
@@ -2146,67 +2129,57 @@ ColorBox Core Style:
 The following CSS is consistent between example themes and should not be altered.
  */
 #colorbox,#cboxOverlay,#cboxWrapper {
-		position: absolute;
-		top: 0;
-		left: 0;
-		z-index: 9999;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9999;
 }
-
 #cboxOverlay {
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		background: #FFF;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #FFF;
 }
-
 #cboxMiddleLeft,#cboxBottomLeft {
-		clear: left;
+	clear: left;
 }
-
 #cboxContent {
-		position: relative;
+	position: relative;
 }
-
 #cboxLoadedContent {
-		overflow: auto;
+	overflow: auto;
 }
-
 #cboxTitle {
-		margin: 0;
+	margin: 0;
 }
-
 #cboxLoadingOverlay,#cboxLoadingGraphic {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
-
 #cboxPrevious,#cboxNext,#cboxClose,#cboxSlideshow {
-		cursor: pointer;
+	cursor: pointer;
 }
-
 .cboxPhoto {
-		float: left;
-		margin: auto;
-		border: 0;
-		display: block;
-		max-width: none;
+	float: left;
+	margin: auto;
+	border: 0;
+	display: block;
+	max-width: none;
 }
-
 .cboxIframe {
-		width: 100%;
-		height: 100%;
-		display: block;
-		border: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	border: 0;
 }
-
 #colorbox,#cboxContent,#cboxLoadedContent {
-		-webkit-box-sizing: content-box;
-		-moz-box-sizing: content-box;
-		-ms-box-sizing: content-box;
-		box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+	box-sizing: content-box;
 }
 
 /*
@@ -2217,82 +2190,78 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 #cboxOverlay {
 	background: #000;
 }
-
 #cboxContent {
-		margin-top: 32px;
-		overflow: visible;
-		-webkit-box-shadow: 2px 2px 10px #000;
-		box-shadow: 2px 2px 10px #000;
-		-webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-		box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+	margin-top: 32px;
+	overflow: visible;
+	-webkit-box-shadow: 2px 2px 10px #000;
+	box-shadow: 2px 2px 10px #000;
+	-webkit-box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
-
+.plain #cboxContent {
+	margin: 0;
+}
 .cboxIframe {
-		background: #fff;
+	background: #fff;
 }
-
 #cboxError {
-		padding: 50px;
-		border: 1px solid #ccc;
+	padding: 50px;
+	border: 1px solid #ccc;
 }
-
 #cboxLoadedContent {
-		background: #FFF;
-		padding: 0 0 20px;
-		overflow-x: hidden !important;
-		overflow-y: scroll !important;
+	background: #FFF;
+	padding: 0 0 20px;
+	overflow-x: hidden !important;
 }
-
+.plain #cboxLoadedContent {
+	padding: 0;
+}
 #cboxLoadingGraphic {
-		background: url(../images/volo/loading.gif) no-repeat 50% 50%;
+	background: url(../images/volo/loading.gif) no-repeat 50% 50%;
 }
-
 #cboxLoadingOverlay {
-		background: #FFF;
+	background: #FFF;
 }
-
 #cboxTitle {
-		position: absolute;
-		top: -22px;
-		left: 0;
-		color: #000;
+	position: absolute;
+	top: -22px;
+	left: 0;
+	color: #000;
 }
-
 #cboxCurrent {
-		position: absolute;
-		top: -22px;
-		right: 205px;
-		text-indent: -9999px;
+	position: absolute;
+	top: -22px;
+	right: 205px;
+	text-indent: -9999px;
 }
-
 #cboxClose {
-		display: none !important;
-		text-indent: -9999px;
-		width: 30px;
-		height: 30px;
-		position: absolute;
-		/*top: -10px;
-		right: -10px;
-		background: url(../images/volo/close.png) no-repeat 0 0;*/
-		top: 0px;
-		right: -2px;
-		background: url(../images/volo/close3.png) no-repeat 3px 2px;
+	display: none !important;
+	text-indent: -9999px;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	/*top: -10px;
+	right: -10px;
+	background: url(../images/volo/close.png) no-repeat 0 0;*/
+	top: 0px;
+	right: -2px;
+	background: url(../images/volo/close3.png) no-repeat 3px 2px;
 }
 #cboxClose.show	{
 	display: block !important;
 	right: 18px;
 }
 .cms-index-index #cboxClose {
-		display: block !important; /* show close button for newsletter popup */
-	z-index: 999;
+	display: block !important; /* show close button for newsletter popup */
 }
 #cboxClose:hover {
-		/*background-position: 0 -30px;*/
-		background-position: 3px -22px;
+	/*background-position: 0 -30px;*/
+	background-position: 3px -22px;
 }
 .plain #cboxTitle, .plain #cboxClose, .plain #cboxClose.show {
 	display: none !important;
 }
+
 /*
 #cboxPrevious, #cboxNext  {
 		text-indent: -9999px;
@@ -3269,7 +3238,6 @@ PRIVACY POLICY & RETURN POLICY
 	display: none;
 }
 .checkout-modal	{
-	position: relative;
 	width: 700px;
 	margin: 0 auto;
 	padding: 0;
@@ -3278,8 +3246,8 @@ PRIVACY POLICY & RETURN POLICY
 }
 #return.checkout-modal, #shipping.checkout-modal, #terms.checkout-modal, #privacy.checkout-modal	{
 	float: left;
-	width: 530px;
-	margin: 0 20px 0 20px;
+	width: 600px;
+	margin: 0 0 0 10px;
 	padding: 0;
 	overflow: hidden;
 }
@@ -3291,7 +3259,7 @@ PRIVACY POLICY & RETURN POLICY
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 #return.checkout-modal h1, #privacy.checkout-modal h1, #terms.checkout-modal h1, #shipping.checkout-modal h1        {
-	width: 540px;
+	width: 580px;
 	margin-top: 20px;
 }
 #return h1, #privacy h1, #terms h1, #shipping h1	{
@@ -3314,7 +3282,7 @@ PRIVACY POLICY & RETURN POLICY
 }
 
 .checkout-modal .paragraph	{
-	width: 100%;
+	width: 95%;
 }
 .paragraph {
 		float: left;
@@ -3344,31 +3312,7 @@ PRIVACY POLICY & RETURN POLICY
 		padding: 5px 0;
 		list-style: disc;
 		line-height: 20px;
-		text-align: justify;
-}
-
-#contact_msg	{
-	display: none;
-	position: absolute;
-	top: 15px;
-	left: 20px;
-	width: 660px;
-	height: 300px;
-	padding-top: 230px;
-	background-color: white;
-	z-index: 10;
-}
-
-#contact #contact_msg h1	{
-	color: #00a4e4;
-	font-size: 22px;
-	text-align: center;
-	line-height: 40px;
-	margin: 0;
-}
-
-#contact_msg p	{
-	
+	text-align: left;
 }
 
 /*************************************************
@@ -3847,12 +3791,4 @@ DESIGNERS PAGE
 
 #contact .validation-advice	{
 	text-align: left;
-}
-
-
-/* CheckOut
-----------------------------------------------*/
-
-#checkoutSteps .field select	{
-	width: 272px;
 }
