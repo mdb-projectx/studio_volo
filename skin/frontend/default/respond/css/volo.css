@@ -1164,15 +1164,96 @@ HOMEPAGE
 	color: #999999;
 	font-style: italic;
 }
+/* OLD
+=======
+
+#newsletter-subscribe-close { /* close button */
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	width: 21px;
+	height: 21px;
+	display: none;
+	z-index: 10000;
+}
+#newsletter-subscribe-close a {
+	display: block;
+	width: 21px;
+	height: 21px;
+	background: transparent url(../images/volo/subscribe-close.png) no-repeat 50% 50%;
+	text-indent: 999em;
+	overflow: hidden;
+}
+
+#newsletter-subscribe-popup {
+	position: relative;
+	width: 498px;
+	height: 335px;
+	background: url(../images/volo/subscribe-bg.jpg) no-repeat 50% 50%;
+	text-align: left;
+}
+#newsletter-subscribe-popup .form-subscribe-header {
+	padding: 28px 0 0;
+	font-size: 17px;
+	line-height: 24px;
+	font-weight: bold;
+	text-align: center;
+}
+#newsletter-subscribe-popup .form-subscribe-body {
+	padding: 30px 0 0 35px;
+	width: 225px;
+	font-size: 12px;
+	line-height: 18px;
+}
+#newsletter-subscribe-popup .input-box {
+	position: relative;
+	padding: 42px 0 0 35px;
+	width: 235px;
+	min-height: 0;
+}
+#newsletter-subscribe-popup .input-box input[type='text'] {
+	position: absolute;
+	left: 35px;
+	top: 12px;
+	/* width: 183px; */
+	width: 171px;
+}
+#newsletter-subscribe-popup .input-box button {
+	position: absolute;
+	right: 0;
+	top: 12px;
+	/* width: 183px; */
+	width: 52px;
+	color: #FFF;
+	border-color: #5b5b5b;
+	background-color: #5b5b5b;
+	-webkit-transition: background 0.25s ease-in;
+	-moz-transition:background 0.25s ease-in;
+	-o-transition:background 0.25s ease-in;
+	transition:background 0.25s ease-in;
+}
+#newsletter-subscribe-popup .input-box button:hover {
+	background-color: #4f4f4f;
+}
+#newsletter-subscribe-popup .form-subscribe-footer {
+	padding: 6px 0 0 35px;
+	font-size: 12px;
+	line-height: 18px;
+	color: #999999;
+	font-style: italic;
+}
 
 /* OLD:
+>>>>>>> f69bc448db002e5f48d7c494bda1f99b2b8c30af
 #newsletter-subscribe-popup {
 		text-align: left;
 		padding: 15px;
 		height: 335px;
 		background: url(../images/volo/popup-bg.jpg) no-repeat 0 50%;
 }
-
+#newsletter-subscribe-close	{
+	display: none;
+}
 #newsletter-validate-detail {
 		float: right;
 		padding: 0 10px 0 25px;
@@ -1634,10 +1715,10 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #title p {
 		width: 100%;
-		font-size: 12px;
+		font-size: 20px;
 		letter-spacing: 0.1em;
 		text-align: left;
-	text-transform: uppercase;
+		text-transform: none;
 }
 #title p.first {
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
@@ -1874,8 +1955,7 @@ CATEGORIES & PRODUCTS & SEARCH
 		opacity:0.5;
 }
 #related .recommended li.hover {
-		/*background: url(../images/volo/hoverrel.png) no-repeat 0 0;
-*/
+		/*background: url(../images/volo/hoverrel.png) no-repeat 0 0;*/
 }
 #related .recommended li:first-child {
 		padding-left: 0;
@@ -1940,13 +2020,15 @@ CATEGORIES & PRODUCTS & SEARCH
 #details .features .desc h3 {
 		font-size: 16px;
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
-		text-transform: uppercase;
+		color: #333;
+		text-transform: none;
 		margin-bottom: 5px;
 }
 #details .features .desc p {
 		line-height: 18px;
 		font-size: 12px;
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
+		color: #666;
 }
 #details .features .thumb {
 		float: left;
@@ -2010,7 +2092,7 @@ CATEGORIES & PRODUCTS & SEARCH
 		font-family: "Open Sans", Arial, Helvetica, sans-serif; !important;
 }
 .dimensions h4, .details h4 {
-		color: #2b2b2b;
+		color: #666;
 		text-transform: uppercase;
 		font-size: 12px;
 		font-weight: 700;
@@ -2041,6 +2123,7 @@ CATEGORIES & PRODUCTS & SEARCH
 
 .specs p.heading, .specs p.attribute {
 	float: left;
+	color: #666
 }
 .dimensions .specs p.heading	{
 	margin-right: 5px;
@@ -2209,9 +2292,10 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 	border: 1px solid #ccc;
 }
 #cboxLoadedContent {
-	background: #FFF;
-	padding: 0 0 20px;
-	overflow-x: hidden !important;
+		background: #FFF;
+		padding: 0 0 20px;
+		overflow-x: hidden !important;
+		overflow-y: scroll !important;
 }
 .plain #cboxLoadedContent {
 	padding: 0;
@@ -2252,7 +2336,15 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 	right: 18px;
 }
 .cms-index-index #cboxClose {
-	display: block !important; /* show close button for newsletter popup */
+		display: block !important; /* show close button for newsletter popup */
+	z-index: 999;
+}
+#cboxClose:hover {
+		/*background-position: 0 -30px;*/
+		background-position: 3px -22px;
+}
+.plain #cboxTitle, .plain #cboxClose, .plain #cboxClose.show {
+	display: none !important;
 }
 #cboxClose:hover {
 	/*background-position: 0 -30px;*/
@@ -2261,7 +2353,6 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 .plain #cboxTitle, .plain #cboxClose, .plain #cboxClose.show {
 	display: none !important;
 }
-
 /*
 #cboxPrevious, #cboxNext  {
 		text-indent: -9999px;
@@ -3238,6 +3329,7 @@ PRIVACY POLICY & RETURN POLICY
 	display: none;
 }
 .checkout-modal	{
+	position: relative;
 	width: 700px;
 	margin: 0 auto;
 	padding: 0;
@@ -3246,8 +3338,8 @@ PRIVACY POLICY & RETURN POLICY
 }
 #return.checkout-modal, #shipping.checkout-modal, #terms.checkout-modal, #privacy.checkout-modal	{
 	float: left;
-	width: 600px;
-	margin: 0 0 0 10px;
+	width: 530px;
+	margin: 0 20px 0 20px;
 	padding: 0;
 	overflow: hidden;
 }
@@ -3259,7 +3351,7 @@ PRIVACY POLICY & RETURN POLICY
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 #return.checkout-modal h1, #privacy.checkout-modal h1, #terms.checkout-modal h1, #shipping.checkout-modal h1        {
-	width: 580px;
+	width: 540px;
 	margin-top: 20px;
 }
 #return h1, #privacy h1, #terms h1, #shipping h1	{
@@ -3282,7 +3374,7 @@ PRIVACY POLICY & RETURN POLICY
 }
 
 .checkout-modal .paragraph	{
-	width: 95%;
+	width: 100%;
 }
 .paragraph {
 		float: left;
@@ -3312,7 +3404,31 @@ PRIVACY POLICY & RETURN POLICY
 		padding: 5px 0;
 		list-style: disc;
 		line-height: 20px;
-	text-align: left;
+		text-align: justify;
+}
+
+#contact_msg	{
+	display: none;
+	position: absolute;
+	top: 15px;
+	left: 20px;
+	width: 660px;
+	height: 300px;
+	padding-top: 230px;
+	background-color: white;
+	z-index: 10;
+}
+
+#contact #contact_msg h1	{
+	color: #00a4e4;
+	font-size: 22px;
+	text-align: center;
+	line-height: 40px;
+	margin: 0;
+}
+
+#contact_msg p	{
+	
 }
 
 /*************************************************
@@ -3791,4 +3907,12 @@ DESIGNERS PAGE
 
 #contact .validation-advice	{
 	text-align: left;
+}
+
+
+/* CheckOut
+----------------------------------------------*/
+
+#checkoutSteps .field select	{
+	width: 272px;
 }
