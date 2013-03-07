@@ -1071,15 +1071,15 @@ HOMEPAGE
 #newsletter-popupbutton {
 		position: fixed;
 		top: 180px;
-		left: 0;
-		width: 42px;
+		left: -82px;
+		width: 112px;
 		height: 71px;
 		z-index: 9999;
 }
 #newsletter-popupbutton a {
 		display: block;
 		padding: 71px 0 0;
-		width: 42px;
+		width: 112px;
 		height: 0;
 		background: url(../images/volo/subscribe.png);
 		font-size: 0.1em;
