@@ -1,30 +1,109 @@
-sku,name,featured_name
-129-SIL,"Grand Floor Lamp, White","Grand Floor Lamp, White"
-132-BLK,"Dana Floor Lamp, Black","Dana Floor Lamp, Black"
-132-WHT,"Dana Floor Lamp, White","Dana Floor Lamp, White"
-132-YEL,"Dana Floor Lamp, Yellow","Dana Floor Lamp, Yellow"
-133-BLK,"Elora Floor Lamp, Black","Elora Floor Lamp, Black"
-133-WHT,"Elora Floor Lamp, White","Elora Floor Lamp, White"
-134-BLK,"Fara Floor Lamp, Black","Fara Floor Lamp, Black"
-135-1,"Jalen Light - Teardrop,  Black","Jalen Light - Teardrop,  Black"
-135-1-WHT,"Jalen Light - Teardrop, White","Jalen Light - Teardrop, White"
-135-2,"Jalen Light - Wide, Black","Jalen Light - Wide, Black"
-135-2-WHT,"Jalen Light - Wide, White","Jalen Light - Wide, White"
-135-3,"Jalen Light - Tall, Black","Jalen Light - Tall, Black"
-135-3-WHT,"Jalen Light - Tall, White","Jalen Light - Tall, White"
-136-BLK,"Dana Table Lamp, Black","Dana Table Lamp, Black"
-136-WHT,"Dana Table Lamp, White","Dana Table Lamp, White"
-136-YEL,"Dana Table Lamp, Yellow","Dana Table Lamp, Yellow"
-137-BLK,"Belina Floor Lamp, Black","Belina Floor Lamp, Black"
-137-RED,"Belina Floor Lamp, Red","Belina Floor Lamp, Red"
-137-WHT,"Belina Floor Lamp, White","Belina Floor Lamp, White"
-140-BLK,"Jalen Light - Stout, Black","Jalen Light - Stout, Black"
-140-WHT,"Jalen Light - Stout, White","Jalen Light - Stout, White"
-141-BLK,"Windsor Floor Lamp, Black","Windsor Floor Lamp, Black"
-141-SIL,"Windsor Floor Lamp, Silver","Windsor Floor Lamp, Silver"
-142-BLK,"Valla Floor Lamp, Black","Valla Floor Lamp, Black"
-142-GRN,"Valla Floor Lamp, Green","Valla Floor Lamp, Green"
-142-WHT,"Valla Floor Lamp, White","Valla Floor Lamp, White"
-143-BLK,"Marion Floor Lamp, Black","Marion Floor Lamp, Black"
-143-WHT,"Marion Floor Lamp, White","Marion Floor Lamp, White"
-144-WD,Wood Table Lamp,Wood Table Lamp
+sku,delivery_time
+119,6 - 10 weeks
+125,6 - 10 weeks
+131,6 - 10 weeks
+101FTGRY,6 - 10 weeks
+101FWLG,6 - 10 weeks
+101LNOAT,6 - 10 weeks
+102FTGRY,6 - 10 weeks
+102FWLG,6 - 10 weeks
+102LNOAT,6 - 10 weeks
+103FTGRY,6 - 10 weeks
+103FWLG,6 - 10 weeks
+103LNOAT,6 - 10 weeks
+104FTGRY,6 - 10 weeks
+104FWLG,6 - 10 weeks
+104LNOAT,6 - 10 weeks
+105FTGRY,6 - 10 weeks
+105FWLG,6 - 10 weeks
+105LNOAT,6 - 10 weeks
+106FTGRY,6 - 10 weeks
+106FWLG,6 - 10 weeks
+106LNOAT,6 - 10 weeks
+106LTHBRN,6 - 10 weeks
+107FTGRY,6 - 10 weeks
+107FWLG,6 - 10 weeks
+107LNOAT,6 - 10 weeks
+107LTHBRN,6 - 10 weeks
+108FTGRY,6 - 10 weeks
+108FWLG,6 - 10 weeks
+108LNOAT,6 - 10 weeks
+108LTHBRN,6 - 10 weeks
+109FTGRY,6 - 10 weeks
+109FWLG,6 - 10 weeks
+109LNOAT,6 - 10 weeks
+109LTHBRN,6 - 10 weeks
+110FTGRY,6 - 10 weeks
+110FWLG,6 - 10 weeks
+110LNOAT,6 - 10 weeks
+110LTHBRN,6 - 10 weeks
+112FTGRY,6 - 10 weeks
+112FWLG,6 - 10 weeks
+112LNOAT,6 - 10 weeks
+112LTHBRN,6 - 10 weeks
+113BLK,1 week
+113WHT,1 week
+114ALU,1 week
+114RED,1 week
+114STW,1 week
+115GS,1 week
+115RED,1 week
+116BLK,1 week
+116GS,1 week
+116WHT,1 week
+117GS,1 week
+117RED,1 week
+118STW,1 week
+119BLK,1 week
+120BLK,1 week
+120WHT,1 week
+121CLR,1 week
+121PRP,1 week
+123FTGRY,6 - 10 weeks
+123FWLG,6 - 10 weeks
+124STWBLK,6 - 10 weeks
+129SIL,6 - 10 weeks
+132BLK,6 - 10 weeks
+132WHT,6 - 10 weeks
+132YEL,6 - 10 weeks
+133BLK,6 - 10 weeks
+133WHT,6 - 10 weeks
+134BLK,6 - 10 weeks
+1351,6 - 10 weeks
+1351WHT,6 - 10 weeks
+1352,6 - 10 weeks
+1352WHT,6 - 10 weeks
+1353,6 - 10 weeks
+1353WHT,6 - 10 weeks
+136BLK,6 - 10 weeks
+136WHT,6 - 10 weeks
+136YEL,6 - 10 weeks
+137BLK,6 - 10 weeks
+137RED,6 - 10 weeks
+137WHT,6 - 10 weeks
+138GRY,1 week
+138RED,1 week
+138TUR,1 week
+139B,6 - 10 weeks
+139BLK,6 - 10 weeks
+139RED,6 - 10 weeks
+139WHT,6 - 10 weeks
+140BLK,6 - 10 weeks
+140WHT,6 - 10 weeks
+141BLK,6 - 10 weeks
+141SIL,6 - 10 weeks
+142BLK,6 - 10 weeks
+142GRN,6 - 10 weeks
+142WHT,6 - 10 weeks
+143BLK,6 - 10 weeks
+143WHT,6 - 10 weeks
+144WD,6 - 10 weeks
+145GS,6 - 10 weeks
+146BLK,6 - 10 weeks
+148BLK,6 - 10 weeks
+148YEL,6 - 10 weeks
+149GS,6 - 10 weeks
+149WHT,6 - 10 weeks
+150WHT,6 - 10 weeks
+151BLK,6 - 10 weeks
+152BLK,6 - 10 weeks
