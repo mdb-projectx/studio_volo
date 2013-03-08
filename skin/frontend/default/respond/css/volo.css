@@ -283,7 +283,7 @@ body {
 	padding-top: 14px;
 }
 
-#secondary,#tertiary {
+#secondary, #tertiary {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -292,7 +292,6 @@ body {
 		text-align: left;
 		text-transform: uppercase;
 }
-
 #tertiary {
 	width: 560px;
 		left: auto;
@@ -314,8 +313,13 @@ body {
 	color: #4b4b4b;
 }
 
-#header-wrap #tertiary ul	{
+#header-wrap #tertiary ul {
+	float: right;
 	padding-top: 14px;
+}
+#fblike {
+	float: right;
+	margin: 12px 10px 0 0;
 }
 
 #header-wrap #secondary a.invite {
