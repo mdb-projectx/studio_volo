@@ -84,9 +84,6 @@ $j(document).ready(function() {
 	});
 	$j('.inline').colorbox({
 		inline:true, 
-		fixed: true,
-//		top: '50px',
-//		left: '50px',
 		initialWidth:498, 
 		initialHeight:335, 
 		innerWidth:498, 
@@ -96,8 +93,6 @@ $j(document).ready(function() {
 			$j('#newsletter-subscribe-close').show();
 		}, onCleanup: function() {
 			$j('#newsletter-subscribe-close').hide();
-		}, onComplete: function()	{
-			$j('#cboxLoadedContent').addClass('newsletter');
 		}
 	});
 
@@ -105,7 +100,7 @@ $j(document).ready(function() {
 		// if first visit in 28 days, open the popup
 		$j('.inline').trigger('click');
 	}
-
+    
 /*
 $j.ajax({
 	type:"POST",
