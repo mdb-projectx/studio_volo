@@ -125,18 +125,18 @@ $invite_html ='
 							<table border="0" cellpadding="0" cellspacing="0" width="570" id="templateBody">
 								<tr>
 									<td valign="top" class="bodyContent"  style="padding: 16px 0 23px 0;border-collapse: collapse;">
-						
+										
 										<!-- // Begin Module: Standard Content \ -->
-										<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top" style="padding: 0 25px 0 25px;border-collapse: collapse;">
-										<p style="margin-bottom: 19px;color: #212121;font-size: 17px;font-weight: bold;line-height: 19px;font-family: Verdana, sans-serif;">Hello there,</p>
-										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">We&#39;re thrilled you&#39;ve joined our fight for great furniture design at affordable prices.</p>
-										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">So many costs are hidden in the over-priced furniture you buy on the high street. We&#39;re making a stand by revolutionising how furniture is sold and how you buy it.</p>
-										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">We&#39;re connecting you with the furniture makers directly, saving you up to 70% off high street prices.</p>
-										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">We look forward to seeing you soon.</p>
-										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">To make sure you&#39;re the first to hear when we release a new range of products, make sure you add <a href="mailto:contact@volodesign.com" style="color: #212121;text-decoration: none;">contact@volodesign.com</a> to your address book.</p>
-										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">The VOLO Design Team</p>
-										</td></tr></table>										
-										<!-- // End Module: Standard Content \ -->
+                                                                                <table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top" style="padding: 0 25px 0 25px;border-collapse: collapse;">
+                                                                                <p style="margin-bottom: 19px;color: #212121;font-size: 17px;font-weight: bold;line-height: 19px;font-family: Verdana, sans-serif;">Hello there,</p>
+                                                                                <p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">We&#39;re thrilled you&#39;ve joined us in offering great furniture design at affordable prices.</p>
+                                                                                <p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">So many costs are hidden in the over-priced furniture you buy in traditional retail. We&#39;re transforming how furniture is sold and how you buy it.</p>
+                                                                                <p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">We&#39;re connecting you with the designers directly, saving you up to 70% off traditional retail prices.</p>
+                                                                                <p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">We look forward to seeing you soon.</p>
+                                                                                <p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">To make sure you&#39;re the first to hear when we release a new range of products, make sure you add <a href="mailto:contact@volodesign.com" style="color: #212121;text-decoration: underline;">contact@volodesign.com</a> to your address book.</p>
+                                                                                <p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">The VOLO Design Team</p>
+                                                                                </td></tr></table>
+                                                                                <!-- // End Module: Standard Content \ -->
 										
 									</td>
 									<td valign="top" width="204" style="padding: 23px 0 35px 0;border-collapse: collapse;"><a href="'.$baseurl.'"><img src="'.$baseurl.'/skin/frontend/default/respond/newsletter/gift.png" width="204" height="491" alt="Start Shopping" style="vertical-align: top;display: block;border: 0;outline: none;text-decoration: none;height: auto;line-height: 100%;"></a>
@@ -253,11 +253,11 @@ $invite_message='
 										<!-- // Begin Module: Standard Content \ -->
 										<table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td valign="top" style="padding: 0 25px 0 25px;border-collapse: collapse;">
 										<p style="margin-bottom: 19px;color: #212121;font-size: 17px;font-weight: bold;line-height: 19px;font-family: Verdana, sans-serif;">Hello there,</p>
-										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">We&#39;re thrilled you&#39;ve joined our fight for great furniture design at affordable prices.</p>
-										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">So many costs are hidden in the over-priced furniture you buy on the high street. We&#39;re making a stand by revolutionising how furniture is sold and how you buy it.</p>
-										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">We&#39;re connecting you with the furniture makers directly, saving you up to 70% off high street prices.</p>
+										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">We&#39;re thrilled you&#39;ve joined us in offering great furniture design at affordable prices.</p>
+										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">So many costs are hidden in the over-priced furniture you buy in traditional retail. We&#39;re transforming how furniture is sold and how you buy it.</p>
+										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">We&#39;re connecting you with the designers directly, saving you up to 70% off traditional retail prices.</p>
 										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">We look forward to seeing you soon.</p>
-										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">To make sure you&#39;re the first to hear when we release a new range of products, make sure you add <a href="mailto:contact@volodesign.com" style="color: #212121;text-decoration: none;">contact@volodesign.com</a> to your address book.</p>
+										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">To make sure you&#39;re the first to hear when we release a new range of products, make sure you add <a href="mailto:contact@volodesign.com" style="color: #212121;text-decoration: underline;">contact@volodesign.com</a> to your address book.</p>
 										<p style="margin-bottom: 19px;color: #212121;font-size: 12px;line-height: 19px;font-family: Verdana, sans-serif;">The VOLO Design Team</p>
 										</td></tr></table>										
 										<!-- // End Module: Standard Content \ -->

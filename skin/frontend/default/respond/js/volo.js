@@ -44,14 +44,14 @@ $j(document).ready(function() {
 		$j(this).addClass('hovered');
 		$j(this).clearQueue().stop().animate({
 			left: '0px'
-		}, 500)
+		}, 250)
 	})
 
 	$j('#newsletter-popupbutton').on('mouseleave', function()  {
                 $j(this).removeClass('hovered');
 		$j(this).clearQueue().stop().animate({
                         left: '-82px'
-                }, 500)
+                }, 250)
         })
 
 	
