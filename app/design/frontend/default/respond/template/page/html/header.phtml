@@ -93,6 +93,8 @@ $j(document).ready(function() {
 			$j('#newsletter-subscribe-close').show();
 		}, onCleanup: function() {
 			$j('#newsletter-subscribe-close').hide();
+		}, onComplete: function() {
+			$j('#cboxLoadedContent').addClass('newsletter');
 		}
 	});
 

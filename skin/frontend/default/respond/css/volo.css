@@ -283,7 +283,7 @@ body {
 	padding-top: 14px;
 }
 
-#secondary, #tertiary {
+#secondary,#tertiary {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -292,6 +292,7 @@ body {
 		text-align: left;
 		text-transform: uppercase;
 }
+
 #tertiary {
 	width: 560px;
 		left: auto;
@@ -302,35 +303,33 @@ body {
 	width: auto;
 	float: left;
 }
-#secondary p:before	{
-	content: "  | ";
+#secondary p:first-child	{
+	float: left;
+	width: 90px;
 }
-#secondary p:first-child:before	{
-	content: "";
-}
-
 #secondary a,#tertiary a {
 	color: #4b4b4b;
 }
 
-#header-wrap #tertiary ul {
+#header-wrap #tertiary ul	{
 	float: right;
 	padding-top: 14px;
 }
-#fblike {
+#fblike	{
 	float: right;
 	margin: 12px 10px 0 0;
 }
-
 #header-wrap #secondary a.invite {
 	display: block;
 	margin-right: 4px;
 }
 #secondary a:hover,#tertiary a:hover {
 
-		text-decoration: underline;
+	text-decoration: underline;
 }
-
+#secondary #free-shipping p:hover	{
+	text-decoration: underline;
+}
 #header-wrap2 #secondary, #header-wrap2 #tertiary {
 		top: 5px;
 		line-height: 12px;
@@ -879,23 +878,26 @@ width:  80px;
 		min-height: 1px;
 }
 #links .col:nth-child(1) {
-		width: 11.5%;
+		width: 8.5%;
 }
 #links .col:nth-child(2) {
-		width: 9%;
+		width: 6.5%;
 }
-
+#links .col:nth-child(3) {
+                width: 10%;
+}
 #links .col:nth-child(4) {
-		width: 13%;
+		width: 11.5%;
 }
 #links .col:nth-child(5) {
-	width: 10.5%;
+	width: 8.5%;
 }
 #links .col:nth-child(6) {
-		width: 13.5%;
+	width: 13.5%;
 }
 #links .col:nth-child(8) {
-		width: 16.5%;
+	float: right;
+	width: 16.5%;
 	text-align: right;
 }
 #links .heading {
@@ -1090,7 +1092,9 @@ HOMEPAGE
 		overflow: hidden;
 }
 #newsletter-popupbutton a:hover {
+/*
 		background-position: 0 100%;
+*/
 }
 
 #newsletter-subscribe-close { /* close button */
@@ -1864,6 +1868,13 @@ CATEGORIES & PRODUCTS & SEARCH
 #price .add-to-cart .button:hover {
 	background-color: #4f4f4f;
 }
+#price #spin	{
+	display: none;
+	position: absolute;
+	width: auto;
+	top: 38px;
+	right: 40px;
+}
 #price #ajax_loader {
 		width: auto;
 		margin-left: 5px;
@@ -1959,8 +1970,7 @@ CATEGORIES & PRODUCTS & SEARCH
 		opacity:0.5;
 }
 #related .recommended li.hover {
-		/*background: url(../images/volo/hoverrel.png) no-repeat 0 0;
-*/
+		/*background: url(../images/volo/hoverrel.png) no-repeat 0 0;*/
 }
 #related .recommended li:first-child {
 		padding-left: 0;
@@ -2301,6 +2311,9 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 		padding: 0 0 20px;
 		overflow-x: hidden !important;
 		overflow-y: scroll !important;
+}
+#cboxLoadedContent.newsletter	{
+	overflow-y: hidden !important;
 }
 .plain #cboxLoadedContent {
 	padding: 0;
