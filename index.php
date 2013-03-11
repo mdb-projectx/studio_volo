@@ -1,8 +1,8 @@
 <?php
-
-if (strtolower($_SERVER[REQUEST_URI])=="/new-products.html")
+$tmp=explode('?',$_SERVER[REQUEST_URI]);
+if (strtolower($tmp[0])=="/new-products.html")
 {
-	if (!($_SERVER['QUERY_STRING']=='million'))
+	if (!($tmp[1]=='million'))
 	{
 		header ('HTTP/1.1 301 Moved Permanently');
 		header ('Location: '."http://".$_SERVER ['HTTP_HOST']);
