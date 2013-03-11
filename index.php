@@ -1,6 +1,6 @@
 <?php
 
-if (strtolower($_SERVER['PHP_SELF'])=="/new-products.html")
+if (strtolower($_SERVER[REQUEST_URI])=="/new-products.html")
 {
 	if (!($_SERVER['QUERY_STRING']=='million'))
 	{
