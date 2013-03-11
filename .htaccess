@@ -169,6 +169,14 @@
 
     RewriteRule .* index.php [L]
 
+
+##<LocationMatch "/tables.html">
+##  AuthUserFile /srv/www/volo/.htpasswd
+##  AuthName EnterPassword
+##  AuthType Basic
+##  require valid-user
+##</LocationMatch>
+
 </IfModule>
 
 

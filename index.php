@@ -1,4 +1,15 @@
 <?php
+
+if (strtolower($_SERVER['PHP_SELF'])=="/new-products.html")
+{
+	if (!($_SERVER['QUERY_STRING']=='million'))
+	{
+		header ('HTTP/1.1 301 Moved Permanently');
+		header ('Location: '."http://".$_SERVER ['HTTP_HOST']);
+		exit();
+	}
+} 
+
 /**
  * Magento
  *
