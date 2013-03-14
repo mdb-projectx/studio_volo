@@ -333,7 +333,7 @@ if(filter_var($email, FILTER_VALIDATE_EMAIL))
 					"html" => $invite_html,
 					"text" => $invite_message,
 					"from_email" => "contact@volodesign.com",
-					"from_name" =>  "Volo Design",
+					"from_name" =>  "VOLO Design",
 					"subject" => "Welcome! Here's a coupon for your next order at VOLODesign.com",
 					"to" => array(array("email" => $email)),
 					"track_opens" => true,
