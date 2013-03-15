@@ -3935,3 +3935,73 @@ DESIGNERS PAGE
 #checkoutSteps .field select	{
 	width: 272px;
 }
+
+
+/* Invite Friends splash page
+----------------------------------------------*/
+
+#invitesplash {
+	padding: 0 0 30px;
+}
+#invitesplash h1 {
+	padding: 0 0 30px;
+	font-size: 25px;
+	line-height: 36px;
+	letter-spacing: 0.1em;
+}
+#invitesplash .cf {
+	text-align: center;
+	font-size: 12px;
+	line-height: 20px;
+}
+#invitesplash h2 {
+	font-size: 16px;
+	line-height: 24px;
+}
+#invite-you {
+	float: left;
+	width: 480px;
+	border-right: 1px solid #ddd;
+}
+#invite-you .prizes {
+	padding: 50px 0;
+}
+#invite-you .prizes li {
+	float: left;
+	padding-left: 20px;
+	width: 133px;
+}
+#invite-you .prizes img {
+	margin-bottom: 10px;
+}
+#invite-you .prizes strong {
+	text-transform: uppercase;
+}
+#invite-friend {
+	float:left;
+	width: 479px;
+}
+#invite-friend .note {
+	color: #666;
+	font-style: italic;
+}
+#invite-friend .button {
+	margin: 74px auto 30px;
+	padding: 0 20px;
+	font-size: 13px;
+	line-height: 35px;
+	background-color: #5B5B5B;
+	border: 0 none;
+	color: #FFFFFF;
+	height: 35px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	-webkit-transition: background 0.25s ease-in 0s;
+	-moz-transition: background 0.25s ease-in 0s;
+	-ms-transition: background 0.25s ease-in 0s;
+	-o-transition: background 0.25s ease-in 0s;
+	transition: background 0.25s ease-in 0s;
+}
+#invite-friend .button:hover {
+	background: #4f4f4f;
+}
