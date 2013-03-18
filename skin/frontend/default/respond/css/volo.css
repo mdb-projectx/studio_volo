@@ -317,7 +317,9 @@ body {
 }
 #fblike	{
 	float: right;
+	width: 45px;
 	margin: 12px 10px 0 0;
+	overflow: hidden;
 }
 #header-wrap #secondary a.invite {
 	display: block;
