@@ -21,7 +21,7 @@
                                 <use>standard</use>
                                 <args>
                                       <module>Volo_HelloWorld</module>
-                                      <frontName>helloworld</frontName>
+                                      <frontName>invite-splash</frontName>
                                 </args>
                         </helloworld>
                 </routers>
