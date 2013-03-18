@@ -1,5 +1,10 @@
 $j(document).ready(function() {
 
+	$j('#fblike').live('click', function() {
+		alert('123');
+		$j('.pluginCountButton').hide();
+	});
+
 	/* MENU */
 	
     $j("#menu li").hover(function(){    
