@@ -104,7 +104,11 @@
 				$j('#checkout-review #total').before( '<div class="adjustment"></div>');
 				$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$' + (priceTotal / 100 * 8.75).toFixed(2) + '</span>');
 				$j('#checkout-review #total').append('<span class="priceTaxed"></span>');				
-				$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 8.75)).toFixed(2));
+				if($j('#discountAmount').length > 0) {
+					$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 8.75)).toFixed(2) - discount);
+				} else {
+					$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 8.75)).toFixed(2));				
+				}
 				$j('#checkout-review #total .price').hide();
 			} else {
 				$j('#checkout-review #total .priceTaxed').remove();
