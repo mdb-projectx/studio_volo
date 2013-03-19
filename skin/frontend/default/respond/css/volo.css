@@ -304,8 +304,11 @@ body {
 	float: left;
 }
 #secondary p:first-child	{
+	/*
 	float: left;
 	width: 90px;
+	*/
+	display: inline;
 }
 #secondary a,#tertiary a {
 	color: #4b4b4b;
@@ -342,7 +345,6 @@ body {
 	margin-right: 4px;
 }
 #secondary a:hover,#tertiary a:hover {
-
 	text-decoration: underline;
 }
 #secondary #free-shipping p:hover	{
@@ -359,7 +361,7 @@ body {
 }
 
 
-#tertiary li:before {
+#tertiary li:before, #secondary p:first-child:after {
 		content: " | ";
 }
 #tertiary li:first-child:before {
