@@ -93,7 +93,7 @@
 				}
 			});
 			
-			if($j('#discountAmount').length) {
+			if($j('#discountAmount').length > 0) {
 				var discount = parseFloat($j('#discountAmount .price').html().replace('$','').replace(',','').replace('-',''));
 				var priceTotal = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',','')) - discount;
 			} else {
