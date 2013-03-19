@@ -299,9 +299,12 @@ body {
 		right: 0;
 		text-align: right;
 }
-#secondary a, #seoncdary p	{
+#secondary a, #secondary	p {
+	display: inline;
+	/*
 	width: auto;
 	float: left;
+	*/
 }
 #secondary p:first-child	{
 	/*
@@ -340,10 +343,10 @@ body {
 	background: white;
 	z-index: 999;
 }
-#header-wrap #secondary a.invite {
+/* #header-wrap #secondary a.invite {
 	display: block;
 	margin-right: 4px;
-}
+} */
 #secondary a:hover,#tertiary a:hover {
 	text-decoration: underline;
 }
