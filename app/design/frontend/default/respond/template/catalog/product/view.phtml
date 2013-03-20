@@ -361,6 +361,7 @@ jQuery('#product .social').on('mouseleave', function() {
 		            url = url.replace("checkout/cart", "ajax/index"); // New Code
 		            var data = jQuery('#product_addtocart_form').serialize();
 		            data += '&isAjax=1';
+			    data += '&qty=' + jQuery('#qty').val();
      			    jQuery('#spin').show();
 			    //alert(url);
 		            try {

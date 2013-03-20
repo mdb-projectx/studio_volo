@@ -10,6 +10,7 @@ class Volo_HelloWorld_IndexController extends Mage_Core_Controller_Front_Action
                 $this->renderLayout();
 		//$this->_redirectUrl('/invite-friends-splash');
         }
+
         else
         {
                 Mage::getSingleton('customer/session')->setBeforeAuthUrl(Mage::helper("core/url")->getCurrentUrl());

@@ -50,13 +50,25 @@
                     <?php if ($track->getCarrierTitle()): ?>
                     <tr>
                         <th class="label"><?php echo $this->__('Carrier:'); ?></th>
-                        <td class="value"><?php echo $this->escapeHtml($track->getCarrierTitle()); ?></td>
+                        <td class="value"><?php echo $this->escapeHtml($track->getCarrierTitle()); ?></td> 
                     </tr>
                     <?php endif; ?>
                     <?php if($track->getErrorMessage()): ?>
                     <tr>
+<?php if (trim($this->escapeHtml($track->getCarrierTitle()))=='Federal Express')
+{
+?>
+			<th class="label"></th>
+			<td class="value"><a href="http://m.fedex.com/mt/www.fedex.com/Tracking?tracknumbers=<?php echo $this->escapeHtml($track->getTracking()); ?>" target="_blank"> View the Federal Express Tracking #<?php echo $this->escapeHtml($track->getTracking()); ?></a><td>
+<?php
+}
+else
+{?>
+
+
                         <th class="label"><?php echo $this->__('Error:'); ?></th>
                         <td class="error"><?php echo $this->__('Tracking information is currently not available. Please '); if ($this->getContactUsEnabled()) : ?><a href="<?php echo $this->getContactUs() ?>" title="<?php echo $this->__('contact us') ?>" onclick="this.target='_blank'"><?php echo $this->__('contact us') ?></a><?php echo $this->__(' for more information or '); endif; echo $this->__('email us at '); ?><a href="mailto:<?php echo $this->getStoreSupportEmail() ?>"><?php echo $this->getStoreSupportEmail() ?></a></td>
+<?php }?>
                     </tr>
                     <?php elseif($track->getTrackSummary()): ?>
                     <tr>

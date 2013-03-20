@@ -1866,6 +1866,21 @@ CATEGORIES & PRODUCTS & SEARCH
 		color: #252525;
 		font: bold 24px/40px "Open Sans Condensed", "Open Sans", Arial, Helvetica, sans-serif;
 }
+#price .quantity	{
+	float: left;
+	width: 100%;
+	margin-bottom: 7px;
+	line-height: 30px;
+}
+#price .quantity span	{
+	float: left;
+	width: 35%;
+	text-align: left;
+}
+#price #qty {
+	float: left;
+	width: 65%;
+}
 #price .add-to-cart {
 		margin: 0;
 		border: 0;
@@ -1895,7 +1910,7 @@ CATEGORIES & PRODUCTS & SEARCH
 	display: none;
 	position: absolute;
 	width: auto;
-	top: 38px;
+	top: 76px;
 	right: 40px;
 }
 #price #ajax_loader {
