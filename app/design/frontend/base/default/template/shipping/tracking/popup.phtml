@@ -59,7 +59,7 @@
 {
 ?>
 			<th class="label"></th>
-			<td class="value"><a href="http://m.fedex.com/mt/www.fedex.com/Tracking?tracknumbers=<?php echo $this->escapeHtml($track->getTracking()); ?>" target="_blank"> View the Federal Express Tracking #<?php echo $this->escapeHtml($track->getTracking()); ?></a><td>
+			<td class="value"><a href="http://www.fedex.com/Tracking?action=track&tracknumbers=<?php echo $this->escapeHtml($track->getTracking()); ?>" target="_blank"> View the Federal Express Tracking #<?php echo $this->escapeHtml($track->getTracking()); ?></a><td>
 <?php
 }
 else
