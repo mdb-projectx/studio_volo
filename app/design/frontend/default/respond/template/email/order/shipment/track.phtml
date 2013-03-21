@@ -47,7 +47,11 @@
 			<td class="spacer" style="border-collapse: collapse;padding: 0;">&nbsp;</td>
 			<td valign="top" style="border-collapse: collapse;padding: 16px 0 0 0;">
 				<p style="margin-top: 0;color: #212121;font-size: 13px;line-height: 21px;font-family: Georgia serif;">
-					<?php echo $_item->getNumber() ?>
+					<?php if ($_item->getTitle()=='Federal Express'){?>
+					<a href="https://www.fedex.com/fedextrack/?tracknumbers=<?php  echo $_item->getNumber();?>&cntry_code=us"><?php  echo $_item->getNumber();?></a>
+					<?php }else{
+						echo $_item->getNumber();
+					}?>
 				</p>
 			</td>
 		</tr>
