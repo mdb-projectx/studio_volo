@@ -51,19 +51,30 @@ $j(document).ready(function() {
 		$j.colorbox.close();
 		return false;
 	});
+
 	$j('.inline').colorbox({
-		inline:true, 
-		initialWidth:498, 
-		initialHeight:335, 
-		innerWidth:498, 
-		innerHeight:335, 
-		className:'plain',
-		onOpen: function() {
-			$j('#newsletter-subscribe-close').show();
-		}, onCleanup: function() {
-			$j('#newsletter-subscribe-close').hide();
-		}
-	});
+                inline:true,
+                initialWidth:498,
+                initialHeight: 335,
+                innerWidth:498,
+                innerHeight: 335,
+                fixed: true,
+                left: 0,
+                top: 0,
+                opacity: 0.75,
+                className:'plain',
+                onOpen: function() {
+                        $j('#newsletter-subscribe-close').show();
+                        var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
+                        $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;');
+                }, onCleanup: function() {
+                        $j('#newsletter-subscribe-close').hide();
+                }, onComplete: function() {
+                        $j('#cboxLoadedContent').addClass('newsletter');
+			$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+                }
+        });
+
 
 	if ( firstImpression('subscribe', 28) ) {
 		// if first visit in 28 days, open the popup

@@ -89,12 +89,13 @@ $j(document).ready(function() {
 	$j('.inline').colorbox({
 		inline:true, 
 		initialWidth:498, 
-		initialHeight:335, 
+		initialHeight: 335, 
 		innerWidth:498, 
-		innerHeight:335, 
+		innerHeight: 335, 
 		fixed: true,
 		left: 0,
 		top: 0,
+		opacity: 0.75,
 		className:'plain',
 		onOpen: function() {
 			$j('#newsletter-subscribe-close').show();
@@ -104,6 +105,7 @@ $j(document).ready(function() {
 			$j('#newsletter-subscribe-close').hide();
 		}, onComplete: function() {
 			$j('#cboxLoadedContent').addClass('newsletter');
+			$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
 		}
 	});
 	

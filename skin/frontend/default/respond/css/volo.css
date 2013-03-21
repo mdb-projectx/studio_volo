@@ -2323,7 +2323,7 @@ Change the following styles to modify the appearance of ColorBox.  They are
 ordered & tabbed in a way that represents the nesting of the generated HTML.
  */
 #cboxOverlay {
-	background: #000;
+	background: #fff;
 }
 #cboxContent {
 	margin-top: 32px;
@@ -2345,7 +2345,7 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 }
 #cboxLoadedContent {
 		background: #FFF;
-		padding: 0 0 20px;
+		padding: 0;
 		overflow-x: hidden !important;
 		overflow-y: scroll !important;
 }
@@ -3389,7 +3389,6 @@ PRIVACY POLICY & RETURN POLICY
 .checkout-modal	{
 	position: relative;
 	width: 700px;
-	margin: 0 auto;
 	padding: 0;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	overflow: hidden;
