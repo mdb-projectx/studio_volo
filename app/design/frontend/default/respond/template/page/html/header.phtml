@@ -98,7 +98,7 @@ $j(document).ready(function() {
 		className:'plain',
 		onOpen: function() {
 			$j('#newsletter-subscribe-close').show();
-			var width = $j(window).width()/2 - 249;
+			var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
 			$j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;');
 		}, onCleanup: function() {
 			$j('#newsletter-subscribe-close').hide();
