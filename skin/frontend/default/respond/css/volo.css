@@ -1874,12 +1874,12 @@ CATEGORIES & PRODUCTS & SEARCH
 }
 #price .quantity span	{
 	float: left;
-	width: 35%;
+	width: 65px;
 	text-align: left;
 }
 #price #qty {
 	float: left;
-	width: 65%;
+	width: 60px;
 }
 #price .add-to-cart {
 		margin: 0;
