@@ -75,6 +75,7 @@ function close() {
 	<table id="cart-contents">
 		<tr class="product">
 			<td class="c-left">Irvine 3 Seater Sofa, Deep Blue was successfully added to your basket</td>
+			<td class="c-center">Quantity: 5</td>
 			<td class="c-right">$589</td>
 		</tr>
 <!--
@@ -377,6 +378,7 @@ jQuery('#product .social').on('mouseleave', function() {
 						jQuery('#tertiary .top-link-cart').text(data.itemcount).attr('title',data.itemcount);
 						jQuery('#cart-photo img').attr('src', data.productImage);
 						jQuery('#cart-contents .product .c-left').text(data.productName + ' was successfully added to your basket');
+						jQuery('#cart-contents .product .c-center').text('Quantity: ' + data.productQty);
 						jQuery('#cart-contents .product .c-right').text(data.productPrice);
 						for(var i=0; i<data.related.length; i++) {
 							jQuery('#cart-related li:eq('+i+') .image img').attr('src', data.related[i]['image']);

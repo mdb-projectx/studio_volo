@@ -325,6 +325,7 @@ body {
 	position: relative;
 	float: right;
 	width: 71px;
+	margin-right: 2px;
 	overflow: hidden;
 }
 #fblike	{
@@ -1633,14 +1634,22 @@ CATEGORIES & PRODUCTS & SEARCH
 		text-align: right;
 }
 #cart-contents td.c-right {
-		width: 165px;
+		width: 50px;
 		text-align: right;
+		min-width: 50px;
 }
 #cart-contents .total td {
 		padding: 5px 0 0 0;
 }
 #cart-contents .total td.c-left {
 		color: #f54828;
+}
+#cart-contents td.c-left      {
+		width: 250px;
+}
+#cart-contents td.c-center	{
+		width: 140px;
+		text-align: center;
 }
 #cart-contents .total td.c-right {
 		font-size: 17px
@@ -2719,6 +2728,9 @@ BASKET & WISHLIST
 	width: auto;
 	letter-spacing: 0.05em;
 	padding: 0 10px !important;
+}
+#basket h2	{
+	margin-top: 15px;
 }
 #basket .checkout {
 	padding: 15px 0;
