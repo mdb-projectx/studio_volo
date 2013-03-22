@@ -100,6 +100,7 @@ $j(document).ready(function() {
 		transition: 'fade',
 		onOpen: function() {
 			$j('#newsletter-subscribe-close').show();
+			$j('#cboxClose').css('cssText', 'display: block !important');
 			var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
 			$j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;');
 		}, onCleanup: function() {
