@@ -1,9 +1,11 @@
 $j(document).ready(function() {
 
-	$j('#fblike').live('click', function() {
-		alert('123');
-		$j('.pluginCountButton').hide();
-	});
+	var useragent = navigator.userAgent.toLowerCase();
+
+	if (useragent.indexOf("mobile") > -1)
+	{
+		$j('#fb .shadow').css("right", "-5px");
+	}
 
 	/* MENU */
 	

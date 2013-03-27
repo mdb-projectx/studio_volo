@@ -325,13 +325,12 @@ body {
 	position: relative;
 	float: right;
 	width: 71px;
-	margin-right: 2px;
 	overflow: hidden;
 }
 #fblike	{
 	float: right;
 	width: 71px;
-	margin: 12px 0 0 0;
+	margin: 12px -2px 0 0;
 	overflow: hidden;
 }
 #fb .shadow	{
