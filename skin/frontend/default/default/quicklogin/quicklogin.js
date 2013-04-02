@@ -5,20 +5,25 @@ var checkurl = URL + "customer/account/signupformpopup/";
 			$j('.alogin').colorbox({
 				href:checkurl,
 				title:' ',
-				fixed: true,
-				top: "25%",
-				innerWidth: 390,
+				left: 0,
+				top: 0,
+//				innerWidth: 420,
 				innerHeight: 210,
-				initialWidth: 390,
+//				initialWidth: 420,
 				initialHeight: 210,
 				opacity: 0.75,
 				overlayClose: false,
 				escKey: false,
+				className:'plain',
+		                transition: 'fade',
 				onComplete: function() {
+					var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
+                                        $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;');
+					$j('#cboxLoadedContent').css('cssText', 'overflow:hidden !important;');
 					$j('#email_address').focus();				
 					$j('#login-wrap .signup button').click(function() {
 						$j('#alogin').colorbox.resize({
-							innerWidth: 390,
+							innerWidth: 437,
 							innerHeight: 210
 						});
 						
@@ -50,10 +55,10 @@ var checkurl = URL + "customer/account/signupformpopup/";
 			var valid = new Validation('login-form');
 			 if(valid.validate()){
 			 
-						$j('#alogin').colorbox.resize({
-							innerWidth: 390,
-							innerHeight: 210
-						});
+				$j('#alogin').colorbox.resize({
+					innerHeight: 210
+				});
+				$j('#cboxLoadedContent').width(420);
 						
 			    var request = new Ajax.Request(
 				 URL + "customer/account/ajaxLogin",
@@ -104,9 +109,9 @@ var checkurl = URL + "customer/account/signupformpopup/";
 						clearInterval(checkHeight);
 						checkHeight = 0;										
 						$j('#alogin').colorbox.resize({
-							innerWidth: 390,
 							innerHeight: (460 - 386 + newHeight)
 						});
+						$j('#cboxLoadedContent').width(420);
 					}					
 					setTimeout(function() { 					
 						clearInterval(checkHeight);
@@ -137,9 +142,9 @@ var checkurl = URL + "customer/account/signupformpopup/";
 						if (response.success) {
 							//alert("success");
 							$j('#alogin').colorbox.resize({
-	                                                        innerWidth: 390,
-	                                                        innerHeight: 190
+	                                                        innerHeight: 210
 	                                                });
+							$j('#cboxLoadedContent').width(420);
 							$j('#regis-form .step1').stop(true,true).slideUp(); $j('#regis-form .step2').stop(true, true).slideDown();
 							$j('.errormsg').empty();
 							$j('.step2 input').removeClass('validation-failed');
@@ -243,9 +248,9 @@ var checkurl = URL + "customer/account/signupformpopup/";
 								clearInterval(checkHeight);
 								checkHeight = 0;												
 								$j('#alogin').colorbox.resize({
-									innerWidth: 390,
 									innerHeight: (460 - 386 + newHeight)
 								});
+								$j('#cboxLoadedContent').width(420);
 							}					
 							setTimeout(function() { 					
 								clearInterval(checkHeight);
