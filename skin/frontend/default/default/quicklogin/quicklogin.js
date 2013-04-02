@@ -15,10 +15,9 @@ var checkurl = URL + "customer/account/signupformpopup/";
 				overlayClose: false,
 				escKey: false,
 				className:'plain',
-		                transition: 'fade',
 				onComplete: function() {
 					var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
-                                        $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;');
+                                        $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important; opacity: 100;');
 					$j('#cboxLoadedContent').css('cssText', 'overflow:hidden !important;');
 					$j('#email_address').focus();				
 					$j('#login-wrap .signup button').click(function() {
