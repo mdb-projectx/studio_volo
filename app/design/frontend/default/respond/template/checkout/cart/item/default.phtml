@@ -47,13 +47,9 @@ $_options = $this->getOptionList();
 	</td>
 	
 	<td class="product">
-		<?php if ($this->hasProductUrl()):?><a href="<?php echo $this->getProductUrl() ?>" title="<?php echo $this->escapeHtml($this->getProductName()) ?>"><?php endif;?><img src="<?php echo $this->getProductThumbnail()->resize(107,79); ?>" width="107" height="79" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" /><?php if ($this->hasProductUrl()):?></a><?php endif;?>
+		<img src="<?php echo $this->getProductThumbnail()->resize(107,79); ?>" width="107" height="79" alt="<?php echo $this->escapeHtml($this->getProductName()) ?>" />
 
-		<?php if ($this->hasProductUrl()):?>
-            <a href="<?php echo $this->getProductUrl() ?>"><?php echo $this->escapeHtml($this->getProductName()) ?></a>
-        <?php else: ?>
-            <?php echo $this->escapeHtml($this->getProductName()) ?>
-        <?php endif; ?>
+		<?php echo $this->escapeHtml($this->getProductName()) ?>
 		
         <?php if ($isVisibleProduct && $this->getOptionList()): ?>
             | <a class="link-edit" href="<?php echo $this->getConfigureUrl() ?>" title="<?php echo $this->__('Edit item parameters') ?>"><?php echo $this->__('Edit') ?></a>
