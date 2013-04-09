@@ -70,60 +70,62 @@
 	<?php /* update sidebar summary every time button is click, and apply tax if needed */ ?>
 	
 	// add placeholder
-	$j('#checkout-review #total').before( '<div class="adjustment"></div>');
-	$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">---</span>');
+	$j(document).ready(function() {
+		$j('#checkout-review #total').before( '<div class="adjustment"></div>');
+		$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">---</span>');
 	
-	// on click	
-	$j("#checkoutSteps button").on("click", function(event){
-		var reviewUrl = '<?php echo $this->getUrl('checkout/onepage/review') ?>';
-		
-		$j.get(reviewUrl, function(data) {
-			$j('#checkout-review .totals .adjustment').remove();
-			$j('#checkout-review .totals #total').remove();
+		// on click	
+		$j("#checkoutSteps button").on("click", function(event){
+			var reviewUrl = '<?php echo $this->getUrl('checkout/onepage/review') ?>';
 			
-			var $dom = data;			
-			$j($dom).find('.adjustment').each(function() {
-				$j('#checkout-review .totals').append('<div class="adjustment"></div>');
-				$j('#checkout-review .totals .adjustment').last().append($j(this).html());		
-			});
-			$j($dom).find('#total').each(function() {
-				$j('#checkout-review .totals').append('<div id="total"></div>');
-				$j('#checkout-review .totals #total').append($j(this).html());		
-			});	
-		}).error(function() { 			
-			$j('#checkout-review .totals .adjustment').each(function() {
-				if($j(this).html().indexOf("Tax") >= 0) {
-					$j(this).remove();
+			$j.get(reviewUrl, function(data) {
+				$j('#checkout-review .totals .adjustment').remove();
+				$j('#checkout-review .totals #total').remove();
+				
+				var $dom = data;			
+				$j($dom).find('.adjustment').each(function() {
+					$j('#checkout-review .totals').append('<div class="adjustment"></div>');
+					$j('#checkout-review .totals .adjustment').last().append($j(this).html());		
+				});
+				$j($dom).find('#total').each(function() {
+					$j('#checkout-review .totals').append('<div id="total"></div>');
+					$j('#checkout-review .totals #total').append($j(this).html());		
+				});	
+			}).error(function() { 			
+				$j('#checkout-review .totals .adjustment').each(function() {
+					if($j(this).html().indexOf("Tax") >= 0) {
+						$j(this).remove();
+						$j('#checkout-review #total .priceTaxed').remove();
+						$j('#checkout-review #total .price').show();
+					}
+				});
+				
+				if($j('#discountAmount').length > 0) {
+					var discount = parseFloat($j('#discountAmount .price').html().replace('$','').replace(',','').replace('-',''));
+					var priceTotal = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',','')) + discount;
+				} else {
+					var priceTotal = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
+				}
+				
+				if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12) || ($j('#shipping\\:same_as_billing').is(':checked') && $j('#billing\\:region_id').val() == 12) ) {
+					$j('#checkout-review #total').before( '<div class="adjustment"></div>');
+					$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$' + (priceTotal / 100 * 8.75).toFixed(2) + '</span>');
+					$j('#checkout-review #total').append('<span class="priceTaxed"></span>');				
+					if($j('#discountAmount').length > 0) {
+						$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 8.75) - discount).toFixed(2));
+					} else {
+						$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 8.75)).toFixed(2));				
+					}
+					$j('#checkout-review #total .price').hide();
+				} else {
+					// add placeholder
+					$j('#checkout-review #total').before( '<div class="adjustment"></div>');
+					$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">---</span>');
+					
 					$j('#checkout-review #total .priceTaxed').remove();
 					$j('#checkout-review #total .price').show();
 				}
 			});
-			
-			if($j('#discountAmount').length > 0) {
-				var discount = parseFloat($j('#discountAmount .price').html().replace('$','').replace(',','').replace('-',''));
-				var priceTotal = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',','')) + discount;
-			} else {
-				var priceTotal = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
-			}
-			
-			if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12) || ($j('#shipping\\:same_as_billing').is(':checked') && $j('#billing\\:region_id').val() == 12) ) {
-				$j('#checkout-review #total').before( '<div class="adjustment"></div>');
-				$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$' + (priceTotal / 100 * 8.75).toFixed(2) + '</span>');
-				$j('#checkout-review #total').append('<span class="priceTaxed"></span>');				
-				if($j('#discountAmount').length > 0) {
-					$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 8.75) - discount).toFixed(2));
-				} else {
-					$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 8.75)).toFixed(2));				
-				}
-				$j('#checkout-review #total .price').hide();
-			} else {
-				// add placeholder
-				$j('#checkout-review #total').before( '<div class="adjustment"></div>');
-				$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">---</span>');
-				
-				$j('#checkout-review #total .priceTaxed').remove();
-				$j('#checkout-review #total .price').show();
-			}
 		});
 	});
 //]]>
