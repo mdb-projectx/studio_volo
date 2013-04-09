@@ -68,6 +68,12 @@
 	$j('#shipping\\:company, #shipping\\:fax, #billing\\:company, #billing\\:fax').parent().parent().remove();
 	
 	<?php /* update sidebar summary every time button is click, and apply tax if needed */ ?>
+	
+	// add placeholder
+	$j('#checkout-review #total').before( '<div class="adjustment"></div>');
+	$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">---</span>');
+	
+	// on click	
 	$j("#checkoutSteps button").on("click", function(event){
 		var reviewUrl = '<?php echo $this->getUrl('checkout/onepage/review') ?>';
 		
@@ -111,6 +117,7 @@
 				}
 				$j('#checkout-review #total .price').hide();
 			} else {
+				// add placeholder
 				$j('#checkout-review #total').before( '<div class="adjustment"></div>');
 				$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">---</span>');
 				
