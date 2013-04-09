@@ -111,6 +111,9 @@
 				}
 				$j('#checkout-review #total .price').hide();
 			} else {
+				$j('#checkout-review #total').before( '<div class="adjustment"></div>');
+				$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">---</span>');
+				
 				$j('#checkout-review #total .priceTaxed').remove();
 				$j('#checkout-review #total .price').show();
 			}
