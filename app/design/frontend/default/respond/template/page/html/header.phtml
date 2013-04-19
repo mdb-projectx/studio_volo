@@ -112,7 +112,7 @@ $j(document).ready(function() {
 	
 	if ( firstImpression('subscribe', 28) ) {
 		// if first visit in 28 days, open the popup
-		$j('.inline').trigger('click');
+		var t = setTimeout( function() {$j('.inline').trigger('click')}, 15000 );
 	}
     
 /*
