@@ -86,6 +86,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							
 							if (response.success){
 							       alert('Successfully Registered');
+								   mixpanel.alias(response.email);
 								   redirectTime = "1";
 								   redirectURL = URL;
 								   //redirectURL = URL + "customer/account";

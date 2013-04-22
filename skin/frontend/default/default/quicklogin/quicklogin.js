@@ -78,6 +78,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 					
 					if (response.success){
 					   //alert('Successfully Loggedin');
+					   mixpanel.identify(response.email);
 					   redirectTime = "1";
 					   var path=window.location.pathname;
 					   path=path.replace('/index.php/','');		
@@ -196,6 +197,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							
 							if (response.success){
 							       //alert('Successfully Registered');
+								   mixpanel.alias(response.email);
 								   redirectTime = "1";
 								/*
 								   var path=window.location.pathname;

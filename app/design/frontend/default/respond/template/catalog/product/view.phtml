@@ -36,6 +36,8 @@
 <?php $_product = $this->getProduct(); ?>
 <script type="text/javascript">
 
+mixpanel.track('View Product', { 'Product Type': '<?php echo $_product->getData('featured_name') ?>'});
+
 function close() {
 	jQuery('#modal_wrap').hide();
 	jQuery('#modal_box').hide();

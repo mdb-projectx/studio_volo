@@ -76,7 +76,7 @@ class GA_Quicklogin_AccountController extends Mage_Customer_AccountController
                     }
 					$result['success'] = true;
 					$result['redirecturl'] = Mage::getUrl('customer/account/edit');
-                    
+                   			$result['email'] = $login['username']; 
 
                 } catch (Mage_Core_Exception $e) {
                     switch ($e->getCode()) {
@@ -302,6 +302,7 @@ $result['message'] = $this->__('There is already an account with this email addr
                         //return;
 						$result['success'] = true;
 						$result['message'] = $this->__('You are successfully registered');
+						$result['email'] = $this->getRequest()->getPost('email');
                     }
                 } else {
                     $session->setCustomerFormData($this->getRequest()->getPost());
