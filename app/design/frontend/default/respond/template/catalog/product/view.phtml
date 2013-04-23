@@ -396,6 +396,10 @@ jQuery('#product .social').on('mouseleave', function() {
 						jQuery('#screen_filter').show();
 						jQuery('#modal_box').show();
 						jQuery('#modal_wrap').show();
+
+						//MixPanel
+						mixpanel.track('Add Product to Cart', { 'Product Type': data.productName, 'Price': data.productPrice, 'Quantity':data.productQty})
+
 						var t = setTimeOut('close()',5000);
 		                      },
 				      error: function(data){

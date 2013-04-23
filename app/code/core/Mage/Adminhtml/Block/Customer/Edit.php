@@ -50,6 +50,7 @@ class Mage_Adminhtml_Block_Customer_Edit extends Mage_Adminhtml_Block_Widget_For
         parent::__construct();
 
         $this->_updateButton('save', 'label', Mage::helper('customer')->__('Save Customer'));
+	$this->_updateButton('save', 'onclick', "mixpanel.track('Signup'); editForm.submit();");
         $this->_updateButton('delete', 'label', Mage::helper('customer')->__('Delete Customer'));
 
         if (Mage::registry('current_customer')->isReadonly()) {
@@ -104,7 +105,7 @@ class Mage_Adminhtml_Block_Customer_Edit extends Mage_Adminhtml_Block_Widget_For
         if (!Mage::registry('current_customer')->isReadonly()) {
             $this->_addButton('save_and_continue', array(
                 'label'     => Mage::helper('customer')->__('Save and Continue Edit'),
-                'onclick'   => 'saveAndContinueEdit(\''.$this->_getSaveAndContinueUrl().'\')',
+                'onclick'   => "mixpanel.track('Signup'); saveAndContinueEdit('".$this->_getSaveAndContinueUrl()."')",
                 'class'     => 'save'
             ), 10);
         }

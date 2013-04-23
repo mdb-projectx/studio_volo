@@ -197,6 +197,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							
 							if (response.success){
 							       //alert('Successfully Registered');
+								mixpanel.track('Signup');
 								   mixpanel.alias(response.email);
 								   redirectTime = "1";
 								/*
