@@ -76,8 +76,8 @@ class Mage_Adminhtml_Report_StatisticsController extends Mage_Adminhtml_Controll
                 $block->setFilterData($params);
             }
         }
-
-        return $this;
+        
+	return $this;
     }
 
     /**

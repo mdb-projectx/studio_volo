@@ -132,7 +132,7 @@ class Mage_Adminhtml_Block_Report_Grid_Abstract extends Mage_Adminhtml_Block_Wid
         }
         // reset array keys
         $storeIds = array_values($storeIds);
-
+	//var_dump($storeIds);
         return $storeIds;
     }
 

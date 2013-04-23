@@ -62,7 +62,7 @@ class Mage_Adminhtml_Report_SalesController extends Mage_Adminhtml_Controller_Re
             $gridBlock,
             $filterFormBlock
         ));
-
+	
         $this->renderLayout();
     }
 
