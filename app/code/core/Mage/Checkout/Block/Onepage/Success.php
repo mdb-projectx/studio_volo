@@ -51,9 +51,14 @@ class Mage_Checkout_Block_Onepage_Success extends Mage_Core_Block_Template
 
     public function getOrderTotal()
     {
-	$orderId = $this->_getData('order_id');
-	$order = Mage::getSingleton('sales/order')->load($orderId);
-	return ($order->_getData['grand_total']);
+	$_customerId = Mage::getSingleton('customer/session')->getCustomerId();
+        $lastOrderId = Mage::getSingleton('checkout/session')->getLastOrderId();
+        $order = Mage::getSingleton('sales/order');
+        $order->load($lastOrderId);
+        $_totalData =$order->getData();
+        $_grand = round($_totalData['grand_total']);
+
+        return $_grand;
     }
 
     /**
