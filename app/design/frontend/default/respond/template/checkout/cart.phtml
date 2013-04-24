@@ -33,6 +33,11 @@
 ?>
 
 <div id="basket">
+    <script>
+        $j(document).ready(function() {
+                mixpanel.track('View Shopping Cart');
+        })
+    </script>
 	
 	<h2>Shopping Cart</h2>
     <?php echo $this->getChildHtml('form_before') ?>

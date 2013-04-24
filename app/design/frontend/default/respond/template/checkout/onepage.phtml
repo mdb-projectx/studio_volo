@@ -71,6 +71,8 @@
 	
 	// add placeholder
 	$j(document).ready(function() {
+		mixpanel.track('Checkout');
+
 		if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12) || ($j('#shipping\\:same_as_billing').is(':checked') && $j('#billing\\:region_id').val() == 12) ) {
 		} else {
 			$j('#checkout-review #total').before( '<div class="adjustment"></div>');
