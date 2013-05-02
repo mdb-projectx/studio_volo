@@ -73,7 +73,7 @@
 
 		if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12) || ($j('#shipping\\:same_as_billing').is(':checked') && $j('#billing\\:region_id').val() == 12) ) {
 		} else {
-			$j('#checkout-review #total').before( '<div class="adjustment"></div>');
+			$j('#checkout-review #total').before( '<div class="adjustment placeholder"></div>');
 			$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$0.00</span>');
 		}
 		
@@ -97,7 +97,7 @@
 			}).error(function() { 		
 				var hasTax = false;
 				
-				$j('#checkout-review .totals .adjustment').each(function() {
+				$j('#checkout-review .totals .adjustment:not(.placeholder)').each(function() {
 					if($j(this).html().indexOf("Tax") >= 0 && $j('#checkout-review #total .priceTaxed').length == 0) {
 						hasTax = true;
 					}
