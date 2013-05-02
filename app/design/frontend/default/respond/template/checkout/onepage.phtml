@@ -70,13 +70,14 @@
 	
 	// add placeholder
 	$j(document).ready(function() {
-
+		$j('#checkout-review #total').before( '<div class="adjustment placeholder"></div>');
+		$j('#checkout-review .totals .adjustment').last().prepend( 'Shipping & Handling (Free!) <span class="value">$0.00</span>');
+		
 		if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12) || ($j('#shipping\\:same_as_billing').is(':checked') && $j('#billing\\:region_id').val() == 12) ) {
 		} else {
 			$j('#checkout-review #total').before( '<div class="adjustment placeholder"></div>');
 			$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$0.00</span>');
 		}
-		
 		// on click	
 		$j("#checkoutSteps button").on("click", function(event){
 			var reviewUrl = '<?php echo $this->getUrl('checkout/onepage/review') ?>';
@@ -107,7 +108,7 @@
 					$j('#checkout-review .totals .adjustment').each(function() {
 						if($j(this).html().indexOf("Tax") >= 0) {		
 							$j(this).remove();
-							$j('#checkout-review #total .priceTaxed').remove();
+							$j('#checkout-review #total .priceTa xed').remove();
 							$j('#checkout-review #total .price').show();
 						}
 					});				
