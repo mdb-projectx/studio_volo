@@ -52,7 +52,6 @@
 <script type="text/javascript">
 //<![CDATA[
 
-
     var accordion = new Accordion('checkoutSteps', '.step-title', true);
     <?php if($this->getActiveStep()): ?>
     accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');	
@@ -74,13 +73,16 @@
 		mixpanel.track('Checkout');
 
 		if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12) || ($j('#shipping\\:same_as_billing').is(':checked') && $j('#billing\\:region_id').val() == 12) ) {
+			console.log('1');
 		} else {
 			$j('#checkout-review #total').before( '<div class="adjustment"></div>');
 			$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$0.00</span>');
+			console.log('2');
 		}
 		
 		// on click	
 		$j("#checkoutSteps button").on("click", function(event){
+			console.log('3');
 			var reviewUrl = '<?php echo $this->getUrl('checkout/onepage/review') ?>';
 			
 			$j.get(reviewUrl, function(data) {
@@ -90,7 +92,7 @@
 				var $dom = data;			
 				$j($dom).find('.adjustment').each(function() {
 					$j('#checkout-review .totals').append('<div class="adjustment"></div>');
-					$j('#checkout-review .totals .adjustment').last().append($j(this).html());		
+					$j('#checkout-review .totals .adjustment').last().append($j(this).html());	
 				});
 				$j($dom).find('#total').each(function() {
 					$j('#checkout-review .totals').append('<div id="total"></div>');
@@ -114,14 +116,15 @@
 				
 				if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12) || ($j('#shipping\\:same_as_billing').is(':checked') && $j('#billing\\:region_id').val() == 12) ) {
 					$j('#checkout-review #total').before( '<div class="adjustment"></div>');
-					$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$' + (priceTotal / 100 * 8.75).toFixed(2) + '</span>');
+					$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$' + (priceTotal / 100 * 9).toFixed(2) + '</span>');
 					$j('#checkout-review #total').append('<span class="priceTaxed"></span>');				
 					if($j('#discountAmount').length > 0) {
-						$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 8.75) - discount).toFixed(2));
+						$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 9) - discount).toFixed(2));
 					} else {
-						$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 8.75)).toFixed(2));				
+						$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 9)).toFixed(2));				
 					}
 					$j('#checkout-review #total .price').hide();
+			console.log('4');
 				} else {
 					// add placeholder
 					$j('#checkout-review #total').before( '<div class="adjustment"></div>');
@@ -129,6 +132,7 @@
 					
 					$j('#checkout-review #total .priceTaxed').remove();
 					$j('#checkout-review #total .price').show();
+			console.log('5');
 				}
 			});
 		});
