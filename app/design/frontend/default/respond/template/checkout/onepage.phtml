@@ -70,8 +70,17 @@
 	
 	// add placeholder
 	$j(document).ready(function() {
-		$j('#checkout-review #total').before( '<div class="adjustment placeholder"></div>');
-		$j('#checkout-review .totals .adjustment').last().prepend( 'Shipping & Handling (Free!) <span class="value">$0.00</span>');
+		var hasShipping = false;
+		$j('#checkout-review .totals .adjustment:not(.placeholder)').each(function() {
+			if($j(this).html().indexOf("Shipping")) {
+				hasShipping = true;
+			}
+		});
+
+		if(hasShipping === false) {
+			$j('#checkout-review #total').before( '<div class="adjustment placeholder"></div>');
+			$j('#checkout-review .totals .adjustment').last().prepend( 'Shipping & Handling (Free!) <span class="value">$0.00</span>');
+		}
 		
 		if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12) || ($j('#shipping\\:same_as_billing').is(':checked') && $j('#billing\\:region_id').val() == 12) ) {
 		} else {
