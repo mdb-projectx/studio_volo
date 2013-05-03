@@ -752,6 +752,7 @@ width:  80px;
 	border-right: 1px solid #a8a8a8;
 }
 #newsletter-area input[type=text] {
+	float: left;
 	font-size: 11px;
 	text-indent: 10px;
 	border: 1px solid #cacaca;
@@ -799,22 +800,22 @@ width:  80px;
 		box-shadow: inset 2px 5px 10px #fff;
 }
 
-#newsletter-area input[type=submit] {
-		width: 70px;
+#newsletter-area input[type=submit], #newsletter-area a {
+		float: left;
+		width: 50px;
 		text-align: center;
-		height: 25px;
+		height: 23px;
 		line-height: 24px;
 		font-weight: bold;
 		background: #fff;
 		border: 1px solid #cacaca;
 		font-size: 10px;
 }
-
-#newsletter-area input[type=submit]:hover {
+#newsletter-area input[type=submit]:hover, #newsletter-area a:hover { 
 		background: #f6f6f6;
 }
 
-#newsletter-area input[type=submit]:active {
+#newsletter-area input[type=submit]:active{
 		background: #e9e9e9;
 
 		-webkit-box-shadow: inset 0 -2px 1px rgba(255,255,255,0.2), inset 0 3px 1px rgba(0,0,0,0.1);
@@ -1262,6 +1263,21 @@ HOMEPAGE
 	-moz-transition:background 0.25s ease-in;
 	-o-transition:background 0.25s ease-in;
 	transition:background 0.25s ease-in;
+}
+#newsletter-subscribe-popup .input-box a.button {
+        position: absolute;
+        right: 0;
+        top: 12px;
+        /* width: 183px; */
+        width: 52px;
+	height: auto;
+        color: #FFF;
+        border-color: #5b5b5b;
+        background-color: #5b5b5b;
+        -webkit-transition: background 0.25s ease-in;
+        -moz-transition:background 0.25s ease-in;
+        -o-transition:background 0.25s ease-in;
+        transition:background 0.25s ease-in;
 }
 #newsletter-subscribe-popup .input-box button:hover {
 	background-color: #4f4f4f;
@@ -3159,6 +3175,7 @@ LOGIN POPUP
 #login-wrap, #signup-wrap, #fpass {
 		text-align: left;
 		font-size: 15px;
+		height: 250px;
 }
 #login-wrap h3, #signup-wrap h3, #fpass h3 {
 		padding: 0 30px;
@@ -3333,7 +3350,7 @@ LOGIN POPUP
 }
 #login-wrap p.radio label	{
 	float: left;
-	width: 105px;
+	width: 110px;
 	padding: 0;
 	text-align: left;
 	font-size: 11px;
