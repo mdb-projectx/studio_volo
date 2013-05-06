@@ -1269,8 +1269,9 @@ HOMEPAGE
         right: 0;
         top: 12px;
         /* width: 183px; */
-        width: 52px;
+        width: 50px;
 	height: auto;
+	padding: 0;
         color: #FFF;
         border-color: #5b5b5b;
         background-color: #5b5b5b;
