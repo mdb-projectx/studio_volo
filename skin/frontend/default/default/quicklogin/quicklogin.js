@@ -22,7 +22,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 					$j('#email_address').focus();				
 					$j('#login-wrap .signup button').click(function() {
 						$j('#alogin').colorbox.resize({
-							innerWidth: 437,
+							innerWidth: 470,
 							innerHeight: 250
 						});
 						
@@ -55,7 +55,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 			 if(valid.validate()){
 			 
 				$j('#alogin').colorbox.resize({
-					innerHeight: 250
+					innerHeight: 300
 				});
 				$j('#cboxLoadedContent').width(420);
 						
@@ -109,7 +109,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 						clearInterval(checkHeight);
 						checkHeight = 0;										
 						$j('#alogin').colorbox.resize({
-							innerHeight: (460 - 386 + newHeight)
+							innerHeight: (460 - 350 + newHeight)
 						});
 						$j('#cboxLoadedContent').width(420);
 					}					
