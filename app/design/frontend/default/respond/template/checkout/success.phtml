@@ -25,6 +25,10 @@
  */
 ?>
 
+<script>
+	mixpanel.track('Purchase',{'Order Value': '<?php echo $this->getOrderTotal(); ?>', 'Quantity': '<?php echo $this->getOrderQuantity(); ?>');
+</script>
+
 <div id="checkout-success">
 
 	<div class="page-title">
@@ -34,7 +38,6 @@
 	<div class="checkout-success">
 		<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 		<h2>Thank you for shopping<br>at Volo</h2>
-
 		<?php if ($this->getOrderId()):?>
 			<?php if ($this->getCanViewOrder()) :?>
 				<div class="order"><?php echo $this->__('<strong>Order Number:</strong> %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getViewOrderUrl()), $this->escapeHtml($this->getOrderId()))) ?></div>
@@ -84,7 +87,7 @@ var google_conversion_language = "en";
 var google_conversion_format = "3";
 var google_conversion_color = "ffffff";
 var google_conversion_label = "doe_CJ3LwwUQ87Tb1QM";
-var google_conversion_value = <?php echo $this->getOrderTotal(); ?>;
+var google_conversion_value = 0;
 /* ]]> */
 </script>
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">;

@@ -61,6 +61,18 @@ class Mage_Checkout_Block_Onepage_Success extends Mage_Core_Block_Template
         return $_grand;
     }
 
+    public function getOrderQuantity()
+    {
+	$_customerId = Mage::getSingleton('customer/session')->getCustomerId();
+        $lastOrderId = Mage::getSingleton('checkout/session')->getLastOrderId();
+        $order = Mage::getSingleton('sales/order');
+        $order->load($lastOrderId);
+        $_totalData =$order->getData();
+	$_qty = round($_totalData['total_qty_ordered']);
+
+	return $_qty;
+    }
+
     /**
      * Check order print availability
      *

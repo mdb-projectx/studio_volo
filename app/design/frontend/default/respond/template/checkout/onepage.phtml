@@ -64,7 +64,9 @@
     );	
 	
 	<?php /* hide company + fax */ ?>
-	$j('#shipping\\:company, #shipping\\:fax, #billing\\:company, #billing\\:fax').parent().parent().remove();
+	// Enabled company field on 08-05-2013
+	//$j('#shipping\\:company, #shipping\\:fax, #billing\\:company, #billing\\:fax').parent().parent().remove();
+	$j('#shipping\\:fax, #billing\\:fax').parent().parent().remove();
 	
 	<?php /* update sidebar summary every time button is click, and apply tax if needed */ ?>
 	
