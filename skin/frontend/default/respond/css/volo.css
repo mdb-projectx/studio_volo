@@ -1441,8 +1441,23 @@ CATEGORIES & PRODUCTS & SEARCH
 	color: #949494;
 }
 */
+#category li .more {
+	float: left;
+	width: 100%;
+}
+#category li .more label {
+	float: left;
+	width: auto;
+	line-height: 16px;
+	padding: 0 4px;
+	margin: 4px 10px 4px 0;
+	font-style: italic;
+	background-color: #fdec3f;
+}
 #category li .newprice, #search li .newprice {
 	display: block;
+	float: left;
+	width: auto;
 	font-size: 16px;
 	line-height: 24px;
 }
