@@ -18,7 +18,7 @@
                         <input name="login[password]" type="password" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
                 </p>
 		<p>
-			<button class="action-btn" type="submit" name="send" id="send2"><?php echo $this->__('Secure Sign In') ?></button>
+			<button class="action-btn" type="submit" name="send" id="send2"><?php echo $this->__('Secure Sign In') ?><span id="loginspin"></span></button>
 		</p>
 		<p class="forgot">
 			<a href="#" onclick="$j('#login-wrap').stop(true,true).slideUp(); $j('#fpass').stop(true,true).slideDown(); return false;">forgot password?</a>
@@ -35,7 +35,7 @@
                         <input type="radio" name="group1" value="regis" checked="checked" /><label>I'm a new customer</label><input type="radio" name="group1" value="login" /><label>I've ordered before</label>
                 </p>
                 <p>
-                        <button class="action-btn" type="submit" name="send" id="send2" onclick="var valid = new Validation('regis-form1'); if(valid.validate()) { preRegisterAjax() } else { return false };"><?php echo $this->__('Secure Sign In') ?></button>
+                        <button class="action-btn" type="submit" name="send" id="send2" onclick="var valid = new Validation('regis-form1'); if(valid.validate()) { preRegisterAjax() } else { return false };"><?php echo $this->__('Secure Sign In') ?><span id="regisspin"></span></button>
                 </p>
 	</div>
 	<div class="step2">
@@ -52,7 +52,7 @@
                         <label style="width: auto; display: none;" for="is_subscribed"><?php echo $this->__('Sign Up for Newsletter') ?></label>
                 </p>
                 <p>
-                        <button class="action-btn" type="submit" name="send" id="send2"><?php echo $this->__('Create Account') ?></button>
+                        <button class="action-btn" type="submit" name="send" id="send2"><?php echo $this->__('Create Account') ?><span id="regis2spin"></span></button>
                 </p>
 	</div>
         </form>
@@ -168,6 +168,30 @@
 
 <script type="text/javascript">
 	//<![CDATA[	
+	var opts = {
+	  lines: 9, // The number of lines to draw
+	  length: 4, // The length of each line
+	  width: 3, // The line thickness
+	  radius: 7, // The radius of the inner circle
+	  corners: 1, // Corner roundness (0..1)
+	  rotate: 0, // The rotation offset
+	  color: '#fff', // #rgb or #rrggbb
+	  speed: 1, // Rounds per second
+	  trail:	 60, // Afterglow percentage
+	  shadow: false, // Whether to render a shadow
+	  hwaccel: false, // Whether to use hardware acceleration
+	  className: 'spinner', // The CSS class to assign to the spinner
+	  zIndex: 2e9, // The z-index (defaults to 2000000000)
+	  top: 'auto', // Top position relative to parent in px
+	  left: 'auto' // Left position relative to parent in px
+	};
+	var target = document.getElementById('loginspin');
+	var spinner = new Spinner(opts).spin(target);
+	var target2 = document.getElementById('regisspin');
+	var spinner2 = new Spinner(opts).spin(target2);
+	var target3 = document.getElementById('regis2spin');
+	var spinner3 = new Spinner(opts).spin(target3);
+
 	$j('input:radio').on('click', function(e) {
 		$j('#login-form').hide();
 		$j('#regis-form').hide();

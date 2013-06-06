@@ -3288,6 +3288,7 @@ LOGIN POPUP
 		width: 323px;
 }
 #login-wrap button#send2, #signup-wrap button, #fpass button#send3, #fpass button.action-btn {
+		position: relative;
 		float: right;
 		width: 250px;
 		height: 40px;
@@ -3415,6 +3416,30 @@ LOGIN POPUP
 }
 .registered-users button:hover, .new-users button:hover	{
 	background-color: #4f4f4f;
+}
+button #loginspin {
+	display: none;
+	position: absolute;
+	width: auto;
+	top: 20px;
+	right: 25px;
+	margin: 0;
+}
+button #regisspin {
+	display: none;
+	position: absolute;
+        width: auto;
+        top: 20px;
+        right: 25px;
+        margin: 0;
+}
+button #regis2spin {
+	display: none;
+	position: absolute;
+        width: auto;
+        top: 20px;
+        right: 25px;
+        margin: 0;
 }
 
 /*************************************************

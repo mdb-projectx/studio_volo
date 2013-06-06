@@ -58,7 +58,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 					innerHeight: 300
 				});
 				$j('#cboxLoadedContent').width(420);
-						
+			    $j('#loginspin').show();						
 			    var request = new Ajax.Request(
 				 URL + "customer/account/ajaxLogin",
 				{
@@ -67,6 +67,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 				       
 				    },
 				    onSuccess: function(transport){
+					$j('#loginspin').hide();
 				       if (transport && transport.responseText){
 					 try{
 					    response = eval('(' + transport.responseText + ')');
@@ -128,6 +129,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
                         if(valid.validate())	{
 			} else	{
 				//alert('valid');
+				$j('#regisspin').show();
 				var request = new Ajax.Request(
 				URL + "customer/account/ajaxPreCreate",
 				{
@@ -140,7 +142,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 						//alert(response.success);
 						//alert(response.message);
 						if (response.success) {
-							//alert("success");
+							$j('#regisspin').hide();
 							$j('#alogin').colorbox.resize({
 	                                                        innerHeight: 250
 	                                                });
@@ -178,6 +180,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							innerHeight: 460,
 						});
 					*/
+					$j('#regis2spin').show();
 						  var request = new Ajax.Request(
 						URL + "customer/account/ajaxCreate",
 						{
@@ -186,6 +189,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							   
 							},
 							onSuccess: function(transport){
+								$j('#regis2spin').hide()
 							   if (transport && transport.responseText){
 							 try{
 								response = eval('(' + transport.responseText + ')');
