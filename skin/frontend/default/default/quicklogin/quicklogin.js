@@ -103,7 +103,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 				}
 			      );
 			  }else{
-				
+				$j('#loginspin').hide();
 				var checkHeight = setInterval(function(){  			
 					newHeight = $j('#login-form').height();		
 					if(newHeight != origHeight) {
@@ -154,6 +154,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							$j('#login-wrap h3').text('Protect Your Account');
 							$j('#password').focus();
 						} else {
+							$j('#regisspin').hide();
 							if ((typeof response.message) == 'string') {
                                                         	$j('.errormsg').html(response.message);
                                                         }
@@ -216,6 +217,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 								   redirectURL = URL + "checkout/onepage";
 								   setTimeout("location.href = redirectURL;",redirectTime);
 							    }else{
+								$j('#regis2spin').hide()
 								if ((typeof response.message) == 'string') {
 								$j('.errormsg').html(response.message);
 								}
@@ -247,6 +249,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 						}
 						  );
 					  } else	{
+						$j('#regis2spin').hide()
 						var newHeight;
 						var checkHeight = setInterval(function(){ 		
 							newHeight = $j('#login-form').height();
