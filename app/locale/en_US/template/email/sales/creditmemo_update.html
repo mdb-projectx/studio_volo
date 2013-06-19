@@ -1,4 +1,4 @@
-<!--@subject {{var store.getFrontendName()}}: Credit Memo # {{var creditmemo.increment_id}} update @-->
+<!--@subject {{var store.getFrontendName()}}: Order # {{var order.increment_id}} update @-->
 <!--@vars
 {"store url=\"\"":"Store Url",
 "var logo_url":"Email Logo Image Url",
@@ -7,46 +7,121 @@
 "var order.increment_id":"Order Id",
 "var order.getStatusLabel()":"Order Status",
 "store url=\"customer/account/\"":"Customer Account Url",
-"var comment":"Credit Memo Comment",
+"var comment":"Order Comment",
 "var store.getFrontendName()":"Store Name"}
 @-->
 <!--@styles
 body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
 @-->
 
-<body style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
-<div style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
-<table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
-<tr>
-    <td align="center" valign="top" style="padding:20px 0 20px 0">
-        <!-- [ header starts here] -->
-        <table bgcolor="#FFFFFF" cellspacing="0" cellpadding="10" border="0" width="650" style="border:1px solid #E0E0E0;">
-            <tr>
-                <td valign="top"><a href="{{store url=""}}"><img src="{{var logo_url}}" alt="{{var logo_alt}}" style="margin-bottom:10px;" border="0"/></a></td>
-            </tr>
-            <!-- [ middle starts here] -->
-            <tr>
-                <td valign="top">
-                    <h1 style="font-size:22px; font-weight:normal; line-height:22px; margin:0 0 11px 0;">Dear {{htmlescape var=$order.getCustomerName()}},</h1>
-                    <p style="font-size:12px; line-height:16px; margin:0 0 10px 0;">
-                        Your order # {{var order.increment_id}} has been <br/>
-                        <strong>{{var order.getStatusLabel()}}</strong>.
-                    </p>
-                    <p style="font-size:12px; line-height:16px; margin:0 0 10px 0;">You can check the status of your order by <a href="{{store url="customer/account/"}}" style="color:#1E7EC8;">logging into your account</a>.</p>
-                    <p style="font-size:12px; line-height:16px; margin:0 0 10px 0;">{{var comment}}</p>
-                    <p style="font-size:12px; line-height:16px; margin:0;">
-                        If you have any questions, please feel free to contact us at
-                        <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color:#1E7EC8;">{{config path='trans_email/ident_support/email'}}</a>
-                        or by phone at {{config path='general/store_information/phone'}}.
-                    </p>
-                </td>
-            </tr>
-            <tr>
-                <td bgcolor="#EAEAEA" align="center" style="background:#EAEAEA; text-align:center;"><center><p style="font-size:12px; margin:0;">Thank you again, <strong>{{var store.getFrontendName()}}</strong></p></center></td>
-            </tr>
-        </table>
-    </td>
-</tr>
-</table>
-</div>
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="-webkit-text-size-adjust: none;margin: 0;padding: 0;background: #FFFFFF;width: 100%;">
+	<center>
+		<table border="0" cellpadding="20" cellspacing="0" height="100%" width="100%" id="backgroundTable" style="height: 100%;margin: 0;padding: 0;width: 100%;background: #FFFFFF;text-align: center;">			
+			<tr>
+				<td align="center" style="border-collapse: collapse;"><table border="0" cellpadding="0" cellspacing="0" width="670" id="bodyTable" style="margin: 0 auto;background: #cccfd1;">
+						<tr>
+							<td height="20" style="border-collapse: collapse;line-height:0;font-size:0;"><img src="{{skin url='invitefriend/table-top.png' _area='frontend' _package='default' _theme='respond'}}" width="670" height="20" alt="" style="vertical-align: bottom;display: block;border: 0;outline: none;text-decoration: none;height: auto;line-height: 100%;"></td>
+						</tr>
+						<tr>
+							<td style="border-collapse: collapse;"><table border="0" cellpadding="0" cellspacing="0" width="670" id="contentTable" style="background: #FFFFFF">
+									<tr>
+										<td width="20" valign="top" style="background: #cccfd1;border-collapse: collapse;line-height:0;font-size:0;"><img src="{{skin url='invitefriend/table-left.png' _area='frontend' _package='default' _theme='respond'}}" width="20" alt="" style="vertical-align: middle;display: block;outline: none;text-decoration: none;border: 0;height: auto;line-height: 100%;"></td>
+										<td width="630" valign="top" style="border-collapse: collapse;display:block;"><table border="0" cellpadding="0" cellspacing="0" width="570" id="emailContent" style="background: #FFFFFF;">
+												<tr>
+													<td valign="top" align="center" height="80" style="border-collapse: collapse;">
+														<table border="0" cellpadding="0" cellspacing="0" height="80" id="contentHead">
+															<tr>
+																<td height="80" align="center" style="border-collapse: collapse;"><a href="http://www.volodesign.com"><img src="{{skin url='invitefriend/logo.png' _area='frontend' _package='default' _theme='respond'}}" width="570" height="80" alt="Volo" style="vertical-align: top;display: block;border: 0;outline: none;text-decoration: none;height: auto;line-height: 100%;"></a></td>
+															</tr>
+														</table>
+													</td>
+												</tr>														
+												<tr>
+													<td valign="top" align="center" style="border-collapse: collapse;"><table border="0" cellpadding="30" cellspacing="0" width="630" id="contentBody">
+														
+													<tr><td style="border-collapse: collapse;"><table border="0" cellpadding="0" cellspacing="0">	
+													
+				<tr>
+					<td align="center" valign="top" style="border-collapse: collapse;">
+						<!-- // Begin Template Intro \ -->
+						<table border="0" cellpadding="0" cellspacing="0" width="570" id="templateIntro">
+							<tr>
+								<td align="left" valign="top" class="introContent" style="padding: 48px 0 0 0;border-collapse: collapse;background: #f5f5f5;">
+									<h3 style="margin-bottom: 24px;line-height: 56px;"><span style="font-weight: normal;font-size: 56px;font-family: &quot;Palatino Linotype&quot;, Palatino, &quot;Times New Roman&quot;, Times, serif;font-style: italic;text-transform: uppercase;background: #FFFFFF;color: #212121;">Thank you</span></h3>										
+									<h1 style="font-size:22px; font-weight:normal; line-height:22px; margin:0 0 11px 0;">Dear {{htmlescape var=$billing.getName()}},</h1>
+									<p style="font-size:12px; line-height:16px; margin:0 0 10px 0;">{{var comment}}</p>
+								</td>
+							</tr>
+						</table>
+						<!-- // End Template Intro \ -->
+					</td>
+				</tr>
+				<tr>
+					<td align="center" valign="top" style="border-collapse: collapse;">
+					</td>
+				</tr>
+				<tr>
+					<td align="center" valign="top" style="border-collapse: collapse;">
+						<!-- // Begin Template Sig \ -->
+						<table border="0" cellpadding="0" cellspacing="0" width="570" id="templateSig">
+							<tr>
+								<td align="left" valign="top" class="sigContent" style="border-collapse: collapse;padding: 21px 0 21px 0;border-top: 1px solid #e6e6e6;border-bottom: 1px solid #c0c0c0;">
+									<p style="margin-bottom: 21px;padding: 0 0 0 0;color: #212121;font-size: 13px;line-height: 21px;font-family: Georgia serif;">For questions or comments, please email us at <a href="mailto:{{config path='trans_email/ident_support/email'}}" style="color: #212121;text-decoration: underline;">{{config path='trans_email/ident_support/email'}}</a> or call us toll-free at (855) 367-8656.</p>
+									<p style="margin: 0;padding: 0;color: #212121;font-size: 13px;line-height: 21px;font-family: Georgia serif;">Sincerely,<br>
+									The VOLO Design Team</p>
+								</td>
+							</tr>
+						</table>
+						<!-- // End Template Sig \ -->
+					</td>
+				</tr>
+				<tr>
+					<td align="center" valign="top" style="border-collapse: collapse;">
+						<!-- // Begin Template Links \ -->
+						<table border="0" cellpadding="0" cellspacing="0" width="570" id="templateLinks">
+							<tr>
+								<td align="left" valign="top" class="linksContent" style="border-collapse: collapse;padding: 21px 0 0 0;">
+									
+									<table border="0" cellpadding="0" cellspacing="0" width="100%">
+										<tr>
+											<td align="center" style="border-collapse: collapse;margin: 0;padding: 0;font-family: Arial, Helvetica, sans-serif;font-weight: normal;text-transform: uppercase;font-size: 11px;line-height: 16px;-webkit-text-size-adjust:none;"><a href="{{store url='sofas.html'}}" style="color: #888;text-decoration: none;">Sofas</a></td>
+											<td align="center" style="border-collapse: collapse;margin: 0;padding: 0;font-family: Arial, Helvetica, sans-serif;font-weight: normal;text-transform: uppercase;font-size: 11px;line-height: 16px;-webkit-text-size-adjust:none;"><a href="{{store url='chairs.html'}}" style="color: #888;text-decoration: none;">Chairs</a></td>
+											<td align="center" style="border-collapse: collapse;margin: 0;padding: 0;font-family: Arial, Helvetica, sans-serif;font-weight: normal;text-transform: uppercase;font-size: 11px;line-height: 16px;-webkit-text-size-adjust:none;"><a href="{{store url='tables.html'}}" style="color: #888;text-decoration: none;">Tables</a></td>
+											<td align="center" style="border-collapse: collapse;margin: 0;padding: 0;font-family: Arial, Helvetica, sans-serif;font-weight: normal;text-transform: uppercase;font-size: 11px;line-height: 16px;-webkit-text-size-adjust:none;"><a href="{{store url='lighting.html'}}" style="color: #888;text-decoration: none;">Lighting</a></td>
+											<td align="center" style="border-collapse: collapse;margin: 0;padding: 0;font-family: Arial, Helvetica, sans-serif;font-weight: normal;text-transform: uppercase;font-size: 11px;line-height: 16px;-webkit-text-size-adjust:none;"><a href="{{store url='leisure.html'}}" style="color: #888;text-decoration: none;">Leisure</a></td>
+											<td align="center" style="border-collapse: collapse;margin: 0;padding: 0;font-family: Arial, Helvetica, sans-serif;font-weight: normal;text-transform: uppercase;font-size: 11px;line-height: 16px;-webkit-text-size-adjust:none;"><a href="{{store url='designers/'}}" style="color: #888;text-decoration: none;">Designers</a></td>
+											<td align="center" style="border-collapse: collapse;margin: 0;padding: 0;font-family: Arial, Helvetica, sans-serif;font-weight: normal;text-transform: uppercase;font-size: 11px;line-height: 16px;-webkit-text-size-adjust:none;"><a href="http://volo-design.tumblr.com" style="color: #888;text-decoration: none;">The Journal</a></td>
+											<td align="center" style="border-collapse: collapse;margin: 0;padding: 0;font-family: Arial, Helvetica, sans-serif;font-weight: normal;text-transform: uppercase;font-size: 11px;line-height: 16px;-webkit-text-size-adjust:none;"><a href="{{store url='about/'}}" style="color: #888;text-decoration: none;">About Us</a></td>
+										</tr>
+									</table>
+
+								</td>
+							</tr>
+						</table>
+						<!-- // End Template Links \ -->
+					</td>
+				</tr>
+				
+				
+				</table></td></tr>
+				
+				
+													</table></td>
+												</tr>
+										</table></td>
+										<td valign="top" width="20" height="470" style="background: #cccfd1;border-collapse: collapse;line-height:0;font-size:0;"><img src="{{skin url='invitefriend/table-right.png' _area='frontend' _package='default' _theme='respond'}}" width="20" height="470" alt="" style="vertical-align: middle;display: block;border: 0;outline: none;text-decoration: none;height: auto;line-height: 100%;"></td>
+									</tr>
+							</table></td>
+						</tr>
+						<tr>
+							<td height="20" style="border-collapse: collapse;line-height:0;font-size:0;"><img src="{{skin url='invitefriend/table-bottom.png' _area='frontend' _package='default' _theme='respond'}}" width="670" height="20" alt="" style="vertical-align: top;display: block;outline: none;text-decoration: none;border: 0;height: auto;line-height: 100%;"></td>
+						</tr>
+						<tr>
+							<td align="center" id="bodyFoot" style="border-collapse: collapse;"></td>
+						</tr>
+				</table></td>
+			</tr>
+		</table>
+	</center>
 </body>
+
