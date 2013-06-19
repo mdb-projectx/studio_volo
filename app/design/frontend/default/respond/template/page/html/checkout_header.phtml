@@ -73,32 +73,6 @@ $j(document).ready(function() {
 			$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
                 }
         });
-
-
-	if ( firstImpression('subscribe', 28) ) {
-		// if first visit in 28 days, open the popup
-		var t = setTimeout( function() {$j('.inline').trigger('click')}, 15000 );
-	}
-    
-/*
-$j.ajax({
-	type:"POST",
-	url:"/newsletter/subscriber/checkemail",	
-	success: function(data){											
-		if (!(data))
-		{
-			$j('.inline').click();			
-		}
-		else
-		{
-			$j('#newsletter-popupbutton').hide();
-		}
-	},
-	error: function(XMLHttpRequest, textStatus, errorThrown){		
-	}
-});	
-*/
-
 });
 //]]>
 </script>
