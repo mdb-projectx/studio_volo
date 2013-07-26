@@ -66,6 +66,12 @@ $j(document).ready(function() {
 	HOMEPAGE
 	****************************************/
 
+	/* Subscription */
+
+	$j( '#newsletter, #footer-newsletter' ).on( 'change', function() {
+	    $j( '#newsletter, #footer-newsletter' ).val( $j( this ).val() );
+	})
+
 	/* SLIDER */
 	
 	if($j('body').hasClass('cms-home') && $j('#slider').length > 0) {			
