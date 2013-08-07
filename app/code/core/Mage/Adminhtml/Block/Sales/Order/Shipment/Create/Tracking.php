@@ -74,6 +74,7 @@ class Mage_Adminhtml_Block_Sales_Order_Shipment_Create_Tracking extends Mage_Adm
             $this->getShipment()->getStoreId()
         );
         $carriers['custom'] = Mage::helper('sales')->__('Custom Value');
+	$carriers['HomeDirect'] = Mage::helper('sales')->__('HomeDirect');
         foreach ($carrierInstances as $code => $carrier) {
             if ($carrier->isTrackingAvailable()) {
                 $carriers[$code] = $carrier->getConfigData('title');

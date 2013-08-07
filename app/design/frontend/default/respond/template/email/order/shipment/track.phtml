@@ -49,6 +49,8 @@
 				<p style="margin-top: 0;color: #212121;font-size: 13px;line-height: 21px;font-family: Georgia serif;">
 					<?php if ($_item->getTitle()=='Federal Express'){?>
 					<a href="https://www.fedex.com/fedextrack/?tracknumbers=<?php  echo $_item->getNumber();?>&cntry_code=us"><?php  echo $_item->getNumber();?></a>
+					<?php } elseif ($_item->getTitle() == 'HomeDirect') { ?>
+					<a href="http://www.homedirectusa.com/hdusaoms/trackShipmentByIdOnly.htm?trackingId=<?php echo $_item->getNumber();?>"><?php  echo $_item->getNumber();?></a>
 					<?php }else{
 						echo $_item->getNumber();
 					}?>
