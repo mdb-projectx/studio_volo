@@ -34,7 +34,7 @@ $_options = $this->getOptionList();
 
 <?php if ($messages): ?>
 <tr class="messages">
-    <td colspan="5">
+    <td colspan="6">
         <?php foreach ($messages as $message): ?>
             <p class="item-msg <?php echo $message['type'] ?>">* <?php echo $this->escapeHtml($message['text']) ?></p>
         <?php endforeach; ?>
@@ -166,6 +166,11 @@ $_options = $this->getOptionList();
 		<input name="cart[<?php echo $_item->getId() ?>][qty]" value="<?php echo $this->getQty() ?>" title="<?php echo $this->__('Qty') ?>" class="input-text qty spinner" maxlength="12" />
 	</td>
 	
+	<td class="shipdate">
+		<? /* echo Mage::getModel('catalog/product')->load($_item->getId())->getProductDeliveryTime(); */ ?>
+		<?php echo Mage::getModel('catalog/product')->load($_item->getProduct()->getId())->getData('delivery_time'); ?>
+	</td>
+
 	<td class="subtotal">
 	
 		<?php if ($this->helper('tax')->displayCartPriceExclTax() && !$_item->getNoSubtotal()): ?>
@@ -267,7 +272,7 @@ $_options = $this->getOptionList();
 </tr>
 <?php if ($_options):?>
 <tr class="product-options">
-    <td colspan="5">
+    <td colspan="6">
         <span class="toggle" onclick="$(this).next('.product-options').toggle(); return false;">Show Options</span>
         <div class="product-options" style="display:none;">
             <dl class="item-options">
