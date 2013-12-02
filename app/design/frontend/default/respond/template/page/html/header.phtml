@@ -29,6 +29,7 @@
 ?>
 
 <div id="header-wrap">
+	<?php echo $this->getChildHtml('header_notification') ?>
 <div id="header">
 	<h1><a href="<?php echo $this->getUrl('') ?>"><?php echo  Mage::app()->getWebsite()->getName(); ?></a></h1>
 	
@@ -92,6 +93,7 @@ $j(document).ready(function() {
 		initialHeight: 335, 
 		innerWidth:498, 
 		innerHeight: 335, 
+		fixed: true,
 		opacity: 0.75,
 		className:'plain',
 		transition: 'fade',
