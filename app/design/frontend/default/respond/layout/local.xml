@@ -78,6 +78,10 @@
 				</block>
 			</block>	
 			
+			<block type="cms/block" name="header_notification">
+				<action method="setBlockId"><block_id>header_notification</block_id></action>
+			</block>
+
 			<block type="cms/block" name="header_links">
 				<action method="setBlockId"><block_id>header_links</block_id></action>
 			</block>
