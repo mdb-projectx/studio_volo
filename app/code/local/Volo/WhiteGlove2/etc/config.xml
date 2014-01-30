@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+	<Volo_WhiteGlove2>
+	    <version>0.1.0</version>
+	</Volo_WhiteGlove2>
+    </modules>
+    <global>
+	<models>
+	    <volo_whiteglove2>
+		<class>Volo_WhiteGlove2_Model</class>
+	    </volo_whiteglove2>
+	</models>
+    </global>
+
+    <default>
+        <carriers>
+            <shippingmethod3>
+                <active>1</active>
+		<model>volo_whiteglove2/carrier_whiteglove2</model>
+<!--
+                <model>volo_whiteglove/carrier_shippingmethod</model>
+-->
+                <title>White Glove Assembly</title>
+		<price>99.0</price>
+            </shippingmethod3>
+        </carriers>
+    </default>
+
+</config>
