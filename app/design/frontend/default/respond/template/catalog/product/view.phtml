@@ -273,7 +273,7 @@ function close() {
 					<h4>Delivery</h4>
 					<table width="100%" border="0">
                                         <tbody>
-                                        <tr><td><p class="attribute">Freshly made and ready for dispatch within <?php echo $_product->getData('delivery_time'); ?>.</p></td></tr>
+                                        <tr><td><p class="attribute">Freshly made and ready for dispatch within <? echo $_product->getProductDeliveryTime(); ?></p></td></tr>
                                         </tbody>
                                         </table>
 					<h4>Returns</h4>
@@ -348,7 +348,7 @@ jQuery('#product .social').on('mouseleave', function() {
 });
 
 	var productAddToCartForm = new VarienForm('product_addtocart_form');
-	productAddToCartForm.submit = function(button, url) {
+/*	productAddToCartForm.submit = function(button, url) {
 		if (this.validator.validate()) {
 			var form = this.form;
 			var oldUrl = form.action;
@@ -400,10 +400,10 @@ jQuery('#product .social').on('mouseleave', function() {
 						//MixPanel
 						mixpanel.track('Add Product to Cart', { 'Product Type': data.productName, 'Price': data.productPrice, 'Quantity':data.productQty})
 
-						var t = setTimeOut('close()',5000);
+						//var t = setTimeout('close()',5000);
 		                      },
 				      error: function(data){
-					   alert("error");
+					   //alert("error");
 				      }
 		                });
 		            } catch (e) {
@@ -419,7 +419,7 @@ jQuery('#product .social').on('mouseleave', function() {
 			}
 		}
 	}.bind(productAddToCartForm);
-
+*/
 	productAddToCartForm.submitLight = function(button, url){
 		if(this.validator) {
 			var nv = Validation.methods;

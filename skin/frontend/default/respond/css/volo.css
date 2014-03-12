@@ -199,7 +199,7 @@ em,i {
 }
 
 /**************************************************
-LAYOUT
+iLAYOUT
  **************************************************/
 body {
 	background: #FFF;
@@ -1381,6 +1381,11 @@ CATEGORIES & PRODUCTS & SEARCH
 	font-size: 25px;
 	line-height: 24px;
 }
+#category .list-wrapper {
+	float: left;
+	width: 100%;
+	overflow: hidden;
+}
 #category li	{
 	float: left;
 		margin: 0 0 40px;
@@ -1388,6 +1393,19 @@ CATEGORIES & PRODUCTS & SEARCH
 		width: 310px;
 		text-align: center;
 		line-height: 15px;
+}
+#category li.division {
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    text-align: left;
+    line-height: 30px;
+    background: #f5f5f5;
+}
+#category li.division h3 {
+    padding: 5px 0 5px 10px;
 }
 #category li span	{
 	float: left;
@@ -2418,7 +2436,7 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 	text-indent: -9999px;
 }
 #cboxClose {
-	display: none !important;
+	display: none !important; 
 	text-indent: -9999px;
 	width: 30px;
 	height: 30px;
@@ -2443,15 +2461,15 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 		/*background-position: 0 -30px;*/
 		background-position: 3px -22px;
 }
-.plain #cboxTitle, .plain #cboxClose, .plain #cboxClose.show {
-	display: none !important;
-}
 #cboxClose:hover {
 	/*background-position: 0 -30px;*/
 	background-position: 3px -22px;
 }
 .plain #cboxTitle, .plain #cboxClose, .plain #cboxClose.show {
-	display: none !important;
+	display: none !important; 
+}
+.loginpop #cboxClose {
+	display: block !important;
 }
 /*
 #cboxPrevious, #cboxNext  {
@@ -2933,6 +2951,9 @@ BASKET & WISHLIST
 #checkout-review table {
 	width: 100%;
 }
+#checkout-review .totals {
+	display: none;
+}
 #checkout-review td, #checkout-review .totals div {
 	line-height: 16px;
 	min-height: 16px;
@@ -2957,6 +2978,9 @@ BASKET & WISHLIST
 	font-weight: bold;
 	color: #000;
 	border-bottom: 0;
+}
+#checkout-review .shipdate {
+	display: none;
 }
 #checkout-contact	{
 	margin-top: 15px;
@@ -3374,6 +3398,7 @@ LOGIN POPUP
 }
 #login-wrap p.radio input	{
 	float: left;
+	max-width: 10px;
 	margin: 7px 5px;
 }
 #login-wrap p.blank	{

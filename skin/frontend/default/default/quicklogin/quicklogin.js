@@ -14,7 +14,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 				opacity: 0.75,
 				overlayClose: false,
 				escKey: false,
-				className:'plain',
+				className:'loginpop',
 				onComplete: function() {
 					var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
                                         $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important; opacity: 100;');
@@ -50,7 +50,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
                 
 		/*Ajax Login Function */
 		function loginAjax() {	
-				var origHeight = $j('#login-form').height();	
+			var origHeight = $j('#login-form').height();	
 			var valid = new Validation('login-form');
 			 if(valid.validate()){
 			 
