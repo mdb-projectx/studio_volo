@@ -2066,7 +2066,8 @@ CATEGORIES & PRODUCTS & SEARCH
 		opacity:0.5;
 }
 #related .recommended li.hover {
-		/*background: url(../images/volo/hoverrel.png) no-repeat 0 0;*/
+		/*background: url(../images/volo/hoverrel.png) no-repeat 0 0;
+*/
 }
 #related .recommended li:first-child {
 		padding-left: 0;
@@ -2500,6 +2501,21 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 }
 
  */
+ 
+
+/* Shipping popup */
+#colorbox.colorbox--shipping-method {
+	opacity: 1;
+	overflow: visible !important;
+}
+.colorbox--shipping-method #cboxClose {
+	display: block !important;
+}
+.colorbox--shipping-method #cboxLoadedContent {
+	overflow-x: hidden !important;
+	overflow-y: hidden !important;
+	width: 100% !important;
+}
 
 /**************************************************
 INVITE FRIENDS
@@ -3071,6 +3087,32 @@ BASKET & WISHLIST
         -ms-transition:background 0.25s ease-in;
         transition:background 0.25s ease-in;
 }
+/* Shipping methods */
+.sp-methods-help {
+	margin: 12px 0 24px !important;
+}
+#shipping-methods-help {
+	display: none;
+	text-align: left;
+	padding: 20px
+}
+#colorbox #shipping-methods-help {
+	display: block;
+}
+#shipping-methods-help h1 {
+	font-size: 25px;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	margin: 0;
+	text-align: left;
+}
+#shipping-methods-help ul {
+    list-style: disc;
+    margin: 12px 0 12px 24px;
+}
+
+
+
 /* Checkout success */
 
 #checkout-success {
@@ -4144,3 +4186,4 @@ DESIGNERS PAGE
 #invite-friend .button a {
 	color: white;
 }
+
