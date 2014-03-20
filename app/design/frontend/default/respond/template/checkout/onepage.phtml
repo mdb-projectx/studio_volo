@@ -71,29 +71,47 @@
 	<?php /* update sidebar summary every time button is click, and apply tax if needed */ ?>
 	
 	// add placeholder
-	$j(document).ready(function() {
+	$j(document).ready(function() { 
+		// Check if we have a shipping row
 		var hasShipping = false;
-		$j('#checkout-review .totals .adjustment:not(.placeholder)').each(function() {
-			if($j(this).html().indexOf("Shipping")) {
+		$j('#checkout-review .adjustment').each(function() {
+			if($j(this).html().indexOf("Shipping") > -1) {
 				hasShipping = true;
 			}
 		});
-
+		
+		// Add shipping placeholder IF not shipping
 		if(hasShipping === false) {
-			$j('#checkout-review #total').before( '<div class="adjustment placeholder"></div>');
-			$j('#checkout-review .totals .adjustment').last().prepend( 'Shipping & Handling (Free!) <span class="value">$0.00</span>');
+			$j('#checkout-review #total').before( $j('<div class="adjustment" id="review-shipping">Shipping & Handling (Front Door Delivery)<span class="value"><span class="price">$0.00</span></span></div>') );
 		}
 		
-		if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12) || ($j('#shipping\\:same_as_billing').is(':checked') && $j('#billing\\:region_id').val() == 12) ) {
-		} else {
-			$j('#checkout-review #total').before( '<div class="adjustment placeholder"></div>');
-			$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$0.00</span>');
+		// Check if we have a tax row
+		var hasTax = false;
+		$j('#checkout-review .adjustment').each(function() {
+			if($j(this).html().indexOf("Tax") > -1) {
+				hasTax = true;
+			}
+		});
+		
+		// Add tax placeholder IF no tax
+		if(hasTax === false) {
+			 $j('#checkout-review #total').before( $j('<div class="adjustment" id="review-tax">Tax <span class="value"><span class="price">$0.00</span></span></div>') );
 		}
-		// on click	
-		$j("#checkoutSteps button").on("click", function(event){
+		
+		// Going through the steps
+		$j("#checkoutSteps button").on('click', function(event){
 			var reviewUrl = '<?php echo $this->getUrl('checkout/onepage/review') ?>';
 			
+			// Check if was just billing or shipping section
+			var billOrShip;
+			if($j(this).closest('#opc-shipping').length) {
+				billOrShip = 'ship';
+			} else if($j(this).closest('#opc-billing').length) {
+				billOrShip = 'bill';
+			}
+			
 			$j.get(reviewUrl, function(data) {
+			//	console.log('ajax 1');
 				$j('#checkout-review .totals .adjustment').remove();
 				$j('#checkout-review .totals #total').remove();
 				
@@ -106,54 +124,142 @@
 					$j('#checkout-review .totals').append('<div id="total"></div>');
 					$j('#checkout-review .totals #total').append($j(this).html());		
 				});	
-			}).error(function() { 		
-				var hasTax = false;
+			}).error(function() {
+			//	console.log('ajax 2');	
 				
-				$j('#checkout-review .totals .adjustment:not(.placeholder)').each(function() {
-					if($j(this).html().indexOf("Tax") >= 0 && $j('#checkout-review #total .priceTaxed').length == 0) {
-						hasTax = true;
+				// Check if we have a tax number
+				var hasTax = false;				
+				$j('#checkout-review .adjustment').each(function() {
+					if($j(this).html().indexOf("Tax") > -1 ) {
+						if(parseFloat($j(this).find('.price').first().html().replace('$','').replace(',','')) > 0) {
+							hasTax = true;
+						}
 					}
 				});
 				
-				if(hasTax === false) {
-					$j('#checkout-review .totals .adjustment').each(function() {
-						if($j(this).html().indexOf("Tax") >= 0) {		
+				// Check if we're CA shipping
+				var isCA = false;				
+				if(billOrShip == 'ship') {
+					if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12 && $j('#shipping\\:country_id').val() == 'US') ) {
+						isCA = true;
+					} else {
+						isCA = false;
+					}					
+				} else if (billOrShip == 'bill') {
+					if( ($j('#shipping\\:same_as_billing').prop('checked') == true && $j('#billing-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:same_as_billing').prop('checked') == true && $j('#billing\\:region_id').val() == 12 && $j('#billing\\:country_id').val() == 'US') ) {
+						isCA = true;
+					} else {
+						isCA = false;
+					}				
+				} else {
+					if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12 && $j('#shipping\\:country_id').val() == 'US') || ($j('#shipping\\:same_as_billing').prop('checked') == true && $j('#billing-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:same_as_billing').prop('checked') == true && $j('#billing\\:region_id').val() == 12 && $j('#billing\\:country_id').val() == 'US') ) {
+						isCA = true;
+					} else {
+						isCA = false;
+					}				
+				}
+				
+			//	console.log('hasTax ' + hasTax);
+			//	console.log('isCA ' + isCA);
+				
+				/*				
+					hasTax + isCA = nothing
+					!hasTax + isCA = add tax
+					hasTax + !isCA = remove tax
+					!hasTax + !isCA = remove tax			
+				*/
+				
+				if(isCA === false) {
+					// If not CA
+					$j('#checkout-review .adjustment').each(function() {
+						if($j(this).html().indexOf("Tax") > -1 ) {
+							// Remove the tax from the total
+							var totalPrice = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
+							var removePrice = parseFloat($j(this).find('.price').first().html().replace('$','').replace(',',''));
+							$j('#checkout-review #total .price').html('$' + (totalPrice - removePrice).toFixed(2));									
 							$j(this).remove();
-							$j('#checkout-review #total .priceTa xed').remove();
-							$j('#checkout-review #total .price').show();
 						}
-					});				
-					
-					if($j('#discountAmount').length > 0) {
-						var discount = parseFloat($j('#discountAmount .price').html().replace('$','').replace(',','').replace('-',''));
-						var priceTotal = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',','')) + discount;
+					});
+					$j('#review-tax').remove();
+					$j('#checkout-review #total').before( $j('<div class="adjustment" id="review-tax">Tax <span class="value"><span class="price">$0.00</span></span></div>') );
+				} else {
+					// If CA
+					if(hasTax === true) {
+						// If has tax
 					} else {
-						var priceTotal = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
-					}
-					
-					if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12) || ($j('#shipping\\:same_as_billing').is(':checked') && $j('#billing\\:region_id').val() == 12) ) {
-						$j('#checkout-review #total').before( '<div class="adjustment"></div>');
-						$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$' + (priceTotal / 100 * 9).toFixed(2) + '</span>');
-						$j('#checkout-review #total').append('<span class="priceTaxed"></span>');				
-						if($j('#discountAmount').length > 0) {
-							$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 9) - discount).toFixed(2));
-						} else {
-							$j('#checkout-review #total .priceTaxed').html('$' + (parseFloat(priceTotal) + parseFloat(priceTotal / 100 * 9)).toFixed(2));				
-						}
-						$j('#checkout-review #total .price').hide();
-					} else {
-						// add placeholder
-						$j('#checkout-review #total').before( '<div class="adjustment"></div>');
-						$j('#checkout-review .totals .adjustment').last().prepend( 'Tax <span class="value">$0.00</span>');
+						// If no tax
 						
-						$j('#checkout-review #total .priceTaxed').remove();
-						$j('#checkout-review #total .price').show();
+						// Calculate tax and add to total
+						$j('#checkout-review .adjustment').each(function() {
+							if($j(this).html().indexOf("Tax") > -1) {
+								// Get total price
+								var totalPriceOrig = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
+								var totalPrice = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
+								
+								// Adjust for discount/shipping
+								$j('#checkout-review .adjustment').each(function() {
+									if($j(this).html().indexOf("Discount") > -1) {
+										totalPrice = totalPrice - parseFloat($j(this).find('.price').first().html().replace('$','').replace(',',''));
+									}
+									if($j(this).html().indexOf("Shipping") > -1) {
+										totalPrice = totalPrice - parseFloat($j(this).find('.price').first().html().replace('$','').replace(',',''));
+									}
+								});
+								
+								var addPrice = totalPrice / 100 * 9;
+								$j('#checkout-review #total .price').html('$' + (totalPriceOrig + addPrice).toFixed(2));					
+								$j(this).find('.price').html('$' + addPrice.toFixed(2));
+							}
+						});
 					}
 				}
+				
+				// Check current shipping cost
+				var currentShip = 0;
+				$j('#checkout-review .adjustment').each(function() {
+					if($j(this).html().indexOf("Shipping") > -1) {
+						currentShip = parseInt($j(this).find('.price').first().html().replace('$','').replace(',',''));
+					}
+				});
+				
+				// Check if whiteglove shipping
+				var whiteGlove = $j('#s_method_shippingmethod_').prop('checked');
+				
+				/*
+					currentShip = 0 + whiteGlove = false: do nothing
+					currentShip = 99 + whiteGlove = false: remove shipping
+					currentShip = 0 + whiteGlove = true: add shipping
+					currentShip = 99 + whiteGlove = true: do nothing
+				*/
+				
+				if(currentShip == 99 && whiteGlove === false) {
+					// Remove shipping					
+					$j('#checkout-review .adjustment').each(function() {
+						if($j(this).html().indexOf("Shipping") > -1) {
+							var totalPrice = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
+							var removePrice = 99;
+							$j('#checkout-review #total .price').html('$' + (totalPrice - removePrice).toFixed(2));	
+							$j(this).html('Shipping & Handling (Front Door Delivery)<span class="value"><span class="price">$0.00</span></span></div>');							
+						}
+					});					
+				} else if(currentShip == 0 && whiteGlove === true) {
+					// Add shipping				
+					$j('#checkout-review .adjustment').each(function() {
+						if($j(this).html().indexOf("Shipping") > -1) {
+							var totalPrice = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
+							var addPrice = 99;
+							$j('#checkout-review #total .price').html('$' + (totalPrice + addPrice).toFixed(2));	
+							$j(this).html('Shipping & Handling (Inside Delivery & Packaging Removal)<span class="value"><span class="price">$99.00</span></span></div>');							
+						}
+					});	
+				}				
+				
 			});
+			
 		});
 		
 		mixpanel.track('Checkout');
 	});
 //]]>
 </script>
+
