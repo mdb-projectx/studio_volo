@@ -2407,12 +2407,13 @@ ordered & tabbed in a way that represents the nesting of the generated HTML.
 	border: 1px solid #ccc;
 }
 #cboxLoadedContent {
-		background: #FFF;
-		padding: 0;
-		overflow-x: hidden !important;
-		overflow-y: scroll !important;
+	background: #FFF;
+	padding: 0;
+	overflow-x: hidden !important;
+	overflow-y: scroll !important;
 }
 #cboxLoadedContent.newsletter	{
+	overflow-x: visible !important;
 	overflow-y: hidden !important;
 }
 .plain #cboxLoadedContent {
@@ -2947,7 +2948,6 @@ BASKET & WISHLIST
 }
 /* summary in checkout sidebar */
 #checkout-review {
-	/* display: none; hide temporarily */
 	margin-top: 71px;
 	border: 1px solid #d9d9d9;
 	padding: 10px;
@@ -2966,9 +2966,6 @@ BASKET & WISHLIST
 }
 #checkout-review table {
 	width: 100%;
-}
-#checkout-review .totals {
-	display: none;
 }
 #checkout-review td, #checkout-review .totals div {
 	line-height: 16px;
@@ -2998,9 +2995,21 @@ BASKET & WISHLIST
 #checkout-review .shipdate {
 	display: none;
 }
+
+
+#checkout-review .adjustment:before, #checkout-review .adjustment:after {
+		content: "";
+		display: table;
+}
+#checkout-review .adjustment:after {
+		clear: both;
+}
+#checkout-review .adjustment {
+		*zoom: 1;
+}
+
 #checkout-contact	{
 	margin-top: 15px;
-	/* margin-top: 65px; while the table is temporarily hidden */
 	font: 12px/18px "Open Sans", Arial, Helvetica, sans-serif;
 }
 #checkout-contact .contact	{
