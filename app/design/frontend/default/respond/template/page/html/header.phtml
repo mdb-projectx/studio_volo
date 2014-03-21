@@ -93,15 +93,16 @@ $j(document).ready(function() {
 		initialHeight: 335, 
 		innerWidth:498, 
 		innerHeight: 335, 
-		fixed: true,
+		fixed: false,
 		opacity: 0.75,
 		className:'plain',
 		transition: 'fade',
+		top: '200px',
 		onOpen: function() {
 			$j('#newsletter-subscribe-close').show();
 			$j('#cboxClose').css('cssText', 'display: block !important');
-			var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
-			$j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;');
+			// var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
+			// $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important; position: absolute;');
 		}, onCleanup: function() {
 			$j('#newsletter-subscribe-close').hide();
 		}, onComplete: function() {
@@ -139,3 +140,4 @@ $j.ajax({
 </script>
 
 <?php echo $this->getChildHtml('topBar') ?>
+
