@@ -1386,7 +1386,7 @@ CATEGORIES & PRODUCTS & SEARCH
 	width: 100%;
 	overflow: hidden;
 }
-#category li	{
+#category li, #search li	{
 	float: left;
 		margin: 0 0 40px;
 		padding: 50px 5px 0;
@@ -1407,20 +1407,12 @@ CATEGORIES & PRODUCTS & SEARCH
 #category li.division h3 {
     padding: 5px 0 5px 10px;
 }
-#category li span	{
+#category li span, #search li span	{
 	float: left;
 	width: 100%;
 	text-align: left;
 }
-#search li {
-		float: left;
-		margin: 0 0 15px;
-		padding: 0 5px;
-		width: 310px;
-		text-align: center;
-		line-height: 15px;
-}
-#category .ro	{
+#category .ro, #search .ro {
 	border-bottom: 1px solid #ddd;
 }
 #category .ro, #search .ro {
@@ -1459,11 +1451,11 @@ CATEGORIES & PRODUCTS & SEARCH
 	color: #949494;
 }
 */
-#category li .more {
+#category li .more, #search li .more {
 	float: left;
 	width: 100%;
 }
-#category li .more label {
+#category li .more label, #search li .more label {
 	float: left;
 	width: auto;
 	line-height: 16px;
