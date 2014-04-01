@@ -157,7 +157,7 @@
 								<input type="text" title="Email Address" class="input-text required-entry validate-email" id="forgot_email" value="" name="forgotemail">
 						</p>
 						<p>
-								<button type="submit" class="action-btn"><?php echo $this->__('Submit') ?></button>
+								<button type="submit" class="action-btn"><?php echo $this->__('Submit') ?><span id="forgotspin"></span></button>
 				</form>
 
 	<p class="forgot">
@@ -191,6 +191,8 @@
 	var spinner2 = new Spinner(opts).spin(target2);
 	var target3 = document.getElementById('regis2spin');
 	var spinner3 = new Spinner(opts).spin(target3);
+	var target4 = document.getElementById('forgotspin');
+	var spinner4 = new Spinner(opts).spin(target4);
 
 	$j('input:radio').on('click', function(e) {
 		$j('#login-form').hide();

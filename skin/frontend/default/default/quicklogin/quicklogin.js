@@ -196,9 +196,12 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							innerWidth: 390,
 							innerHeight: 460,
 						});
-					*/
+						
 					$j('#cboxContent').height(460);
 					$j('#colorbox, #cboxWrapper').height(460 + 32);
+					*/
+					$j('#cboxContent').height(250);
+					$j('#colorbox, #cboxWrapper').height(250 + 32);
 			
 					$j('#regis2spin').show();
 						  var request = new Ajax.Request(
@@ -209,7 +212,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							   
 							},
 							onSuccess: function(transport){
-								$j('#regis2spin').hide()
+								// $j('#regis2spin').hide()
 							   if (transport && transport.responseText){
 							 try{
 								response = eval('(' + transport.responseText + ')');
@@ -299,11 +302,13 @@ var checkurl = URL + "customer/account/signupformpopup/";
 		var origHeight = $j('#forgot-form').height();
 		var valid = new Validation('forgot-form');
 				if(valid.validate()){
+					$j('#forgotspin').show();
 			var req2 = new Ajax.Request(URL + "customer/account/ajaxForgotPassword/",
 			 {
 				method:'post',
 				parameters: $('forgot-form').serialize(true) ,
 				onSuccess: function(transport){
+					$j('#forgotspin').hide();
 				   var response = eval('(' + transport.responseText + ')');
 				   if(response.success){
 					$j('#forgot-form p.error').text(response.message).show();
@@ -321,6 +326,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 					}, 5000);
 
 				   }else{
+					$j('#forgotspin').hide();
 					 alert(response.message);
 				   }
 				},
