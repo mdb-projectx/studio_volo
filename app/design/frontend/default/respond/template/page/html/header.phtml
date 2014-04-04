@@ -108,6 +108,7 @@ $j(document).ready(function() {
 		}, onComplete: function() {
 			$j('#cboxLoadedContent').addClass('newsletter');
 			$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+			$j('input#newsletter').trigger('focus');
 		}
 	});
 	

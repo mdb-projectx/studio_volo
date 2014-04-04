@@ -150,12 +150,10 @@ input:focus	{
 }
 ::-webkit-input-placeholder {
 		color: #949494;
-		font-style: italic;
 }
 
 :-moz-placeholder {
 		color: #949494;
-		font-style: italic;
 }
 
 a {
@@ -764,30 +762,30 @@ width:  80px;
 	background: #FFF;
 }
 ::-webkit-input-placeholder {
-	color:#838383;
-	font-size: 11px;
+	color:#949494;
+	font-size: 1em;
 	font-style: normal;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-	color:#838383;
-		font-size: 11px;
+	color:#949494;
+		font-size: 1em;
 		font-style: normal;
 		margin-left: 5px;
 		padding-left: 5px;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-	color:#838383;
-		font-size: 11px;
+	color:#949494;
+		font-size: 1em;
 		font-style: normal;
 		margin-left: 5px;
 		padding-left: 5px;
 }
 
 :-ms-input-placeholder {  
-	color:#838383;
-		font-size: 11px;
+	color:#949494;
+		font-size: 1em;
 		font-style: normal;
 		margin-left: 5px;
 		padding-left: 5px;
@@ -1170,14 +1168,14 @@ HOMEPAGE
 	left: 35px;
 	top: 12px;
 	/* width: 183px; */
-	width: 171px;
+	width: 161px;
 }
 #newsletter-subscribe-popup .input-box button {
 	position: absolute;
 	right: 0;
 	top: 12px;
 	/* width: 183px; */
-	width: 52px;
+	width: 62px;
 	color: #FFF;
 	border-color: #5b5b5b;
 	background-color: #5b5b5b;
@@ -1248,14 +1246,17 @@ HOMEPAGE
 	left: 35px;
 	top: 12px;
 	/* width: 183px; */
-	width: 171px;
+	width: 156px;
 }
 #newsletter-subscribe-popup .input-box button {
 	position: absolute;
 	right: 0;
 	top: 12px;
 	/* width: 183px; */
-	width: 52px;
+	width: 62px;
+	padding-left: 0;
+	padding-right: 0;
+	text-align: center;
 	color: #FFF;
 	border-color: #5b5b5b;
 	background-color: #5b5b5b;
@@ -1393,6 +1394,9 @@ CATEGORIES & PRODUCTS & SEARCH
 		width: 310px;
 		text-align: center;
 		line-height: 15px;
+}
+#category li:nth-child(3n+1), #search li:nth-child(3n+1) {
+    clear: left;
 }
 #category li.division {
     float: left;
