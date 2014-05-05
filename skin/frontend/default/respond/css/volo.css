@@ -829,30 +829,35 @@ body {
 }
 
 #links .col {
-		float: left;
-		width: 12.5%;
-		font-size: 10px;
-		min-height: 1px;
+	float: left;
+	width: 12.5%;
+	font-size: 10px;
+	min-height: 1px;
 }
 #links .col:nth-child(1) {
-		width: 8.5%;
+	width: 8.5%;
 }
 #links .col:nth-child(2) {
-		width: 6.5%;
+	width: 6.5%;
 }
 #links .col:nth-child(3) {
-                width: 10%;
+	width: 10%;
 }
 #links .col:nth-child(4) {
-		width: 11.5%;
+	width: 11.5%;
 }
 #links .col:nth-child(5) {
 	width: 8.5%;
 }
 #links .col:nth-child(6) {
+	width: 6.75%;
+}
+#links .col:nth-child(7) {
 	width: 13.5%;
 }
 #links .col:nth-child(8) {
+}
+#links .col:nth-child(9) {
 	float: right;
 	width: 16.5%;
 	text-align: right;
@@ -3471,7 +3476,7 @@ PRIVACY POLICY & RETURN POLICY
 	padding: 0;
 	overflow: hidden;
 }
-#aboutus, #return, #shipping, #terms, #privacy {
+#aboutus, #terms, #privacy {
 		float: none;
 		width: 93%;
 		margin: auto;
@@ -3482,7 +3487,7 @@ PRIVACY POLICY & RETURN POLICY
 	width: 540px;
 	margin-top: 20px;
 }
-#return h1, #privacy h1, #terms h1, #shipping h1	{
+#privacy h1, #terms h1 {
 	float: left;
 	width: 100%;
 	font-size: 25px;
@@ -3490,6 +3495,11 @@ PRIVACY POLICY & RETURN POLICY
 	line-height: 40px;
 	text-align: left;
 	margin-top: 80px;
+}
+#return h1, #shipping h1 {
+	margin: 0 0 25px;
+	font: 25px/25px "Open Sans", Arial, Helvetica, sans-serif;
+	letter-spacing: 0.05em;
 }
 
 #privacy h2, #return h2, #terms h2 {
@@ -3510,7 +3520,7 @@ PRIVACY POLICY & RETURN POLICY
 		overflow: hidden;
 }
 
-#aboutus .paragraph p, #privacy .paragraph p, #return .paragraph p, #terms  p, #shipping p {
+#aboutus .paragraph p, #privacy .paragraph p, #return  p, #terms  p, #shipping p {
 	float: left;
 	width: 100%;
 	margin: 10px 0 15px 0;
@@ -3886,6 +3896,88 @@ DESIGNERS PAGE
 	text-decoration: none;
 }
 
+
+/**************************************************
+FAQ PAGE
+ **************************************************/
+
+.page-content {
+	float: right;
+	padding: 0 10px 0 0;
+	width: 700px;
+}
+.page-sidebar {
+	padding: 0 0 0 10px;
+	width: 220px;
+	float: left;
+}
+.page-sidebar ul {
+	border: 1px solid #d9d9d9;
+	border-bottom: 0;
+}
+.page-sidebar li a {
+	display: block;
+	padding: 5px 20px;
+	border-bottom: 1px solid #d9d9d9;
+}
+.page-sidebar li.current a {		background: #F0F0F0;
+}
+
+#faq h1 {
+	margin: 0 0 25px;
+	font: 25px/25px "Open Sans", Arial, Helvetica, sans-serif;
+	letter-spacing: 0.05em;
+}
+#faq h2 {
+	margin: 0 0 25px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+#faq dl, #faq dt, #faq dd {
+	margin: 0;
+	font-weight: normal;
+}
+#faq dl {
+	margin: 0 0 25px 40px;
+}
+#faq dt, #faq dd {
+	margin: 0 0 15px;
+}
+#faq dd h3, #faq dd p {
+	margin: 0 0 15px;
+}
+#faq dd h3, #faq dd a {
+	text-decoration: underline;
+}
+#faq dd a:hover {
+	text-decoration: none;
+}
+
+.no-js #faq dt {
+	font-weight: bold;
+}
+.js #faq dd {
+	display: none;
+}
+.js #faq dt {
+	cursor: pointer;
+}
+.js #faq dt:hover {
+	text-decoration: underline;
+}
+.js #faq dt:before {
+	position: relative;
+	left: -22px;
+	float: left;
+	display: block;
+	content: '[+] ';
+	color: #999;
+	width: 0;
+	overflow: visible;
+}
+ 
+ 
+ 
 /* CONTACT US POP UP */
 
 #contact.checkout-modal	{
