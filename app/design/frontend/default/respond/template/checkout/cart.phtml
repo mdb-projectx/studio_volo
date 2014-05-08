@@ -35,7 +35,11 @@
 <div id="basket">
     <script>
         $j(document).ready(function() {
+			if(location.hostname.substring(0,7) != 'staging') {
                 mixpanel.track('View Shopping Cart');
+			} else {
+                console.log('mixpanel.track(\'View Shopping Cart\');');
+			}
         })
     </script>
 	
@@ -109,3 +113,4 @@
 <?php echo $this->getChildHtml('crosssell') ?>
 
 */ ?>
+

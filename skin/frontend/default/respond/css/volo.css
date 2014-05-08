@@ -3469,7 +3469,7 @@ PRIVACY POLICY & RETURN POLICY
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	overflow: hidden;
 }
-#return.checkout-modal, #shipping.checkout-modal, #terms.checkout-modal, #privacy.checkout-modal	{
+#return.checkout-modal, #shipping.checkout-modal, #terms.checkout-modal, #privacy.checkout-modal, #shipping-content.checkout-modal, #return-content.checkout-modal	{
 	float: left;
 	width: 530px;
 	margin: 0 20px 0 20px;
@@ -3483,7 +3483,7 @@ PRIVACY POLICY & RETURN POLICY
 		padding: 0 0 30px 0;
 		font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
-#return.checkout-modal h1, #privacy.checkout-modal h1, #terms.checkout-modal h1, #shipping.checkout-modal h1        {
+#return.checkout-modal h1, #privacy.checkout-modal h1, #terms.checkout-modal h1, #shipping.checkout-modal h1 , #shipping-content.checkout-modal h1, #return-content.checkout-modal h1{
 	width: 540px;
 	margin-top: 20px;
 }
@@ -3496,18 +3496,18 @@ PRIVACY POLICY & RETURN POLICY
 	text-align: left;
 	margin-top: 80px;
 }
-#return h1, #shipping h1 {
+#return h1, #shipping h1, #shipping-content h1, #return-content h1{
 	margin: 0 0 25px;
 	font: 25px/25px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 }
 
 #privacy h2, #return h2, #terms h2 {
-		float: left;
-		width: 100%;
-		font-weight: bold;
-		line-height: 30px;
-		margin: 10px 0 20px 0;
+	float: left;
+	width: 100%;
+	font-weight: bold;
+	line-height: 30px;
+	margin: 10px 0 20px 0;
 	text-align: left;
 }
 
@@ -3526,7 +3526,14 @@ PRIVACY POLICY & RETURN POLICY
 	margin: 10px 0 15px 0;
 	text-align: justify;
 }
-
+#shipping-content.checkout-modal p, #return-content.checkout-modal p, #shipping-content.checkout-modal h2, #return-content.checkout-modal h2 {
+	width: 100%;
+	margin: 15px 0;
+	text-align: justify;
+}
+#shipping-content.checkout-modal h2, #return-content.checkout-modal h2 {
+	font-weight: bold;
+}
 #privacy ul, #terms ul {
 		float: left;
 		width: 100%;
@@ -3898,7 +3905,7 @@ DESIGNERS PAGE
 
 
 /**************************************************
-FAQ PAGE
+FAQ PAGE + CONTACT PAGE
  **************************************************/
 
 .page-content {
@@ -3923,12 +3930,12 @@ FAQ PAGE
 .page-sidebar li.current a {		background: #F0F0F0;
 }
 
-#faq h1 {
+#faq h1, #contact h1 {
 	margin: 0 0 25px;
 	font: 25px/25px "Open Sans", Arial, Helvetica, sans-serif;
 	letter-spacing: 0.05em;
 }
-#faq h2 {
+#faq h2, #contact h2 {
 	margin: 0 0 25px;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -3943,7 +3950,7 @@ FAQ PAGE
 #faq dt, #faq dd {
 	margin: 0 0 15px;
 }
-#faq dd h3, #faq dd p {
+#faq dd h3, #faq dd p, #contact p {
 	margin: 0 0 15px;
 }
 #faq dd h3, #faq dd a {
@@ -3975,10 +3982,47 @@ FAQ PAGE
 	width: 0;
 	overflow: visible;
 }
+
+.contact-left {
+	float: left;
+	width: 380px;
+}
+.contact-right {
+	float: right; 
+	width: 300px;
+}
+#contact h2 {
+	margin: 0 0 15px;
+}
+#contact .buttons-set {
+	padding: 0 0 30px;
+}
+#contact .form-list li {
+	margin: 0 0 15px;
+}
+#contactForm .form-list {
+	width: 100%;
+}
+#contactForm .form-list li.wide input {
+	width: 368px;
+}
+#contactForm .form-list li.wide select, #contactForm .form-list li.wide textarea {
+    width: 100%;
+}
+
+#contactForm button {
+    background: #5B5B5B;
+    transition: background 0.25s ease-in 0s;
+    border: 0;
+    color: #FFF;
+    font: 12px/18px "Open Sans",Arial,Helvetica,sans-serif;
+    height: 35px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    text-transform: uppercase;
+}
  
- 
- 
-/* CONTACT US POP UP */
+/* CONTACT US POP UP 
 
 #contact.checkout-modal	{
 	width: 660px;
@@ -4128,7 +4172,7 @@ FAQ PAGE
 #contact .validation-advice	{
 	text-align: left;
 }
-
+*/
 
 /* CheckOut
 ----------------------------------------------*/

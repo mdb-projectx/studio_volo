@@ -1,5 +1,4 @@
-/**
- * Magento
+gento
  *
  * NOTICE OF LICENSE
  *
@@ -573,12 +572,17 @@ input {}
 	*/
 }
 
+.input-box select {
+	width: 96%;
+}
+
 .form-alt li { margin: 9px 0; }
 .form-list { width:90%; }
 .form-list li { margin: 9px 0; }
 .form-list li { display: inline-block; }
 .form-list li, .form-list li .field { float:left; width:45%; margin-right:5%; }
 .form-list li.fields, .form-list li.wide { display: inline-block; width:100%; }
+.form-list li.medium  { display: inline-block; width:75%; }
 .form-list li.wide .input-box input.input-text { width:91%; }
 
 .form-list li + li.control { margin-top:18px; }
@@ -2383,3 +2387,4 @@ Inlined to avoid required HTTP connection: h5bp.com/r
  .page-print .data-table .cart-tax-total { background-position:100% -54px; }
  .page-print .data-table .cart-tax-info { display:block !important; }
 }
+

@@ -26,7 +26,11 @@
 ?>
 
 <script>
+if(location.hostname.substring(0,7) != 'staging') {
 	mixpanel.track('Purchase',{ 'Order Value': '<?php echo $this->getOrderTotal(); ?>', 'Quantity': '<?php echo $this->getOrderQuantity(); ?>'});
+} else {
+	console.log('mixpanel.track(\'Purchase\',{ \'Order Value\': \'<?php echo $this->getOrderTotal(); ?>\', \'Quantity\': \'<?php echo $this->getOrderQuantity(); ?>\'});');
+}
 </script>
 
 <div id="checkout-success">
@@ -97,3 +101,4 @@ var google_conversion_value = 0;
 <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/985062003/?value=<?php echo $this->getOrderTotal(); ?>&amp;label=Purchase&script=0" />
 </div>
 </noscript>
+

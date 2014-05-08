@@ -88,7 +88,11 @@ var checkurl = URL + "customer/account/signupformpopup/";
 					
 					if (response.success){
 					   //alert('Successfully Loggedin');
-					   mixpanel.identify(response.email);
+					   if(location.hostname.substring(0,7) != 'staging') { 
+						   mixpanel.identify(response.email);
+					   } else {
+						   console.log('mixpanel.identify(response.email);');
+					   }
 					   redirectTime = "1";
 					   var path=window.location.pathname;
 					   path=path.replace('/index.php/','');		
@@ -224,8 +228,13 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							
 							if (response.success){
 								   //alert('Successfully Registered');
-								mixpanel.track('Signup');
-								   mixpanel.alias(response.email);
+								   if(location.hostname.substring(0,7) != 'staging') {
+									   mixpanel.track('Signup');
+									   mixpanel.alias(response.email);
+								   } else {
+									   console.log('mixpanel.track(\'Signup\');');
+									   console.log('mixpanel.alias(response.email);');							   
+								   }
 								   redirectTime = "1";
 								/*
 								   var path=window.location.pathname;

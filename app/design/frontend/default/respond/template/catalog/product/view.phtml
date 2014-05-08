@@ -35,8 +35,11 @@
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
 <script type="text/javascript">
-
-mixpanel.track('View Product', { 'Product Type': '<?php echo $_product->getData('featured_name') ?>'});
+if(location.hostname.substring(0,7) != 'staging') {
+	mixpanel.track('View Product', { 'Product Type': '<?php echo $_product->getData('featured_name') ?>'});
+} else {
+	console.log('mixpanel.track(\'View Product\', { \'Product Type\': \'<?php echo $_product->getData('featured_name') ?>\'});');
+}
 
 function close() {
 	jQuery('#modal_wrap').hide();
@@ -51,7 +54,7 @@ function close() {
 	<div id="title" style="display:none;">
 		<p class="first"><?php echo $_product->getData('featured_name'); ?></p>
 		<p><?php echo $_product->getData('descriptive_name'); ?></p>
-		<p><?php echo $this->getChildHtml('product_type_data') ?></p>
+		<p id="product-price"><?php echo $this->getChildHtml('product_type_data') ?></p>
 	</div>
 	<?php echo $this->getChildHtml('media') ?>	
 <div id="screen_filter"></div>
@@ -270,18 +273,28 @@ function close() {
 					</tbody>
 					</table>
                                         <!--<?php if($_product->getDimensions_diagram()) { ?><p><a href="<?php echo $this->helper('catalog/image')->init($_product, 'dimensions_diagram')->resize(); ?>" class="colorbox">View dimensions diagram</a></p><?php } ?>-->
-					<h4>Delivery</h4>
+					<h4>Shipping and Returns</h4>
 					<table width="100%" border="0">
                                         <tbody>
-                                        <tr><td><p class="attribute">Freshly made and ready for dispatch within <?php echo $_product->getData('delivery_time');?></p></td></tr>
+                                        <tr><td><p class="attribute">Leaves warehouse within: <?php echo $_product->getData('delivery_time');?><br><a href="/shipping" id="shipping-popup">Shipping</a> and <a href="/return-policy" id="return-popup">Return Policy</a></p></td></tr>
                                         </tbody>
                                         </table>
-					<h4>Returns</h4>
-                                        <table width="100%" border="0">
-                                        <tbody>
-                                        <tr><td><p class="attribute">We hope you love it. But if you don't, you can return it to us within 7 days for a quick and fuss-free refund.</p></td></tr>
-                                        </tbody>
-                                        </table>
+										
+										
+<div class="inlineContent">
+	<div id="shipping-content" class="checkout-modal">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_shipping_popup')->toHtml(); ?>
+	</div>
+</div>				
+			
+<div class="inlineContent">
+	<div id="return-content" class="checkout-modal">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_return_popup')->toHtml(); ?>
+	</div>
+</div>
+										
+										
+										
                                 </div>
                         <?php endif; ?>
 		</div>	
@@ -348,6 +361,24 @@ jQuery('#product .social').on('mouseleave', function() {
 });
 
 	var productAddToCartForm = new VarienForm('product_addtocart_form');
+	
+	productAddToCartForm.submit = function(button, url) {
+		if (this.validator.validate()) {
+			var productQty = jQuery('#qty').val();
+			var productPrice = jQuery('#product-price').html();
+			productPrice = productPrice.replace('$', ''); 
+			productPrice = parseFloat(productPrice);
+			
+			if(location.hostname.substring(0,7) != 'staging') {
+				mixpanel.track('Add Product to Cart', { 'Product Type': '<?php echo str_replace("'", "\'", $_product->getData('featured_name')); ?>', 'Price': productPrice, 'Quantity': productQty});
+			} else {
+				console.log('mixpanel.track(\'Add Product to Cart\', { \'Product Type\': \'<?php echo str_replace("'", "\'", $_product->getData('featured_name')); ?>\', \'Price\': productPrice, \'Quantity\': productQty});');
+			}
+			
+			this.form.submit();
+		}
+	}.bind(productAddToCartForm);
+	
 /*	productAddToCartForm.submit = function(button, url) {
 		if (this.validator.validate()) {
 			var form = this.form;
@@ -439,6 +470,51 @@ jQuery('#product .social').on('mouseleave', function() {
 	// Feature popups
 	$j('body').nivoZoom();
 	$j('.colorbox').colorbox();
+	
+	// Shipping/return popups	
+	$j(document).ready(function() {
+		$j('#shipping-popup').colorbox({
+			initialWidth:700,
+			innerHeight:560,
+			inline:true,
+			scrolling:true,
+			opacity:0.4,
+			transition: 'none',
+			href: '#shipping-content',
+			onOpen: function() {  },
+			onComplete: function() {
+				var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
+				/* $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;'); */
+				$j('#cboxClose').addClass('show');
+				$j('#colorbox').css('opacity', '1');
+				$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+				$j('#cboxLoadedContent').addClass('newsletter');
+				$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+			}
+		});
+	});
+	
+	$j(document).ready(function() {
+		$j('#return-popup').colorbox({
+			initialWidth:700,
+			innerHeight:560,
+			inline:true,
+			scrolling:true,
+			opacity:0.4,
+			transition: 'none',
+			href: '#return-content',
+			onOpen: function() {  },
+			onComplete: function() {
+				var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
+				/* $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;'); */
+				$j('#cboxClose').addClass('show');
+				$j('#colorbox').css('opacity', '1');
+				$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+				$j('#cboxLoadedContent').addClass('newsletter');
+				$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+			}
+		});
+	});	
 //]]>
 </script>
 
@@ -510,3 +586,4 @@ jQuery('#product .social').on('mouseleave', function() {
 </div>
 
 */ ?>
+
