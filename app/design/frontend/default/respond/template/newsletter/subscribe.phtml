@@ -31,7 +31,7 @@
         <div class="input-box">
            <input type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" />
         </div>
-        <button type="submit" title="<?php echo $this->__('Submit') ?>" class="button" onclick="mixpanel.track('Newsletter Signup');"><span><span><?php echo $this->__('Submit') ?></span></span></button>
+        <button type="submit" title="<?php echo $this->__('Submit') ?>" class="button" onclick="if(location.hostname.substring(0,7) != 'staging') { mixpanel.track('Newsletter Signup'); } else { console.log('mixpanel.track(\'Newsletter Signup\');') }"><span><span><?php echo $this->__('Submit') ?></span></span></button>
     </div>
 </form>
 <script type="text/javascript">
@@ -40,3 +40,4 @@
     new Varien.searchForm('newsletter-validate-detail', 'newsletter', '<?php echo $this->helper('newsletter')->__('Enter your email address') ?>');
 //]]>
 </script>
+

@@ -258,7 +258,12 @@
 			
 		});
 		
-		mixpanel.track('Checkout');
+		
+		if(location.hostname.substring(0,7) != 'staging') {
+			mixpanel.track('Checkout');
+		} else {
+			console.log('mixpanel.track(\'Checkout\');');
+		}
 	});
 //]]>
 </script>
