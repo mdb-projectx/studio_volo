@@ -69,6 +69,7 @@ $j(document).ready(function() {
 			popupDelayed = true;
 			
 			if(location.hostname.substring(0,7) != 'staging') { 
+				mixpanel.track('Newsletter Signup');
 				mixpanel.identify(popupEmail);
 				mixpanel.people.set({
 					"$email": popupEmail
@@ -98,6 +99,7 @@ $j(document).ready(function() {
 			footerDelayed = true;
 			
 			if(location.hostname.substring(0,7) != 'staging') { 
+				mixpanel.track('Newsletter Signup');
 				mixpanel.identify(footerEmail);
 				mixpanel.people.set({
 					"$email": popupEmail
