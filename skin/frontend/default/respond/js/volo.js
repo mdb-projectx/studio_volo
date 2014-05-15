@@ -55,12 +55,69 @@ $j(document).ready(function() {
 	})
 
 	$j('#newsletter-popupbutton').on('mouseleave', function()  {
-                $j(this).removeClass('hovered');
+        $j(this).removeClass('hovered');
 		$j(this).clearQueue().stop().animate({
-                        left: '-82px'
-                }, 250)
-        })
+            left: '-82px'
+        }, 250)
+    })
 
+	var popupDelayed = false;
+	$j('#newsletter-validate-detail').submit(function(e) {
+		var popupEmail = $j('#newsletter').val();
+		
+		if(popupDelayed === false) {
+			popupDelayed = true;
+			
+			if(location.hostname.substring(0,7) != 'staging') { 
+				mixpanel.identify(popupEmail);
+				mixpanel.people.set({
+					"$email": popupEmail
+				});
+			} else {
+				console.log('mixpanel.identify('+popupEmail+');' + '\n' + 
+				'mixpanel.people.set({' + '\n' + 
+				'	"$email": ' + popupEmail + '\n' + 
+				'});');
+			}
+			
+			setTimeout(function() {
+				$j('#newsletter-validate-detail').trigger('submit');
+			}, 250);
+			
+			return false;
+		} else {
+			return true;		
+		}	
+	});		
+	
+	var footerDelayed = false;
+	$j('#footer-newsletter-validate-detail').submit(function(e) {
+		var footerEmail = $j('#footer-newsletter').val();
+		
+		if(footerDelayed === false) {
+			footerDelayed = true;
+			
+			if(location.hostname.substring(0,7) != 'staging') { 
+				mixpanel.identify(footerEmail);
+				mixpanel.people.set({
+					"$email": popupEmail
+				});
+			} else {
+				console.log('mixpanel.identify('+footerEmail+');' + '\n' + 
+				'mixpanel.people.set({' + '\n' + 
+				'	"$email": ' + footerEmail + '\n' + 
+				'});');
+			}
+			
+			setTimeout(function() {
+				$j('#footer-newsletter-validate-detail').trigger('submit');
+			}, 250);
+			
+			return false;
+		} else {
+			return true;		
+		}	
+	});	
 	
 	/****************************************
 	HOMEPAGE
@@ -253,3 +310,4 @@ $j(document).ready(function() {
 	}
 
 });
+

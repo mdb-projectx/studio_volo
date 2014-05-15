@@ -1,6 +1,4 @@
-<?php
-/**
- * Magento
+gento
  *
  * NOTICE OF LICENSE
  *
@@ -62,3 +60,24 @@
     </div>
     <?php endif; ?>
 </div>
+
+<script>
+	$j(document).ready(function() {
+		if(location.hostname.substring(0,7) != 'staging') { 
+			mixpanel.identify("<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>");
+			mixpanel.people.set({
+				"$first_name": "<?php echo $this->htmlEscape($this->getCustomer()->getFirstname()) ?>",
+				"$last_name": "<?php echo $this->htmlEscape($this->getCustomer()->getLastname()) ?>",
+				"$email": "<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>"
+			});
+		} else {
+			console.log('mixpanel.identify("<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>");' + '\n' +
+			'mixpanel.people.set({' + '\n' +
+			'	"$first_name": "<?php echo $this->htmlEscape($this->getCustomer()->getFirstname()) ?>",' + '\n' +
+			'	"$last_name": "<?php echo $this->htmlEscape($this->getCustomer()->getLastname()) ?>",' + '\n' +
+			'	"$email": "<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>"' + '\n' +
+			'});');
+		}			
+	});
+</script>
+
