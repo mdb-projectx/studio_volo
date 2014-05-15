@@ -89,9 +89,15 @@ var checkurl = URL + "customer/account/signupformpopup/";
 					if (response.success){
 					   //alert('Successfully Loggedin');
 					   if(location.hostname.substring(0,7) != 'staging') { 
-						   mixpanel.identify(response.email);
+							mixpanel.identify(response.email);
+							mixpanel.people.set({
+								"$email": response.email
+							});
 					   } else {
-						   console.log('mixpanel.identify(response.email);');
+						   console.log('mixpanel.identify('+response.email+');' + '\n' + 
+							'mixpanel.people.set({' + '\n' + 
+							'	"$email": ' + response.email + '\n' + 
+							'});');
 					   }
 					   redirectTime = "1";
 					   var path=window.location.pathname;
@@ -231,10 +237,17 @@ var checkurl = URL + "customer/account/signupformpopup/";
 								   if(location.hostname.substring(0,7) != 'staging') {
 									   mixpanel.track('Signup');
 									   mixpanel.alias(response.email);
+									   mixpanel.people.set({
+											"$email": response.email
+									   });
 								   } else {
-									   console.log('mixpanel.track(\'Signup\');');
-									   console.log('mixpanel.alias(response.email);');							   
+									   console.log('mixpanel.track(\'Signup\');' + '\n' +
+									   'mixpanel.alias('+response.email+');' + '\n' + 
+										'mixpanel.people.set({' + '\n' + 
+										'	"$email": ' + response.email + '\n' + 
+										'});');
 								   }
+								   
 								   redirectTime = "1";
 								/*
 								   var path=window.location.pathname;
