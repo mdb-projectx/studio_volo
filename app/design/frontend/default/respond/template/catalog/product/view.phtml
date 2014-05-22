@@ -181,14 +181,14 @@ function close() {
                                                         ?>
                                                 </div>
 						<div class="desc">
-							<h3><?php echo $_product->getData('feature_title'); ?></h3>
+							<h2><?php echo $_product->getData('feature_title'); ?></h2>
 							<p><?php echo $_product->getData('feature_content'); ?></p>
 						</div>
 					</li>
 				<?php } if($_product->getFeature_title2()) { ?>
 					<li class="cf">
 						<div class="desc">
-							<h3><?php echo $_product->getData('feature_title2'); ?></h3>
+							<h2><?php echo $_product->getData('feature_title2'); ?></h2>
 							<p><?php echo $_product->getData('feature_content2'); ?></p>
 						</div>
 						<div class="thumb">
@@ -201,7 +201,7 @@ function close() {
 				<?php } if($_product->getFeature_title3()) { ?>
 					<li class="cf">
 						<div class="desc">
-							<h3><?php echo $_product->getData('feature_title3'); ?></h3>
+							<h2><?php echo $_product->getData('feature_title3'); ?></h2>
 							<p><?php echo $_product->getData('feature_content3'); ?></p>
 						</div>
 						<div class="thumb">
@@ -214,7 +214,7 @@ function close() {
 				<?php } if($_product->getFeature_title4()) { ?>
 					<li class="cf">
 						<div class="desc">
-							<h3><?php echo $_product->getData('feature_title4'); ?></h3>
+							<h2><?php echo $_product->getData('feature_title4'); ?></h2>
 							<p><?php echo $_product->getData('feature_content4'); ?></p>
 						</div>
 						<div class="thumb">
@@ -232,39 +232,14 @@ function close() {
 				<?php if($_product->getQuote_avatar()) { ?>
 					<div class="photo"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'quote_avatar')->resize(67,67); ?>" alt="" /></div>
 				<?php } ?>
-				<h4><span class="name"><?php echo $_product->getData('quote_author'); ?></span><?php if($_product->getQuote_role()) { ?>, <?php echo $_product->getData('quote_role'); } ?></h4>
+				<h3><span class="name"><?php echo $_product->getData('quote_author'); ?></span><?php if($_product->getQuote_role()) { ?>, <?php echo $_product->getData('quote_role'); } ?></h3>
 				<p>&ldquo;<?php echo $_product->getData('quote'); ?>&rdquo;</p>
 			<?php endif; ?>
-			<!--
-			<h4>Why shop with Made.com</h4>
-			<ul>
-			<li>Our award-winning concept connects you directly to the makers. So you get beautifully crafted designs without the high street mark up. <a href="/about.html">Read the full story.</a></li>
-			<li>We've delivered to thousands of happy customers. Get their take by flicking through a few of <a href="/about.html">their home snaps</a>.</li>
-			</ul>
-			<h4>Delivery and returns</h4>
-			<ul>
-			<li>Freshly made and ready for dispatch within <?php echo $_product->getData('delivery_time'); ?>. <a href="/delivery.html">Get the delivery low-down.</a></li>
-			<li>We hope you love it. But if you don't, you can <a href="/returns.html">return it</a> to us within 7 days for a quick and fuss-free refund.</li>
-			</ul>
-			<?php if($_product->getDimensions() || $_product->getDimensions_diagram()): ?>
-				<div class="specs cf">
-					<h4>Product Dimensions</h4>
-					<?php echo $_product->getData('dimensions'); ?>
-					<?php if($_product->getDimensions_diagram()) { ?><p><a href="<?php echo $this->helper('catalog/image')->init($_product, 'dimensions_diagram')->resize(); ?>" class="colorbox">View dimensions diagram</a></p><?php } ?>
-				</div>
-			<?php endif; ?>
-			<?php if($_product->getDetails()): ?>
-				<div class="specs cf">
-					<h4>Product Details</h4>
-					<?php echo $_product->getData('details'); ?>
-				</div>
-			<?php endif; ?>
-			-->
 		</div>
 		<div class="dimensions">
 			<?php if($_product->getDimensions() || $_product->getDimensions_diagram()): ?>
                                 <div class="specs cf">
-                                        <h4>Product Dimensions</h4>
+                                        <h3>Product Dimensions</h3>
 					<table width="100%" border="0">
 					<tbody>
                                         <?php if($_product->getData('general_dimensions')): ?><tr><td><p class="heading">General Dimensions: </p><p class="attribute"><?php echo $_product->getData('general_dimensions'); ?></p></td></tr><?php endif ?>
@@ -273,7 +248,7 @@ function close() {
 					</tbody>
 					</table>
                                         <!--<?php if($_product->getDimensions_diagram()) { ?><p><a href="<?php echo $this->helper('catalog/image')->init($_product, 'dimensions_diagram')->resize(); ?>" class="colorbox">View dimensions diagram</a></p><?php } ?>-->
-					<h4>Shipping and Returns</h4>
+					<h3>Shipping and Returns</h3>
 					<table width="100%" border="0">
                                         <tbody>
                                         <tr><td><p class="attribute">Leaves warehouse within: <?php echo $_product->getData('delivery_time');?><br><a href="/shipping" id="shipping-popup">Shipping</a> and <a href="/return-policy" id="return-popup">Return Policy</a></p></td></tr>
@@ -300,7 +275,7 @@ function close() {
 		</div>	
 		<div class="details">
                                 <div class="specs cf">
-                                        <h4>Product Details</h4>
+                                        <h3>Product Details</h3>
 					<table width="100%" border="0">
 					<tbody>
 					<?php if($_product->getData('finish')): ?><tr><td><p class="heading">Finish: </p><p class="attribute"><?php echo $_product->getData('finish'); ?></p></td></tr><?php endif ?>
