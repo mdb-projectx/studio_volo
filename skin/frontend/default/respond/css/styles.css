@@ -1,4 +1,5 @@
-gento
+/**
+ * Magento
  *
  * NOTICE OF LICENSE
  *
@@ -953,8 +954,7 @@ tr.summary-details-excluded { font-style:italic; }
 .mini-products-list .product-details { margin-left:60px; }
 
 /* Block: Account */
-.block-account .block-title { background:#666; padding: 0 10px;}
-.block-account .block-title strong { color:#fff; }
+.block-account .block-title { padding: 10px 0;}
 .block-account .block-content li a { display:block; color:#5f5d5c; text-decoration:none !important; }
 .block-account .block-content li a:hover { color:#444; }
 .block-account .block-content li.last a { }
@@ -1714,9 +1714,9 @@ ul.crosssell-products-list { margin: 10px auto; }
 .opc li.section {}
 
 .opc .step-title { padding:9px 8px; text-align:right; border-bottom: 1px solid #ccc; }
-.opc .step-title .number { float:left; padding:0 3px; margin:0 5px 0 0; font:normal 11px/1.63636363636 arial, helvetica, sans-serif; color:#444; position: relative;
+.opc .step-title .number { float:left; padding:0 3px; margin:0 5px 0 0; position: relative;
 top: 25px; }
-.opc .step-title h2 {  color: #999999; float: left; font-family: colaboratethinregular, helvetica, arial, sans-serif; font-size: 24px; letter-spacing: 0.1em; line-height: 1.5; margin: 0;   text-transform: uppercase; margin-left: 20px;}
+.opc .step-title h2 {  color: #999999; float: left; margin: 0; margin-left: 20px;}
 .opc .step-title a { display:none; float:right; font-size:11px; line-height:16px; }
 
 .opc .allow .step-title { cursor:pointer; }
@@ -1735,8 +1735,8 @@ top: 25px; }
 #checkout-step-login  .col2-set .col-1 { float: right; }
 #checkout-step-login  .col2-set .col-2 { float: left; }
 
-#opc-login h3 { font-size:13px; border-bottom:1px solid #e4e4e4; padding-bottom:2px; text-transform:uppercase; }
-#opc-login h4 { font-size:1em; font-weight:bold; margin:0; color:#2f2f2f; }
+#opc-login h3 { border-bottom:1px solid #e4e4e4; padding-bottom:2px; }
+#opc-login h4 {  margin:0;  }
 
 #opc-shipping_method .buttons-set { border-top:0; }
 .opc .gift-messages-form { margin:0 -30px; background:#f4f4f4; border:1px solid #ddd; border-width:1px 0; padding:22px 24px 22px 30px; }
@@ -1756,9 +1756,9 @@ top: 25px; }
 .checkout-progress li { float:left; width:19%; margin:0 3px 0 0; border-top:6px solid #999; padding:2px 0 0; font-weight:bold; text-align:center; color:#888; }
 .checkout-progress li.active { border-top-color:#e96200; color:#e96200; }
 
-.multiple-checkout h2 { font-size:12px; font-weight:bold; margin:0 0 10px; }
+.multiple-checkout h2 {  margin:0 0 10px; }
 .multiple-checkout h3,
-.multiple-checkout h4 { font-size:12px; font-weight:bold; }
+.multiple-checkout h4 { }
 .multiple-checkout h2 a,
 .multiple-checkout h3 a,
 .multiple-checkout h4 a { font-weight:normal; }
@@ -1817,7 +1817,7 @@ top: 25px; }
 
 .remember-me label { float:none; margin:0 6px; }
 .remember-me-popup { background:#fff; border:1px solid #888; border-bottom-color:#777; left:50%; top:50%; position:absolute; margin:-85px 0 0 -200px; width:400px; text-align:left; -moz-box-shadow:0 0 6px #999; -webkit-box-shadow:0 0 6px #999; box-shadow:0 0 6px #999; z-index:1000; }
-.remember-me-popup h3 { background:#dedede; border-bottom:1px solid #ccc; color:#444; font-size:14px; margin:0; padding:7px 10px 5px; }
+.remember-me-popup h3 { background:#dedede; border-bottom:1px solid #ccc; margin:0; padding:7px 10px 5px; }
 .remember-me-popup .remember-me-popup-head { position:relative; }
 .remember-me-popup .remember-me-popup-head .remember-me-popup-close { background:url(../images/btn_window_close.gif) no-repeat; display:block; position:absolute; top:9px; right:7px; height:15px; width:15px; text-indent:-9999em; }
 .remember-me-popup .remember-me-popup-body { border-top:1px solid #e6e6e6; padding:10px; }
@@ -1838,12 +1838,12 @@ top: 25px; }
 /* General Box */
 .box-account { margin:0 0 15px; }
 .box-account .box-head { margin:0 0 5px; text-align:right; }
-.box-account .box-head h2 { float:left; margin:0; font-size:14px; font-weight:bold; color:#4f8100; }
+.box-account .box-head h2 { float:left; margin:15px 0; }
 .box-account .box-head a { font-size:10px; text-transform:uppercase; }
 
 .dashboard .box .box-title { background:#f1f1f1; padding:2px 10px; margin:0 0 12px; text-align:right; }
 .dashboard .box .box-title h3,
-.dashboard .box .box-title h4 { float:left; margin:0; font-size:12px; font-weight:bold; line-height:1.35; }
+.dashboard .box .box-title h4 { float:left; margin:0; }
 .dashboard .box .box-title a { font-size:10px; text-transform:uppercase; }
 .dashboard .box .box-content { padding:0 10px; }
 

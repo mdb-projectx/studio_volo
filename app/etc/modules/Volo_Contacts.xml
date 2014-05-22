@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+         <modules>
+                <Volo_Contacts>
+                        <active>true</active>
+                        <codePool>local</codePool>
+                </Volo_Contacts>
+         </modules>
+</config>
+
