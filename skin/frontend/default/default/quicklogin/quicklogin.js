@@ -234,17 +234,22 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							
 							if (response.success){
 								   //alert('Successfully Registered');
+									var d = new Date();
+									var signupDate = d.getFullYear() + '-' + ('0' + (d.getMonth()+1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2) + 'T' + ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2) + ':' + ('0' + d.getSeconds()).slice(-2);
+		
 								   if(location.hostname.substring(0,7) != 'staging') {
 									   mixpanel.track('Signup');
 									   mixpanel.alias(response.email);
 									   mixpanel.people.set({
-											"$email": response.email
+											"$email": response.email,
+											"$created": signupDate
 									   });
 								   } else {
-									   console.log('mixpanel.track(\'Signup\');' + '\n' +
+									   alert('mixpanel.track(\'Signup\');' + '\n' +
 									   'mixpanel.alias('+response.email+');' + '\n' + 
 										'mixpanel.people.set({' + '\n' + 
-										'	"$email": ' + response.email + '\n' + 
+										'	"$email": ' + response.email + ','+ '\n' + 
+										'	"$created": ' + signupDate + '\n' + 
 										'});');
 								   }
 								   
