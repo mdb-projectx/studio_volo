@@ -102,7 +102,7 @@ $j(document).ready(function() {
 				mixpanel.track('Newsletter Signup');
 				mixpanel.identify(footerEmail);
 				mixpanel.people.set({
-					"$email": popupEmail
+					"$email": footerEmail
 				});
 			} else {
 				console.log('mixpanel.identify('+footerEmail+');' + '\n' + 
@@ -310,6 +310,50 @@ $j(document).ready(function() {
 		});
 		*/
 	}
+	
+	/****************************************
+	SIGN UP 
+	****************************************/
+	
+	var signupDelayed = false;
+	$j('.account-create #form-validate').submit(function(e) {
+		var signupEmail = $j(this).find('#email_address').first().val();
+		var signupFirstname = $j(this).find('#firstname').first().val();
+		var signupLastname = $j(this).find('#lastname').first().val();
+		
+		var d = new Date();
+		var signupDate = d.getFullYear() + '-' + ('0' + (d.getMonth()+1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2) + 'T' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+		
+		if(signupDelayed === false) {
+			signupDelayed = true;
+			
+			if(location.hostname.substring(0,7) != 'staging') { 
+				mixpanel.identify(signupEmail);
+				mixpanel.people.set({
+					"$first_name": signupFirstname,
+					"$last_name": signupLastname,
+					"$email": signupEmail,
+					"$created": signupDate
+				});
+			} else {
+				alert('mixpanel.identify('+signupEmail+');' + '\n' + 
+				'mixpanel.people.set({' + '\n' + 
+				'	"$first_name": ' + signupFirstname + ','+ '\n' + 
+				'	"$last_name": ' + signupLastname + ','+ '\n' + 
+				'	"$email": ' + signupEmail + ','+ '\n' + 
+				'	"$created": ' + signupDate + '\n' + 
+				'});');
+			}
+			
+			setTimeout(function() {
+				$j('.account-create #form-validate').trigger('submit');
+			}, 250);
+			
+			return false;
+		} else {
+			return true;		
+		}	
+	});
 
 });
 
