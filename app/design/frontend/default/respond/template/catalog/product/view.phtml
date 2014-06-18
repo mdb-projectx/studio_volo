@@ -172,59 +172,67 @@ function close() {
 	<div id="details" class="cf">
 		<div class="features">
 			<ul>
-				<?php if($_product->getFeature_title()) { ?>
+			
 					<li class="cf">
 						<div class="thumb">
-                                                        <?php
-                                                                $_img = $this->helper('catalog/image')->init($_product, 'feature_image')->resize(520,270);
-                                                                echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>';
-                                                        ?>
-                                                </div>
+							<?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image')->resize(520,270);
+							if(!strstr($_img, 'placeholder')) { ?>
+								<div class="thumb">
+									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>'; ?>
+								</div>
+							<?php } ?>
+						</div>
 						<div class="desc">
 							<h2><?php echo $_product->getData('feature_title'); ?></h2>
 							<p><?php echo $_product->getData('feature_content'); ?></p>
 						</div>
 					</li>
-				<?php } if($_product->getFeature_title2()) { ?>
+					
 					<li class="cf">
+						<div class="thumb">
+							<?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image2')->resize(520,270);
+							if(!strstr($_img, 'placeholder')) { ?>
+								<div class="thumb">
+									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>'; ?>
+								</div>
+							<?php } ?>
+						</div>
 						<div class="desc">
 							<h2><?php echo $_product->getData('feature_title2'); ?></h2>
 							<p><?php echo $_product->getData('feature_content2'); ?></p>
 						</div>
-						<div class="thumb">
-							<?php
-								$_img = $this->helper('catalog/image')->init($_product, 'feature_image2')->resize(520,270);
-								echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>';
-							?>
-						</div>
 					</li>
-				<?php } if($_product->getFeature_title3()) { ?>
+					
 					<li class="cf">
+						<div class="thumb">
+							<?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image3')->resize(520,270);
+							if(!strstr($_img, 'placeholder')) { ?>
+								<div class="thumb">
+									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>'; ?>
+								</div>
+							<?php } ?>
+						</div>
 						<div class="desc">
 							<h2><?php echo $_product->getData('feature_title3'); ?></h2>
 							<p><?php echo $_product->getData('feature_content3'); ?></p>
 						</div>
-						<div class="thumb">
-							<?php
-								$_img = $this->helper('catalog/image')->init($_product, 'feature_image3')->resize(520,270);
-								echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>';
-							?>
-						</div>
 					</li>
-				<?php } if($_product->getFeature_title4()) { ?>
+					
 					<li class="cf">
+						<div class="thumb">
+							<?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image4')->resize(520,270);
+							if(!strstr($_img, 'placeholder')) { ?>
+								<div class="thumb">
+									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>'; ?>
+								</div>
+							<?php } ?>
+						</div>
 						<div class="desc">
 							<h2><?php echo $_product->getData('feature_title4'); ?></h2>
 							<p><?php echo $_product->getData('feature_content4'); ?></p>
 						</div>
-						<div class="thumb">
-							<?php 
-								$_img = $this->helper('catalog/image')->init($_product, 'feature_image4')->resize(520,270);
-								echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>';
-							?>
-						</div>
 					</li>
-				<?php } ?>				
+					
 			</ul>
 		</div>			
 		<div class="extra">
