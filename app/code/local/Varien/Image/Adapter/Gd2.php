@@ -108,7 +108,8 @@ class Varien_Image_Adapter_Gd2 extends Varien_Image_Adapter_Abstract
         // set quality param for JPG file type
         if (!is_null($this->quality()) && $this->_fileType == IMAGETYPE_JPEG)
         {
-            $functionParameters[] = $this->quality();
+            // $functionParameters[] = $this->quality();
+			$functionParameters[] = 100;
         }
 
         // set quality param for PNG file type
