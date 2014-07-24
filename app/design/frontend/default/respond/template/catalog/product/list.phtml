@@ -109,10 +109,10 @@
 			<span class="name"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></span> 
 			<?php /* <span class="oldprice">$<?php echo (float)$_product->getData('price_typical'); ?></span> */ ?>
 			<div class="more">
+			<span class="newprice"><?php echo $this->getPriceHtml($_product, true) ?></span>
 			<?php $delivery = Mage::getModel('catalog/product')->load($_product->getId())->getData('delivery_time'); if (trim($delivery) == '1week' || trim($delivery) == '1 week'):?>
 			<?php if ((int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty() > 0):?><label>Express Delivery</label><?php endif; ?>
 			<?php endif; ?>
-			<span class="newprice"><?php echo $this->getPriceHtml($_product, true) ?></span>
 			</div>
 			</a>
             </li>  
@@ -125,3 +125,4 @@
     </div>
 	
 <?php endif; ?>
+

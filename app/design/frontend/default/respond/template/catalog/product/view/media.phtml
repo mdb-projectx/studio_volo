@@ -40,7 +40,10 @@
 	<div id="title">
         <p class="first"><?php echo $_product->getData('featured_name'); ?></p>
         <p><?php echo $_product->getData('descriptive_name'); ?></p>
-        <p>$<?php echo round($_product->getData('price')) ?></p>
+        <p>
+		<?php /* $<?php echo round($_product->getData('price')) ?> */ ?>	
+		<?php echo $this->getPriceHtml($_product, true) ?>
+		</p>
         </div>
 
 	<ul>
@@ -84,3 +87,4 @@ preload("<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'i
 <?php endforeach; ?>
 //]]>
 </script>
+

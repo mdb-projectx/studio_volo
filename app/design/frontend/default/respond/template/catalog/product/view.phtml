@@ -54,9 +54,13 @@ function close() {
 	<div id="title" style="display:none;">
 		<p class="first"><?php echo $_product->getData('featured_name'); ?></p>
 		<p><?php echo $_product->getData('descriptive_name'); ?></p>
-		<p id="product-price"><?php echo $this->getChildHtml('product_type_data') ?></p>
+		<p id="product-price"><?php echo $this->getChildHtml('product_type_data') ?>
+		
+		<?php echo $this->getPriceHtml($_product, true) ?>asd</p>
 	</div>
 	<?php echo $this->getChildHtml('media') ?>	
+	
+<?php /*
 <div id="screen_filter"></div>
 <div id="modal_wrap">
 <div id="modal_box">
@@ -126,7 +130,7 @@ function close() {
 </div>
 </div>
 </div>
-
+*/ ?>
     <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
 	<input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
 	<input type="hidden" name="related_product" id="related-products-field" value="" />
@@ -259,7 +263,7 @@ function close() {
 					<h3>Shipping and Returns</h3>
 					<table width="100%" border="0">
                                         <tbody>
-                                        <tr><td><p class="attribute">Leaves warehouse within: <?php echo $_product->getData('delivery_time');?><br><a href="/shipping" id="shipping-popup">Shipping</a> and <a href="/return-policy" id="return-popup">Return Policy</a></p></td></tr>
+                                        <tr><td><p class="attribute">Leaves warehouse within: <?php echo $_product->getData('delivery_time'); ?><br><a href="/shipping" id="shipping-popup">Shipping</a> and <a href="/return-policy" id="return-popup">Return Policy</a></p></td></tr>
                                         </tbody>
                                         </table>
 										
