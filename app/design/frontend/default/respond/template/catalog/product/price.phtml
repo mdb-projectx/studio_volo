@@ -78,14 +78,13 @@
 			(<?php echo $_coreHelper->currency($_finalPriceInclTax, true, false) ?> incl.)
 			
         <?php else: ?>
-   
 			<?php if ($_finalPrice == $_price): ?>
 				<?php // echo $_coreHelper->currency($_price, true, true) ?>
 				<?php // format = false so it doesn't add decimal places
 					echo '$' . $_coreHelper->currency($_price, false, true);
 				?>
 			<?php else: ?>
-				<?php echo $_coreHelper->currency($_finalPrice, true, true) ?>
+				<?php echo $_coreHelper->currency($_finalPrice, false, true) ?>
 			<?php endif; ?>
 					
         <?php endif; ?>
@@ -98,8 +97,14 @@
 
         <?php else: // excl. ?>
             
-			<?php echo $_coreHelper->currency($_finalPrice, true, false) ?>
-			
+			<span class="oldprice"><?php // format = false so it doesn't add decimal places
+				echo '$' . $_coreHelper->currency($_price, false, true);
+			?></span>
+			<?php if($_product->getData('special_text') == '') { ?>
+				<span class="saleprice"><?php echo 'Sale $' . $_coreHelper->currency($_finalPrice, false, true) ?></span>			
+			<?php } else { ?>
+				<span class="saleprice"><?php echo $_product->getData('special_text') . ' $' . $_coreHelper->currency($_finalPrice, false, true) ?></span>
+			<?php } ?>
         <?php endif; ?>
 
     <?php endif; /* if ($_finalPrice == $_price): */ ?>
@@ -165,3 +170,4 @@
         </div>
     <?php endif; /* if ($this->getDisplayMinimalPrice() && $_minimalPrice): */ ?>
 <?php endif; /* if (!$_product->isGrouped()): */ ?>
+
