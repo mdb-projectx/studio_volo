@@ -111,7 +111,7 @@
 			<div class="more">
 			<span class="newprice"><?php echo $this->getPriceHtml($_product, true) ?></span>
 			<?php $delivery = Mage::getModel('catalog/product')->load($_product->getId())->getData('delivery_time'); if (trim($delivery) == '1week' || trim($delivery) == '1 week'):?>
-			<?php if ((int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty() > 0):?><label>Express Delivery</label><?php endif; ?>
+			<?php if ((int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty() > 0):?><label>Ready to Ship</label><?php endif; ?>
 			<?php endif; ?>
 			</div>
 			</a>
