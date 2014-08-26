@@ -77,7 +77,7 @@
 
 <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('newsletter_subscribe_popup')->toHtml() ?>
 
-<div id="newsletter-popupbutton"><a class="inline" href="#newsletter-subscribe-popup">Subscribe</a></div>
+<div id="newsletter-popupbutton" style="display: none;"><a class="inline" href="#newsletter-subscribe-popup">Subscribe</a></div>
 <script type="text/javascript">
 //<![CDATA[
 $j(document).ready(function() {
@@ -89,10 +89,10 @@ $j(document).ready(function() {
 	
 	$j('.inline').colorbox({
 		inline:true, 
-		initialWidth:498, 
-		initialHeight: 335, 
-		innerWidth:498, 
-		innerHeight: 335, 
+		initialWidth:628, 
+		initialHeight: 324, 
+		innerWidth:628, 
+		innerHeight: 324, 
 		fixed: false,
 		opacity: 0.75,
 		className:'plain',
@@ -116,25 +116,6 @@ $j(document).ready(function() {
 		// if first visit in 28 days, open the popup
 		$j('.inline').trigger('click');
 	}
-    
-/*
-$j.ajax({
-	type:"POST",
-	url:"/newsletter/subscriber/checkemail",	
-	success: function(data){											
-		if (!(data))
-		{
-			$j('.inline').click();			
-		}
-		else
-		{
-			$j('#newsletter-popupbutton').hide();
-		}
-	},
-	error: function(XMLHttpRequest, textStatus, errorThrown){		
-	}
-});	
-*/
 
 });
 //]]>

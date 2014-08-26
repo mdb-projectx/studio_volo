@@ -54,9 +54,7 @@ function close() {
 	<div id="title" style="display:none;">
 		<p class="first"><?php echo $_product->getData('featured_name'); ?></p>
 		<p><?php echo $_product->getData('descriptive_name'); ?></p>
-		<p id="product-price"><?php echo $this->getChildHtml('product_type_data') ?>
-		
-		<?php echo $this->getPriceHtml($_product, true) ?>asd</p>
+		<p id="product-price"><?php echo $this->getChildHtml('product_type_data') ?></p>
 	</div>
 	<?php echo $this->getChildHtml('media') ?>	
 	
@@ -135,41 +133,41 @@ function close() {
 	<input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
 	<input type="hidden" name="related_product" id="related-products-field" value="" />
 	<div id="price">
-	<!--
-        <p><strong><?php echo $this->getChildHtml('product_type_data') ?></strong></p>
-	<p class="typical">Typical retail price <span>$<?php echo (float)$_product->getData('price_typical'); ?></span>
-	-->
-	<?php if (!$this->hasOptions()):?>
-                <div class="add-to-box">
-                    <?php if($_product->isSaleable()): ?>
-                        <?php echo $this->getChildHtml('addtocart') ?>
-			<?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
-                            <span class="or"><?php echo $this->__('OR') ?></span>
-                        <?php endif; ?>
-                    <?php endif; ?>
-                    <?php echo $this->getChildHtml('addto') ?>
-                </div>
-            <?php elseif (!$_product->isSaleable()): ?>
-                <div class="add-to-box">
-                    <?php echo $this->getChildHtml('addto') ?>
-                </div>
-            <?php endif; ?>
-	<div class="social">
-		<div class="buttons">
-                <div class="social-button">
-                        <div class="fb-like" data-href="<?php echo (Mage::helper("core/url")->getCurrentUrl()); ?>" data-send="false" data-layout="button_count" data-width="92" data-show-faces="false"></div>
-                </div>
-                <div class="social-button">
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="92">Tweet</a>
-                </div>
-                <div class="social-button">
-                        <a href="http://pinterest.com/pin/create/button/?media=<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize(); ?>" class="pin-it-button" count-layout="horizontal" target="_new"><img border="0" src="https://assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
-                </div>
-                <div class="social-button">
-                        <a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
-                </div>
+		<!--
+			<p><strong><?php echo $this->getChildHtml('product_type_data') ?></strong></p>
+		<p class="typical">Typical retail price <span>$<?php echo (float)$_product->getData('price_typical'); ?></span>
+		-->
+		<?php if (!$this->hasOptions()):?>
+			<div class="add-to-box">
+				<?php if($_product->isSaleable()): ?>
+					<?php echo $this->getChildHtml('addtocart') ?>
+						<?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+						<span class="or"><?php echo $this->__('OR') ?></span>
+					<?php endif; ?>
+				<?php endif; ?>
+				<?php echo $this->getChildHtml('addto') ?>
+			</div>
+		<?php elseif (!$_product->isSaleable()): ?>
+			<div class="add-to-box">
+				<?php echo $this->getChildHtml('addto') ?>
+			</div>
+		<?php endif; ?>
+		<div class="social">
+			<div class="buttons">
+					<div class="social-button">
+							<div class="fb-like" data-href="<?php echo (Mage::helper("core/url")->getCurrentUrl()); ?>" data-send="false" data-layout="button_count" data-width="92" data-show-faces="false"></div>
+					</div>
+					<div class="social-button">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="92">Tweet</a>
+					</div>
+					<div class="social-button">
+							<a href="http://pinterest.com/pin/create/button/?media=<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize(); ?>" class="pin-it-button" count-layout="horizontal" target="_new"><img border="0" src="https://assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+					</div>
+					<div class="social-button">
+							<a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
+					</div>
+			</div>
 		</div>
-	</div>
 	</div>
     </form>
 	
@@ -305,6 +303,7 @@ function close() {
                                         <?php if($_product->getData('switch')): ?><tr><td><p class="heading">Switch: </p><p class="attribute"><?php echo $_product->getData('switch'); ?></p></td></tr><?php endif ?>
                                         <?php if($_product->getData('assembly')): ?><tr><td><p class="heading">Assembly: </p><p class="attribute"><?php echo $_product->getData('assembly'); ?></p></td></tr><?php endif ?>
                                         <?php if($_product->getData('weight')): ?><tr><td><p class="heading">Weight: </p><p class="attribute"><?php echo round($_product->getData('weight')); ?> lbs</p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('sku')): ?><tr><td><p class="heading">SKU: </p><p id="sku" class="attribute"><?php echo $_product->getData('sku'); ?></p></td></tr><?php endif ?>
 					</table>
                                 </div>
 		</div>
