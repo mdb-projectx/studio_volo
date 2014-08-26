@@ -32,7 +32,7 @@
 		<div id="subscribe" class="cf">
 			<div id="newsletter-area">
 				<form action="/newsletter/subscriber/new/" method="post" id="footer-newsletter-validate-detail">
-					<p>Join our newsletter and get $10 off<br />
+					<p>Join our newsletter<br />
 					<input name="email" id="footer-newsletter" class="input-text required-entry-email validate-email" type="text" value="" placeholder="Enter your email here" /><!--
 					--><a href="javascript:void(0);" class="button" type="submit" title="Submit" onclick="if(location.hostname.substring(0,7) != 'staging') { mixpanel.track('Newsletter Signup'); } else { console.log('mixpanel.track(\'Newsletter Signup\');'); } setTimeout(function() { $j('#newsletter-validate-detail').submit();}, 1000);">SUBMIT</a>
 				</form>
