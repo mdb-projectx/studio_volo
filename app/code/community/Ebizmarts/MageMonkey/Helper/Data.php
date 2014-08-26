@@ -6,7 +6,9 @@
  * @category   Ebizmarts
  * @package    Ebizmarts_MageMonkey
  * @author     Ebizmarts Team <info@ebizmarts.com>
+ * @license    http://opensource.org/licenses/osl-3.0.php
  */
+
 class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 {
 
@@ -30,6 +32,17 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
         return is_object(Mage::getConfig()->getNode('global/models/enterprise_enterprise'));
     }
 
+
+	/**
+	 * Whether Admin Notifications should be displayed or not in backend Admin
+	 *
+	 * @return bool
+	 */
+	public function isAdminNotificationEnabled()
+	{
+		return $this->config('adminhtml_notification');
+	}
+
 	/**
 	 * Return Webhooks security key for given store
 	 *
@@ -46,6 +59,9 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 		$crypt = md5((string)Mage::getConfig()->getNode('global/crypt/key'));
 		$key   = substr($crypt, 0, (strlen($crypt)/2));
 
+        // Prevent most cases to attach default in webhook url
+        if($store == 'default') $store = '';
+
 		return ($key . $store);
 	}
 
@@ -53,9 +69,7 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 	{
 		if(is_array($interestGroupings)){
 
-			$customGroupings = Mage::getConfig()->getNode('default/monkey/custom_groupings')
-																					->asArray();
-
+			$customGroupings = (array) Mage::getConfig()->getNode('default/monkey/custom_groupings');
 			foreach($interestGroupings as $key => $group){
 
 				if(TRUE === in_array($group['name'], $customGroupings)){
@@ -166,7 +180,9 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 	 */
 	public function log($data, $filename = 'Monkey.log')
 	{
-		return Mage::getModel('core/log_adapter', $filename)->log($data);
+		if($this->config('enable_log') != 0) {
+			return Mage::getModel('core/log_adapter', $filename)->log($data);
+		}
 	}
 
 	/**
@@ -382,8 +398,13 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 		$request = Mage::app()->getRequest();
 
 		//Add Customer data to Subscriber if is Newsletter_Subscriber is Customer
-		if($customer->getCustomerId()){
+		if(!$customer->getDefaultShipping() && $customer->getEntityId()){
+			$customer->addData(Mage::getModel('customer/customer')->load($customer->getEntityId())
+									->setStoreId($customer->getStoreId())
+									->toArray());
+		} elseif($customer->getCustomerId()){
 			$customer->addData(Mage::getModel('customer/customer')->load($customer->getCustomerId())
+									->setStoreId($customer->getStoreId())
 									->toArray());
 		}
 
@@ -416,6 +437,11 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 
 						$addr = explode('_', $customAtt);
 						$address = $customer->{'getPrimary'.ucfirst($addr[0]).'Address'}();
+						if(!$address){
+							if($customer->{'getDefault' .ucfirst($addr[0])}()) {
+								$address = Mage::getModel('customer/address')->load($customer->{'getDefault' .ucfirst($addr[0])}());
+							}
+						}
 						if($address){
 							$merge_vars[$key] = array(
 																	'addr1'   => $address->getStreet(1),
@@ -425,6 +451,14 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 															   		'zip'     => $address->getPostcode(),
 															   		'country' => $address->getCountryId()
 															   	  );
+							$telephone = $address->getTelephone();
+							if($telephone){
+								$merge_vars['TELEPHONE'] = $telephone;
+							}
+							$company = $address->getCompany();
+							if($company){
+								$merge_vars['COMPANY'] = $company;
+							}
 						}
 
 						break;
@@ -434,6 +468,7 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
                         	->addFieldToFilter('customer_email', $customer->getEmail())
                         	->addFieldToFilter('state', array('in' => Mage::getSingleton('sales/order_config')->getVisibleOnFrontStates()))
                         	->setOrder('created_at', 'desc')
+                            ->setPageSize(1)
                         	->getFirstItem();
 	                    if ( $last_order->getId() ){
 	                    	$merge_vars[$key] = Mage::helper('core')->formatDate($last_order->getCreatedAt());
@@ -463,6 +498,15 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 						}
 
 						break;
+					case 'group_id':
+							$group_id = (int)$customer->getData(strtolower($customAtt));
+							$customerGroup = Mage::helper('customer')->getGroups()->toOptionHash();
+							if($group_id == 0){
+								$merge_vars[$key] = 'NOT LOGGED IN';
+							}else{
+								$merge_vars[$key] = $customerGroup[$group_id];
+							}
+						break;
 					default:
 
 						if( ($value = (string)$customer->getData(strtolower($customAtt)))
@@ -477,13 +521,16 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 		}
 
 		//GUEST
-		if( !$customer->getId() ){
+		if( !$customer->getId() && !$request->getPost('firstname') ){
 			$guestFirstName = $this->config('guest_name', $customer->getStoreId());
-			$guestLastName  = $this->config('guest_lastname', $customer->getStoreId());
 
 			if($guestFirstName){
 				$merge_vars['FNAME'] = $guestFirstName;
 			}
+		}
+		if( !$customer->getId() && !$request->getPost('lastname') ){
+			$guestLastName  = $this->config('guest_lastname', $customer->getStoreId());
+			
 			if($guestLastName){
 				$merge_vars['LNAME'] = $guestLastName;
 			}
@@ -496,27 +543,31 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 
 		$groups = $customer->getListGroups();
 		$groupings = array();
-		if(is_array($groups) && count($groups)){
-			foreach($groups as $groupId => $grupoptions){
-				$groupings[] = array(
-									 'id' => $groupId,
-								     'groups' => (is_array($grupoptions) ? implode(', ', $grupoptions) : $grupoptions)
-								    );
-			}
-		}
 
-		//Add customer group for logged in customers
-		if( $customer->getId() && $customer->getMcListId()){
-
-			$groupId = (int)Mage::getStoreConfig("monkey/groupings/list_" . $customer->getMcListId(), $customer->getStoreId());
-			if($groupId){
-				$groups = Mage::helper('customer')->getGroups()->toOptionHash();
-				$groupings[] = array(
-					'id'     => $groupId,
-					'groups' => $groups[$customer->getGroupId()],
-				);
-			}
-
+		if(is_array($groups) && count($groups)) {
+            foreach($groups as $groupId => $grupoptions)
+            {
+                if (is_array($grupoptions))
+                {
+                    $grupOptionsEscaped = array();
+                    foreach($grupoptions as $gopt)
+                    {
+                        $gopt = str_replace(",","%C%",$gopt);
+                        $grupOptionsEscaped[] = $gopt;
+                    }
+                    $groupings[] = array(
+                        'id' => $groupId,
+                        'groups' => str_replace('%C%','\\,',implode(', ', $grupOptionsEscaped))
+                    );
+                }
+                else
+                {
+                    $groupings[] = array(
+                        'id' => $groupId,
+                        'groups' => str_replace(',','\\,',$grupoptions)
+                    );
+                }
+            }
 		}
 
 		$merge_vars['GROUPINGS'] = $groupings;
@@ -724,17 +775,20 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 		//<state> param is an html serialized field containing the default form state
 		//before submission, we need to parse it as a request in order to save it to $odata and process it
 		parse_str($request->getPost('state'), $odata);
-
+		$isConfirmNeed = FALSE;
 		$curlists = (TRUE === array_key_exists('list', $odata)) ? $odata['list'] : array();
 		$lists    = $request->getPost('list', array());
 
 		$defaultList = $this->getDefaultList(Mage::app()->getStore());
 
 		$api       = Mage::getSingleton('monkey/api');
-		$customer  = Mage::helper('customer')->getCustomer();
-		$email     =  $guestEmail ? $guestEmail : $customer->getEmail();
-
 		$loggedIn = Mage::helper('customer')->isLoggedIn();
+		if($loggedIn){
+			$customer  = Mage::helper('customer')->getCustomer();
+		}else{
+			$customer = Mage::registry('mc_guest_customer');
+		}
+		$email     =  $guestEmail ? $guestEmail : $customer->getEmail();
 
 		if( !empty($curlists) ){
 
@@ -755,7 +809,6 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 							$item->unsubscribe();
 						}
 
-					}else{
 						//Unsubscribe Email
 						$api->listUnsubscribe($listId, $email);
 					}
@@ -801,21 +854,21 @@ class Ebizmarts_MageMonkey_Helper_Data extends Mage_Core_Helper_Abstract
 
 					$groupings = $lists[$listId];
 					unset($groupings['subscribed']);
-
+					if( !Mage::helper('monkey')->isAdmin() && (Mage::getStoreConfig(Mage_Newsletter_Model_Subscriber::XML_PATH_CONFIRMATION_FLAG, Mage::app()->getStore()->getId()) == 1) ) {
+						$isConfirmNeed = TRUE;
+					}
 					if($defaultList == $listId){
 						$subscriber = Mage::getModel('newsletter/subscriber');
-
 						$subscriber->setListGroups($groupings);
 						$subscriber->setMcListId($listId);
                         $subscriber->setMcStoreId(Mage::app()->getStore()->getId());
-
+						$subscriber->setImportMode(TRUE);
 						$subscriber->subscribe($email);
 					}else{
-
 						$customer->setListGroups($groupings);
 						$customer->setMcListId($listId);
 						$mergeVars = Mage::helper('monkey')->getMergeVars($customer);
-						$api->listSubscribe($listId, $email, $mergeVars, 'html', ($loggedIn ? false : true));
+						$api->listSubscribe($listId, $email, $mergeVars, 'html', $isConfirmNeed);
 
 					}
 
