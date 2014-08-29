@@ -6,7 +6,9 @@
  * @category   Ebizmarts
  * @package    Ebizmarts_MageMonkey
  * @author     Ebizmarts Team <info@ebizmarts.com>
+ * @license    http://opensource.org/licenses/osl-3.0.php
  */
+
 class Ebizmarts_MageMonkey_WebhookController extends Mage_Core_Controller_Front_Action
 {
 
@@ -26,7 +28,7 @@ class Ebizmarts_MageMonkey_WebhookController extends Mage_Core_Controller_Front_
             	->sendResponse();
         	return $this;
 		}
-
+		
 		Mage::helper('monkey')->log( print_r($this->getRequest()->getPost(), true) );
 
 		Mage::app()->setCurrentStore(Mage::app()->getDefaultStoreView());
@@ -35,9 +37,17 @@ class Ebizmarts_MageMonkey_WebhookController extends Mage_Core_Controller_Front_
 		$myKey = Mage::helper('monkey')->getWebhooksKey(null, $data['list_id']);
 
 		//Validate "wkey" GET parameter
-		if (($requestKey == $myKey) && ($this->getRequest()->getPost('type'))) {
-			Mage::getModel('monkey/monkey')->processWebhookData($this->getRequest()->getPost());
-		}
+		if ($this->getRequest()->getPost('type')) {
+		        Mage::getModel('monkey/monkey')->processWebhookData($this->getRequest()->getPost());
+		} else {
+			if($myKey != $requestKey) {
+		               Mage::helper('monkey')->log($this->__('Webhook Key invalid! Key Request: %s - My Key: %s', $requestKey, $myKey));
+			}
+
+                        Mage::helper('monkey')->log($this->__('Webhook call ended'));
+                }
+
+
 
 	}
 
