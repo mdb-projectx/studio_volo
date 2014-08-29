@@ -1,3 +1,6 @@
 robots.txt
 .htaccess
 index.php
+downloader
+media/*
+var/cache/*
