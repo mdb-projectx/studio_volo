@@ -41,7 +41,18 @@ if(location.hostname.substring(0,7) != 'staging') {
 
 	<div class="checkout-success">
 		<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-		<h2>Thank you for shopping<br>at Volo</h2>
+		<h2>Thank you for shopping at Volo</h2>
+		
+		<?php
+		$orderId = $this->getOrderId();
+		$order = Mage::getModel('sales/order')->loadByIncrementId($orderId);
+		$total = $order->getGrandTotal();
+		$subtotal = $order->getSubtotal();
+		$discount = $order->getDiscountAmount();
+		$affiliateTotal = ($subtotal + $discount)
+		?>
+		<img src="https://shareasale.com/sale.cfm?tracking=<?php echo $orderId; ?>&amount=<?php echo $affiliateTotal; ?>&transtype=sale&merchantID=55135" width="1" height="1">
+
 		<?php if ($this->getOrderId()):?>
 			<?php if ($this->getCanViewOrder()) :?>
 				<div class="order"><?php echo $this->__('<strong>Order Number:</strong> %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getViewOrderUrl()), $this->escapeHtml($this->getOrderId()))) ?></div>
