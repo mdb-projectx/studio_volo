@@ -93,11 +93,13 @@ var checkurl = URL + "customer/account/signupformpopup/";
 							mixpanel.people.set({
 								"$email": response.email
 							});
+							ga('set', '&uid', response.email);
 					   } else {
 						   console.log('mixpanel.identify('+response.email+');' + '\n' + 
 							'mixpanel.people.set({' + '\n' + 
 							'	"$email": ' + response.email + '\n' + 
 							'});');
+							console.log("ga('set', '&uid', "+response.email+");");
 					   }
 					   redirectTime = "1";
 					   var path=window.location.pathname;
@@ -245,7 +247,7 @@ var checkurl = URL + "customer/account/signupformpopup/";
 											"$created": signupDate
 									   });
 								   } else {
-									   alert('mixpanel.track(\'Signup\');' + '\n' +
+									   console.log('mixpanel.track(\'Signup\');' + '\n' +
 									   'mixpanel.alias('+response.email+');' + '\n' + 
 										'mixpanel.people.set({' + '\n' + 
 										'	"$email": ' + response.email + ','+ '\n' + 

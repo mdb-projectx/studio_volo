@@ -72,6 +72,7 @@
 				"$last_name": "<?php echo $this->htmlEscape($this->getCustomer()->getLastname()) ?>",
 				"$email": "<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>"
 			});
+			ga('set', '&uid', '<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>');
 		} else {
 			console.log('mixpanel.identify("<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>");' + '\n' +
 			'mixpanel.people.set({' + '\n' +
@@ -79,7 +80,8 @@
 			'	"$last_name": "<?php echo $this->htmlEscape($this->getCustomer()->getLastname()) ?>",' + '\n' +
 			'	"$email": "<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>"' + '\n' +
 			'});');
-		}			
+			console.log("ga('set', '&uid', '<?php echo $this->htmlEscape($this->getCustomer()->getEmail()) ?>');");
+		}	
 	});
 </script>
 

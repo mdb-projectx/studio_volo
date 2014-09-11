@@ -74,11 +74,13 @@ $j(document).ready(function() {
 				mixpanel.people.set({
 					"$email": popupEmail
 				});
+				ga('set', '&uid', popupEmail);
 			} else {
 				console.log('mixpanel.identify('+popupEmail+');' + '\n' + 
 				'mixpanel.people.set({' + '\n' + 
 				'	"$email": ' + popupEmail + '\n' + 
 				'});');
+				console.log("ga('set', '&uid', "+popupEmail+");");
 			}
 			
 			setTimeout(function() {
@@ -104,11 +106,13 @@ $j(document).ready(function() {
 				mixpanel.people.set({
 					"$email": footerEmail
 				});
+				ga('set', '&uid', footerEmail);
 			} else {
 				console.log('mixpanel.identify('+footerEmail+');' + '\n' + 
 				'mixpanel.people.set({' + '\n' + 
 				'	"$email": ' + footerEmail + '\n' + 
 				'});');
+				console.log("ga('set', '&uid', "+footerEmail+");");
 			}
 			
 			setTimeout(function() {
@@ -322,7 +326,7 @@ $j(document).ready(function() {
 		var signupLastname = $j(this).find('#lastname').first().val();
 		
 		var d = new Date();
-		var signupDate = d.getFullYear() + '-' + ('0' + (d.getMonth()+1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2) + 'T' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+		var signupDate = d.getFullYear() + '-' + ('0' + (d.getMonth()+1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2) + 'T' + ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2) + ':' + ('0' + d.getSeconds()).slice(-2);
 		
 		if(signupDelayed === false) {
 			signupDelayed = true;
@@ -335,14 +339,16 @@ $j(document).ready(function() {
 					"$email": signupEmail,
 					"$created": signupDate
 				});
+				ga('set', '&uid', signupEmail);
 			} else {
-				alert('mixpanel.identify('+signupEmail+');' + '\n' + 
+				console.log('mixpanel.identify('+signupEmail+');' + '\n' + 
 				'mixpanel.people.set({' + '\n' + 
 				'	"$first_name": ' + signupFirstname + ','+ '\n' + 
 				'	"$last_name": ' + signupLastname + ','+ '\n' + 
 				'	"$email": ' + signupEmail + ','+ '\n' + 
 				'	"$created": ' + signupDate + '\n' + 
 				'});');
+				console.log("ga('set', '&uid', "+signupEmail+");");
 			}
 			
 			setTimeout(function() {
