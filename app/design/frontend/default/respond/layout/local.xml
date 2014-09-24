@@ -55,7 +55,7 @@
 			<action method="addItem"><type>skin_js</type><name>js/jquery.colorbox.js</name></action>
 			<action method="addItem"><type>skin_js</type><name>js/waypoints.min.js</name></action>
 			<action method="addItem"><type>skin_js</type><name>js/firstImpression.min.js</name></action>
-			<action method="addItem"><type>skin_js</type><name>js/ui.spinner.min</name></action>
+		<!--	<action method="addItem"><type>skin_js</type><name>js/ui.spinner.min</name></action>-->
 			<action method="addItem"><type>skin_js</type><name>js/volo.js</name></action>
 			<action method="addItem"><type>skin_js</type><name>js/spin.min.js</name></action>
 		</reference>
