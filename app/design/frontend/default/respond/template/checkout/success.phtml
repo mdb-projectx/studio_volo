@@ -57,6 +57,8 @@ if(location.hostname.substring(0,7) != 'staging') {
 			$items = $order->getAllItems();
 		?>
 		<script>
+		dataLayer = [];
+		
 		// Send transaction data with a pageview if available
 		// when the page loads. Otherwise, use an event when the transaction
 		// data becomes available.

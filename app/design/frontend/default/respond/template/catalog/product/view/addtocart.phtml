@@ -27,6 +27,45 @@
 <?php $_product = $this->getProduct(); ?>
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
 <?php if($_product->isSaleable()): ?>
+
+<?php 
+$categoryIds = $_product->getCategoryIds();
+if (isset($categoryIds[0])){
+	$category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
+	$categoryName = $category->getName();
+} else {
+	$categoryName = '';
+}
+?>
+
+<script>
+dataLayer = [];
+
+function pushAddToCart() {
+// Measure adding a product to a shopping cart by using an 'add' actionFieldObject
+// and a list of productFieldObjects.
+var quantity = jQuery('#qty option:selected').val();
+
+dataLayer.push({
+  'event': 'addToCart',
+  'ecommerce': {
+    'add': {                                // 'add' actionFieldObject measures.
+      'products': [{                        //  adding a product to a shopping cart.
+        'name': '<?php echo $_product->getData('featured_name'); ?>',
+        'id': '<?php echo $_product->getData('sku'); ?>',
+        'price': '<?php echo $_product->getPrice(); ?>',
+        'brand': '',
+        'category': '<?php echo $categoryName; ?>',
+        'variant': '',
+        'quantity': quantity
+       }]
+    }
+  }
+});
+}
+</script>
+
+
     <div class="quantity">
 	<span>Quantity:</span>
 	<select name="qty" id="qty">
@@ -43,7 +82,8 @@
         </select>
     </div>
     <div class="add-to-cart">
-        <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span><span id="spin"></span><span id='ajax_loader' style='display:none'><img src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif')?>'/></span></span></button>
+        <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="pushAddToCart(); productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span><span id="spin"></span><span id='ajax_loader' style='display:none'><img src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif')?>'/></span></span></button>
     </div>
 <?php endif; ?>
+
 
