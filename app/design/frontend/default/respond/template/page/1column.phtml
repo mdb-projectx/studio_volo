@@ -44,6 +44,46 @@
 <meta property="og:description" content="Designer products sell for huge markups over what they cost to make. But we skip the middlemen and work directly with designers and makers to offer great design at affordable prices." />
 <meta property="og:type" content="article" />
 
+<?php
+$onCatalog = false;
+if(Mage::registry('current_product')) {
+    $onCatalog = true;
+}
+if($onCatalog) {
+//  $_product = $this->getProduct();
+$_product = Mage::registry('current_product');
+$categoryIds = $_product->getCategoryIds();
+if (isset($categoryIds[0])){
+        $category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
+        $categoryName = $category->getName();
+} else {
+        $categoryName = '';
+}
+?>
+
+<script type="text/javascript">
+ 
+dataLayer = [];
+// Measure a view of product details. This example assumes the detail view occurs on pageload,
+// and also tracks a standard pageview of the details page.
+dataLayer.push({
+  'ecommerce': {
+    'detail': {
+      'products': [{
+        'name': '<?php echo $_product->getData('featured_name') ?>',         // Name or ID is required.
+        'id': '<?php echo $_product->getData('sku'); ?>',
+        'price': '<?php echo $_product->getPrice(); ?>',
+        'brand': '',
+        'category': '<?php echo $categoryName; ?>',
+        'variant': ''
+       }]
+     }
+   }
+});
+</script>
+
+<?php }  ?> 
+
 </head>
 <body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
 
