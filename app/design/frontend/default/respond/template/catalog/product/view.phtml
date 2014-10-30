@@ -34,14 +34,14 @@
 
 <?php $_helper = $this->helper('catalog/output'); ?>
 <?php $_product = $this->getProduct(); ?>
-<?php 
+<?php /*
 $categoryIds = $_product->getCategoryIds();
 if (isset($categoryIds[0])){
 	$category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
 	$categoryName = $category->getName();
 } else {
 	$categoryName = '';
-}
+} */
 ?>
 
 <script type="text/javascript">
@@ -51,6 +51,7 @@ if(location.hostname.substring(0,7) != 'staging') {
 	console.log('mixpanel.track(\'View Product\', { \'Product Type\': \'<?php echo $_product->getData('featured_name') ?>\'});');
 }
 
+/*
 dataLayer = [];
 // Measure a view of product details. This example assumes the detail view occurs on pageload,
 // and also tracks a standard pageview of the details page.
@@ -68,7 +69,7 @@ dataLayer.push({
      }
    }
 });
-
+*/
 
 function close() {
 	jQuery('#modal_wrap').hide();
