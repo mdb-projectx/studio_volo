@@ -39,6 +39,7 @@ if (isset($categoryIds[0])){
 ?>
 
 <script>
+/*
 dataLayer = [];
 
 function pushAddToCart() {
@@ -63,6 +64,7 @@ dataLayer.push({
   }
 });
 }
+*/
 </script>
 
 
@@ -82,7 +84,7 @@ dataLayer.push({
         </select>
     </div>
     <div class="add-to-cart">
-        <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="pushAddToCart(); productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span><span id="spin"></span><span id='ajax_loader' style='display:none'><img src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif')?>'/></span></span></button>
+        <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span><span id="spin"></span><span id='ajax_loader' style='display:none'><img src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif')?>'/></span></span></button>
     </div>
 <?php endif; ?>
 
