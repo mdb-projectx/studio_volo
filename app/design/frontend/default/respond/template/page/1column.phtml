@@ -62,24 +62,7 @@ if (isset($categoryIds[0])){
 ?>
 
 <script type="text/javascript">
- 
-var dataLayer = [];
-// Measure a view of product details. This example assumes the detail view occurs on pageload,
-// and also tracks a standard pageview of the details page.
-dataLayer.push({
-  'ecommerce': {
-    'detail': {
-      'products': [{
-        'name': '<?php echo $_product->getData('featured_name') ?>',         // Name or ID is required.
-        'id': '<?php echo $_product->getData('sku'); ?>',
-        'price': '<?php echo $_product->getPrice(); ?>',
-        'brand': '',
-        'category': '<?php echo $categoryName; ?>',
-        'variant': ''
-       }]
-     }
-   }
-});
+dataLayer = [];
 </script>
 
 <?php }  ?> 
@@ -96,6 +79,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KC9R3V');</script>
 <!-- End Google Tag Manager -->
+
+
+<script>
+// Measure a view of product details. This example assumes the detail view occurs on pageload,
+// and also tracks a standard pageview of the details page.
+dataLayer.push({
+  'ecommerce': {
+    'detail': {
+      'products': [{
+        'name': '<?php echo $_product->getData('featured_name') ?>',         // Name or ID is required.
+        'id': '<?php echo $_product->getData('sku'); ?>',
+        'price': '<?php echo $_product->getPrice(); ?>',
+        'brand': '',
+        'category': '<?php echo $categoryName; ?>',
+        'variant': ''
+       }]
+     }
+   }
+});
+
+</script>
 
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
