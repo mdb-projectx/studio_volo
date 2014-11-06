@@ -120,9 +120,9 @@
 		
 			var checkoutStep = 0;
 			var checkoutOption = '';
-			if($j(this).closest('#opc-shipping').length) {
+			if($j(this).closest('#opc-billing').length) {
 				checkoutStep = 1;
-			} else if($j(this).closest('#opc-billing').length) {
+			} else if($j(this).closest('#opc-shipping').length) {
 				checkoutStep = 2;
 			} else if($j(this).closest('#opc-shipping_method').length) {
 				checkoutStep = 3;
