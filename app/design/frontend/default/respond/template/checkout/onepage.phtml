@@ -110,6 +110,66 @@
 				billOrShip = 'bill';
 			}
 			
+			// ECOM ANALYTICS
+			<?php
+			$session = Mage::getSingleton('checkout/session');
+			$quote_id = $session->getQuoteId();
+			$item_quote = Mage::getModel('sales/quote')->load($quote_id);			
+			$items_in_cart = $item_quote->getAllVisibleItems();
+			?>
+		
+			var checkoutStep = 0;
+			var checkoutOption = '';
+			if($j(this).closest('#opc-shipping').length) {
+				checkoutStep = 1;
+			} else if($j(this).closest('#opc-billing').length) {
+				checkoutStep = 2;
+			} else if($j(this).closest('#opc-shipping_method').length) {
+				checkoutStep = 3;
+				checkoutOption = $j('input[name="shipping_method"]:checked').next('label').find('span').html();
+			} else if($j(this).closest('#opc-payment').length) {
+				checkoutStep = 4;
+				checkoutOption = $j('#braintree_cc_type option:selected').html();
+			} else if($j(this).closest('#opc-review').length) {
+				checkoutStep = 5;
+			}
+			
+			dataLayer.push({
+				'event': 'checkout',
+				'ecommerce': {
+					'checkout': {
+						'actionField': {'step': checkoutStep, 'option': checkoutOption},
+						'products': [	
+							<?php $i = 0; $len = count($items); ?>
+							<?php foreach ($items_in_cart as $item) { ?>
+								<?php 
+									$_product = Mage::getModel('catalog/product')->loadByAttribute('sku',$item->getSku()); 
+									$categoryIds = $_product->getCategoryIds();
+									if (isset($categoryIds[0])){
+										$category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
+										$categoryName = $category->getName();
+									} else {
+										$categoryName = '';
+									}
+								?>					
+								{
+									'name': '<?php echo $item->getName(); ?>',
+									'id': '<?php echo $item->getSku(); ?>',
+									'price': '<?php echo $item->getPrice(); ?>',
+									'brand': '',
+									'category': '<?php echo $categoryName; ?>',
+									'variant': '',
+									'quantity': <?php echo $item->getQty(); ?>
+								}<?php if($i != $len - 1) { ?>,<?php } ?>
+								<?php 
+									$i++; 
+							} ?> 							
+						]						
+					}
+				}
+			});
+			// END ECOM ANALYTICS
+			
 			$j.get(reviewUrl, function(data) {
 			//	console.log('ajax 1');
 				$j('#checkout-review .totals .adjustment').remove();
@@ -267,4 +327,5 @@
 	});
 //]]>
 </script>
+
 

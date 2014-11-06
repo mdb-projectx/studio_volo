@@ -44,6 +44,9 @@
 <meta property="og:description" content="Designer products sell for huge markups over what they cost to make. But we skip the middlemen and work directly with designers and makers to offer great design at affordable prices." />
 <meta property="og:type" content="article" />
 
+<script type="text/javascript">
+dataLayer = [];
+
 <?php
 $onCatalog = false;
 if(Mage::registry('current_product')) {
@@ -60,11 +63,6 @@ if (isset($categoryIds[0])){
         $categoryName = '';
 }
 ?>
-
-<script type="text/javascript">
-
-dataLayer = [];
-
 // Measure a view of product details. This example assumes the detail view occurs on pageload,
 // and also tracks a standard pageview of the details page.
 dataLayer.push({
@@ -81,10 +79,8 @@ dataLayer.push({
      }
    }
 });
-
-</script>
-
 <?php }  ?> 
+</script>
 
 </head>
 <body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
@@ -98,29 +94,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KC9R3V');</script>
 <!-- End Google Tag Manager -->
-
-<?php if($onCatalog) { ?>
-<script>
-/*
-// Measure a view of product details. This example assumes the detail view occurs on pageload,
-// and also tracks a standard pageview of the details page.
-dataLayer.push({
-  'ecommerce': {
-    'detail': {
-      'products': [{
-        'name': '<?php echo $_product->getData('featured_name') ?>',         // Name or ID is required.
-        'id': '<?php echo $_product->getData('sku'); ?>',
-        'price': '<?php echo $_product->getPrice(); ?>',
-        'brand': '',
-        'category': '<?php echo $categoryName; ?>',
-        'variant': ''
-       }]
-     }
-   }
-});
-*/
-</script>
-<?php } ?>
 
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -153,3 +126,4 @@ dataLayer.push({
 <?php echo $this->getAbsoluteFooter() ?>
 </body>
 </html>
+

@@ -57,8 +57,6 @@ if(location.hostname.substring(0,7) != 'staging') {
 			$items = $order->getAllItems();
 		?>
 		<script>
-		dataLayer = [];
-		
 		// Send transaction data with a pageview if available
 		// when the page loads. Otherwise, use an event when the transaction
 		// data becomes available.
@@ -164,4 +162,5 @@ var google_conversion_value = 0;
 <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/985062003/?value=<?php echo $this->getOrderTotal(); ?>&amp;label=Purchase&script=0" />
 </div>
 </noscript>
+
 
