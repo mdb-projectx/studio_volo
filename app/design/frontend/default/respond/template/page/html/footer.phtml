@@ -34,7 +34,7 @@
 				<form action="/newsletter/subscriber/new/" method="post" id="footer-newsletter-validate-detail">
 					<p>Join our newsletter<br />
 					<input name="email" id="footer-newsletter" class="input-text required-entry-email validate-email" type="text" value="" placeholder="Enter your email here" /><!--
-					--><a href="javascript:void(0);" class="button" type="submit" title="Submit" onclick="if(location.hostname.substring(0,7) != 'staging') { mixpanel.track('Newsletter Signup'); } else { console.log('mixpanel.track(\'Newsletter Signup\');'); } setTimeout(function() { $j('#newsletter-validate-detail').submit();}, 1000);">SUBMIT</a>
+					--><a href="javascript:void(0);" class="button" type="submit" title="Submit" onclick="if(location.hostname.substring(0,7) != 'staging') { mixpanel.track('Newsletter Signup'); } else { console.log('mixpanel.track(\'Newsletter Signup\');'); } setTimeout(function() { $j('#newsletter-validate-detail').submit();}, 1000); dataLayer.push({'event': 'newsletterSignup'});">SUBMIT</a>
 				</form>
 			</div>
 			<div id="follow">
@@ -84,4 +84,5 @@
     //new Varien.searchForm('footer-newsletter-validate-detail', 'footer-newsletter', 'Enter your email address');
 //]]>
 </script>
+
 

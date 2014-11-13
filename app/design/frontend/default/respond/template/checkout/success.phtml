@@ -52,12 +52,6 @@ if(location.hostname.substring(0,7) != 'staging') {
 		$affiliateTotal = ($subtotal + $discount)
 		?>
 		<img src="https://shareasale.com/sale.cfm?tracking=<?php echo $orderId; ?>&amount=<?php echo $affiliateTotal; ?>&transtype=sale&merchantID=55135" width="1" height="1">
-		
-		<?php 
-			$items = $order->getAllItems();
-		?>
-		<script>
-		</script>
 
 		<?php if ($this->getOrderId()):?>
 			<?php if ($this->getCanViewOrder()) :?>
@@ -109,6 +103,60 @@ var google_conversion_format = "3";
 var google_conversion_color = "ffffff";
 var google_conversion_label = "doe_CJ3LwwUQ87Tb1QM";
 var google_conversion_value = '<?php echo $this->getOrderTotal(); ?>';
+
+
+		<?php 
+			$items = $order->getAllItems();
+		?>
+		
+		// Send transaction data with a pageview if available
+		// when the page loads. Otherwise, use an event when the transaction
+		// data becomes available.
+		$j(document).ready(function() {
+			dataLayer.push({
+			  'ecommerce': {
+				'purchase': {
+				  'actionField': {
+					'id': '<?php echo $orderId; ?>',     
+					'affiliation': 'Volo Design',
+					'revenue': '<?php echo $order->grand_total ?>',                  
+					'tax': '<?php echo $order->tax_amount ?>',
+					'shipping': '<?php echo $order->shipping_amount ?>',
+					'coupon': '<?php echo $order->coupon_code ?>'
+				  },
+				  'products': [
+				  <?php $i = 0; $len = count($items); ?>
+				  <?php foreach($items as $item) { ?>
+					<?php 
+						$_product = Mage::getModel('catalog/product')->loadByAttribute('sku',$item->getSku()); 
+						$categoryIds = $_product->getCategoryIds();
+						if (isset($categoryIds[0])){
+							$category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
+							$categoryName = $category->getName();
+						} else {
+							$categoryName = '';
+						}
+					?>
+					  {                            
+						'name': '<?php echo $item->getName(); ?>',     
+						'id': '<?php echo $item->getSku(); ?>',
+						'price': '<?php echo $item->getPrice(); ?>',
+						'brand': '',
+						'category': '<?php echo $categoryName; ?>',
+						'variant': '',
+						'quantity': '<?php echo $item->getQtyOrdered(); ?>',
+						'coupon': ''                          
+					   }<?php if($i != $len - 1) { ?>,<?php } ?>
+					<?php 
+					$i++; 
+					} ?> 
+				   ]
+				}
+			  },
+			  'event': 'purchase'
+			});
+		});
+			
 /* ]]> */
 </script>
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">;
