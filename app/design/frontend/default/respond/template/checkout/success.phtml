@@ -153,7 +153,41 @@ var google_conversion_value = '<?php echo $this->getOrderTotal(); ?>';
 				   ]
 				}
 			  },
-			  'event': 'purchase'
+			  'event': 'purchase',
+			  
+			  
+'transactionId': '<?php echo $orderId; ?>',
+'transactionAffiliation': 'Volo Design',
+'transactionTotal': '<?php echo $order->grand_total ?>',
+'transactionTax': '<?php echo $order->tax_amount ?>',
+'transactionShipping': '<?php echo $order->shipping_amount ?>',
+'transactionProducts': [
+
+				  <?php $i = 0; $len = count($items); ?>
+				  <?php foreach($items as $item) { ?>
+					<?php 
+						$_product = Mage::getModel('catalog/product')->loadByAttribute('sku',$item->getSku()); 
+						$categoryIds = $_product->getCategoryIds();
+						if (isset($categoryIds[0])){
+							$category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
+							$categoryName = $category->getName();
+						} else {
+							$categoryName = '';
+						}
+					?>
+{
+	'sku': '<?php echo $item->getSku(); ?>',
+	'name': '<?php echo $item->getName(); ?>',
+	'category': '<?php echo $categoryName; ?>',
+	'price': '<?php echo $item->getPrice(); ?>',
+	'quantity': '<?php echo $item->getQtyOrdered(); ?>'
+}<?php if($i != $len - 1) { ?>,<?php } ?>
+					<?php 
+					$i++; 
+					} ?> 
+
+]
+			  
 			});
 		});
 			
