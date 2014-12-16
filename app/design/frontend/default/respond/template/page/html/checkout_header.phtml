@@ -38,43 +38,6 @@
 <div id="wrapper">
 <ul id="menu" style="height: 0px;">
 </ul>
-<!-- Newsletter Button -->
-
-<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('newsletter_subscribe_popup')->toHtml() ?>
-
-<div id="newsletter-popupbutton"><a class="inline" href="#newsletter-subscribe-popup">Subscribe</a></div>
-<script type="text/javascript">
-//<![CDATA[
-$j(document).ready(function() {
-
-	$j('#newsletter-subscribe-close a').click(function() {
-		$j.colorbox.close();
-		return false;
-	});
-
-	$j('.inline').colorbox({
-                inline:true,
-                initialWidth:498,
-                initialHeight: 335,
-                innerWidth:498,
-                innerHeight: 335,
-                fixed: true,
-                opacity: 0.75,
-                className:'plain',
-		transition: 'fade',
-                onOpen: function() {
-                        $j('#newsletter-subscribe-close').show();
-                        var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
-                        $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;');
-                }, onCleanup: function() {
-                        $j('#newsletter-subscribe-close').hide();
-                }, onComplete: function() {
-                        $j('#cboxLoadedContent').addClass('newsletter');
-			$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
-                }
-        });
-});
-//]]>
-</script>
 
 <?php echo $this->getChildHtml('topBar') ?>
+
