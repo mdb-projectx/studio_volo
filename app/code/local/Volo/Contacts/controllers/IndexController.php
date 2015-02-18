@@ -67,6 +67,8 @@ class Volo_Contacts_IndexController extends Mage_Core_Controller_Front_Action
             /* @var $translate Mage_Core_Model_Translate */
             $translate->setTranslateInline(false);
             try {
+
+		$post['ip'] = $_SERVER['REMOTE_ADDR'];
                 $postObject = new Varien_Object();
                 $postObject->setData($post);
 
