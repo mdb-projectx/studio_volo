@@ -64,8 +64,8 @@ var checkurl = URL + "customer/account/signupformpopup/";
 					innerHeight: 300
 				});
 				*/
-				$j('#cboxContent').height(300);
-				$j('#colorbox, #cboxWrapper').height(300 + 32);
+//				$j('#cboxContent').height(300);
+//				$j('#colorbox, #cboxWrapper').height(300 + 32);
 				
 				$j('#loginspin').show();						
 				var request = new Ajax.Request(

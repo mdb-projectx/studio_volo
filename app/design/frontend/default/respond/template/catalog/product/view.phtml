@@ -1,7 +1,7 @@
 <?php
 /**
  * Magento
- *
+*
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Academic Free License (AFL 3.0)
@@ -49,6 +49,28 @@ if(location.hostname.substring(0,7) != 'staging') {
 	mixpanel.track('View Product', { 'Product Type': '<?php echo $_product->getData('featured_name') ?>'});
 } else {
 	console.log('mixpanel.track(\'View Product\', { \'Product Type\': \'<?php echo $_product->getData('featured_name') ?>\'});');
+}
+
+
+function testfunction() {
+var qty = document.getElementById("qty").value;
+dataLayer.push({
+  'event': 'addToCart',
+  'ecommerce': {
+    'currencyCode': 'USD',
+    'add': {                                // 'add' actionFieldObject measures.
+      'products': [{                        //  adding a product to a shopping cart.
+        'name': '<?php echo $_product->getData('featured_name') ?>',
+        'id': '<?php echo $_product->getData('sku') ?>',
+        'price': '<?php echo $_product->getPrice() ?>',
+        'brand': '',
+        'category': '<?php echo $categoryName; ?>',
+        'variant': '',
+	'quantity': qty
+       }]
+    }
+  }
+});
 }
 
 /*
