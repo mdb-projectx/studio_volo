@@ -66,7 +66,7 @@ dataLayer.push({
         'brand': '',
         'category': '<?php echo $categoryName; ?>',
         'variant': '',
-	'quantity': qty
+		'quantity': qty
        }]
     }
   }
@@ -99,7 +99,7 @@ function close() {
 	jQuery('#screen_filter').hide();
 }
 
-    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 </script>
 
 <div id="product">
@@ -232,7 +232,7 @@ function close() {
 							<?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image')->resize(520,270);
 							if(!strstr($_img, 'placeholder')) { ?>
 								<div class="thumb">
-									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>'; ?>
+									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="'.$_img.'" alt="" /></a>'; ?>
 								</div>
 							<?php } ?>
 						</div>
@@ -247,7 +247,7 @@ function close() {
 							<?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image2')->resize(520,270);
 							if(!strstr($_img, 'placeholder')) { ?>
 								<div class="thumb">
-									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>'; ?>
+									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="'.$_img.'" alt="" /></a>'; ?>
 								</div>
 							<?php } ?>
 						</div>
@@ -262,7 +262,7 @@ function close() {
 							<?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image3')->resize(520,270);
 							if(!strstr($_img, 'placeholder')) { ?>
 								<div class="thumb">
-									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>'; ?>
+									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="'.$_img.'" alt="" /></a>'; ?>
 								</div>
 							<?php } ?>
 						</div>
@@ -277,7 +277,7 @@ function close() {
 							<?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image4')->resize(520,270);
 							if(!strstr($_img, 'placeholder')) { ?>
 								<div class="thumb">
-									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="'.$_img.'" alt="" /></a>'; ?>
+									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="'.$_img.'" alt="" /></a>'; ?>
 								</div>
 							<?php } ?>
 						</div>
@@ -292,7 +292,7 @@ function close() {
 		<div class="extra">
 			<?php if($_product->getQuote()): ?>
 				<?php if($_product->getQuote_avatar()) { ?>
-					<div class="photo"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'quote_avatar')->resize(67,67); ?>" alt="" /></div>
+					<div class="photo"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="<?php echo $this->helper('catalog/image')->init($_product, 'quote_avatar')->resize(67,67); ?>" alt="" /></div>
 				<?php } ?>
 				<h3><span class="name"><?php echo $_product->getData('quote_author'); ?></span><?php if($_product->getQuote_role()) { ?>, <?php echo $_product->getData('quote_role'); } ?></h3>
 				<p>&ldquo;<?php echo $_product->getData('quote'); ?>&rdquo;</p>
@@ -624,4 +624,5 @@ jQuery('#product .social').on('mouseleave', function() {
 </div>
 
 */ ?>
+
 

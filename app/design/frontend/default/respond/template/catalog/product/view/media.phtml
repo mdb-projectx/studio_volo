@@ -48,7 +48,7 @@
 
 	<ul>
 		<?php foreach ($this->getGalleryImages() as $_image): ?>
-			<li<?php if($_count === 1) {?> class="current"<?php } ?>><a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->resize(); ?>"><img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(61,32); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>" /></a></li>
+			<li<?php if($_count === 1) {?> class="current"<?php } ?>><a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->resize(); ?>"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(61,32); ?>" alt="<?php echo $this->htmlEscape($_image->getLabel()) ?>" title="<?php echo $this->htmlEscape($_image->getLabel()) ?>" /></a></li>
 			<?php $_count++; ?>
 		<?php endforeach; ?>
 
@@ -75,6 +75,7 @@
 <script type="text/javascript">
 //<![CDATA[
 /* Preload */
+$j(document).ready(function() {
 var images = new Array();
 function preload() {
 	for (i = 0; i < preload.arguments.length; i++) {
@@ -85,6 +86,8 @@ function preload() {
 <?php foreach ($this->getGalleryImages() as $_image): ?>
 preload("<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile())->resize(); ?>");
 <?php endforeach; ?>
+});
 //]]>
 </script>
+
 
