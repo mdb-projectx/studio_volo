@@ -210,10 +210,10 @@ ExpiresByType image/jpg "access plus 1 month"
 ExpiresByType image/jpeg "access plus 1 month"
 
 # CSS
-ExpiresByType text/css "access 1 month"
+ExpiresByType text/css "access 0 seconds"
 
 # Javascript
-ExpiresByType application/javascript "access plus 1 month"
+ExpiresByType application/javascript "access plus 0 seconds"
 
 </IfModule>
 
