@@ -30,21 +30,25 @@
 
 <div id="header-wrap">
 	<?php echo $this->getChildHtml('header_notification') ?>
-<div id="header">
-	<h1><a href="<?php echo $this->getUrl('') ?>"><?php echo  Mage::app()->getWebsite()->getName(); ?></a></h1>
-	
-	<div id="secondary">
-		<?php echo $this->getChildHtml('header_links') ?>
-	</div>
-	
-	<div id="tertiary">
-		<?php echo $this->getChildHtml('topLinksCustom') ?>
-		<div id="fb">
-			<div id="fblike" class="fb-like" data-href="http://www.facebook.com/shopvolo" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
-			<div class="shadow"></div>
+	<div id="header">
+		<h1><a href="<?php echo $this->getUrl('') ?>"><?php echo  Mage::app()->getWebsite()->getName(); ?></a></h1>
+		
+		<div id="header-inner">
+			<div id="secondary">
+				<?php echo $this->getChildHtml('header_links') ?>
+			</div>
+			
+			<div id="tertiary">
+				<?php echo $this->getChildHtml('topLinksCustom') ?>
+				<!--
+				<div id="fb">
+					<div id="fblike" class="fb-like" data-href="http://www.facebook.com/shopvolo" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
+					<div class="shadow"></div>
+				</div>
+				-->
+			</div>
 		</div>
-	</div>
-</div>	
+	</div>	
 </div>
 
 <?php /*
@@ -122,4 +126,5 @@ $j(document).ready(function() {
 </script>
 
 <?php echo $this->getChildHtml('topBar') ?>
+
 

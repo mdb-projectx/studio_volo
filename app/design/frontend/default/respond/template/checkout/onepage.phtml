@@ -118,20 +118,20 @@
 			$items_in_cart = $item_quote->getAllVisibleItems();
 			?>
 		
-			var checkoutStep = 0;
+			var checkoutStep = 1;
 			var checkoutOption = '';
 			if($j(this).closest('#opc-billing').length) {
-				checkoutStep = 1;
-			} else if($j(this).closest('#opc-shipping').length) {
 				checkoutStep = 2;
-			} else if($j(this).closest('#opc-shipping_method').length) {
+			} else if($j(this).closest('#opc-shipping').length) {
 				checkoutStep = 3;
+			} else if($j(this).closest('#opc-shipping_method').length) {
+				checkoutStep = 4;
 				checkoutOption = $j('input[name="shipping_method"]:checked').next('label').find('span').html();
 			} else if($j(this).closest('#opc-payment').length) {
-				checkoutStep = 4;
+				checkoutStep = 5;
 				checkoutOption = $j('#braintree_cc_type option:selected').html();
 			} else if($j(this).closest('#opc-review').length) {
-				checkoutStep = 5;
+				checkoutStep = 6;
 			}
 			
 			dataLayer.push({
@@ -327,5 +327,6 @@
 	});
 //]]>
 </script>
+
 
 

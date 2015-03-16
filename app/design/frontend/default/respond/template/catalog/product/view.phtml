@@ -237,7 +237,7 @@ var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>
 							<?php } ?>
 						</div>
 						<div class="desc">
-							<h2><?php echo $_product->getData('feature_title'); ?></h2>
+							<h3><?php echo $_product->getData('feature_title'); ?></h3>
 							<p><?php echo $_product->getData('feature_content'); ?></p>
 						</div>
 					</li>
@@ -252,7 +252,7 @@ var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>
 							<?php } ?>
 						</div>
 						<div class="desc">
-							<h2><?php echo $_product->getData('feature_title2'); ?></h2>
+							<h3><?php echo $_product->getData('feature_title2'); ?></h3>
 							<p><?php echo $_product->getData('feature_content2'); ?></p>
 						</div>
 					</li>
@@ -267,7 +267,7 @@ var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>
 							<?php } ?>
 						</div>
 						<div class="desc">
-							<h2><?php echo $_product->getData('feature_title3'); ?></h2>
+							<h3><?php echo $_product->getData('feature_title3'); ?></h3>
 							<p><?php echo $_product->getData('feature_content3'); ?></p>
 						</div>
 					</li>
@@ -282,7 +282,7 @@ var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>
 							<?php } ?>
 						</div>
 						<div class="desc">
-							<h2><?php echo $_product->getData('feature_title4'); ?></h2>
+							<h3><?php echo $_product->getData('feature_title4'); ?></h3>
 							<p><?php echo $_product->getData('feature_content4'); ?></p>
 						</div>
 					</li>
@@ -291,10 +291,10 @@ var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>
 		</div>			
 		<div class="extra">
 			<?php if($_product->getQuote()): ?>
+				<h3><span class="name"><?php echo $_product->getData('quote_author'); ?></span><?php if($_product->getQuote_role()) { ?>, <?php echo $_product->getData('quote_role'); } ?></h3>				
 				<?php if($_product->getQuote_avatar()) { ?>
 					<div class="photo"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="<?php echo $this->helper('catalog/image')->init($_product, 'quote_avatar')->resize(67,67); ?>" alt="" /></div>
 				<?php } ?>
-				<h3><span class="name"><?php echo $_product->getData('quote_author'); ?></span><?php if($_product->getQuote_role()) { ?>, <?php echo $_product->getData('quote_role'); } ?></h3>
 				<p>&ldquo;<?php echo $_product->getData('quote'); ?>&rdquo;</p>
 			<?php endif; ?>
 		</div>
@@ -624,5 +624,6 @@ jQuery('#product .social').on('mouseleave', function() {
 </div>
 
 */ ?>
+
 
 

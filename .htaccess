@@ -209,6 +209,8 @@ ExpiresByType image/png "access plus 1 month"
 ExpiresByType image/jpg "access plus 1 month"
 ExpiresByType image/jpeg "access plus 1 month"
 
+ExpiresByType font/opentype "access plus 1 month"
+
 # CSS
 ExpiresByType text/css "access 0 seconds"
 

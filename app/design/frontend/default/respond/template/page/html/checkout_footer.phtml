@@ -28,22 +28,51 @@
 </div><!-- end #wrapper -->
 
 <div id="footer-wrap">	
-	<div id="footer">
-		<div id="subscribe" class="cf"></div>
-		<div id="links" class="cf">
-			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('checkout_footer_cols')->toHtml() ?>
-                </div>
-	</div>
-<!--
-	<div id="meta">
-		<div id="terms">
-			<?php echo $this->getChildHtml('footer_links') ?>
+	<div id="footer" class="cf">
+	
+		<div id="footer-col1">
+			<h3>Shop</h3>
+			<ul>
+				<li><a href="/new.html">New</a></li>
+				<li><a href="/sofas.html">Sofas</a></li>
+				<li><a href="/chairs.html">Chairs</a></li>
+				<li><a href="/tables.html">Tables</a></li>
+				<li><a href="/lighting.html">Lighting</a></li>
+			</ul>
 		</div>
-		<div id="address">
-			<?php echo $this->getCopyright() ?>
+		
+		<div id="footer-col2">
+			<h3>Support</h3>
+			<?php echo $this->getChildHtml('footer_cols') ?>
+			
+			<h3>Call Us</h3>
+			<p>855-367-8656</p>
 		</div>
+		
+		<div id="footer-col3">
+			<div id="subscribe" class="cf">
+				<div id="newsletter-area">
+					<form action="/newsletter/subscriber/new/" method="post" id="footer-newsletter-validate-detail">
+						<h3><label for="footer-newsletter">Join our newsletter<label></h3>
+						<div id="newsletter-inputs" class="cf">
+							<input name="email" id="footer-newsletter" class="input-text required-entry-email validate-email" type="text" value="" placeholder="Your email" />
+							<button type="submit" title="Submit" onclick="if(location.hostname.substring(0,7) != 'staging') { mixpanel.track('Newsletter Signup'); } else { console.log('mixpanel.track(\'Newsletter Signup\');'); } setTimeout(function() { $j('#newsletter-validate-detail').submit();}, 1000); dataLayer.push({'event': 'newsletterSignup'});">Subscribe</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div id="follow">
+				<ul class="cf">
+					<li><a class="footer_facebook" href="http://www.facebook.com/shopvolo" target="_blank">Facebook</a></li>
+					<li><a class="footer_twitter" href="http://twitter.com/shopvolo" target="_blank">Twitter</a></li>
+					<li><a class="footer_pinterest" href="http://pinterest.com/shopvolo" target="_blank">Pinterest</a></li>
+					<li><a class="footer_houzz" href="http://www.houzz.com/pro/volodesign/volo-design" target="_blank">Houzz</a></li>
+				</ul>
+			</div>
+		</div>
+		
 	</div>
--->
 </div>
 
 <script type="text/javascript">
@@ -53,3 +82,6 @@
     //new Varien.searchForm('footer-newsletter-validate-detail', 'footer-newsletter', 'Enter your email address');
 //]]>
 </script>
+
+
+
