@@ -25,6 +25,8 @@
  */
 ?>
 <?php if ($this->isPossibleOnepageCheckout()):?>
+
+	<?php /*
 	<?php if($this->helper('customer')->isLoggedIn()) :?>
 		<button type="button" title="<?php echo $this->__('Proceed to Checkout') ?>" class="button btn-proceed-checkout btn-checkout<?php if ($this->isDisabled()):?> no-checkout<?php endif; ?>"<?php if ($this->isDisabled()):?> disabled="disabled"<?php endif; ?> onclick="window.location='<?php echo $this->getCheckoutUrl() ?>';"><?php echo $this->__('Proceed to Checkout') ?> &raquo;</button>
 	<?php else :?>	
@@ -46,4 +48,7 @@
 		<script type="text/javascript" src="<?php echo $this->getSkinUrl('quicklogin/tinybox.js') ?>"></script>
 		<script type="text/javascript" src="<?php echo $this->getSkinUrl('quicklogin/quicklogin.js') ?>"></script>
 	<?php endif; ?>		
+	*/ ?>
+		<button type="button" title="<?php echo $this->__('Proceed to Checkout') ?>" class="button btn-proceed-checkout btn-checkout<?php if ($this->isDisabled()):?> no-checkout<?php endif; ?>"<?php if ($this->isDisabled()):?> disabled="disabled"<?php endif; ?> onclick="window.location='<?php echo $this->getCheckoutUrl() ?>';"><?php echo $this->__('Proceed to Checkout') ?> &raquo;</button>
 <?php endif?>
+
