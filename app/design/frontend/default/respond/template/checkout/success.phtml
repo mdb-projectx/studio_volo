@@ -25,6 +25,23 @@
  */
 ?>
 
+<!-- Facebook Conversion Code for Checkout on VOLO Design -->
+<script>(function() {
+var _fbq = window._fbq || (window._fbq = []);
+if (!_fbq.loaded) {
+var fbds = document.createElement('script');
+fbds.async = true;
+fbds.src = '//connect.facebook.net/en_US/fbds.js';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(fbds, s);
+_fbq.loaded = true;
+}
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6011977773621', {'value':'<?php echo $this->getOrderTotal(); ?>','currency':'USD'}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6011977773621&amp;cd[value]=<?php echo $this->getOrderTotal(); ?>&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+
 <script>
 if(location.hostname.substring(0,7) != 'staging') {
 	mixpanel.track('Purchase',{ 'Order Value': '<?php echo $this->getOrderTotal(); ?>', 'Quantity': '<?php echo $this->getOrderQuantity(); ?>'});
@@ -200,5 +217,6 @@ var google_conversion_value = '<?php echo $this->getOrderTotal(); ?>';
 <img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/985062003/?value=<?php echo $this->getOrderTotal(); ?>&amp;label=doe_CJ3LwwUQ87Tb1QM&script=0" />
 </div>
 </noscript>
+
 
 
