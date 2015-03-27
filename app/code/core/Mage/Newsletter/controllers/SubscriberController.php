@@ -363,7 +363,7 @@ $invite_html ='
 									<td align="center" valign="top" class="introContent" style="padding: 0 0 0 0;border-collapse: collapse;background: #ffffff;"><a href="'.$baseurl.'"><img src="'.$baseurl.'/skin/frontend/default/respond/invitefriend/newsletter-top.jpg" width="720" height="324" alt="Welcome to VOLO" style="vertical-align: middle;display: block;border: 0;outline: none;text-decoration: none;height: auto;line-height: 100%;"></a></td>
 								</tr>
 								<tr>
-									<td align="center" valign="top"><p style="margin-top: 19px;margin-bottom: 19px;color: #212121;font-size: 17px;font-weight: bold;line-height: 19px;font-family: Verdana, sans-serif;text-align: center;">Use Promo Code NEWMEMBER-0401 at Checkout</p></td>
+									<td align="center" valign="top"><p style="margin-top: 19px;margin-bottom: 19px;color: #212121;font-size: 17px;font-weight: bold;line-height: 19px;font-family: Verdana, sans-serif;text-align: center;">Use Promo Code NEWMEMBER0401 at Checkout</p></td>
 								</tr>
 								<tr>
 									<td align="center" valign="top" class="introContent" style="padding: 0 0 0 0;border-collapse: collapse;background: #ffffff;"><a href="'.$baseurl.'"><img src="'.$baseurl.'/skin/frontend/default/respond/invitefriend/newsletter-body.jpg" width="720" height="453" alt="Start exploring" style="vertical-align: middle;display: block;border: 0;outline: none;text-decoration: none;height: auto;line-height: 100%;"></a></td>
@@ -461,7 +461,7 @@ $invite_message ='
 									<td align="center" valign="top" class="introContent" style="padding: 0 0 0 0;border-collapse: collapse;background: #ffffff;"><a href="'.$baseurl.'"><img src="'.$baseurl.'/skin/frontend/default/respond/invitefriend/newsletter-top.jpg" width="720" height="324" alt="Welcome to VOLO" style="vertical-align: middle;display: block;border: 0;outline: none;text-decoration: none;height: auto;line-height: 100%;"></a></td>
 								</tr>
 								<tr>
-									<td align="center" valign="top"><p style="margin-top: 19px;margin-bottom: 19px;color: #212121;font-size: 17px;font-weight: bold;line-height: 19px;font-family: Verdana, sans-serif;text-align: center;">Use Promo Code NEWMEMBER-0401 at Checkout</p></td>
+									<td align="center" valign="top"><p style="margin-top: 19px;margin-bottom: 19px;color: #212121;font-size: 17px;font-weight: bold;line-height: 19px;font-family: Verdana, sans-serif;text-align: center;">Use Promo Code NEWMEMBER0401 at Checkout</p></td>
 								</tr>
 								<tr>
 									<td align="center" valign="top" class="introContent" style="padding: 0 0 0 0;border-collapse: collapse;background: #ffffff;"><a href="'.$baseurl.'"><img src="'.$baseurl.'/skin/frontend/default/respond/invitefriend/newsletter-body.jpg" width="720" height="453" alt="Start exploring" style="vertical-align: middle;display: block;border: 0;outline: none;text-decoration: none;height: auto;line-height: 100%;"></a></td>
