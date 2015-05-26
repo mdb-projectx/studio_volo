@@ -94,7 +94,7 @@ class Inchoo_SimpleContact_IndexController extends Mage_Core_Controller_Front_Ac
                     $dbhost='volo.ceaw3hvwerv9.us-east-1.rds.amazonaws.com';
                     $dbuser='mdb_admin';
                     $dbpasswd='million888';
-                    $dbname='volo_staging';
+                    $dbname='volo';
 
                     $link = mysql_connect($dbhost, $dbuser, $dbpasswd);
                     if (!$link) {
