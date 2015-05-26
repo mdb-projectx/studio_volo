@@ -197,6 +197,9 @@ var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>
 						<span class="or"><?php echo $this->__('OR') ?></span>
 					<?php endif; ?>
 				<?php endif; ?>
+                
+                <a href="/fabric-samples.html" id="sample-link">+ Free fabric samples</a>
+                
 				<?php echo $this->getChildHtml('addto') ?>
 			</div>
 		<?php elseif (!$_product->isSaleable()): ?>
