@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+       <Mdb_Tracking>
+             <version>0.1.0</version>
+       </Mdb_Tracking>
+    </modules>
+    
+    <global>
+        <models>
+            <tracking>
+                <class>Mdb_Tracking_Model</class>
+            </tracking>
+        </models>
+    </global>
+    
+    <crontab>
+        <jobs>
+            <Tracking_importTracking>
+                <schedule><cron_expr>15 1 * * *</cron_expr></schedule>
+                <run><model>tracking/observer::importTracking</model></run>
+            </Tracking_importTracking>
+        </jobs>
+    </crontab>    
+</config>
