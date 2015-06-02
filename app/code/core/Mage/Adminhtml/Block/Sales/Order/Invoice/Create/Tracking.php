@@ -88,6 +88,9 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Tracking extends Mage_Admi
             $this->getInvoice()->getStoreId()
         );
         $carriers['custom'] = Mage::helper('sales')->__('Custom Value');
+		$carriers['EFW'] = Mage::helper('sales')->__('Estes Freight Forwarding');
+		$carriers['SUN'] = Mage::helper('sales')->__('Sun Delivery');
+		$carriers['MDBDEL'] = Mage::helper('sales')->__('MDB Delivery');
         foreach ($carrierInstances as $code => $carrier) {
             if ($carrier->isTrackingAvailable()) {
                 $carriers[$code] = $carrier->getConfigData('title');
@@ -96,3 +99,4 @@ class Mage_Adminhtml_Block_Sales_Order_Invoice_Create_Tracking extends Mage_Admi
         return $carriers;
     }
 }
+
