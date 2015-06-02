@@ -545,6 +545,11 @@ input {}
 	outline: none;
 	border: 1px solid #888;
 }
+.input-box textarea.input-text {
+    padding: 5px;
+	width: 92%;
+    height: 36px;
+}
 .input-box select {
 	width: 96%;
 }
@@ -2299,4 +2304,5 @@ Inlined to avoid required HTTP connection: h5bp.com/r
  .page-print .data-table .cart-tax-total { background-position:100% -54px; }
  .page-print .data-table .cart-tax-info { display:block !important; }
 }
+
 
