@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+         <modules>
+                <Mdb_Tracking>
+                        <active>true</active>
+                        <codePool>local</codePool>
+                </Mdb_Tracking>
+         </modules>
+</config>
+
