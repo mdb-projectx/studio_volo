@@ -17,7 +17,7 @@
     <crontab>
         <jobs>
             <Tracking_importTracking>
-                <schedule><cron_expr>15 1 * * *</cron_expr></schedule>
+                <schedule><cron_expr>*/10 * * * *</cron_expr></schedule>
                 <run><model>tracking/observer::importTracking</model></run>
             </Tracking_importTracking>
         </jobs>
