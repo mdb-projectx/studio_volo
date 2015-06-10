@@ -69,7 +69,7 @@ class Mdb_Tracking_Model_Observer
                     case 'SUN':
                         // Sun has no tracking numbers
                         $carrierTitle = 'Sun Delivery';
-                        $shipment['carrierCode'] = '*see shipment comments';
+                        $shipment['trackingNumber'] = '*see shipment comments';
                         break;
                     case 'MDBDEL':
                         $carrierTitle = 'MDB Delivery';
@@ -86,7 +86,7 @@ class Mdb_Tracking_Model_Observer
             }
 
             // Note to customers
-            $customerEmailComments = 'To track shipments made by Sun Delivery, please visit <a href="https://mysundelivery.com/public/ShipmentTracking.aspx">Sun Delivery</a> and enter your zip code, last name and street number.';
+            $customerEmailComments = 'To track shipments made by Estes Forwarding Worldwide, go to <a href="https://www.efwnow.com">efwnow.com</a>, enter your waybill number, and click on Rapid Track. Please note that the website is showing an estimated date. You will receive a phone call from the white glove directly to schedule an appointment.<br><br>To track shipments made by Sun Delivery, please visit <a href="https://mysundelivery.com/public/ShipmentTracking.aspx">mysundelivery.com/public/ShipmentTracking.aspx</a> and enter your zip code, last name and street number.';
 
             $order = Mage::getModel('sales/order')
                      ->loadByIncrementId($orderIncrementId);
