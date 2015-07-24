@@ -59,6 +59,10 @@
 			<h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
 		</div>	
 	<?php endif; ?>
+    
+    <?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
+        <p style="margin: 0 5px 1.5em;"><?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
+    <?php endif; ?>
 
 	<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 	
@@ -74,3 +78,4 @@
 	<?php endif; ?>
 
 </div>
+
