@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mdb_CustomNewsletter>
+            <version>1.0.0</version>
+        </Mdb_CustomNewsletter>
+    </modules>
+    <frontend>
+        <routers>
+            <newsletter>
+                <args>
+                    <modules>
+                        <customnewsletter before="Mage_Newsletter">Mdb_CustomNewsletter</customnewsletter>
+                    </modules>
+                </args>
+            </newsletter>
+        </routers>
+    </frontend>    
+</config>
