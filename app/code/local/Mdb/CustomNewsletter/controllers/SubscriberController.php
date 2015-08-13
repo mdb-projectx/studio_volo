@@ -530,7 +530,7 @@ End of Newletter Signup
 ******************/
 
 			Mage::getModel('core/cookie')->set('Subscribed', true);
-                    $session->addSuccess($this->__('Thank you for your subscription.'));
+                    $session->addSuccess($this->__('Thank you for your subscription. <img height="1" width="1" alt="" src="https://ct.pinterest.com/?tid=bm58xX5UoxI" style="border: 0 !important;"/>'));
                 }
             }
             catch (Mage_Core_Exception $e) {
