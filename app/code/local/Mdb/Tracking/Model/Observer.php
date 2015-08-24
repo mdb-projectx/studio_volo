@@ -14,7 +14,8 @@ class Mdb_Tracking_Model_Observer
         require_once '/srv/www/volo/cronjob/php/PHPExcel1.8/PHPExcel/IOFactory.php';
 		
 		if (!file_exists($path.$filename)) {
-            exit("file not found" . EOL);
+            return;
+            //exit("file not found" . EOL);
         } 
 
         $objReader = PHPExcel_IOFactory::createReader('Excel2007');
@@ -126,6 +127,8 @@ class Mdb_Tracking_Model_Observer
                 }
             }
         }
+        
+        return;
     }
 
     /**
