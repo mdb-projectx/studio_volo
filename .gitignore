@@ -1,6 +1,7 @@
 robots.txt
 .htaccess
+testing.txt
 index.php
 downloader
-media/*
-var/cache/*
+./media/*
+./var/cache/*
