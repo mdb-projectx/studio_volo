@@ -158,7 +158,7 @@ class Inchoo_SimpleContact_IndexController extends Mage_Core_Controller_Front_Ac
                             $curl_post_data = array(
                                     "key" => "8de2f48d-6932-4918-9af1-ebd722957d68",
                                     'message' => array(
-                                            "html" => 'Hi!<br><br>We received your fabric sample order! Our team is preparing your fabric samples for shipment. Please allow 3-5 business days for the fabric samples to arrive. Thanks for visiting VOLO Design!<br><br>Cheers,<br><a href="http://www.volodesign.com">VOLO Design</a>',
+                                            "html" => 'Hi!<br><br>We received your fabric sample order! Our team is preparing your fabric samples for shipment. Please allow 3-5 business days for the fabric samples to arrive. Thanks for visiting VOLO Design!<br><br>Cheers,<br><a href="http://www.capsulehome.com">VOLO Design</a>',
                                             "text" => 'Hi!
 
     We received your fabric sample order! Our team is preparing your fabric samples for shipment. Please allow 3-5 business days for the fabric samples to arrive. Thanks for visiting VOLO Design!
@@ -166,7 +166,7 @@ class Inchoo_SimpleContact_IndexController extends Mage_Core_Controller_Front_Ac
     Cheers,
     VOLO Design
 
-    http://www.volodesign.com',
+    http://www.capsulehome.com',
                                             "from_email" => "contact@volodesign.com",
                                             "from_name" =>  "VOLO Design",
                                             "subject" => "VOLO Fabric Sample Order",

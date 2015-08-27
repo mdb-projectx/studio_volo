@@ -1,7 +1,7 @@
 sku,delivery_time
-1011FTGRYL,15 - 17 weeks
-1011FTGRYL1,15 - 17 weeks
-1011FTGRYL2,15 - 17 weeks
+1011FTGRYL,1 week
+1011FTGRYL1,1 week
+1011FTGRYL2,1 week
 1011FTGRYR,1 week
 1011FWLGL,1 week
 1011FWLGL1,1 week
@@ -17,23 +17,24 @@ sku,delivery_time
 1012FTGRYR2,1 week
 10132FWD,1 week
 1013FTGRY,1 week
-1013FWD,1 week
 1014FTGRY,1 week
 1014LNCH,1 week
+1018FTGRY,1 week
+1018LNWHT,1 week
 101FTGRY,1 week
 101FWLG,1 week
 101LNOAT,1 week
-102FTGRY,12 - 14 weeks
-102FWLG,15 - 17 weeks
-102LNOAT,1 week
+102FTGRY,9 - 11 weeks
+102FWLG,9 - 11 weeks
+102LNOAT,19 - 21 weeks
 103FTGRY,1 week
-103FWLG,1 week
+103FWLG,9 - 11 weeks
 103LNCH,1 week
 103LNOAT,1 week
 103LNSA,1 week
 103LNWHT,1 week
 104FTGRY,1 week
-104FWLG,1 week
+104FWLG,9 - 11 weeks
 104LNCH,1 week
 104LNOAT,1 week
 104LNSA,1 week
@@ -41,7 +42,7 @@ sku,delivery_time
 105FTGRY,1 week
 105FWLG,1 week
 105LNOAT,1 week
-106FTGRY,12 - 14 weeks
+106FTGRY,1 week
 106FWLG,1 week
 106LNOAT,1 week
 106LTHBRN,1 week
@@ -54,14 +55,14 @@ sku,delivery_time
 108FWLG,1 week
 108LNOAT,1 week
 108LTHBRN,1 week
-109FTGRY,1 week
+109FTGRY,9 - 11 weeks
 109FWLG,1 week
 109LNCH,1 week
 109LNOAT,1 week
 109LNSA,1 week
 109LNWHT,1 week
 109LTHBRN,1 week
-110FTGRY,1 week
+110FTGRY,9 - 11 weeks
 110FWLG,1 week
 110LNCH,1 week
 110LNOAT,1 week
@@ -75,10 +76,10 @@ sku,delivery_time
 1127LNWHT,1 week
 1128T,1 week
 1129ST,1 week
-112FTGRY,1 week
+112FTGRY,9 - 11 weeks
 112FWLG,1 week
-112LNOAT,1 week
-112LTHBRN,12 - 14 weeks
+112LNOAT,9 - 11 weeks
+112LTHBRN,1 week
 1131GRY,1 week
 1132GRY,1 week
 1133BLU,1 week
@@ -94,8 +95,8 @@ sku,delivery_time
 1201WHT,1 week
 1202WD,1 week
 1202WHT,12 - 14 weeks
-120BLK,1 week
-120WHT,1 week
+120BLK,12 - 14 weeks
+120WHT,12 - 14 weeks
 1210FTGRY,1 week
 1210FWLG,1 week
 1210LNOAT,1 week
@@ -105,16 +106,14 @@ sku,delivery_time
 123FTGRY,1 week
 123FWLG,1 week
 124STWBLK,1 week
-125,1 week
-129SIL,1 week
-131,1 week
+125,12 - 14 weeks
+129SIL,12 - 14 weeks
+131,12 - 14 weeks
 132YEL,1 week
-133BLK,1 week
-133WHT,1 week
 1351,1 week
-1351WHT,1 week
+1351WHT,12 - 14 weeks
 1352,1 week
-1352WHT,1 week
+1352WHT,12 - 14 weeks
 1353,1 week
 1353WHT,12 - 14 weeks
 136BLK,1 week
@@ -123,12 +122,23 @@ sku,delivery_time
 137BLK,12 - 14 weeks
 137RED,1 week
 137WHT,1 week
-140BLK,1 week
-140WHT,1 week
+140BLK,12 - 14 weeks
+140WHT,12 - 14 weeks
 141BLK,1 week
 141SIL,1 week
 144WD,1 week
-153GS,1 week
+153GS,12 - 14 weeks
 154WHT,1 week
 171WHT,1 week
 172STW,1 week
+1019FTGRY,1 week
+1019FWLG,1 week
+1020FTGRY,1 week
+1020FWLG,1 week
+1021FTGRY,1 week
+1021FTLG,1 week
+1021LNWHT,1 week
+1022FTGRY,1 week
+1022FTLG,1 week
+1022LNWHT,1 week
+1022LNWHT,1 week

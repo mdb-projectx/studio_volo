@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package>
+    <name>Psquared_PriceRounding</name>
+    <version>1.0.2</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/gpl-license.php">GPL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Price rounding for the product catalog in Magento.</summary>
+    <description>This tiny extension allows to round the prices in the product catalog to force integer values instead of ugly decimal values. This is helpful in combination with currency convertion.&#xD;
+&#xD;
+Example: 100 &#x20AC; =&gt; USD 131.26&#xD;
+&#xD;
+With enabled price rounding the price will be USD 131.00&#xD;
+&#xD;
+Features:&#xD;
+&#xD;
+- Enable or disable the price rounding per store view.&#xD;
+- Choose the rounding method per store view: round, ceil, floor (see math functions in PHP manual for more informations.)&#xD;
+Settings under System - Configuration - Catalog - Catalog - Price Rounding.&#xD;
+&#xD;
+GitHub Repository:&#xD;
+&#xD;
+https://github.com/patrickbaber/Psquared_PriceRounding</description>
+    <notes>- Version with the needed files included. Sorry for that. It's my first extension ;-)</notes>
+    <authors><author><name>p squared</name><user>p_squared</user><email>realityfforce@yahoo.de</email></author></authors>
+    <date>2013-05-02</date>
+    <time>16:54:31</time>
+    <contents><target name="magecommunity"><dir name="Psquared"><dir name="PriceRounding"><dir name="Helper"><file name="Data.php" hash="1b2b96bfc80ac99393e0c2c4bffa815c"/></dir><dir name="Model"><dir name="Directory"><file name="Currency.php" hash="0963ad057f8f833ff87cd7c6e6fd04e7"/></dir><file name="RoundingMethods.php" hash="7b74bc011066b3e1100d13be3377f3af"/></dir><dir name="etc"><file name="config.xml" hash="02de378c74b14c6dddc3dad485c4362e"/><file name="system.xml" hash="42c5feed1875eacaaaab118edf9c99e3"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Psquared_PriceRounding.xml" hash="57eee98e9703518536d3a0f163708b8b"/></dir></target><target name="magelocale"><dir><dir name="de_DE"><file name="Psquared_PriceRounding.csv" hash="8b20629f8fa34e9477a9e21f6f90b629"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

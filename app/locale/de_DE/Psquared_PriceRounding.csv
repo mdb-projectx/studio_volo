@@ -1,0 +1,8 @@
+"Price Rounding","Preisrundung"
+"Enable Price Rounding","Aktiviere Preisrundung"
+"Rounding Method","Rundungsmethode"
+"round","round - Mathmatisches Runden"
+"ceil","ceil - Aufrunden"
+"floor","floor - Abrunden"
+"Enables price rounding to force integer prices.","Aktiviert die Preisrundung, um ganzzahlige Preise zu erzwingen."
+"See the math functions in the PHP manual for more informations.","Lesen Sie den Abschnitt \"Mathematische Funktionen\" in der PHP-Dokumentation für weitere Informationen."
