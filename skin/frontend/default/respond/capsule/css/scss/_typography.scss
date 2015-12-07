@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'DK Formosa';
+    src: url('fonts/dk_formosa-webfont.eot');
+    src: url('fonts/dk_formosa-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/dk_formosa-webfont.woff2') format('woff2'),
+         url('fonts/dk_formosa-webfont.woff') format('woff'),
+         url('fonts/dk_formosa-webfont.ttf') format('truetype'),
+         url('fonts/dk_formosa-webfont.svg#dk_formosaregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    font-family: $font-primary;
+    font-size: 100%;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+}
+
+b, strong {
+    font-weight: bold;
+}   
+em, i {
+    font-style: italic;   
+}
+
+p, ol, ul {
+    margin: 1.5em 0;   
+}
+ol, ul {
+    margin: 1.5em 0 1.5em 1.5em;   
+}
+ol {
+    list-style: decimal;   
+}
+ul {
+    list-style: disc;   
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;   
+    margin: 0;
+}
+h2 {
+    text-transform: uppercase;
+    font-size: 36px;   
+}
+h3 {
+    font-size: 36px;
+}
+h4 {
+    font-size: 21px;
+    color: $grey;
+}
+
+.caps {
+    font-family: $font-secondary;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}

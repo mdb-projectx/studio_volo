@@ -1,0 +1,484 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<div class="top-bar">
+<div id="breadcrumbs">
+<a title="Go to Home Page" href="/">Home</a>
+<span>&rsaquo;</span>
+Contact
+</div>
+</div>
+
+<div id="contact" class="cf">
+
+<div class="page-content cf">
+
+	<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+
+	<div class="contact-right">
+		<h1><?php echo Mage::helper('contacts')->__('Contact Us') ?></h1>
+		<p>
+			(855) 367-8656<br>
+			Mon-Fri 9-5 PST
+		</p>
+		<p>
+			VOLO Design<br>
+			855 Washington Blvd.<br>
+			Montebello, CA 90640
+		</p>
+	</div>
+		
+	<div class="contact-left">
+		<h1><?php echo Mage::helper('contacts')->__('Email Us') ?></h1>
+		<form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post">
+			<input type="hidden" value="" name="ip" id="ip">
+			<div class="fieldset">
+				<ul class="form-list">
+					<li class="wide">
+						<label for="name" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Name') ?></label>
+						<div class="input-box">
+							<input name="name" id="name" title="<?php echo Mage::helper('contacts')->__('Name') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" />
+						</div>
+					</li>
+					<li class="wide">
+						<label for="email" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Email') ?></label>
+						<div class="input-box">
+							<input name="email" id="email" title="<?php echo Mage::helper('contacts')->__('Email') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserEmail()) ?>" class="input-text required-entry validate-email" type="text" />
+						</div>
+					</li>
+					<!--
+					<li class="wide">
+						<label for="telephone"><?php echo Mage::helper('contacts')->__('Telephone (optional)') ?></label>
+						<div class="input-box">
+							<input name="telephone" id="telephone" title="<?php echo Mage::helper('contacts')->__('Telephone') ?>" value="" class="input-text" type="text" />
+						</div>
+					</li>
+					-->
+					<li class="wide" style="display: none">
+						<label for="fax"><?php echo Mage::helper('contacts')->__('Fax (leave this blank if you\'re human)') ?></label>
+						<div class="input-box">
+							<input name="fax" id="fax" title="<?php echo Mage::helper('contacts')->__('Fax') ?>" value="" class="input-text" type="text" />
+						</div>
+					</li>
+					<li class="wide" id="subjectwrap">
+						<label for="subject" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Topic') ?></label>
+						<div class="input-box">
+							<select id="contact_subject" name="subject" class="required-entry">
+								<option value="">(Select a topic)</option>
+								<option value="My Orders" data-next="orders">My Orders</option>
+								<option value="My Account" data-next="account">My Account</option>
+								<option value="Products" data-next="products">Products</option>
+								<option value="General Inquiry" data-next="general">General Inquiry</option>
+								<option value="Site Feedback" data-next="site">Site Feedback</option>
+							</select>
+							<select id="contact_subject2" name="subject2" style="display: none; margin-top: 10px;">
+								<option value="">(Select a topic)</option>
+							</select>
+							<select id="contact_subject3" name="subject3" style="display: none; margin-top: 10px;">
+								<option value="">(Select a topic)</option>
+							</select>
+							<select id="contact_subject4" name="subject4" style="display: none; margin-top: 10px;">
+								<option value="">(Select a topic)</option>
+							</select>
+							
+							
+							<script>							
+								var contactSubjects = [
+									{
+										id: 'orders',
+										level: 2,
+										topics: [
+											{text: 'Where are my items?', next: 'orders_where'},
+											{text: 'Returns', next: 'orders_returns'},
+											{text: 'Cancellations', next: 'orders_cancellations'},
+											{text: 'Changes to My Order', next: 'orders_changes'},
+											{text: 'Payment/Credits', next: 'orders_payments'},
+											{text: 'Order Problems', next: 'orders_problems'},
+											{text: 'Other', next: 'orders_other'}
+										]
+									},
+									{
+										id: 'orders_where',
+										level: 3,
+										topics: [
+											{text: 'Check Status of Order'},
+											{text: 'Late Shipping'},
+											{text: 'How Do I Track My Package?'},
+											{text: 'Tracking Number Issues', next: 'orders_where_tracking'},
+											{text: 'Incomplete Shipment'},
+											{text: 'Received Incorrect Item'},
+											{text: 'Backordered'},
+											{text: 'Customs'},
+											{text: 'Other'}							
+										]
+									},
+									{
+										id: 'orders_where_tracking',
+										level: 4,
+										topics: [
+											{text: 'Tracking shows delivered but item not received'},
+											{text: 'Tracking shows incorrect delivery location'},
+											{text: 'Tracking does not work'}	
+										]
+									},
+									{
+										id: 'orders_returns',
+										level: 3,
+										topics: [
+											{text: 'How do I return an item?'},
+											{text: 'Returned item, where is my refund?'},
+											{text: 'Refund Amount is Incorrect'},
+											{text: 'Check Status of Return'},
+											{text: 'Issues with Return label'},
+											{text: 'Other'}							
+										]
+									},
+									{
+										id: 'orders_cancellations',
+										level: 3,
+										topics: [
+											{text: 'How do I cancel my order or items?'},
+											{text: 'Status of Cancellation'},
+											{text: 'Cancellation Approved, Where is My Refund?'},
+											{text: 'Other'}						
+										]
+									},
+									{
+										id: 'orders_changes',
+										level: 3,
+										topics: [
+											{text: 'Change Delivery Location'},
+											{text: 'Change Ship Speed'},
+											{text: 'Change Payment Method'},
+											{text: 'Change Billing Information'},
+											{text: 'Other'}
+										]
+									},
+									{
+										id: 'orders_payments',
+										level: 3,
+										topics: [
+											{text: 'Charged Incorrect Amount'},
+											{text: 'Price Has Changed on Web'},
+											{text: 'Forgot to use/issue using promo code or CSN rewards'},
+											{text: 'Unknown Charge'},
+											{text: 'Gift Cards'},
+											{text: 'Shipping/Tax Charges'},
+											{text: 'Found Better Price Elsewhere'},
+											{text: 'Payment Status'},
+											{text: 'Credits'},
+											{text: 'Other'}					
+										]
+									},
+									{
+										id: 'orders_problems',
+										level: 3,
+										topics: [
+											{text: 'Damaged Package/Item'},
+											{text: 'Defective Item'},
+											{text: 'Missing Items/Parts'},
+											{text: 'Received Wrong Item'},
+											{text: 'Item Not as Expected', next: 'orders_problems_expected'},
+											{text: 'Duplicate Order'},
+											{text: 'Shipping or Delivery Issues', next: 'orders_problems_shipping'},
+											{text: 'Other'}
+										]
+									},
+									{
+										id: 'orders_problems_expected',
+										level: 4,
+										topics: [
+											{text: 'Does not match website description'},
+											{text: 'Does not meet expectations'}
+										]
+									},
+									{
+										id: 'orders_problems_shipping',
+										level: 4,
+										topics: [
+											{text: 'Late Shipment'},
+											{text: 'Late Delivery'},
+											{text: 'Tracking number issues'},
+											{text: 'Other'}
+										]
+									},
+									{
+										id: 'orders_other',
+										level: 3,
+										topics: [
+											{text: 'Product Question'},
+											{text: 'Give Us Feedback!'},
+											{text: 'Gift Cards'},
+											{text: 'Other'}					
+										]
+									},
+									{
+										id: 'account',
+										level: 2,
+										topics: [
+											{text: 'Update Shipping Addresses'},
+											{text: 'Update Billing Addresses'},
+											{text: 'Update Payment Options'},
+											{text: 'Close My Account'},
+											{text: 'Change My Email Preferences'},
+											{text: 'Change Email or Password'},
+											{text: 'Other'}
+										]
+									},
+									{
+										id: 'products',
+										level: 2,
+										topics: [
+											{text: 'Product Question', next: 'products_products'},
+											{text: 'International Shipping'},
+											{text: 'Shipping and Delivery', next: 'products_shipping'},
+											{text: 'Payment and Promotions'},
+											{text: 'Issues with Checkout'},
+											{text: 'Return Policy'},
+											{text: 'Other'}
+										]
+									},
+									{
+										id: 'products_products',
+										level: 3,
+										topics: [
+											{text: 'Availability'},
+											{text: 'Price'},
+											{text: 'Dimensions'},
+											{text: 'Sizes'},
+											{text: 'Weight'},
+											{text: 'Color/Finish'},
+											{text: 'Included Components'},
+											{text: 'Construction Materials'},
+											{text: 'Assembly'},
+											{text: 'Compatibility'},
+											{text: 'Replacement Parts', next: 'products_products_parts'},
+											{text: 'Reviews'},
+											{text: 'Request Swatches'},
+											{text: 'Other'}
+										]
+									},
+									{
+										id: 'products_products_parts',
+										level: 4,
+										topics: [
+											{text: 'Purchased original product from us'},
+											{text: 'Did not purchase original product from us'}
+										]
+									},
+									{
+										id: 'products_shipping',
+										level: 3,
+										topics: [
+											{text: 'Pricing'},
+											{text: 'International Shipping'},
+											{text: 'Shipping Methods'},
+											{text: 'Shipping and Delivery Estimates'}
+										]
+									},
+									{
+										id: 'general',
+										level: 2,
+										topics: [
+											{text: 'Promotions'},
+											{text: 'Give Us Feedback', next: 'general_feedback'},
+											{text: 'Payment and Promotions'},
+											{text: 'Shipping and Delivery', next: 'general_shipping'},
+											{text: 'Issues with Checkout'},
+											{text: 'Return Policy'},
+											{text: 'Replacements'},
+											{text: 'Gift Cards'},
+											{text: 'Registry and Wish List', next: 'general_registry'},
+											{text: 'Mailing List'},
+											{text: 'Website Questions'},
+											{text: 'Career'},
+											{text: 'Store Locations'},
+											{text: 'Unknown Charge'},
+											{text: 'Interested in Becoming a Supplier'},
+											{text: 'Media Request'},
+											{text: 'Other'}
+										]
+									},
+									{
+										id: 'general_feedback',
+										level: 3,
+										topics: [
+											{text: 'Opportunities for Improvement'},
+											{text: 'Positive Feedback'},
+											{text: 'Website'},
+											{text: 'Other'}
+										]
+									},
+									{
+										id: 'general_shipping',
+										level: 3,
+										topics: [
+											{text: 'Pricing'},
+											{text: 'International Shipping'},
+											{text: 'Shipping Methods'},
+											{text: 'Shipping and Delivery Estimates'}
+										]
+									},
+									{
+										id: 'general_registry',
+										level: 3,
+										topics: [
+											{text: 'Trouble with someone else\'s registry or wish list'},
+											{text: 'Trouble with my own registry or wish list'}
+										]
+									},
+									{
+										id: 'site',
+										level: 2,
+										topics: [
+											{text: 'I want to submit a compliment', next: 'site_compliment'},
+											{text: 'I want to report a problem', next: 'site_problem'}
+										]
+									},
+									{
+										id: 'site_compliment',
+										level: 3,
+										topics: [
+											{text: 'Comment about our service'},
+											{text: 'Comment about our website'}
+										]
+									},
+									{
+										id: 'site_problem',
+										level: 3,
+										topics: [
+											{text: 'Comment about our service'},
+											{text: 'Comment about our website'}
+										]
+									}
+								];
+								
+								$j('#subjectwrap').on('change', 'select', function() {
+									var next = $j(this).find('option:selected').attr('data-next');
+									
+									if($j(this).attr('id') == 'contact_subject') {
+										$j('#contact_subject2').show();
+										$j('#contact_subject3, #contact_subject4').hide();
+									} else if($j(this).attr('id') == 'contact_subject2') {
+										if(next != 'undefined' && next != '') {
+											$j('#contact_subject2, #contact_subject3').show();
+											$j('#contact_subject4').hide();
+										} else {
+										$j('#contact_subject2').show();
+										$j('#contact_subject3, #contact_subject4').hide();
+										}
+									} else if($j(this).attr('id') == 'contact_subject3') {
+										if(next != 'undefined' && next != '') {
+											$j('#contact_subject2, #contact_subject3, #contact_subject4').show();
+										} else {
+										$j('#contact_subject2, #contact_subject3').show();
+										$j('#contact_subject4').hide();
+										}
+									} else if($j(this).attr('id') == 'contact_subject4') {
+										$j('#contact_subject2, #contact_subject3, #contact_subject4').show();
+									}
+									
+									if(next != 'undefined' && next != '') {
+										for(var i = 0; i < contactSubjects.length; i++) {
+											if(contactSubjects[i].id == next) {
+												$j('#contact_subject' + contactSubjects[i].level + ' option').remove();
+												$j('#contact_subject' + contactSubjects[i].level).append('<option value="">Select a topic</option>');
+												
+												for(var j = 0; j < contactSubjects[i].topics.length; j++) {
+													$j('#contact_subject' + contactSubjects[i].level).append('<option value="'+contactSubjects[i].topics[j].text+'" data-next="'+contactSubjects[i].topics[j].next+'">'+contactSubjects[i].topics[j].text+'</option>');
+												}
+												$j('#contact_subject' + contactSubjects[i].level).show();
+											}
+										}
+									} else {	
+										$j(this).nextAll('select').hide().find('option').remove();
+									}
+									
+									if($j(this).attr('id') == 'contact_subject') {
+										if(next == 'orders') {
+											$j('#ordernumber-li').show();
+											$j('#productsku-li').hide();
+										} else if(next == 'products') {
+											$j('#productsku-li').show();
+											$j('#ordernumber-li').hide();										
+										} else {
+											$j('#ordernumber-li').hide();
+											$j('#productsku-li').hide();
+										}	
+									}
+								});
+							</script>
+
+						</div>
+					</li>
+					<li class="wide" id="productsku-li" style="display: none;">
+						<label for="productsku"><?php echo Mage::helper('contacts')->__('Product SKU (optional)') ?></label>
+						<div class="input-box">
+							<input name="productsku" id="productsku" title="<?php echo Mage::helper('contacts')->__('Product SKU') ?>" value="" class="input-text" type="text" />
+						</div>
+					</li>
+					<li class="wide" id="ordernumber-li" style="display: none;">
+						<label for="ordernumber"><?php echo Mage::helper('contacts')->__('Order Number (optional)') ?></label>
+						<div class="input-box">
+							<input name="ordernumber" id="ordernumber" title="<?php echo Mage::helper('contacts')->__('Order Number') ?>" value="" class="input-text" type="text" />
+						</div>
+					</li>
+					<li class="wide">
+						<label for="comment" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Message') ?></label>
+						<div class="input-box">
+							<textarea name="comment" id="comment" title="<?php echo Mage::helper('contacts')->__('Message') ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="buttons-set">
+				<p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
+				<input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+				<button type="submit" title="<?php echo Mage::helper('contacts')->__('Submit') ?>" class="button"><span><span><?php echo Mage::helper('contacts')->__('Submit') ?></span></span></button>
+			</div>
+		</form>
+		<script type="text/javascript">
+		//<![CDATA[
+			var contactForm = new VarienForm('contactForm', true);
+		//]]>
+		</script>
+	</div>
+</div>
+
+<div class="page-sidebar">
+
+	<ul>
+		<li class="current"><a href="/contacts">Contact Us</a></li>
+		<li><a href="/faq">FAQ</a></li>
+		<li><a href="/shipping">Shipping</a></li>
+		<li><a href="/return-policy">Return Policy</a></li>
+	</ul>
+	
+</div>
+
+</div>
+

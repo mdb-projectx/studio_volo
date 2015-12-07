@@ -1,0 +1,41 @@
+input, textarea, select, button {
+    font-family: $font-primary;
+    font-size: 1em;
+    line-height: 1.5em; 
+    height: 2em;
+}
+textarea {
+    height: 5em;   
+}
+select {
+    height: 2em;
+}
+
+input, textarea, select, button {
+    padding: 0.25em 0.5em;
+    border: 1px solid $lighter-grey;
+    color: $darkest-grey;
+    vertical-align: middle;
+    -webkit-appearance: none;
+}
+input:focus, textarea:focus, select:focus, button:focus {
+    outline: 0;
+}
+
+::placeholder {
+    @extend .caps;
+    font-size: 11px; 
+    color: grey;
+    padding-top: 0.25em;
+}
+
+input[type="submit"], button {
+    border-color: $darkest-grey;
+    background: $darkest-grey;
+    color: $white;
+    transition: 0.4s ease;
+}
+button span.ctn {
+    display: inline; 
+    padding: 0; 
+}

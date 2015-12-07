@@ -1,144 +1,109 @@
-sku,delivery_time
-1011FTGRYL,1 week
-1011FTGRYL1,1 week
-1011FTGRYL2,1 week
-1011FTGRYR,1 week
-1011FWLGL,1 week
-1011FWLGL1,1 week
-1011FWLGL2,1 week
-1011FWLGR,1 week
-1011LNOATL,1 week
-1011LNOATR,1 week
-1012FTGRYL,1 week
-1012FTGRYL1,1 week
-1012FTGRYL2,1 week
-1012FTGRYR,1 week
-1012FTGRYR1,1 week
-1012FTGRYR2,1 week
-10132FWD,1 week
-1013FTGRY,1 week
-1014FTGRY,1 week
-1014LNCH,1 week
-1018FTGRY,1 week
-1018LNWHT,1 week
-101FTGRY,1 week
-101FWLG,1 week
-101LNOAT,1 week
-102FTGRY,9 - 11 weeks
-102FWLG,9 - 11 weeks
-102LNOAT,19 - 21 weeks
-103FTGRY,1 week
-103FWLG,9 - 11 weeks
-103LNCH,1 week
-103LNOAT,1 week
-103LNSA,1 week
-103LNWHT,1 week
-104FTGRY,1 week
-104FWLG,9 - 11 weeks
-104LNCH,1 week
-104LNOAT,1 week
-104LNSA,1 week
-104LNWHT,1 week
-105FTGRY,1 week
-105FWLG,1 week
-105LNOAT,1 week
-106FTGRY,1 week
-106FWLG,1 week
-106LNOAT,1 week
-106LTHBRN,1 week
-107FTGRY,1 week
-107FWLG,1 week
-107LNOAT,1 week
-107LNOATSC,12 - 14 weeks
-107LTHBRN,1 week
-108FTGRY,1 week
-108FWLG,1 week
-108LNOAT,1 week
-108LTHBRN,1 week
-109FTGRY,9 - 11 weeks
-109FWLG,1 week
-109LNCH,1 week
-109LNOAT,1 week
-109LNSA,1 week
-109LNWHT,1 week
-109LTHBRN,1 week
-110FTGRY,9 - 11 weeks
-110FWLG,1 week
-110LNCH,1 week
-110LNOAT,1 week
-110LNSA,1 week
-110LNWHT,1 week
-110LTHBRN,1 week
-1110GS,1 week
-1113BLK,1 week
-1113YEL,1 week
-1127FTGRY,1 week
-1127LNWHT,1 week
-1128T,1 week
-1129ST,1 week
-112FTGRY,9 - 11 weeks
-112FWLG,1 week
-112LNOAT,9 - 11 weeks
-112LTHBRN,1 week
-1131GRY,1 week
-1132GRY,1 week
-1133BLU,1 week
-1134GRY,1 week
-115GS,1 week
-115RED,1 week
-117GS,1 week
-117RED,1 week
-118STW,1 week
-119,1 week
-119BLK,1 week
-1201BLK,1 week
-1201WHT,1 week
-1202WD,1 week
-1202WHT,12 - 14 weeks
-120BLK,12 - 14 weeks
-120WHT,12 - 14 weeks
-1210FTGRY,1 week
-1210FWLG,1 week
-1210LNOAT,1 week
-1210LTHBRN,1 week
-121BLK,1 week
-121CLR,12 - 14 weeks
-123FTGRY,1 week
-123FWLG,1 week
-124STWBLK,1 week
-125,12 - 14 weeks
-129SIL,12 - 14 weeks
-131,12 - 14 weeks
-132YEL,1 week
-1351,1 week
-1351WHT,12 - 14 weeks
-1352,1 week
-1352WHT,12 - 14 weeks
-1353,1 week
-1353WHT,12 - 14 weeks
-136BLK,1 week
-136WHT,1 week
-136YEL,1 week
-137BLK,12 - 14 weeks
-137RED,1 week
-137WHT,1 week
-140BLK,12 - 14 weeks
-140WHT,12 - 14 weeks
-141BLK,1 week
-141SIL,1 week
-144WD,1 week
-153GS,12 - 14 weeks
-154WHT,1 week
-171WHT,1 week
-172STW,1 week
-1019FTGRY,1 week
-1019FWLG,1 week
-1020FTGRY,1 week
-1020FWLG,1 week
-1021FTGRY,1 week
-1021FTLG,1 week
-1021LNWHT,1 week
-1022FTGRY,1 week
-1022FTLG,1 week
-1022LNWHT,1 week
-1022LNWHT,1 week
+sku,suspension
+1011FTGRYL,Sinuous coil
+1011FTGRYR,Sinuous coil
+1011FWLGL,Sinuous coil
+1011FWLGR,Sinuous coil
+1011LNOATL,Sinuous coil
+1011LNOATR,Sinuous coil
+1011LTHBRNL,Sinuous coil
+1011LTHBRNR,Sinuous coil
+1012FTGRYL,Sinuous coil
+1012FTGRYR,Sinuous coil
+10132FTGRY,Sinuous coil
+10132FWD,Sinuous coil
+1013FTGRY,Sinuous coil
+1013FWD,Sinuous coil
+1013FWLG,Sinuous coil
+1013LNOAT,Sinuous coil
+1014FTGRY,Sinuous coil
+1014LNCH,Sinuous coil
+1014LNSA,Sinuous coil
+1015FTGRYL,Sinuous coil
+1015FTGRYR,Sinuous coil
+1015LNCHL,Sinuous coil
+1015LNCHR,Sinuous coil
+1015LNWHTL,Sinuous coil
+1015LNWHTR,Sinuous coil
+1016FTGRY,Sinuous coil
+1016LNCH,Sinuous coil
+1017FTGRYL,Sinuous coil
+1017FTGRYR,Sinuous coil
+1017LTHSTL,Sinuous coil
+1017LTHSTR,Sinuous coil
+1017LTHWHTL,Sinuous coil
+1017LTHWHTR,Sinuous coil
+1018FTGRY,Sinuous coil
+1018LNWHT,Sinuous coil
+1019FTGRY,Sinuous coil
+1019FWLG,Sinuous coil
+101FTGRY,Sinuous coil
+101FWLG,Sinuous coil
+101LNOAT,Sinuous coil
+1020FTGRY,Sinuous coil
+1020FWLG,Sinuous coil
+1021FTGRY,Sinuous coil
+1021FTLG,Sinuous coil
+1021LNWHT,Sinuous coil
+1022FTGRY,Sinuous coil
+1022FTLG,Sinuous coil
+1022LNWHT,Sinuous coil
+102FTGRY,Sinuous coil
+102FWLG,Sinuous coil
+102LNOAT,Sinuous coil
+103FTGRY,Sinuous coil
+103FWLG,Sinuous coil
+103LNCH,Sinuous coil
+103LNOAT,Sinuous coil
+103LNSA,Sinuous coil
+103LNWHT,Sinuous coil
+104FTGRY,Sinuous coil
+104FWLG,Sinuous coil
+104LNCH,Sinuous coil
+104LNOAT,Sinuous coil
+104LNSA,Sinuous coil
+104LNWHT,Sinuous coil
+105FTGRY,Sinuous coil
+105FWLG,Sinuous coil
+105LNCH,Sinuous coil
+105LNOAT,Sinuous coil
+105LNSA,Sinuous coil
+105LNWHT,Sinuous coil
+106FTGRY,Sinuous coil
+106FWLG,Sinuous coil
+106LNOAT,Sinuous coil
+106LTHBRN,Sinuous coil
+107FTGRY,Sinuous coil
+107FWLG,Sinuous coil
+107LNOAT,Sinuous coil
+107LTHBRN,Sinuous coil
+108FTGRY,Sinuous coil
+108FWLG,Sinuous coil
+108LNOAT,Sinuous coil
+108LTHBRN,Sinuous coil
+109FTGRY,Sinuous coil
+109FWLG,Sinuous coil
+109LNCH,Sinuous coil
+109LNOAT,Sinuous coil
+109LNSA,Sinuous coil
+109LNWHT,Sinuous coil
+109LTHBRN,Sinuous coil
+110FTGRY,Sinuous coil
+110FWLG,Sinuous coil
+110LNCH,Sinuous coil
+110LNOAT,Sinuous coil
+110LNSA,Sinuous coil
+110LNWHT,Sinuous coil
+110LTHBRN,Sinuous coil
+1127FTGRY,Sinuous coil
+1127LNWHT,Sinuous coil
+112FTGRY,Sinuous coil
+112FWLG,Sinuous coil
+112LNOAT,Sinuous coil
+112LTHBRN,Sinuous coil
+1210FTGRY,Sinuous coil
+1210FWLG,Sinuous coil
+1210LNCH,Sinuous coil
+1210LNOAT,Sinuous coil
+1210LNSA,Sinuous coil
+1210LNWHT,Sinuous coil
+1210LTHBRN,Sinuous coil

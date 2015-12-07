@@ -40,27 +40,37 @@
         $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
     }
 ?>
-<div id="category">
 
-	<?php if($_imgUrl): ?>
-		<div class="category-description">
-			<?php echo $_imgHtml ?>
 
-			<div class="page-title category-title">
-				<h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
-			</div>
+<div class="outerwrapper">
+    <div class="wrapper">
 
-			<?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
-				<p><?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
-			<?php endif; ?>	
-		</div>
-	<?php else: ?>
-		<div class="page-title category-title">
-			<h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
-		</div>	
-	<?php endif; ?>
-    
-    <?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
+        <div class="row row--whole pagetitle">
+            <div class="item">
+                
+                <?php if($_imgUrl): ?>
+                    <div class="category-description">
+                        <?php echo $_imgHtml ?>
+
+                        <div class="page-title category-title">
+                            <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+                        </div>
+
+                        <?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
+                            <p><?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
+                        <?php endif; ?>	
+                    </div>
+                <?php else: ?>
+                    <div class="page-title category-title">
+                        <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+                    </div>	
+                <?php endif; ?>
+                
+            </div>    
+        </div>
+
+        
+        <?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
         <p style="margin: 0 5px 1.5em;"><?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
     <?php endif; ?>
 
@@ -76,6 +86,8 @@
 	<?php else: ?>
 		<?php echo $this->getProductListHtml() ?>
 	<?php endif; ?>
-
+        
+        
+    </div>
 </div>
 

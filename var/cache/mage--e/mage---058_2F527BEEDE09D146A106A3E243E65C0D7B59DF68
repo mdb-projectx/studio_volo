@@ -1,0 +1,115 @@
+					       
+
+
+<div class="outerwrapper outerwrapper--newsletter">
+    <div class="wrapper">
+	        <div class="row row--whole cf">            
+			            <div class="item">      
+						                <h2>Hello. &lt;3, Capsule</h2>
+										                <h4>Exclusive promos, new arrivals, weekly deals,<br>decorating tips, DIYS + more.</h4>
+														                <form action="/newsletter/subscriber/new/" method="post">
+																		                    <input name="email" type="email" placeholder="Enter your email address" type="text" value="" placeholder="Your email" class="required-entry-email validate-email"><!--
+																							                    --><button type="submit" onclick="if(location.hostname.substring(0,7) != 'staging') { mixpanel.track('Newsletter Signup'); } else { console.log('mixpanel.track(\'Newsletter Signup\');'); } setTimeout(function() { $j('#newsletter-validate-detail').submit();}, 1000); dataLayer.push({'event': 'newsletterSignup'});"><span class="ctn">--&gt;</span></button>
+																												                </form>                            
+																																            </div>
+																																			        </div>
+																																					    </div>
+																																						</div>
+
+							   <div class="outerwrapper outerwrapper--follow">
+							       <div class="wrapper">
+								           <div class="row row--whole cf">
+										               <div class="item">     
+													                   <h2>Follow Us</h2>
+																	                   <a href="https://twitter.com/capsule_home"><i class="sc-twitter"></i></a>
+																					                   <a href="https://www.facebook.com/capsulehomefurniture"><i class="sc-facebook"></i></a>
+																									                   <a href="https://instagram.com/capsule_home/"><i class="sc-instagram"></i></a>
+																													                   <a href="https://www.pinterest.com/capsulehome"><i class="sc-pinterest"></i></a>
+																																	                   <!--<a href="#"><i class="sc-google-plus"></i></a>-->
+																																					               </div>  
+																																								           </div>
+																																										       </div>
+																																											   </div>
+																																											       
+																																												       
+																																													   <div class="outerwrapper outerwrapper--footer">
+																																													       <div class="wrapper">        
+																																														           <div class="row row--whole md-row--halves cf">
+																																																               <div class="item">     
+																																																			                   <div class="footer__lists">
+																																																							                       <div class="subrow subrow--thirds cf">
+																																																												                           <div class="subitem">
+																																																																		                               <h6>Shop</h6>
+																																																																									                               <ul>
+<li><a href="/new.html">New</a></li>
+<li><a href="/sofas.html">Sofas</a></li>
+<li><a href="/chairs.html">Chairs</a></li>
+<li><a href="/tables.html">Tables</a></li>
+<li><a href="/lighting.html">Lighting</a></li>
+</ul>
+																																																																																                           </div>    
+																																																																																						                           <div class="subitem">
+																																																																																												                               <h6>Support</h6>
+																																																																																																			                               <ul>
+<li><a href="/shipping" id="shipping-policy">Shipping</a></li>
+<li><a href="/return-policy">Return Policy</a></li>
+<li><a href="/faq">FAQ</a></li>
+<li><a href="/contacts">Contact Us</a></li>
+</ul>																																																																																																										                           </div>    
+																																																																																																																                           <div class="subitem">
+																																																																																																																						                               <h6>Call Us</h6>
+																																																																																																																													                               <p>855-367-8656</p>
+																																																																																																																																				                           </div>    
+																																																																																																																																										                       </div>
+																																																																																																																																															                   </div>
+																																																																																																																																																			               </div>  
+																																																																																																																																																						           </div>
+																																																																																																																																																								           <div class="row cf copyright">
+																																																																																																																																																										               <div class="item item--twelve-col">
+																																																																																																																																																													                   Copyright &copy; 2015 Capsule Home, Inc.
+																																																																																																																																																																	                   <img height="1" width="1" alt="" src="https://ct.pinterest.com/?tid=bl5utBWwHb3" class="tracker"/>
+																																																																																																																																																																					                   <a href='https://mixpanel.com/f/partner'><img src='https://cdn.mxpnl.com/site_media/images/partner/badge_blue.png' alt='Mobile Analytics' /></a>
+																																																																																																																																																																									         
+																																																																																																																																																																											             </div>    
+																																																																																																																																																																														         </div>
+																																																																																																																																																																																     </div>
+																																																																																																																																																																																	 </div>
+																																																																																																																																																																																	     
+
+																																																																																																																																																																																		 <div class="newsletter-subscribe-popup" id="newsletter-subscribe-popup"> 
+																																																																																																																																																																																		     <form action="/newsletter/subscriber/new/" method="post">
+																																																																																																																																																																																			         
+																																																																																																																																																																																					         <img src="/skin/frontend/default/respond/capsule/images/popup.jpg" alt="">
+<h1>10% Off</h1>
+<h2>When you sign up for emails</h2>        
+<p>Receive special updates, offers, and events right in your inbox. Even better, we will send you a one-time-only code for 10% off your entire purchase.</p>																																																																																																																																																																																							         																																																																																																																																																																																																	         
+																																																																																																																																																																																																			         <div class="form-subscribe">
+																																																																																																																																																																																																					             <div class="input-box">
+																																																																																																																																																																																																								                <input type="email" name="email" id="newsletter" title="Sign up for our newsletter" class="input-text required-entry validate-email" placeholder="Your email address" required />
+																																																																																																																																																																																																												              <button type="submit" title="Submit" class="button" onclick="dataLayer.push({'event': 'newsletterSignup'});">SUBMIT</button>
+																																																																																																																																																																																																															              </div>
+																																																																																																																																																																																																																		          </div>
+																																																																																																																																																																																																																				          
+																																																																																																																																																																																																																						          <a href="#" class="close">x</a>
+																																																																																																																																																																																																																								          
+																																																																																																																																																																																																																										      </form>
+																																																																																																																																																																																																																											  </div>
+
+
+																																																																																																																																																																																																																											  <script type="text/javascript">
+																																																																																																																																																																																																																											      $j(window).load(function() {
+																																																																																																																																																																																																																													        if ( firstImpression() ) {
+																																																																																																																																																																																																																															              $j('#newsletter-subscribe-popup').addClass('active');
+																																																																																																																																																																																																																																		          }
+																																																																																																																																																																																																																																				      });
+																																																																																																																																																																																																																												      
+																																																																																																																																																																																																																													      $j('#newsletter-subscribe-popup .close').on('click', function() {
+																																																																																																																																																																																																																															        $j('#newsletter-subscribe-popup').removeClass('active');
+																																																																																																																																																																																																																																	        return false; 
+																																																																																																																																																																																																																																			    });
+																																																																																																																																																																																																																														  </script>
+
+
+																																																																																																																																																																																																																														  </body>
+																																																																																																																																																																																																																														  </html>
+

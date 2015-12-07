@@ -1,0 +1,71 @@
+<?php $_result=$this->getCredit();?>
+<?php $_history=$this->getHistory();?>
+<?php $_total=$this->getCreditTotal();?>
+<?php /*
+<p><b>Invite Code : </b><?php echo $_result['invite'] ?></p>
+<p><b>Private Code : </b><?php echo $_result['private'] ?></p>
+<p><b>Discount Amount : </b><?php echo $_result['discount_amount']+0; ?></p>
+*/ ?>
+
+<div id="credit-wrapper">
+
+	<h2>Invite-a-Friend Discounts</h2>
+
+	<h3>Get a Discount</h3>
+
+	<div class="wrapper cf">
+		<div class="left">
+			<p>You get $20 off for each friend you refer who makes their first purchase.</p>
+		</div>
+		<div class="right">
+			 <table class="history">
+                        <tr>
+                                <td><p>Friend's Name</p></td><td><p>Date of Purchase</p></td><td><p>Credit Earned</p></td>
+                        </tr>
+                        <?php
+                                foreach($_history as $values)
+                                {
+                                        echo "<tr><td>".$values['customer_firstname']." ".$values['customer_lastname']."</td><td>".$values['created_at']."</td><td>$".($values['amount']+0)."</td></tr>";
+                                }
+                        ?>
+                        <tr>
+                                <td><p>Total Credit Earned: </p></td><td></td><td><p>$<?php echo $_total;?></p></td>
+                        </tr>
+                        <tr>
+                                <td class="balance">Current Reward Balance : </td><td></td><td class="balance">$<?php echo $_result['discount_amount']+0; ?></td>
+                        </tr>
+
+                        </table>
+		</div>
+	</div>
+	<div class="wrapper cf">
+                <div class="left">
+                </div>
+                <div class="right">
+			<table>
+                                <tr>
+                                        <td>Claim your discount by using this code during checkout</td>
+                                        <td><input type="text" value="<?php echo $_result['private'] ?>" readonly="readonly"></td>
+                                </tr>
+                        </table>
+                </div>
+        </div>
+
+
+
+	<h3>Give a Discount</h3>
+
+	<div class="wrapper cf">
+		<div class="left">
+			<p>Give your friends $20 off when they make their first order! Have them enter this code during checkout to claim the discount:<br>
+			<input type="text" value="<?php echo $_result['invite'] ?>" readonly="readonly"></p>
+		</div>
+		<div class="right">
+			<a href="/index.php/invitefriend" class="button">Invite friends &raquo;</a>
+		</div>
+	</div>
+
+
+
+
+</div>

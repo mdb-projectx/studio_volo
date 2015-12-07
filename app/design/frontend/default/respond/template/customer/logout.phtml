@@ -24,12 +24,33 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
-<div class="page-title">
-    <h1><?php echo Mage::helper('customer')->__('You are now logged out') ?></h1>
+<div class="outerwrapper outerwrapper--pagetitle">
+    <div class="wrapper">
+
+        <div class="row row--whole cf">
+            <div class="item">
+                <h1><?php echo Mage::helper('customer')->__('You are now logged out') ?></h1>
+            </div>
+        </div>
+
+    </div>
 </div>
+    
+<div class="outerwrapper outerwrapper--static">
+    <div class="wrapper">
+
+        <div class="row row--whole cf">
+            <div class="item">
 <p><?php echo Mage::helper('customer')->__('You have logged out and will be redirected to our homepage in 5 seconds.') ?></p>
 <script type="text/javascript">
 //<![CDATA[
     setTimeout(function(){ location.href = '<?php echo $this->getUrl() ?>'},5000);
 //]]>
 </script>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+    

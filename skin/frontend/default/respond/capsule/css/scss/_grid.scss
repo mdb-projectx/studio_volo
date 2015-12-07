@@ -1,0 +1,404 @@
+/*
+
+max outer = 1160
+
+gutter = 55
+
+4 cols = 350
+
+
+col = 46.25
+
+
+-----
+
+
+
+
+1/2/3/4/5/6/7/8/9/10/11/12
+
+sixth
+fifth
+quarter
+third
+half
+
+
+sm-
+med-
+lg-
+
+
+
+*/
+
+
+$max-width: 1160;
+$col-width: 46;
+$gutter-width: 55;
+
+.outerwrapper {
+    width: 100%;   
+}
+.wrapper {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: ($max-width + 40) * 1px;
+    // padding-bottom: $gutter-width / ($max-width / 100) * 1%;
+}
+
+.row {
+    width: 100%;  
+}
+
+.item {
+   // background: #F00;
+    
+    
+    float: left;
+    margin-right: $gutter-width / ($max-width / 100) * 1%;
+    margin-top: $gutter-width / ($max-width / 100) * 1%;
+
+    &.item--one-col {
+        width: $col-width / ($max-width / 100) * 1%;
+    }
+    &.item--two-col {
+        width: (($col-width * 2) + $gutter-width) / ($max-width / 100) * 1%;
+    }
+    &.item--three-col {
+        width: (($col-width * 3) + ($gutter-width * 2)) / ($max-width / 100) * 1%;        
+    }
+    &.item--four-col {
+        width: (($col-width * 4) + ($gutter-width * 3)) / ($max-width / 100) * 1%;        
+    }
+    &.item--five-col {
+        width: (($col-width * 5) + ($gutter-width * 4)) / ($max-width / 100) * 1%;        
+    }
+    &.item--six-col {
+        width: (($col-width * 6) + ($gutter-width * 5)) / ($max-width / 100) * 1%;        
+    }
+    &.item--seven-col {
+        width: (($col-width * 7) + ($gutter-width * 6)) / ($max-width / 100) * 1%;        
+    }
+    &.item--eight-col {
+        width: (($col-width * 8) + ($gutter-width * 7)) / ($max-width / 100) * 1%;        
+    }
+    &.item--nine-col {
+        width: (($col-width * 9) + ($gutter-width * 8)) / ($max-width / 100) * 1%;        
+    }
+    &.item--ten-col {
+        width: (($col-width * 10) + ($gutter-width * 9)) / ($max-width / 100) * 1%;        
+    }
+    &.item--eleven-col {
+        width: (($col-width * 11) + ($gutter-width * 10)) / ($max-width / 100) * 1%;        
+    }
+    &.item--twelve-col {
+        width: (($col-width * 12) + ($gutter-width * 11)) / ($max-width / 100) * 1%;        
+    }
+    &.item--last {
+        margin-right: 0;   
+    }
+    
+    .row--whole > & {
+        width: 100%;   
+    }
+    .row--halves > & {
+        width: (($col-width * 6) + ($gutter-width * 5)) / ($max-width / 100) * 1%; 
+    }
+    .row--thirds > & {
+        width: (($col-width * 4) + ($gutter-width * 3)) / ($max-width / 100) * 1%;   
+    }
+    .row--quarters > & {
+        width: (($col-width * 3) + ($gutter-width * 2)) / ($max-width / 100) * 1%;    
+    }
+    .row--fifths > & {
+        width: ($max-width - ($gutter-width * 4)) / 5 / ($max-width / 100) * 1%;   
+    }
+    .row--sixths > & {
+        width: (($col-width * 2) + $gutter-width) / ($max-width / 100) * 1%;
+    }
+    .row--halves > &:nth-child(2n), 
+    .row--thirds > &:nth-child(3n), 
+    .row--quarters > &:nth-child(4n), 
+    .row--fifths > &:nth-child(5n), 
+    .row--sixths > &:nth-child(6n) {
+        margin-right: 0; 
+    }
+}
+
+@media all and (min-width: $bp-small) {
+    .item {
+        &.sm-item--one-col {
+            width: $col-width / ($max-width / 100) * 1%;
+        }
+        &.sm-item--two-col {
+            width: (($col-width * 2) + $gutter-width) / ($max-width / 100) * 1%;
+        }
+        &.sm-item--three-col {
+            width: (($col-width * 3) + ($gutter-width * 2)) / ($max-width / 100) * 1%;        
+        }
+        &.sm-item--four-col {
+            width: (($col-width * 4) + ($gutter-width * 3)) / ($max-width / 100) * 1%;        
+        }
+        &.sm-item--five-col {
+            width: (($col-width * 5) + ($gutter-width * 4)) / ($max-width / 100) * 1%;        
+        }
+        &.sm-item--six-col {
+            width: (($col-width * 6) + ($gutter-width * 5)) / ($max-width / 100) * 1%;        
+        }
+        &.sm-item--seven-col {
+            width: (($col-width * 7) + ($gutter-width * 6)) / ($max-width / 100) * 1%;        
+        }
+        &.sm-item--eight-col {
+            width: (($col-width * 8) + ($gutter-width * 7)) / ($max-width / 100) * 1%;        
+        }
+        &.sm-item--nine-col {
+            width: (($col-width * 9) + ($gutter-width * 8)) / ($max-width / 100) * 1%;        
+        }
+        &.sm-item--ten-col {
+            width: (($col-width * 10) + ($gutter-width * 9)) / ($max-width / 100) * 1%;        
+        }
+        &.sm-item--eleven-col {
+            width: (($col-width * 11) + ($gutter-width * 10)) / ($max-width / 100) * 1%;        
+        }
+        &.sm-item--twelve-col {
+            width: (($col-width * 12) + ($gutter-width * 11)) / ($max-width / 100) * 1%;        
+        }
+        
+        .sm-row--halves > & {
+            width: (($col-width * 6) + ($gutter-width * 5)) / ($max-width / 100) * 1%; 
+        }
+        .sm-row--thirds > & {
+            width: (($col-width * 4) + ($gutter-width * 3)) / ($max-width / 100) * 1%;   
+        }
+        .sm-row--quarters > & {
+            width: (($col-width * 3) + ($gutter-width * 2)) / ($max-width / 100) * 1%;    
+        }
+        .sm-row--fifths > & {
+            width: ($max-width - ($gutter-width * 4)) / 5 / ($max-width / 100) * 1%;   
+        }
+        .sm-row--sixths > & {
+            width: (($col-width * 2) + $gutter-width) / ($max-width / 100) * 1%;
+        }
+        
+        .sm-row--halves > &, 
+        .sm-row--thirds > &, .sm-row--thirds > &:nth-child(2n), 
+        .sm-row--quarters > &, .sm-row--quarters > &:nth-child(2n), .sm-row--quarters > &:nth-child(3n), 
+        .sm-row--fifths > &, sm-row--fifths > &:nth-child(2n), sm-row--fifths > &:nth-child(3n), sm-row--fifths > &:nth-child(4n), 
+        .sm-row--sixths > &, .sm-row--sixths > &:nth-child(2n), .sm-row--sixths > &:nth-child(3n), .sm-row--sixths > &:nth-child(4n), .sm-row--sixths > &:nth-child(5n) {
+            margin-right: $gutter-width / ($max-width / 100) * 1%;
+        }
+        .sm-row--halves > &:nth-child(2n), 
+        .sm-row--thirds > &:nth-child(3n), 
+        .sm-row--quarters > &:nth-child(4n), 
+        .sm-row--fifths > &:nth-child(5n), 
+        .sm-row--sixths > &:nth-child(6n) {
+            margin-right: 0;
+        }
+    }
+}
+@media all and (min-width: $bp-med) {
+    .item {
+        &.md-item--one-col {
+            width: $col-width / ($max-width / 100) * 1%;
+        }
+        &.md-item--two-col {
+            width: (($col-width * 2) + $gutter-width) / ($max-width / 100) * 1%;
+        }
+        &.md-item--three-col {
+            width: (($col-width * 3) + ($gutter-width * 2)) / ($max-width / 100) * 1%;        
+        }
+        &.md-item--four-col {
+            width: (($col-width * 4) + ($gutter-width * 3)) / ($max-width / 100) * 1%;        
+        }
+        &.md-item--five-col {
+            width: (($col-width * 5) + ($gutter-width * 4)) / ($max-width / 100) * 1%;        
+        }
+        &.md-item--six-col {
+            width: (($col-width * 6) + ($gutter-width * 5)) / ($max-width / 100) * 1%;        
+        }
+        &.md-item--seven-col {
+            width: (($col-width * 7) + ($gutter-width * 6)) / ($max-width / 100) * 1%;        
+        }
+        &.md-item--eight-col {
+            width: (($col-width * 8) + ($gutter-width * 7)) / ($max-width / 100) * 1%;        
+        }
+        &.md-item--nine-col {
+            width: (($col-width * 9) + ($gutter-width * 8)) / ($max-width / 100) * 1%;        
+        }
+        &.md-item--ten-col {
+            width: (($col-width * 10) + ($gutter-width * 9)) / ($max-width / 100) * 1%;        
+        }
+        &.md-item--eleven-col {
+            width: (($col-width * 11) + ($gutter-width * 10)) / ($max-width / 100) * 1%;        
+        }
+        &.md-item--twelve-col {
+            width: (($col-width * 12) + ($gutter-width * 11)) / ($max-width / 100) * 1%;        
+        }
+        
+        .md-row--halves > & {
+            width: (($col-width * 6) + ($gutter-width * 5)) / ($max-width / 100) * 1%; 
+        }
+        .md-row--thirds > & {
+            width: (($col-width * 4) + ($gutter-width * 3)) / ($max-width / 100) * 1%;   
+        }
+        .md-row--quarters > & {
+            width: (($col-width * 3) + ($gutter-width * 2)) / ($max-width / 100) * 1%;    
+        }
+        .md-row--fifths > & {
+            width: ($max-width - ($gutter-width * 4)) / 5 / ($max-width / 100) * 1%;   
+        }
+        .md-row--sixths > & {
+            width: (($col-width * 2) + $gutter-width) / ($max-width / 100) * 1%;
+        }
+        
+        .md-row--halves > &, 
+        .md-row--thirds > &, .md-row--thirds > &:nth-child(2n), 
+        .md-row--quarters > &, .md-row--quarters > &:nth-child(2n), .md-row--quarters > &:nth-child(3n), 
+        .md-row--fifths > &, md-row--fifths > &:nth-child(2n), md-row--fifths > &:nth-child(3n), md-row--fifths > &:nth-child(4n), 
+        .md-row--sixths > &, .md-row--sixths > &:nth-child(2n), .md-row--sixths > &:nth-child(3n), .md-row--sixths > &:nth-child(4n), .md-row--sixths > &:nth-child(5n) {
+            margin-right: $gutter-width / ($max-width / 100) * 1%;
+        }
+        .md-row--halves > &:nth-child(2n), 
+        .md-row--thirds > &:nth-child(3n), 
+        .md-row--quarters > &:nth-child(4n), 
+        .md-row--fifths > &:nth-child(5n), 
+        .md-row--sixths > &:nth-child(6n) {
+            margin-right: 0;
+        }
+    }
+}
+@media all and (min-width: $bp-large) {
+    .item {
+        &.lg-item--one-col {
+            width: $col-width / ($max-width / 100) * 1%;
+        }
+        &.lg-item--two-col {
+            width: (($col-width * 2) + $gutter-width) / ($max-width / 100) * 1%;
+        }
+        &.lg-item--three-col {
+            width: (($col-width * 3) + ($gutter-width * 2)) / ($max-width / 100) * 1%;        
+        }
+        &.lg-item--four-col {
+            width: (($col-width * 4) + ($gutter-width * 3)) / ($max-width / 100) * 1%;        
+        }
+        &.lg-item--five-col {
+            width: (($col-width * 5) + ($gutter-width * 4)) / ($max-width / 100) * 1%;        
+        }
+        &.lg-item--six-col {
+            width: (($col-width * 6) + ($gutter-width * 5)) / ($max-width / 100) * 1%;        
+        }
+        &.lg-item--seven-col {
+            width: (($col-width * 7) + ($gutter-width * 6)) / ($max-width / 100) * 1%;        
+        }
+        &.lg-item--eight-col {
+            width: (($col-width * 8) + ($gutter-width * 7)) / ($max-width / 100) * 1%;        
+        }
+        &.lg-item--nine-col {
+            width: (($col-width * 9) + ($gutter-width * 8)) / ($max-width / 100) * 1%;        
+        }
+        &.lg-item--ten-col {
+            width: (($col-width * 10) + ($gutter-width * 9)) / ($max-width / 100) * 1%;        
+        }
+        &.lg-item--eleven-col {
+            width: (($col-width * 11) + ($gutter-width * 10)) / ($max-width / 100) * 1%;        
+        }
+        &.lg-item--twelve-col {
+            width: (($col-width * 12) + ($gutter-width * 11)) / ($max-width / 100) * 1%;        
+        }
+        
+        .lg-row--halves > &, 
+        .lg-row--thirds > &, .lg-row--thirds > &:nth-child(2n), 
+        .lg-row--quarters > &, .lg-row--quarters > &:nth-child(2n), .lg-row--quarters > &:nth-child(3n), 
+        .lg-row--fifths > &, lg-row--fifths > &:nth-child(2n), lg-row--fifths > &:nth-child(3n), lg-row--fifths > &:nth-child(4n), 
+        .lg-row--sixths > &, .lg-row--sixths > &:nth-child(2n), .lg-row--sixths > &:nth-child(3n), .lg-row--sixths > &:nth-child(4n), .lg-row--sixths > &:nth-child(5n) {
+            margin-right: $gutter-width / ($max-width / 100) * 1%;
+        }
+        .lg-row--halves > &:nth-child(2n), 
+        .lg-row--thirds > &:nth-child(3n), 
+        .lg-row--quarters > &:nth-child(4n), 
+        .lg-row--fifths > &:nth-child(5n), 
+        .lg-row--sixths > &:nth-child(6n) {
+            margin-right: 0;
+        }
+    }
+}
+
+/* SUBROWS */
+
+
+.subrow {
+    margin: 1% 0;
+    width: 100%;  
+}
+
+.subitem {
+    //background: #FF0;
+    
+    float: left;
+    margin-right: $gutter-width / ($max-width / 100) * 1%;
+
+    &.subitem--one-col {
+        width: $col-width / ($max-width / 100) * 1%;
+    }
+    &.subitem--two-col {
+        width: (($col-width * 2) + $gutter-width) / ($max-width / 100) * 1%;
+    }
+    &.subitem--three-col {
+        width: (($col-width * 3) + ($gutter-width * 2)) / ($max-width / 100) * 1%;        
+    }
+    &.subitem--four-col {
+        width: (($col-width * 4) + ($gutter-width * 3)) / ($max-width / 100) * 1%;        
+    }
+    &.subitem--five-col {
+        width: (($col-width * 5) + ($gutter-width * 4)) / ($max-width / 100) * 1%;        
+    }
+    &.subitem--six-col {
+        width: (($col-width * 6) + ($gutter-width * 5)) / ($max-width / 100) * 1%;        
+    }
+    &.subitem--seven-col {
+        width: (($col-width * 7) + ($gutter-width * 6)) / ($max-width / 100) * 1%;        
+    }
+    &.subitem--eight-col {
+        width: (($col-width * 8) + ($gutter-width * 7)) / ($max-width / 100) * 1%;        
+    }
+    &.subitem--nine-col {
+        width: (($col-width * 9) + ($gutter-width * 8)) / ($max-width / 100) * 1%;        
+    }
+    &.subitem--ten-col {
+        width: (($col-width * 10) + ($gutter-width * 9)) / ($max-width / 100) * 1%;        
+    }
+    &.subitem--eleven-col {
+        width: (($col-width * 11) + ($gutter-width * 10)) / ($max-width / 100) * 1%;        
+    }
+    &.subitem--twelve-col {
+        width: (($col-width * 12) + ($gutter-width * 11)) / ($max-width / 100) * 1%;        
+    }
+    &.subitem--last {
+        margin-right: 0;   
+    }
+    
+    .subrow--halves > & {
+        width: (($col-width * 6) + ($gutter-width * 5)) / ($max-width / 100) * 1%; 
+    }
+    .subrow--thirds > & {
+        width: (($col-width * 4) + ($gutter-width * 3)) / ($max-width / 100) * 1%;   
+    }
+    .subrow--quarters > & {
+        width: (($col-width * 3) + ($gutter-width * 2)) / ($max-width / 100) * 1%;    
+    }
+    .subrow--fifths > & {
+        width: ($max-width - ($gutter-width * 4)) / 5 / ($max-width / 100) * 1%;   
+    }
+    .subrow--sixths > & {
+        width: (($col-width * 2) + $gutter-width) / ($max-width / 100) * 1%;
+    }
+    .subrow--halves > &:nth-child(2n), 
+    .subrow--thirds > &:nth-child(3n), 
+    .subrow--quarters > &:nth-child(4n), 
+    .subrow--fifths > &:nth-child(5n), 
+    .subrow--sixths > &:nth-child(6n) {
+        margin-right: 0; 
+    }
+}

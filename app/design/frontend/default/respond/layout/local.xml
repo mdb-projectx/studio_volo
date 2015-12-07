@@ -58,6 +58,10 @@
 		<!--	<action method="addItem"><type>skin_js</type><name>js/ui.spinner.min</name></action>-->
 			<action method="addItem"><type>skin_js</type><name>js/volo.js</name></action>
 			<action method="addItem"><type>skin_js</type><name>js/spin.min.js</name></action>
+			
+			<!-- CAPSULE -->
+			<action method="addItem"><type>skin_css</type><name>capsule/css/style.css</name></action>
+			<action method="addItem"><type>skin_js</type><name>capsule/js/defer-dist.js</name></action>
 		</reference>
 
 <!-- 
@@ -123,6 +127,9 @@
 
 			<block type="cms/block" name="footer_cols">
 				<action method="setBlockId"><block_id>footer_cols</block_id></action>
+			</block>
+			<block type="cms/block" name="footer_cols2">
+				<action method="setBlockId"><block_id>footer_cols2</block_id></action>
 			</block>
 			<block type="cms/block" name="footer_links">
 				<action method="setBlockId"><block_id>footer_links</block_id></action>
@@ -305,3 +312,4 @@ Category layered navigation layout
 
 	
 </layout>
+

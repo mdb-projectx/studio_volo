@@ -32,14 +32,14 @@ $product = $item->getProduct();
 <div class="cart-cell">
 
 <?php if ($item->canHaveQty() && $item->getProduct()->isVisibleInSiteVisibility()): ?>
-    <input type="text" class="input-text qty validate-not-negative-number" name="qty[<?php echo $item->getId() ?>]" value="<?php echo $this->getAddToCartQty($item) * 1 ?>" />
+    <input type="text" class=" qty validate-not-negative-number" name="qty[<?php echo $item->getId() ?>]" value="<?php echo $this->getAddToCartQty($item) * 1 ?>" />
 <?php endif; ?>
 
 </div>
 
 <div class="cart-button">
 <?php if ($product->isSaleable()): ?>
-    <button type="button" title="<?php echo $this->__('Add to Cart') ?>" onclick="addWItemToCart(<?php echo $item->getId()?>);" class="button btn-cart"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
+    <button type="button" title="<?php echo $this->__('Add to Cart') ?>" onclick="addWItemToCart(<?php echo $item->getId()?>);" class="ctn btn-cart"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
 <?php else: ?>
     <?php if ($product->getIsSalable()): ?>
         <?php echo $this->__('In stock') ?>
@@ -57,3 +57,4 @@ $product = $item->getProduct();
     <p><a class="link-edit" href="<?php echo $this->getItemConfigureUrl($item) ?>"><?php echo $this->__('Edit') ?></a></p>
 <?php endif ?>
 */ ?>
+

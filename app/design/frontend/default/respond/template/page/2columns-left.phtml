@@ -38,8 +38,9 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="http://www.facebook.com/2008/fbml">
 <?php echo $this->getChildHtml('head') ?>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:locale" content="es_ES" />
-<meta property="og:title" content="Designer Furniture Online - VOLO Design" />
+<meta property="og:title" content="Designer Furniture Online - Capsule" />
 <meta property="og:url" content="http://www.capsulehome.com" />
 <meta property="og:description" content="Designer products sell for huge markups over what they cost to make. But we skip the middlemen and work directly with designers and makers to offer great design at affordable prices." />
 <meta property="og:type" content="article" />
@@ -48,8 +49,8 @@
 dataLayer = [];
 </script>
 
-<script src="//use.typekit.net/jvy1hih.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
+<script src="//use.typekit.net/uxs7tmg.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
 </head>
 <body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
 
@@ -88,14 +89,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <?php echo $this->getChildHtml('global_notices') ?>
 <div class="page layout-grid">
 	<?php echo $this->getChildHtml('header') ?>
+    
 	<div class="main-container col2-left-layout">
 		<div class="main">
 			<?php echo $this->getChildHtml('breadcrumbs') ?>
+			<?php echo $this->getChildHtml('global_messages') ?>
+            
+            
+            <div class="outerwrapper outerwrapper--static">
+                <div class="wrapper">
+                    <div class="row row--whole sm-row--custom cf">
+                        <div class="item sm-item--three-col sidebar">
+                        
+			<div class="col-left sidebar"><?php echo $this->getChildHtml('left') ?></div>
+                        </div>
+                        <div class="item sm-item--nine-col item--last">
+                        
 			<div class="col-main">
-				<?php echo $this->getChildHtml('global_messages') ?>
 				<?php echo $this->getChildHtml('content') ?>
 			</div>
-			<div class="col-left sidebar"><?php echo $this->getChildHtml('left') ?></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
 		</div>
 	</div>
 	<?php echo $this->getChildHtml('footer') ?>
@@ -105,4 +124,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <?php echo $this->getAbsoluteFooter() ?>
 </body>
 </html>
+
 

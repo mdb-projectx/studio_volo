@@ -1,0 +1,94 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_modern
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+</div><!-- end #wrapper -->
+
+<div id="footer-wrap">	
+	<div id="footer" class="cf">
+	
+		<div id="footer-col1">
+			<h3>Shop</h3>
+			<ul>
+				<li><a href="/new.html">New</a></li>
+				<li><a href="/sofas.html">Sofas</a></li>
+				<li><a href="/chairs.html">Chairs</a></li>
+				<li><a href="/tables.html">Tables</a></li>
+				<li><a href="/lighting.html">Lighting</a></li>
+			</ul>
+		</div>
+		
+		<div id="footer-col2">
+			<h3>Support</h3>
+			<?php echo $this->getChildHtml('footer_cols') ?>
+			
+			<h3>Call Us</h3>
+			<p>855-367-8656</p>
+		</div>
+		
+		<div id="footer-col3">
+			<div id="subscribe" class="cf">
+				<div id="newsletter-area">
+					<form action="/newsletter/subscriber/new/" method="post" id="footer-newsletter-validate-detail">
+						<h3><label for="footer-newsletter">Join our newsletter<label></h3>
+						<div id="newsletter-inputs" class="cf">
+							<input name="email" id="footer-newsletter" class="input-text required-entry-email validate-email" type="text" value="" placeholder="Your email" />
+							<button type="submit" title="Submit" onclick="if(location.hostname.substring(0,7) != 'staging') { mixpanel.track('Newsletter Signup'); } else { console.log('mixpanel.track(\'Newsletter Signup\');'); } setTimeout(function() { $j('#newsletter-validate-detail').submit();}, 1000); dataLayer.push({'event': 'newsletterSignup'});">Subscribe</button>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+			<div id="follow">
+				<ul class="cf">
+					<li><a class="footer_facebook" href="http://www.facebook.com/shopvolo" target="_blank">Facebook</a></li>
+					<li><a class="footer_twitter" href="http://twitter.com/shopvolo" target="_blank">Twitter</a></li>
+					<li><a class="footer_pinterest" href="http://pinterest.com/shopvolo" target="_blank">Pinterest</a></li>
+					<li><a class="footer_houzz" href="http://www.houzz.com/pro/volodesign/volo-design" target="_blank">Houzz</a></li>
+				</ul>
+			</div>
+		</div>
+                
+        <div id="copyright">
+            Copyright &copy; 2015 Volo Design
+    
+<img height="1" width="1" alt="" src="https://ct.pinterest.com/?tid=bl5utBWwHb3"/>
+            <a href='https://mixpanel.com/f/partner'><img src='https://cdn.mxpnl.com/site_media/images/partner/badge_blue.png' alt='Mobile Analytics' /></a>
+        </div>
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+    var newsletterSubscriberFormDetail = new VarienForm('footer-newsletter-validate-detail');
+    //Validation.add('required-entry-email', 'Please enter an email address');
+    //new Varien.searchForm('footer-newsletter-validate-detail', 'footer-newsletter', 'Enter your email address');
+//]]>
+</script>
+
+
+

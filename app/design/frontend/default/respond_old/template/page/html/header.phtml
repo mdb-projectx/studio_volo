@@ -1,0 +1,130 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_modern
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+
+<div id="header-wrap">
+	<?php echo $this->getChildHtml('header_notification') ?>
+	<div id="header">
+		<h1><a href="<?php echo $this->getUrl('') ?>"><?php echo  Mage::app()->getWebsite()->getName(); ?></a></h1>
+		
+		<div id="header-inner">
+			<div id="secondary">
+				<?php echo $this->getChildHtml('header_links') ?>
+			</div>
+			
+			<div id="tertiary">
+				<?php echo $this->getChildHtml('topLinksCustom') ?>
+				<!--
+				<div id="fb">
+					<div id="fblike" class="fb-like" data-href="http://www.facebook.com/shopvolo" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
+					<div class="shadow"></div>
+				</div>
+				-->
+			</div>
+		</div>
+	</div>	
+</div>
+
+<?php /*
+<div class="header-container">
+    <div class="header">
+		<div class="quick-access">
+		</div>
+        <?php if ($this->getIsHomePage()):?>
+        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
+        <?php else:?>
+        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
+        <?php endif?>
+		<!--<?php echo $this->getChildHtml('topSearch') ?>-->
+    </div>
+
+    <?php echo $this->getChildHtml('topBar') ?>
+    <?php echo $this->getChildHtml('topContainer'); ?>
+</div>
+*/ ?>
+
+<div id="wrapper">
+<ul id="menu">
+	<?php echo $this->getChildHtml('topMenu') ?>
+	<li class="search">
+		<?php echo $this->getChildHtml('topSearch') ?>
+	</li>
+</ul>
+
+<!-- Newsletter Button -->
+
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('newsletter_subscribe_popup')->toHtml() ?>
+
+<div id="newsletter-popupbutton" style="display: none;"><a class="inline" href="#newsletter-subscribe-popup">Subscribe</a></div>
+<script type="text/javascript">
+//<![CDATA[
+$j(document).ready(function() {
+
+	$j('#newsletter-subscribe-close a').click(function() {
+		$j.colorbox.close();
+		return false;
+	});
+	
+	$j('.inline').colorbox({
+		inline:true, 
+		initialWidth:628, 
+		initialHeight: 324, 
+		innerWidth:628, 
+		innerHeight: 324, 
+		fixed: false,
+		opacity: 0.75,
+		className:'plain',
+		transition: 'fade',
+		top: '200px',
+		onOpen: function() {
+			$j('#newsletter-subscribe-close').show();
+			$j('#cboxClose').css('cssText', 'display: block !important');
+			// var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
+			// $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important; position: absolute;');
+		}, onCleanup: function() {
+			$j('#newsletter-subscribe-close').hide();
+		}, onComplete: function() {
+			$j('#cboxLoadedContent').addClass('newsletter');
+			$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+			$j('input#newsletter').trigger('focus');
+		}
+	});
+	
+	if ( firstImpression('subscribe', 28) ) {
+		// if first visit in 28 days, open the popup
+		$j('.inline').trigger('click');
+	}
+
+});
+//]]>
+</script>
+
+<?php echo $this->getChildHtml('topBar') ?>
+
+

@@ -25,9 +25,6 @@
  */
 ?>
 <div class="block block-account">
-    <div class="block-title">
-        <strong><span><?php echo $this->__('My Account'); ?></span></strong>
-    </div>
     <div class="block-content">
         <ul>
             <?php $_links = $this->getLinks(); ?>
@@ -44,7 +41,8 @@
                 <?php endif; ?>
 		<?php endif; ?>
             <?php endforeach; ?>
-	    <li<?php echo ($_last ? ' class="last"' : '') ?>><a href="/refer">Invite-a-friend Discounts</a></li>
+<!--	    <li<?php echo ($_last ? ' class="last"' : '') ?>><a href="/refer">Invite-a-friend Discounts</a></li>-->
         </ul>
     </div>
 </div>
+

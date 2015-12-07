@@ -25,7 +25,7 @@
  */
 ?>
 
-<!-- Facebook Conversion Code for Checkout on VOLO Design -->
+<!-- Facebook Conversion Code for Checkout on Capsule -->
 <script>(function() {
 var _fbq = window._fbq || (window._fbq = []);
 if (!_fbq.loaded) {
@@ -50,15 +50,26 @@ if(location.hostname.substring(0,7) != 'staging') {
 }
 </script>
 
-<div id="checkout-success">
+<div class="outerwrapper outerwrapper--pagetitle">
+    <div class="wrapper">
+        <div class="row row--whole cf pagetitle">
+            <div class="item">
+                <h1>Order Complete</h1>
+            </div>
+        </div>
+    </div>
+</div>    
 
-	<div class="page-title">
-		<h1>Order Complete</h1>
-	</div>
+<div class="outerwrapper outerwrapper--static">
+    <div class="wrapper">
+        <div class="row row--whole cf">
+            <div class="item">
+
+<div id="checkout-success">
 
 	<div class="checkout-success">
 		<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-		<h2>Thank you for shopping at Volo</h2>
+		<h2>Thank you for shopping at Capsule</h2>
 		
 		<?php
 		$orderId = $this->getOrderId();
@@ -73,7 +84,7 @@ if(location.hostname.substring(0,7) != 'staging') {
 		?>
 		<img src="https://shareasale.com/sale.cfm?tracking=<?php echo $orderId; ?>&amount=<?php echo $affiliateTotal; ?>&transtype=sale&merchantID=55135" width="1" height="1">
 
-        <img width="1" height="1" src="http://www.polyvore.com/conversion/beacon.gif?adv=volodesign.com&amt=<?php echo urlencode($subtotal); ?>&oid=<?php echo urlencode('201507-8101'); ?>&skus=<?php $skucount = 0; foreach($items as $item) { if($skucount > 0) { echo ','; } echo urlencode($item->getSku()); $skucount++; } ?>&cur=usd">
+        <img width="1" height="1" src="http://www.polyvore.com/conversion/beacon.gif?adv=capsulehome.com&amt=<?php echo urlencode($subtotal); ?>&oid=<?php echo urlencode('201507-8101'); ?>&skus=<?php $skucount = 0; foreach($items as $item) { if($skucount > 0) { echo ','; } echo urlencode($item->getSku()); $skucount++; } ?>&cur=usd">
         
 		<?php if ($this->getOrderId()):?>
 			<?php if ($this->getCanViewOrder()) :?>
@@ -110,9 +121,12 @@ if(location.hostname.substring(0,7) != 'staging') {
 		</div>
 		*/ ?>
 	
+        <!--
 		<p><br><br><strong><em>Get a $20 credit by inviting your friends. They'll get $20 off too!</em></strong></p>
 		<p><a href="/invitefriend" class="invite-button">Continue</a></p>
-
+-->
+        <p><a href="/" class="ctn">Back Home</a></p>
+        
 	</div>
 
 </div>
@@ -140,7 +154,7 @@ var google_conversion_value = '<?php echo $this->getOrderTotal(); ?>';
 				'purchase': {
 				  'actionField': {
 					'id': '<?php echo $orderId; ?>',     
-					'affiliation': 'Volo Design',
+					'affiliation': 'Capsule',
 					'revenue': '<?php echo $order->grand_total ?>',                  
 					'tax': '<?php echo $order->tax_amount ?>',
 					'shipping': '<?php echo $order->shipping_amount ?>',
@@ -179,7 +193,7 @@ var google_conversion_value = '<?php echo $this->getOrderTotal(); ?>';
 			  
 			  
 'transactionId': '<?php echo $orderId; ?>',
-'transactionAffiliation': 'Volo Design',
+'transactionAffiliation': 'Capsule',
 'transactionTotal': '<?php echo $order->grand_total ?>',
 'transactionTax': '<?php echo $order->tax_amount ?>',
 'transactionShipping': '<?php echo $order->shipping_amount ?>',
@@ -223,5 +237,10 @@ var google_conversion_value = '<?php echo $this->getOrderTotal(); ?>';
 </div>
 </noscript>
 
-<img height="1" width="1" alt="" src="https://ct.pinterest.com/?tid=cPVivXkQVCu"/>
+<img height="1" width="1" alt="" src="https://ct.pinterest.com/?tid=cPVivXkQVCu" class="tracker"/>
+                
+            </div>
+        </div>
+    </div>
+</div>
 

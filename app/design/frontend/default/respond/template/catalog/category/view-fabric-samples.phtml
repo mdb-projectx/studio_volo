@@ -32,6 +32,9 @@
  */
 ?>
 
+<div class="outerwrapper">
+    <div class="wrapper">
+
 <?php
     $_helper    = $this->helper('catalog/output');
     $_category  = $this->getCurrentCategory();
@@ -43,32 +46,43 @@
 ?>
 <div id="swatchwrap">
 
-	<?php if($_imgUrl): ?>
-		<div class="category-description">
-			<?php echo $_imgHtml ?>
 
-			<div class="page-title category-title">
-				<h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
-			</div>
+        <div class="row row--whole pagetitle">
+            <div class="item">
+                
+                <?php if($_imgUrl): ?>
+                    <div class="category-description">
+                        <?php echo $_imgHtml ?>
 
-			<?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
-				<p><?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
-			<?php endif; ?>	
-		</div>
-	<?php else: ?>
-		<div class="page-title category-title">
-			<h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
-		</div>	
-	<?php endif; ?>
+                        <div class="page-title category-title">
+                            <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+                        </div>
+
+                        <?php if($_description=$this->getCurrentCategory()->getDescription()): ?>
+                            <p><?php echo $_helper->categoryAttribute($_category, $_description, 'description') ?></p>
+                        <?php endif; ?>	
+                    </div>
+                <?php else: ?>
+                    <div class="page-title category-title">
+                        <h1><?php echo $_helper->categoryAttribute($_category, $_category->getName(), 'name') ?></h1>
+                    </div>	
+                <?php endif; ?>
+                
+            </div>    
+        </div>
 
 	<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
 	
-	
-	
+                
 	<form id="simple_contact_form" name="simple_contact_form" action="<?php echo $this->getUrl('inchoo-simplecontact/') ?>index/sendemail" method="post" class="cf">
 	 
-        <div id="swatchcol1">
-            <h2>Select Samples</h2>			
+	
+	
+        <div class="row row--whole md-row--halves cf">
+            <div class="item">
+                
+                
+            <h4>Select Samples</h4>			
 
             <?php if($this->isContentMode()): ?>
                 <?php echo $this->getCmsBlockHtml() ?>
@@ -80,17 +94,17 @@
             <?php else: ?>
                 <?php echo $this->getProductListHtml() ?>
             <?php endif; ?>
-        </div>
-        
-        <div id="swatchcol2">
-        
-            <h2>Your Order</h2>
+            
+            </div>
+            <div class="item">
+                
+            <h4>Your Order</h4>
             
             <ul id="swatch-order">
                 <li>Please select a swatch</li>
             </ul>
             
-            <h2>Shipping</h2>		
+            <h4>Shipping</h4>		
 
             <div class="fieldset cf">
                 <ul class="form-list">
@@ -159,11 +173,12 @@
             </div>
 
 
-            <div class="button-set">
                 <p class="required">* Required Fields</p>
-                <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
-                <button class="form-button button" type="submit"><span>Order Fabric Samples</span></button>
-            </div>
+                <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" /></p>
+                <p style="clear: both;">
+                <button class="ctn" type="submit"><span>--&gt;&gt; Order Fabric Samples &lt;&lt;--</span></button>
+                    </p>
+        </div>
         </div>
 	</form>
 
@@ -198,5 +213,8 @@
 		//]]>
 	</script>
 
+</div>
+        
+    </div>
 </div>
 

@@ -1,0 +1,632 @@
+<?php
+/**
+ * Magento
+*
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_modern
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<?php /*
+$categoryIds = $_product->getCategoryIds();
+if (isset($categoryIds[0])){
+	$category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
+	$categoryName = $category->getName();
+} else {
+	$categoryName = '';
+} */
+?>
+
+<script type="text/javascript">
+if(location.hostname.substring(0,7) != 'staging') {
+	mixpanel.track('View Product', { 'Product Type': '<?php echo $_product->getData('featured_name') ?>'});
+} else {
+	console.log('mixpanel.track(\'View Product\', { \'Product Type\': \'<?php echo $_product->getData('featured_name') ?>\'});');
+}
+
+
+function testfunction() {
+var qty = document.getElementById("qty").value;
+dataLayer.push({
+  'event': 'addToCart',
+  'ecommerce': {
+    'currencyCode': 'USD',
+    'add': {                                // 'add' actionFieldObject measures.
+      'products': [{                        //  adding a product to a shopping cart.
+        'name': '<?php echo $_product->getData('featured_name') ?>',
+        'id': '<?php echo $_product->getData('sku') ?>',
+        'price': '<?php echo $_product->getPrice() ?>',
+        'brand': '',
+        'category': '<?php echo $categoryName; ?>',
+        'variant': '',
+		'quantity': qty
+       }]
+    }
+  }
+});
+}
+
+/*
+dataLayer = [];
+// Measure a view of product details. This example assumes the detail view occurs on pageload,
+// and also tracks a standard pageview of the details page.
+dataLayer.push({
+  'ecommerce': {
+    'detail': {
+      'products': [{
+        'name': '<?php echo $_product->getData('featured_name') ?>',         // Name or ID is required.
+        'id': '<?php echo $_product->getData('sku'); ?>',
+        'price': '<?php echo $_product->getPrice(); ?>',
+        'brand': '',
+        'category': '<?php echo $categoryName; ?>',
+        'variant': ''
+       }]
+     }
+   }
+});
+*/
+
+function close() {
+	jQuery('#modal_wrap').hide();
+	jQuery('#modal_box').hide();
+	jQuery('#screen_filter').hide();
+}
+
+var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+
+<div id="product">
+	<div id="title" style="display:none;">
+		<p class="first"><?php echo $_product->getData('featured_name'); ?></p>
+		<p><?php echo $_product->getData('descriptive_name'); ?></p>
+		<p id="product-price"><?php echo $this->getChildHtml('product_type_data') ?></p>
+	</div>
+	<?php echo $this->getChildHtml('media') ?>	
+	
+<?php /*
+<div id="screen_filter"></div>
+<div id="modal_wrap">
+<div id="modal_box">
+<table id="table_border" cellspacing="0">
+    <tbody>
+	<tr class="top"><td class="left"></td><td class="center"></td><td class="right"></td></tr>
+	<tr class="body"><td class="left"></td><td class="center"></td><td class="right"></td></tr>
+	<tr class="bottom"><td class="left"></td><td class="center"></td><td class="right"></td></tr>
+    </tbody>
+</table>
+<div id="cart-close">
+	<a href="javascript:close();"></a>
+</div>
+<div id="cart-wrap">
+    <div id="cart-padding">
+	<div id="cart-top">
+	<div id="cart-photo">
+		<img src="images/cartproduct.jpg" alt="" />
+	</div>
+	
+	<table id="cart-contents">
+		<tr class="product">
+			<td class="c-left">Irvine 3 Seater Sofa, Deep Blue was successfully added to your basket</td>
+			<td class="c-center">Quantity: 5</td>
+			<td class="c-right">$589</td>
+		</tr>
+<!--
+		<tr class="delivery">
+			<td class="c-left">Standard delivery</td>
+			<td class="c-right">$44.90</td>
+		</tr>
+		<tr class="total">
+			<td class="c-left">Savings compared with high street, $296</span></td>
+			<td class="c-right">Total $633.90</span></td>
+		</tr>
+-->
+	</table>
+	
+	<div id="cart-view" class="cf">
+		<button type="button" title="View Your Basket" class="view-basket" onclick="location.href='/checkout/cart/'">
+			<span><span>View Your Basket</span></span>
+		</button>
+	</div>
+	</div>
+	<div id="cart-related" class="cf">
+		<h3>You may also like</h3>
+		<ul>
+			<li>
+				<p class="image"><a href="#"><img src="" alt="" /></a></p>
+				<p class="details"><a href="#"><span class="name"></span> <span class="new"></span><!-- Typical retail price <span class="old"></span> --></a></p>
+				<p class="control"><a href="#" class="add-to-basket">Add to basket</a> | <a href"" class="info">More info</a></p>
+			</li>
+			<li>
+                                <p class="image"><a href="#"><img src="" alt="" /></a></p>
+                                <p class="details"><a href="#"><span class="name"></span> <span class="new"></span><!-- Typical retail price <span class="old"></span> --></a></p>
+                                <p class="control"><a href="#" class="add-to-basket">Add to basket</a> | <a href"" class="info">More info</a></p>
+                        </li>
+			<li>
+                                <p class="image"><a href="#"><img src="" alt="" /></a></p>
+                                <p class="details"><a href="#"><span class="name"></span> <span class="new"></span><!-- Typical retail price <span class="old"></span> --></a></p>
+                                <p class="control"><a href="#" class="add-to-basket">Add to basket</a> | <a href"" class="info">More info</a></p>
+                        </li>
+
+		</ul>
+	</div>
+</div>
+</div>
+</div>
+</div>
+*/ ?>
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+	<input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+	<input type="hidden" name="related_product" id="related-products-field" value="" />
+	<div id="price">
+		<!--
+			<p><strong><?php echo $this->getChildHtml('product_type_data') ?></strong></p>
+		<p class="typical">Typical retail price <span>$<?php echo (float)$_product->getData('price_typical'); ?></span>
+		-->
+		<?php if (!$this->hasOptions()):?>
+			<div class="add-to-box">
+				<?php if($_product->isSaleable()): ?>
+					<?php echo $this->getChildHtml('addtocart') ?>
+						<?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+						<span class="or"><?php echo $this->__('OR') ?></span>
+					<?php endif; ?>
+				<?php endif; ?>
+                
+                <a href="/fabric-samples.html" id="sample-link">+ Free fabric samples</a>
+                
+				<?php echo $this->getChildHtml('addto') ?>
+			</div>
+		<?php elseif (!$_product->isSaleable()): ?>
+			<div class="add-to-box">
+				<?php echo $this->getChildHtml('addto') ?>
+			</div>
+		<?php endif; ?>
+		<div class="social">
+			<div class="buttons">
+					<div class="social-button">
+							<div class="fb-like" data-href="<?php echo (Mage::helper("core/url")->getCurrentUrl()); ?>" data-send="false" data-layout="button_count" data-width="92" data-show-faces="false"></div>
+					</div>
+					<div class="social-button">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="92">Tweet</a>
+					</div>
+					<div class="social-button">
+							<a href="http://pinterest.com/pin/create/button/?media=<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize(); ?>" class="pin-it-button" count-layout="horizontal" target="_new"><img border="0" src="https://assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+					</div>
+					<div class="social-button">
+							<a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
+					</div>
+			</div>
+		</div>
+	</div>
+    </form>
+	
+	<div id="details" class="cf">
+		<div class="features">
+			<ul>
+			
+					<li class="cf">
+						<div class="thumb">
+							<?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image')->resize(520,270);
+							if(!strstr($_img, 'placeholder')) { ?>
+								<div class="thumb">
+									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="'.$_img.'" alt="" /></a>'; ?>
+								</div>
+							<?php } ?>
+						</div>
+						<div class="desc">
+							<h3><?php echo $_product->getData('feature_title'); ?></h3>
+							<p><?php echo $_product->getData('feature_content'); ?></p>
+						</div>
+					</li>
+					
+					<li class="cf">
+						<div class="thumb">
+							<?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image2')->resize(520,270);
+							if(!strstr($_img, 'placeholder')) { ?>
+								<div class="thumb">
+									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="'.$_img.'" alt="" /></a>'; ?>
+								</div>
+							<?php } ?>
+						</div>
+						<div class="desc">
+							<h3><?php echo $_product->getData('feature_title2'); ?></h3>
+							<p><?php echo $_product->getData('feature_content2'); ?></p>
+						</div>
+					</li>
+					
+					<li class="cf">
+						<div class="thumb">
+							<?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image3')->resize(520,270);
+							if(!strstr($_img, 'placeholder')) { ?>
+								<div class="thumb">
+									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="'.$_img.'" alt="" /></a>'; ?>
+								</div>
+							<?php } ?>
+						</div>
+						<div class="desc">
+							<h3><?php echo $_product->getData('feature_title3'); ?></h3>
+							<p><?php echo $_product->getData('feature_content3'); ?></p>
+						</div>
+					</li>
+					
+					<li class="cf">
+						<div class="thumb">
+							<?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image4')->resize(520,270);
+							if(!strstr($_img, 'placeholder')) { ?>
+								<div class="thumb">
+									<?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="'.$_img.'" alt="" /></a>'; ?>
+								</div>
+							<?php } ?>
+						</div>
+						<div class="desc">
+							<h3><?php echo $_product->getData('feature_title4'); ?></h3>
+							<p><?php echo $_product->getData('feature_content4'); ?></p>
+						</div>
+					</li>
+					
+			</ul>
+		</div>			
+		<div class="extra">
+			<?php if($_product->getQuote()): ?>
+				<h3><span class="name"><?php echo $_product->getData('quote_author'); ?></span><?php if($_product->getQuote_role()) { ?>, <?php echo $_product->getData('quote_role'); } ?></h3>				
+				<?php if($_product->getQuote_avatar()) { ?>
+					<div class="photo"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="<?php echo $this->helper('catalog/image')->init($_product, 'quote_avatar')->resize(67,67); ?>" alt="" /></div>
+				<?php } ?>
+				<p>&ldquo;<?php echo $_product->getData('quote'); ?>&rdquo;</p>
+			<?php endif; ?>
+		</div>
+		<div class="dimensions">
+			<?php if($_product->getDimensions() || $_product->getDimensions_diagram()): ?>
+                                <div class="specs cf">
+                                        <h3>Product Dimensions</h3>
+					<table width="100%" border="0">
+					<tbody>
+                                        <?php if($_product->getData('general_dimensions')): ?><tr><td><p class="heading">General Dimensions: </p><p class="attribute"><?php echo $_product->getData('general_dimensions'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('seating_height')): ?><tr><td><p class="heading">Seating Height: </p><p class="attribute"><?php echo $_product->getData('seating_height'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('packaging_dimensions')): ?><tr><td><p class="heading">Packaging Dimensions: </p><p class="attribute"><?php echo $_product->getData('packaging_dimensions'); ?></p></td></tr><?php endif ?>
+					</tbody>
+					</table>
+                                        <!--<?php if($_product->getDimensions_diagram()) { ?><p><a href="<?php echo $this->helper('catalog/image')->init($_product, 'dimensions_diagram')->resize(); ?>" class="colorbox">View dimensions diagram</a></p><?php } ?>-->
+					<h3>Shipping and Returns</h3>
+					<table width="100%" border="0">
+                                        <tbody>
+                                        <tr><td><p class="attribute">Leaves warehouse within: <?php echo $_product->getData('delivery_time'); ?><br><a href="/shipping" id="shipping-popup">Shipping</a> and <a href="/return-policy" id="return-popup">Return Policy</a></p></td></tr>
+                                        </tbody>
+                                        </table>
+										
+										
+<div class="inlineContent">
+	<div id="shipping-content" class="checkout-modal">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_shipping_popup')->toHtml(); ?>
+	</div>
+</div>				
+			
+<div class="inlineContent">
+	<div id="return-content" class="checkout-modal">
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_return_popup')->toHtml(); ?>
+	</div>
+</div>
+										
+										
+										
+                                </div>
+                        <?php endif; ?>
+		</div>	
+		<div class="details">
+                                <div class="specs cf">
+                                        <h3>Product Details</h3>
+					<table width="100%" border="0">
+					<tbody>
+					<?php if($_product->getData('finish')): ?><tr><td><p class="heading">Finish: </p><p class="attribute"><?php echo $_product->getData('finish'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('material')): ?><tr><td><p class="heading">Material: </p><p class="attribute"><?php echo $_product->getData('material'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('stackable')): ?><tr><td><p class="heading">Stackable: </p><p class="attribute"><?php echo $_product->getData('stackable'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('outdoor')): ?><tr><td><p class="heading">Outdoor: </p><p class="attribute"><?php echo $_product->getData('outdoor'); ?></p></td></tr><?php endif ?>
+					<?php if($_product->getData('frame')): ?><tr><td><p class="heading">Frame:</p><p class="attribute"><?php echo $_product->getData('frame'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('legs')): ?><tr><td><p class="heading">Legs:</p><p class="attribute"><?php echo $_product->getData('legs'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('suspension')): ?><tr><td><p class="heading">Suspension: </p><p class="attribute"><?php echo $_product->getData('suspension'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('filling')): ?><tr><td><p class="heading">Filling: </p><p class="attribute"><?php echo $_product->getData('filling'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('fabric')): ?><tr><td><p class="heading">Fabric: </p><p class="attribute"><?php echo $_product->getData('fabric'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('care')): ?><tr><td><p class="heading">Care: </p><p class="attribute"><?php echo $_product->getData('care'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('adjustable')): ?><tr><td><p class="heading">Adjustable: </p><p class="attribute"><?php echo $_product->getData('adjustable'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('bulb')): ?><tr><td><p class="heading">Bulb: </p><p class="attribute"><?php echo $_product->getData('bulb'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('switch')): ?><tr><td><p class="heading">Switch: </p><p class="attribute"><?php echo $_product->getData('switch'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('assembly')): ?><tr><td><p class="heading">Assembly: </p><p class="attribute"><?php echo $_product->getData('assembly'); ?></p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('weight')): ?><tr><td><p class="heading">Weight: </p><p class="attribute"><?php echo round($_product->getData('weight')); ?> lbs</p></td></tr><?php endif ?>
+                                        <?php if($_product->getData('sku')): ?><tr><td><p class="heading">SKU: </p><p id="sku" class="attribute"><?php echo $_product->getData('sku'); ?></p></td></tr><?php endif ?>
+					</table>
+                                </div>
+		</div>
+	</div>
+	<?php echo $this->getChildHtml('catalog.product.related') ?>
+</div>
+
+<script>
+
+var opts = {
+  lines: 9, // The number of lines to draw
+  length: 4, // The length of each line
+  width: 3, // The line thickness
+  radius: 7, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  color: '#fff', // #rgb or #rrggbb
+  speed: 1, // Rounds per second
+  trail: 60, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: 'auto', // Top position relative to parent in px
+  left: 'auto' // Left position relative to parent in px
+};
+var target = document.getElementById('spin');
+var spinner = new Spinner(opts).spin(target);
+
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+
+jQuery('.add-to-links li:eq(1)').on('hover', function() {
+	jQuery('#product .social').show();
+});
+
+jQuery('#product .social').on('mouseleave', function() {
+        jQuery('#product .social').hide();
+});
+
+	var productAddToCartForm = new VarienForm('product_addtocart_form');
+	
+	productAddToCartForm.submit = function(button, url) {
+		if (this.validator.validate()) {
+			var productQty = jQuery('#qty').val();
+			var productPrice = jQuery('#product-price').html();
+			productPrice = productPrice.replace('$', ''); 
+			productPrice = parseFloat(productPrice);
+			
+			if(location.hostname.substring(0,7) != 'staging') {
+				mixpanel.track('Add Product to Cart', { 'Product Type': '<?php echo str_replace("'", "\'", $_product->getData('featured_name')); ?>', 'Price': productPrice, 'Quantity': productQty});
+			} else {
+				console.log('mixpanel.track(\'Add Product to Cart\', { \'Product Type\': \'<?php echo str_replace("'", "\'", $_product->getData('featured_name')); ?>\', \'Price\': productPrice, \'Quantity\': productQty});');
+			}
+			
+			this.form.submit();
+		}
+	}.bind(productAddToCartForm);
+	
+/*	productAddToCartForm.submit = function(button, url) {
+		if (this.validator.validate()) {
+			var form = this.form;
+			var oldUrl = form.action;
+
+			if (url) {
+			   form.action = url;
+			}
+			var e = null;
+			// Start of our new ajax code
+			if (!url) {
+		                url = jQuery('#product_addtocart_form').attr('action');
+		            }
+		            url = url.replace("checkout/cart", "ajax/index"); // New Code
+		            var data = jQuery('#product_addtocart_form').serialize();
+		            data += '&isAjax=1';
+			    data += '&qty=' + jQuery('#qty').val();
+     			    jQuery('#spin').show();
+			    //alert(url);
+		            try {
+				jQuery.ajax({
+		                      url: url,
+		                      dataType: 'json',
+		                      type : 'post',
+		                      data: data,
+		                      success: function(data){
+						jQuery('#spin').hide();
+						//alert(data.status + ": " + data.message);
+						//alert(data.itemcount);
+						jQuery('#tertiary .top-link-cart').text(data.itemcount).attr('title',data.itemcount);
+						jQuery('#cart-photo img').attr('src', data.productImage);
+						jQuery('#cart-contents .product .c-left').text(data.productName + ' was successfully added to your basket');
+						jQuery('#cart-contents .product .c-center').text('Quantity: ' + data.productQty);
+						jQuery('#cart-contents .product .c-right').text(data.productPrice);
+						for(var i=0; i<data.related.length; i++) {
+							jQuery('#cart-related li:eq('+i+') .image img').attr('src', data.related[i]['image']);
+							jQuery('#cart-related li:eq('+i+') .image a').attr('href', data.related[i]['link']);
+							jQuery('#cart-related li:eq('+i+') .details a').attr('href', data.related[i]['link']);
+							jQuery('#cart-related li:eq('+i+') .details .name').text(data.related[i]['name']);
+							jQuery('#cart-related li:eq('+i+') .details .new').text(data.related[i]['price']);
+							//jQuery('#cart-related li:eq('+i+') .details .old').text(data.related[i]['retailprice']);
+							jQuery('#cart-related li:eq('+i+') .control .add-to-basket').attr('href', data.related[i]['addlink']);
+							jQuery('#cart-related li:eq('+i+') .control .info').attr('href', data.related[i]['link']);
+							jQuery('#cart-related li:eq('+i+')').show();
+						}
+						jQuery('#screen_filter').show();
+						jQuery('#modal_box').show();
+						jQuery('#modal_wrap').show();
+
+						//MixPanel
+						mixpanel.track('Add Product to Cart', { 'Product Type': data.productName, 'Price': data.productPrice, 'Quantity':data.productQty})
+
+						//var t = setTimeout('close()',5000);
+		                      },
+				      error: function(data){
+					   //alert("error");
+				      }
+		                });
+		            } catch (e) {
+		            }
+		            // End of our new ajax code
+			this.form.action = oldUrl;
+			if (e) {
+				throw e;
+			}
+
+			if (button && button != 'undefined') {
+				button.disabled = true;
+			}
+		}
+	}.bind(productAddToCartForm);
+*/
+	productAddToCartForm.submitLight = function(button, url){
+		if(this.validator) {
+			var nv = Validation.methods;
+			delete Validation.methods['required-entry'];
+			delete Validation.methods['validate-one-required'];
+			delete Validation.methods['validate-one-required-by-name'];
+			if (this.validator.validate()) {
+				if (url) {
+					this.form.action = url;
+				}
+				this.form.submit();
+			}
+			Object.extend(Validation.methods, nv);
+		}
+	}.bind(productAddToCartForm);
+	
+	// Feature popups
+	$j('body').nivoZoom();
+	$j('.colorbox').colorbox();
+	
+	// Shipping/return popups	
+	$j(document).ready(function() {
+		$j('#shipping-popup').colorbox({
+			initialWidth:700,
+			innerHeight:560,
+			inline:true,
+			scrolling:true,
+			opacity:0.4,
+			transition: 'none',
+			href: '#shipping-content',
+			onOpen: function() {  },
+			onComplete: function() {
+				var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
+				/* $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;'); */
+				$j('#cboxClose').addClass('show');
+				$j('#colorbox').css('opacity', '1');
+				$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+				$j('#cboxLoadedContent').addClass('newsletter');
+				$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+			}
+		});
+	});
+	
+	$j(document).ready(function() {
+		$j('#return-popup').colorbox({
+			initialWidth:700,
+			innerHeight:560,
+			inline:true,
+			scrolling:true,
+			opacity:0.4,
+			transition: 'none',
+			href: '#return-content',
+			onOpen: function() {  },
+			onComplete: function() {
+				var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
+				/* $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;'); */
+				$j('#cboxClose').addClass('show');
+				$j('#colorbox').css('opacity', '1');
+				$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+				$j('#cboxLoadedContent').addClass('newsletter');
+				$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+			}
+		});
+	});	
+//]]>
+</script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+<script type="text/javascript" src="http://platform.tumblr.com/v1/share.js"></script>	
+	
+			<?php /*
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="product-view">
+    <div class="product-essential">
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <div class="no-display">
+            <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+            <input type="hidden" name="related_product" id="related-products-field" value="" />
+        </div>
+		
+		<div class="product-name">
+                <h1><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
+        </div>
+		
+        <div class="product-shop">           
+
+            <?php if ($this->canEmailToFriend()): ?>
+                <p class="email-friend"><a href="<?php echo $this->helper('catalog/product')->getEmailToFriendUrl($_product) ?>"><?php echo $this->__('Email to a Friend') ?></a></p>
+            <?php endif; ?>
+
+            <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
+            <?php echo $this->getChildHtml('alert_urls') ?>
+            <?php echo $this->getChildHtml('product_type_data') ?>
+            <?php echo $this->getChildHtml('extrahint') ?>
+			
+            <?php if (!$this->hasOptions()):?>
+                <div class="add-to-box">
+                    <?php if($_product->isSaleable()): ?>
+                        <?php echo $this->getChildHtml('addtocart') ?>
+                        <?php if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                            <span class="or"><?php echo $this->__('OR') ?></span>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php echo $this->getChildHtml('addto') ?>
+                </div>
+            <?php endif; ?>
+            <?php if ($_product->getShortDescription()):?>
+                <div class="short-description">
+                    <h2><?php echo $this->__('Quick Overview') ?></h2>
+                    <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+                </div>
+            <?php endif;?>
+
+            <?php echo $this->getChildHtml('other');?>
+            <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+            <?php endif;?>
+
+        </div>
+
+        <div class="clearer"></div>
+        <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+        <?php endif;?>
+    </form>
+    </div>
+
+    <div class="product-collateral">
+        <?php echo $this->getChildHtml('info_tabs') ?>
+        <?php echo $this->getChildHtml('product_additional_data') ?>
+    </div>
+</div>
+
+*/ ?>
+
+
+

@@ -1,0 +1,332 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<div id="checkout">
+	<div class="page-title">
+		<h1><?php echo $this->__('Checkout') ?></h1>
+	</div>
+	<script type="text/javascript" src="<?php echo $this->getJsUrl('varien/accordion.js') ?>"></script>
+	<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/opcheckout.js') ?>"></script>
+	<ol class="opc" id="checkoutSteps">
+	<?php $i=0; foreach($this->getSteps() as $_stepId => $_stepInfo): ?>
+	<?php if (!$this->getChild($_stepId) || !$this->getChild($_stepId)->isShow()): continue; endif; $i++ ?>
+		<li id="opc-<?php echo $_stepId ?>" class="section<?php echo !empty($_stepInfo['allow'])?' allow':'' ?><?php echo !empty($_stepInfo['complete'])?' saved':'' ?>">
+			<div class="step-title">
+				<span class="number"><?php echo $i ?></span>
+				<h2><?php echo $_stepInfo['label'] ?></h2>
+				<a href="#"><?php echo $this->__('Edit') ?></a>
+			</div>
+			<div id="checkout-step-<?php echo $_stepId ?>" class="step a-item" style="display:none;">
+				<?php echo $this->getChildHtml($_stepId) ?>
+			</div>
+		</li>
+	<?php endforeach ?>
+	</ol>
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+    var accordion = new Accordion('checkoutSteps', '.step-title', true);
+    <?php if($this->getActiveStep()): ?>
+    accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');	
+    <?php endif ?>
+    var checkout = new Checkout(accordion,{
+        progress: '<?php echo $this->getUrl('checkout/onepage/progress') ?>',
+        review: '<?php echo $this->getUrl('checkout/onepage/review') ?>',
+        saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
+        failure: '<?php echo $this->getUrl('checkout/cart') ?>'}
+    );	
+	
+	<?php /* hide company + fax */ ?>
+	// Enabled company field on 08-05-2013
+	//$j('#shipping\\:company, #shipping\\:fax, #billing\\:company, #billing\\:fax').parent().parent().remove();
+	$j('#shipping\\:fax, #billing\\:fax').parent().parent().remove();
+	
+	<?php /* update sidebar summary every time button is click, and apply tax if needed */ ?>
+	
+	// add placeholder
+	$j(document).ready(function() { 
+		// Check if we have a shipping row
+		var hasShipping = false;
+		$j('#checkout-review .adjustment').each(function() {
+			if($j(this).html().indexOf("Shipping") > -1) {
+				hasShipping = true;
+			}
+		});
+		
+		// Add shipping placeholder IF not shipping
+		if(hasShipping === false) {
+			$j('#checkout-review #total').before( $j('<div class="adjustment" id="review-shipping">Shipping & Handling (Front Door Delivery)<span class="value"><span class="price">$0.00</span></span></div>') );
+		}
+		
+		// Check if we have a tax row
+		var hasTax = false;
+		$j('#checkout-review .adjustment').each(function() {
+			if($j(this).html().indexOf("Tax") > -1) {
+				hasTax = true;
+			}
+		});
+		
+		// Add tax placeholder IF no tax
+		if(hasTax === false) {
+			 $j('#checkout-review #total').before( $j('<div class="adjustment" id="review-tax">Tax <span class="value"><span class="price">$0.00</span></span></div>') );
+		}
+		
+		// Going through the steps
+		$j("#checkoutSteps button").on('click', function(event){
+			var reviewUrl = '<?php echo $this->getUrl('checkout/onepage/review') ?>';
+			
+			// Check if was just billing or shipping section
+			var billOrShip;
+			if($j(this).closest('#opc-shipping').length) {
+				billOrShip = 'ship';
+			} else if($j(this).closest('#opc-billing').length) {
+				billOrShip = 'bill';
+			}
+			
+			// ECOM ANALYTICS
+			<?php
+			$session = Mage::getSingleton('checkout/session');
+			$quote_id = $session->getQuoteId();
+			$item_quote = Mage::getModel('sales/quote')->load($quote_id);			
+			$items_in_cart = $item_quote->getAllVisibleItems();
+			?>
+		
+			var checkoutStep = 1;
+			var checkoutOption = '';
+			if($j(this).closest('#opc-billing').length) {
+				checkoutStep = 2;
+			} else if($j(this).closest('#opc-shipping').length) {
+				checkoutStep = 3;
+			} else if($j(this).closest('#opc-shipping_method').length) {
+				checkoutStep = 4;
+				checkoutOption = $j('input[name="shipping_method"]:checked').next('label').find('span').html();
+			} else if($j(this).closest('#opc-payment').length) {
+				checkoutStep = 5;
+				checkoutOption = $j('#braintree_cc_type option:selected').html();
+			} else if($j(this).closest('#opc-review').length) {
+				checkoutStep = 6;
+			}
+			
+			dataLayer.push({
+				'event': 'checkout',
+				'ecommerce': {
+					'checkout': {
+						'actionField': {'step': checkoutStep, 'option': checkoutOption},
+						'products': [	
+							<?php $i = 0; $len = count($items); ?>
+							<?php foreach ($items_in_cart as $item) { ?>
+								<?php 
+									$_product = Mage::getModel('catalog/product')->loadByAttribute('sku',$item->getSku()); 
+									$categoryIds = $_product->getCategoryIds();
+									if (isset($categoryIds[0])){
+										$category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
+										$categoryName = $category->getName();
+									} else {
+										$categoryName = '';
+									}
+								?>					
+								{
+									'name': '<?php echo $item->getName(); ?>',
+									'id': '<?php echo $item->getSku(); ?>',
+									'price': '<?php echo $item->getPrice(); ?>',
+									'brand': '',
+									'category': '<?php echo $categoryName; ?>',
+									'variant': '',
+									'quantity': <?php echo $item->getQty(); ?>
+								}<?php if($i != $len - 1) { ?>,<?php } ?>
+								<?php 
+									$i++; 
+							} ?> 							
+						]						
+					}
+				}
+			});
+			// END ECOM ANALYTICS
+			
+			$j.get(reviewUrl, function(data) {
+			//	console.log('ajax 1');
+				$j('#checkout-review .totals .adjustment').remove();
+				$j('#checkout-review .totals #total').remove();
+				
+				var $dom = data;			
+				$j($dom).find('.adjustment').each(function() {
+					$j('#checkout-review .totals').append('<div class="adjustment"></div>');
+					$j('#checkout-review .totals .adjustment').last().append($j(this).html());	
+				});
+				$j($dom).find('#total').each(function() {
+					$j('#checkout-review .totals').append('<div id="total"></div>');
+					$j('#checkout-review .totals #total').append($j(this).html());		
+				});	
+			}).error(function() {
+			//	console.log('ajax 2');	
+				
+				// Check if we have a tax number
+				var hasTax = false;				
+				$j('#checkout-review .adjustment').each(function() {
+					if($j(this).html().indexOf("Tax") > -1 ) {
+						if(parseFloat($j(this).find('.price').first().html().replace('$','').replace(',','')) > 0) {
+							hasTax = true;
+						}
+					}
+				});
+				
+				// Check if we're CA shipping
+				var isCA = false;				
+				if(billOrShip == 'ship') {
+					if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12 && $j('#shipping\\:country_id').val() == 'US') ) {
+						isCA = true;
+					} else {
+						isCA = false;
+					}					
+				} else if (billOrShip == 'bill') {
+					if( ($j('#shipping\\:same_as_billing').prop('checked') == true && $j('#billing-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:same_as_billing').prop('checked') == true && $j('#billing\\:region_id').val() == 12 && $j('#billing\\:country_id').val() == 'US') ) {
+						isCA = true;
+					} else {
+						isCA = false;
+					}				
+				} else {
+					if( ($j('#shipping-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:region_id').val() == 12 && $j('#shipping\\:country_id').val() == 'US') || ($j('#shipping\\:same_as_billing').prop('checked') == true && $j('#billing-address-select option:selected').text().indexOf("California") >= 0) || ($j('#shipping\\:same_as_billing').prop('checked') == true && $j('#billing\\:region_id').val() == 12 && $j('#billing\\:country_id').val() == 'US') ) {
+						isCA = true;
+					} else {
+						isCA = false;
+					}				
+				}
+				
+			//	console.log('hasTax ' + hasTax);
+			//	console.log('isCA ' + isCA);
+				
+				/*				
+					hasTax + isCA = nothing
+					!hasTax + isCA = add tax
+					hasTax + !isCA = remove tax
+					!hasTax + !isCA = remove tax			
+				*/
+				
+				if(isCA === false) {
+					// If not CA
+					$j('#checkout-review .adjustment').each(function() {
+						if($j(this).html().indexOf("Tax") > -1 ) {
+							// Remove the tax from the total
+							var totalPrice = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
+							var removePrice = parseFloat($j(this).find('.price').first().html().replace('$','').replace(',',''));
+							$j('#checkout-review #total .price').html('$' + (totalPrice - removePrice).toFixed(2));									
+							$j(this).remove();
+						}
+					});
+					$j('#review-tax').remove();
+					$j('#checkout-review #total').before( $j('<div class="adjustment" id="review-tax">Tax <span class="value"><span class="price">$0.00</span></span></div>') );
+				} else {
+					// If CA
+					if(hasTax === true) {
+						// If has tax
+					} else {
+						// If no tax
+						
+						// Calculate tax and add to total
+						$j('#checkout-review .adjustment').each(function() {
+							if($j(this).html().indexOf("Tax") > -1) {
+								// Get total price
+								var totalPriceOrig = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
+								var totalPrice = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
+								
+								// Adjust for discount/shipping
+								$j('#checkout-review .adjustment').each(function() {
+									if($j(this).html().indexOf("Discount") > -1) {
+										totalPrice = totalPrice - parseFloat($j(this).find('.price').first().html().replace('$','').replace(',',''));
+									}
+									if($j(this).html().indexOf("Shipping") > -1) {
+										totalPrice = totalPrice - parseFloat($j(this).find('.price').first().html().replace('$','').replace(',',''));
+									}
+								});
+								
+								var addPrice = totalPrice / 100 * 9;
+								$j('#checkout-review #total .price').html('$' + (totalPriceOrig + addPrice).toFixed(2));					
+								$j(this).find('.price').html('$' + addPrice.toFixed(2));
+							}
+						});
+					}
+				}
+				
+				// Check current shipping cost
+				var currentShip = 0;
+				$j('#checkout-review .adjustment').each(function() {
+					if($j(this).html().indexOf("Shipping") > -1) {
+						currentShip = parseInt($j(this).find('.price').first().html().replace('$','').replace(',',''));
+					}
+				});
+				
+				// Check if whiteglove shipping
+				var whiteGlove = $j('#s_method_shippingmethod_').prop('checked');
+				
+				/*
+					currentShip = 0 + whiteGlove = false: do nothing
+					currentShip = 99 + whiteGlove = false: remove shipping
+					currentShip = 0 + whiteGlove = true: add shipping
+					currentShip = 99 + whiteGlove = true: do nothing
+				*/
+				
+				if(currentShip == 99 && whiteGlove === false) {
+					// Remove shipping					
+					$j('#checkout-review .adjustment').each(function() {
+						if($j(this).html().indexOf("Shipping") > -1) {
+							var totalPrice = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
+							var removePrice = 99;
+							$j('#checkout-review #total .price').html('$' + (totalPrice - removePrice).toFixed(2));	
+							$j(this).html('Shipping & Handling (Front Door Delivery)<span class="value"><span class="price">$0.00</span></span></div>');							
+						}
+					});					
+				} else if(currentShip == 0 && whiteGlove === true) {
+					// Add shipping				
+					$j('#checkout-review .adjustment').each(function() {
+						if($j(this).html().indexOf("Shipping") > -1) {
+							var totalPrice = parseFloat($j('#checkout-review #total .price').html().replace('$','').replace(',',''));
+							var addPrice = 99;
+							$j('#checkout-review #total .price').html('$' + (totalPrice + addPrice).toFixed(2));	
+							$j(this).html('Shipping & Handling (Inside Delivery & Packaging Removal)<span class="value"><span class="price">$99.00</span></span></div>');							
+						}
+					});	
+				}				
+				
+			});
+			
+		});
+		
+		
+		if(location.hostname.substring(0,7) != 'staging') {
+			mixpanel.track('Checkout');
+		} else {
+			console.log('mixpanel.track(\'Checkout\');');
+		}
+	});
+//]]>
+</script>
+
+
+

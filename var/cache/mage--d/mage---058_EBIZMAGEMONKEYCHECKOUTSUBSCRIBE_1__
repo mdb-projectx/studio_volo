@@ -1,0 +1,132 @@
+<script type="text/javascript">
+addSubscribeToPost = function (element){
+
+	if( $('magemonkey-subscribe') ){
+		$('magemonkey-subscribe').remove();
+	}
+
+	if(element.checked){
+        var inputer = new Element('input', { name: "magemonkey_subscribe", id: "magemonkey-subscribe", value: "1", type: "hidden" });
+        var listValue = new Element('input', { name: element.readAttribute('name'), id: "subscribe", value: element.getValue(), type: "hidden" });
+        try{
+            Element.insert(Form.findFirstElement(payment.form), inputer);
+            Element.insert(Form.findFirstElement(payment.form), listValue);
+        }catch(notelem){
+            $("co-payment-form").insert(inputer);
+            $("co-payment-form").insert(listValue);
+        }
+	}
+
+}
+addGroupToPost = function (element){
+	if(element.checked){
+        try{
+        	var group = new Element('input', { name: element.readAttribute('name'), id: element.readAttribute('id'), value: element.getValue(), checked:true, type: "checkbox" });
+            Element.insert(Form.findFirstElement(payment.form), group);
+        }catch(notelem){
+            $("co-payment-form").insert(group);
+        }
+	}
+}
+addElementToPost = function (element){
+
+	var formInputId = element.readAttribute('id') + '-serialize';
+
+	if($(formInputId)){
+	 $(formInputId).remove();
+	}
+
+	var inp = new Element('input', { name: element.readAttribute('name'), id: formInputId, value: element.getValue(), type: "hidden" });
+
+	Element.insert( Form.findFirstElement(payment.form), inp);
+
+}
+</script>
+<div class="buttons-set" style="display:none;">
+<!-- General Subscription -->
+<div class="page-title">
+	<h1>Newsletter Subscription</h1>
+</div>
+<ul class="monkey-additional-lists">
+	<li class="listdata">General Subscription		<input checked="checked" type="checkbox" onchange="addSubscribeToPost(this);" name="list[6dc8a8d30c][subscribed]" id="magemonkey-trigger" value="6dc8a8d30c" title="General Subscription" class="monkey-list-subscriber" />
+					<div id="interest_groupings_6dc8a8d30c" class="interest-groupings">
+													</div>
+
+			</li>
+</ul>
+<!-- General Subscription -->
+
+<!-- Additional Lists -->
+<div class="monkey-multisubscribe">
+	<ul class="monkey-additional-lists">
+				<li class="listdata"><label for="list-6dc8a8d30c">VOLO Company Newsletter</label>
+<input id="list-6dc8a8d30c" name="list[6dc8a8d30c][subscribed]" value="6dc8a8d30c" type="checkbox" title="Click to subscribe to this list." class="monkey-list-subscriber"/>
+					<div id="interest_groupings_6dc8a8d30c" class="interest-groupings">
+													</div>
+
+				</li>
+			</ul>
+</div>
+<!-- Additional Lists -->
+</div>
+
+<script type="text/javascript">
+//Handle newsletter subscribe/unsubscribe checkbox events
+$$('input.monkey-list-subscriber').each(function(chk){
+
+		if( !chk.checked ){
+			var groupings = $('interest_groupings_'+chk.value);
+			if(groupings){
+				groupings.select('select', 'input').invoke('writeAttribute', 'disabled', 'disabled');
+			}
+		}
+
+		chk.observe('change', function(){
+
+			var groupings = $('interest_groupings_'+this.value);
+			if(groupings){
+				var elements = groupings.select('select', 'input');
+				if(this.checked){
+					elements.invoke('removeAttribute', 'disabled');
+				}else{
+					elements.invoke('writeAttribute', 'disabled', 'disabled');
+				}
+			}
+
+		});
+});
+
+addSubscribeToPost($('magemonkey-trigger'));
+
+if( $$('div#checkout-step-review div.monkey-multisubscribe').length ){
+
+  var event = 'change';
+
+  //Radio||Checkbox
+  $$('div#checkout-step-review div.monkey-multisubscribe input').each(function(input){
+
+	  if(input.readAttribute('type') == 'radio'){
+		  event = 'click';
+	  }
+
+	  input.observe(event, function(){
+		  addElementToPost(this);
+	  });
+  });
+
+  $$('div#checkout-step-review div.monkey-multisubscribe select').each(function(ddl){
+	  ddl.observe(event, function(){
+		  addElementToPost(this);
+	  });
+  });
+
+}
+//Handle newsletter subscribe/unsubscribe checkbox events
+$$('.interest-groupings input').each(function(group){
+  group.observe('change', function(){
+	 if(group.checked){
+	    	addGroupToPost(group);
+	 }
+  });
+});
+</script>

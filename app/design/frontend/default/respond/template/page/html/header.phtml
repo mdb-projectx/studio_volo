@@ -28,56 +28,56 @@
  */
 ?>
 
-<div id="header-wrap">
-	<?php echo $this->getChildHtml('header_notification') ?>
-	<div id="header">
-		<h1><a href="<?php echo $this->getUrl('') ?>"><?php echo  Mage::app()->getWebsite()->getName(); ?></a></h1>
-		
-		<div id="header-inner">
-			<div id="secondary">
-				<?php echo $this->getChildHtml('header_links') ?>
-			</div>
-			
-			<div id="tertiary">
-				<?php echo $this->getChildHtml('topLinksCustom') ?>
-				<!--
-				<div id="fb">
-					<div id="fblike" class="fb-like" data-href="http://www.facebook.com/shopvolo" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div>
-					<div class="shadow"></div>
-				</div>
-				-->
-			</div>
-		</div>
-	</div>	
-</div>
 
-<?php /*
-<div class="header-container">
-    <div class="header">
-		<div class="quick-access">
-		</div>
-        <?php if ($this->getIsHomePage()):?>
-        <h1 class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
-        <?php else:?>
-        <a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo"><strong><?php echo $this->getLogoAlt() ?></strong><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a>
-        <?php endif?>
-		<!--<?php echo $this->getChildHtml('topSearch') ?>-->
-    </div>
-
-    <?php echo $this->getChildHtml('topBar') ?>
-    <?php echo $this->getChildHtml('topContainer'); ?>
-</div>
-*/ ?>
-
-<div id="wrapper">
-<ul id="menu">
+<ul class="b-nav ">
 	<?php echo $this->getChildHtml('topMenu') ?>
-	<li class="search">
-		<?php echo $this->getChildHtml('topSearch') ?>
+    <?php echo $this->getChildHtml('topLinksCustom') ?>
+    <li>
+    	<?php echo $this->getChildHtml('topSearch') ?>
 	</li>
 </ul>
+<div class="b-container">
+	<div class="b-menu">
+		<div class="b-bun b-bun--top"></div>
+		<div class="b-bun b-bun--mid"></div>
+		<div class="b-bun b-bun--bottom"></div>
+	</div>
+</div>
 
-<!-- Newsletter Button -->
+<?php echo $this->getChildHtml('header_notification') ?>
+
+<div class="outerwrapper outerwrapper--header">    
+    <div class="wrapper">
+              
+        <div class="row cf">
+            <div class="item item--twelve-col">
+                <h1><a href="<?php echo $this->getUrl('') ?>"><?php echo  Mage::app()->getWebsite()->getName(); ?></a></h1>
+                
+                <div class="menu">
+                    <ul>
+                        <?php echo $this->getChildHtml('topMenu') ?>
+                    </ul>
+                </div>
+                
+                <div class="meta">
+                    <ul>
+						<?php echo $this->getChildHtml('topLinksCustom') ?>
+                    </ul>
+                    <div class="search">
+                        <?php echo $this->getChildHtml('topSearch') ?>
+                    </div>  
+                </div>
+            </div>    
+        </div>
+        
+    </div>    
+</div>
+
+
+
+
+<?php // TO DO: NEWSLETTER SUBSCRIBE
+/*
 
 <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('newsletter_subscribe_popup')->toHtml() ?>
 
@@ -124,7 +124,8 @@ $j(document).ready(function() {
 });
 //]]>
 </script>
+*/ ?>
 
+<!-- BEGIN TOPBAR -->
 <?php echo $this->getChildHtml('topBar') ?>
-
-
+<!-- END TOPBAR -->

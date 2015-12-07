@@ -25,35 +25,41 @@
  */
 ?>
 
-<div class="top-bar">
-<div id="breadcrumbs">
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+    
+<div class="outerwrapper outerwrapper--breadcrumbs">
+    <div class="wrapper">
+        <div class="row row--whole cf">
+            <div class="item">
+                <div id="breadcrumbs">
+
 <a title="Go to Home Page" href="/">Home</a>
 <span>&rsaquo;</span>
-Contact
+Contact Us
+                </div>
+             </div>
+        </div>
+    </div>
 </div>
+
+
+<div class="outerwrapper outerwrapper--static">
+<div class="wrapper">
+
+<div class="row row--custom cf">
+<div class="item sm-item--three-col sidebar">
+
+	<ul>
+		<li><a href="/contacts">Contact Us</a></li>
+		<li><a href="/faq">FAQ</a></li>
+		<li><a href="/shipping">Shipping</a></li>
+		<li><a href="/return-policy">Return Policy</a></li>
+	</ul>
+    
 </div>
+<div class="item sm-item--five-col">
 
-<div id="contact" class="cf">
-
-<div class="page-content cf">
-
-	<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
-
-	<div class="contact-right">
-		<h1><?php echo Mage::helper('contacts')->__('Contact Us') ?></h1>
-		<p>
-			(855) 367-8656<br>
-			Mon-Fri 9-5 PST
-		</p>
-		<p>
-			VOLO Design<br>
-			855 Washington Blvd.<br>
-			Montebello, CA 90640
-		</p>
-	</div>
-		
-	<div class="contact-left">
-		<h1><?php echo Mage::helper('contacts')->__('Email Us') ?></h1>
+<h1><?php echo Mage::helper('contacts')->__('Email Us') ?></h1>
 		<form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post">
 			<input type="hidden" value="" name="ip" id="ip">
 			<div class="fieldset">
@@ -61,27 +67,27 @@ Contact
 					<li class="wide">
 						<label for="name" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Name') ?></label>
 						<div class="input-box">
-							<input name="name" id="name" title="<?php echo Mage::helper('contacts')->__('Name') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" />
+							<input name="name" id="name" title="<?php echo Mage::helper('contacts')->__('Name') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserName()) ?>" class="required-entry" type="text" />
 						</div>
 					</li>
 					<li class="wide">
 						<label for="email" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Email') ?></label>
 						<div class="input-box">
-							<input name="email" id="email" title="<?php echo Mage::helper('contacts')->__('Email') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserEmail()) ?>" class="input-text required-entry validate-email" type="text" />
+							<input name="email" id="email" title="<?php echo Mage::helper('contacts')->__('Email') ?>" value="<?php echo $this->htmlEscape($this->helper('contacts')->getUserEmail()) ?>" class="required-entry validate-email" type="text" />
 						</div>
 					</li>
 					<!--
 					<li class="wide">
 						<label for="telephone"><?php echo Mage::helper('contacts')->__('Telephone (optional)') ?></label>
 						<div class="input-box">
-							<input name="telephone" id="telephone" title="<?php echo Mage::helper('contacts')->__('Telephone') ?>" value="" class="input-text" type="text" />
+							<input name="telephone" id="telephone" title="<?php echo Mage::helper('contacts')->__('Telephone') ?>" value="" class="" type="text" />
 						</div>
 					</li>
 					-->
 					<li class="wide" style="display: none">
 						<label for="fax"><?php echo Mage::helper('contacts')->__('Fax (leave this blank if you\'re human)') ?></label>
 						<div class="input-box">
-							<input name="fax" id="fax" title="<?php echo Mage::helper('contacts')->__('Fax') ?>" value="" class="input-text" type="text" />
+							<input name="fax" id="fax" title="<?php echo Mage::helper('contacts')->__('Fax') ?>" value="" class="" type="text" />
 						</div>
 					</li>
 					<li class="wide" id="subjectwrap">
@@ -438,47 +444,55 @@ Contact
 					<li class="wide" id="productsku-li" style="display: none;">
 						<label for="productsku"><?php echo Mage::helper('contacts')->__('Product SKU (optional)') ?></label>
 						<div class="input-box">
-							<input name="productsku" id="productsku" title="<?php echo Mage::helper('contacts')->__('Product SKU') ?>" value="" class="input-text" type="text" />
+							<input name="productsku" id="productsku" title="<?php echo Mage::helper('contacts')->__('Product SKU') ?>" value="" class="" type="text" />
 						</div>
 					</li>
 					<li class="wide" id="ordernumber-li" style="display: none;">
 						<label for="ordernumber"><?php echo Mage::helper('contacts')->__('Order Number (optional)') ?></label>
 						<div class="input-box">
-							<input name="ordernumber" id="ordernumber" title="<?php echo Mage::helper('contacts')->__('Order Number') ?>" value="" class="input-text" type="text" />
+							<input name="ordernumber" id="ordernumber" title="<?php echo Mage::helper('contacts')->__('Order Number') ?>" value="" class="" type="text" />
 						</div>
 					</li>
 					<li class="wide">
 						<label for="comment" class="required"><em>*</em><?php echo Mage::helper('contacts')->__('Message') ?></label>
 						<div class="input-box">
-							<textarea name="comment" id="comment" title="<?php echo Mage::helper('contacts')->__('Message') ?>" class="required-entry input-text" cols="5" rows="3"></textarea>
+							<textarea name="comment" id="comment" title="<?php echo Mage::helper('contacts')->__('Message') ?>" class="required-entry" cols="5" rows="3"></textarea>
 						</div>
 					</li>
 				</ul>
 			</div>
-			<div class="buttons-set">
-				<p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
-				<input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
-				<button type="submit" title="<?php echo Mage::helper('contacts')->__('Submit') ?>" class="button"><span><span><?php echo Mage::helper('contacts')->__('Submit') ?></span></span></button>
-			</div>
+				
+            <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
+			<input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+			<p style="clear: both"><button type="submit" title="<?php echo Mage::helper('contacts')->__('Submit') ?>" class="ctn"><?php echo Mage::helper('contacts')->__('Submit') ?></button></p>
+			
 		</form>
 		<script type="text/javascript">
 		//<![CDATA[
 			var contactForm = new VarienForm('contactForm', true);
 		//]]>
 		</script>
-	</div>
+    
+    
+</div>
+<div class="item sm-item--four-col item--last">
+    
+    <h3><?php echo Mage::helper('contacts')->__('Contact Us') ?></h3>
+    <p>
+        (855) 367-8656<br>
+        Mon-Fri 9-5 PST
+    </p>
+    <p>
+        Capsule<br>
+        855 Washington Blvd.<br>
+        Montebello, CA 90640
+    </p>
+
+</div>
 </div>
 
-<div class="page-sidebar">
-
-	<ul>
-		<li class="current"><a href="/contacts">Contact Us</a></li>
-		<li><a href="/faq">FAQ</a></li>
-		<li><a href="/shipping">Shipping</a></li>
-		<li><a href="/return-policy">Return Policy</a></li>
-	</ul>
-	
+</div>
 </div>
 
-</div>
+
 

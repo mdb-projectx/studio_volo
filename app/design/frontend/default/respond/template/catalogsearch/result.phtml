@@ -25,15 +25,22 @@
  */
 ?>
 
+
+<div class="outerwrapper">
+    <div class="wrapper">
+
 <div id="search">	
 
 <?php if($this->getResultCount()): ?>
 <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
-<div class="page-title">
+        <div class="row row--whole pagetitle cf">
+            <div class="item">
+                
     <?php if ($this->helper('rss/catalog')->getTagFeedUrl()): ?>
         <a href="<?php echo $this->helper('rss/catalog')->getTagFeedUrl() ?>" class="nobr link-rss"><?php echo $this->__('Subscribe to Feed') ?></a>
     <?php endif; ?>
     <h1><?php echo ($this->getHeaderText() || $this->getHeaderText() === false) ? $this->getHeaderText() : $this->__("Search results for '%s'", $this->helper('catalogsearch')->getEscapedQueryText()) ?></h1>
+</div>
 </div>
     <?php if ($messages = $this->getNoteMessages()):?>
     <p class="note-msg">
@@ -44,8 +51,10 @@
     <?php endif; ?>
     <?php echo $this->getProductListHtml() ?>
 <?php else: ?>
-<div class="page-title">
+        <div class="row row--whole pagetitle cf">
+            <div class="item">
     <h1><?php echo ($this->getHeaderText() || $this->getHeaderText() === false) ? $this->getHeaderText() : $this->__("Search results for '%s'", $this->helper('catalogsearch')->getEscapedQueryText()) ?></h1>
+</div>
 </div>
 <p class="note-msg">
     <?php echo ($this->getNoResultText()) ? $this->getNoResultText() : $this->__('Your search returns no results.') ?>
@@ -57,4 +66,8 @@
 </p>
 <?php endif; ?>
 
+</div>
+                
+       
+</div>
 </div>

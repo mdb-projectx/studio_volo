@@ -28,16 +28,78 @@
  */
 ?>
 
-<div id="header-wrap" class="checkout">
-<div id="header">
-	<h1><a href="<?php echo $this->getUrl('') ?>"><?php echo  Mage::app()->getWebsite()->getName(); ?></a></h1>
-	<img src="/skin/frontend/default/respond/images/volo/secured.png" alt="verified-and-secured">
-</div>	
+<?php echo $this->getChildHtml('header_notification') ?>
+
+<div class="outerwrapper outerwrapper--header">    
+    <div class="wrapper">
+              
+        <div class="row cf">
+            <div class="item item--twelve-col">
+                <h1><a href="<?php echo $this->getUrl('') ?>"><?php echo  Mage::app()->getWebsite()->getName(); ?></a></h1>
+                
+                <div class="meta">
+                    <img src="/skin/frontend/default/respond/images/volo/secured.png" alt="verified-and-secured">
+                </div>
+            </div>    
+        </div>
+        
+    </div>    
 </div>
 
-<div id="wrapper">
-<ul id="menu" style="height: 0px;">
-</ul>
 
+
+
+<?php // TO DO: NEWSLETTER SUBSCRIBE
+/*
+
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('newsletter_subscribe_popup')->toHtml() ?>
+
+<div id="newsletter-popupbutton" style="display: none;"><a class="inline" href="#newsletter-subscribe-popup">Subscribe</a></div>
+<script type="text/javascript">
+//<![CDATA[
+$j(document).ready(function() {
+
+	$j('#newsletter-subscribe-close a').click(function() {
+		$j.colorbox.close();
+		return false;
+	});
+	
+	$j('.inline').colorbox({
+		inline:true, 
+		initialWidth:628, 
+		initialHeight: 324, 
+		innerWidth:628, 
+		innerHeight: 324, 
+		fixed: false,
+		opacity: 0.75,
+		className:'plain',
+		transition: 'fade',
+		top: '200px',
+		onOpen: function() {
+			$j('#newsletter-subscribe-close').show();
+			$j('#cboxClose').css('cssText', 'display: block !important');
+			// var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
+			// $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important; position: absolute;');
+		}, onCleanup: function() {
+			$j('#newsletter-subscribe-close').hide();
+		}, onComplete: function() {
+			$j('#cboxLoadedContent').addClass('newsletter');
+			$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+			$j('input#newsletter').trigger('focus');
+		}
+	});
+	
+	if ( firstImpression('subscribe', 28) ) {
+		// if first visit in 28 days, open the popup
+		$j('.inline').trigger('click');
+	}
+
+});
+//]]>
+</script>
+*/ ?>
+
+<!-- BEGIN TOPBAR -->
 <?php echo $this->getChildHtml('topBar') ?>
+<!-- END TOPBAR -->
 

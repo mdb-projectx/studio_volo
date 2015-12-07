@@ -1,91 +1,94 @@
 <?php
 /**
  * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    design
- * @package     base_default
- * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-?>
-<?php $_product = $this->getProduct(); ?>
-<?php $buttonTitle = $this->__('Add to Cart'); ?>
-<?php if($_product->isSaleable()): ?>
+  *
+   * NOTICE OF LICENSE
+    *
+	 * This source file is subject to the Academic Free License (AFL 3.0)
+	  * that is bundled with this package in the file LICENSE_AFL.txt.
+	   * It is also available through the world-wide-web at this URL:
+	    * http://opensource.org/licenses/afl-3.0.php
+		 * If you did not receive a copy of the license and are unable to
+		  * obtain it through the world-wide-web, please send an email
+		   * to license@magentocommerce.com so we can send you a copy immediately.
+		    *
+			 * DISCLAIMER
+			  *
+			   * Do not edit or add to this file if you wish to upgrade Magento to newer
+			    * versions in the future. If you wish to customize Magento for your
+				 * needs please refer to http://www.magentocommerce.com for more information.
+				  *
+				   * @category    design
+				    * @package     base_default
+					 * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+					  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+					   */
+					   ?>
+					   <?php $_product = $this->getProduct(); ?>
+					   <?php $buttonTitle = $this->__('Add to Cart'); ?>
+					   <?php if($_product->isSaleable()): ?>
 
-<?php 
-$categoryIds = $_product->getCategoryIds();
-if (isset($categoryIds[0])){
-	$category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
-	$categoryName = $category->getName();
-} else {
-	$categoryName = '';
-}
-?>
+					   <?php 
+					   $categoryIds = $_product->getCategoryIds();
+					   if (isset($categoryIds[0])){
+							$category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
+								$categoryName = $category->getName();
+					   } else {
+							$categoryName = '';
+					   }
+					   ?>
 
-<script>
-/*
-dataLayer = [];
+					   <script>
+					   /*
+					   dataLayer = [];
 
-function pushAddToCart() {
-// Measure adding a product to a shopping cart by using an 'add' actionFieldObject
-// and a list of productFieldObjects.
-var quantity = jQuery('#qty option:selected').val();
+					   function pushAddToCart() {
+						 // Measure adding a product to a shopping cart by using an 'add' actionFieldObject
+						 // and a list of productFieldObjects.
+						 var quantity = jQuery('#qty option:selected').val();
 
-dataLayer.push({
-  'event': 'addToCart',
-  'ecommerce': {
-    'add': {                                // 'add' actionFieldObject measures.
-      'products': [{                        //  adding a product to a shopping cart.
-        'name': '<?php echo $_product->getData('featured_name'); ?>',
-        'id': '<?php echo $_product->getData('sku'); ?>',
-        'price': '<?php echo $_product->getPrice(); ?>',
-        'brand': '',
-        'category': '<?php echo $categoryName; ?>',
-        'variant': '',
-        'quantity': quantity
-       }]
-    }
-  }
-});
-}
-*/
-</script>
+						 dataLayer.push({
+						     'event': 'addToCart',
+							   'ecommerce': {
+								     'add': {                                // 'add' actionFieldObject measures.
+									       'products': [{                        //  adding a product to a shopping cart.
+										           'name': '<?php echo $_product->getData('featured_name'); ?>',
+												           'id': '<?php echo $_product->getData('sku'); ?>',
+														           'price': '<?php echo $_product->getPrice(); ?>',
+																           'brand': '',
+																		           'category': '<?php echo $categoryName; ?>',
+																				           'variant': '',
+																						           'quantity': quantity
+																								          }]
+																										      }
+																											    }
+						 });
+					   }
+					   */
+					   </script>
 
 
-    <div class="quantity">
-	<span>Quantity:</span>
-	<select name="qty" id="qty">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
-		<option value="10">10</option>
-        </select>
-    </div>
-    <div class="add-to-cart">
-        <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="testfunction(); productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span><span id="spin"></span><span id='ajax_loader' style='display:none'><img src='<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif')?>'/></span></span></button>
-    </div>
-<?php endif; ?>
+					       <div class="price" id="product-price"><?php echo $this->getPriceHtml($_product, true) ?>    </div>
+
+						       <div class="quantity">
+								Quantity
+									<select name="qty" id="qty">
+									                <option value="1">1</option>
+													                <option value="2">2</option>
+																	                <option value="3">3</option>
+																					                <option value="4">4</option>
+																									                <option value="5">5</option>
+																															<option value="6">6</option>
+																																	<option value="7">7</option>
+																																			<option value="8">8</option>
+																																					<option value="9">9</option>
+																																							<option value="10">10</option>
+																																							        </select>
+																																									    </div>
+																																										    <div class="add-to-cart">
+																																											        <button type="button" class="ctn" title="<?php echo $buttonTitle ?>" onclick="testfunction(); productAddToCartForm.submit(this)"><span class="ctn">--&gt;&gt; <?php echo $buttonTitle ?> &lt;&lt;--</span></button>
+																																													    </div>
+																																														<?php endif; ?>
+
 
 

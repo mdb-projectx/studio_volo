@@ -1,0 +1,176 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <?php echo $this->getChildHtml('head') ?>
+    
+    <script src="//use.typekit.net/jvy1hih.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+    
+    <script>
+        /*global jQuery */
+        /*!
+        * FitText.js 1.2
+        *
+        * Copyright 2011, Dave Rupert http://daverupert.com
+        * Released under the WTFPL license
+        * http://sam.zoy.org/wtfpl/
+        *
+        * Date: Thu May 05 14:23:00 2011 -0600
+        */
+
+        (function( $ ){
+
+          $.fn.fitText = function( kompressor, options ) {
+
+            // Setup options
+            var compressor = kompressor || 1,
+                settings = $.extend({
+                  'minFontSize' : Number.NEGATIVE_INFINITY,
+                  'maxFontSize' : Number.POSITIVE_INFINITY
+                }, options);
+
+            return this.each(function(){
+
+              // Store the object
+              var $this = $(this);
+
+              // Resizer() resizes items based on the object width divided by the compressor * 10
+              var resizer = function () {
+                $this.css('font-size', Math.max(Math.min($this.width() / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)));
+              };
+
+              // Call once to set.
+              resizer();
+
+              // Call on resize. Opera debounces their resize by default.
+              $(window).on('resize.fittext orientationchange.fittext', resizer);
+
+            });
+
+          };
+
+        })( jQuery );
+        
+        $j(document).ready(function() {
+            $j('h1').fitText(0.2); 
+            $j('h2').fitText(2.2); 
+            
+            $j('#newsletter-validate-detail').submit(function() {
+                if($j('#newsletter').val() == '') {
+                    return false; 
+                }
+            });
+        });
+    </script>
+    <style>
+        body {
+            background: url('/skin/frontend/default/respond/images/lead-page-bg.jpg'); 
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+        #leadpage {
+            margin: 0 auto;
+            max-width: 580px;
+            background: #FFF;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            
+  display: table;
+  height: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+        }
+        #leadpageinner {         
+            padding: 20px;   
+        }
+        h1 {
+            line-height: 1em;   
+            letter-spacing: 0;
+        }
+        h2 {
+            margin-top: 0.75em;
+            line-height: 1.25em;   
+        }
+        .col {
+            width: 50%;
+            float: left;
+        }
+        .form-subscribe {
+            margin: 1.5em 0;
+        }
+        .input-text, .button {
+            box-sizing: border-box; 
+            -moz-box-sizing: border-box;   
+            -webkit-box-sizing: border-box; 
+            height: auto;
+            font-size: 1em;
+        }
+        .input-text {
+            float: left; 
+            width: 70%;
+            padding: 0.5em;
+            line-height: 1.5em;
+        }
+        .button {
+            float: right;
+            width: 28%;
+            padding: 0.5em;
+            line-height: 1.5em;
+        }
+        .validation-advice {
+            display: none !important;   
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div id="leadpage">
+    <div id="leadpageinner">
+        
+		<?php echo $this->getChildHtml('global_messages') ?>
+        
+        <div class="col-wrap cf">
+            <div class="col">
+                <img src="/skin/frontend/default/respond/images/freeman.jpg">
+            </div>
+            <div class="col">
+                <h1>10%</h1>
+                <h1>Off</h1>
+            </div>
+        </div>
+        <h2>When you sign up for emails</h2>
+
+        
+        <h3>Stay Connected</h3>
+
+        <p>Receive special updates, offers, and events right in your inbox. Even better, we will send you a one-time-only code for 10% off your entire purchase.</p>
+
+
+        <form action="/newsletter/subscriber/new/" method="post" id="newsletter-validate-detail">
+            <div class="form-subscribe cf">
+                   <input type="text" name="email" id="newsletter" title="Sign up for our newsletter" class="input-text required-entry validate-email" placeholder="Your email address" />
+                  <button type="submit" title="Submit" class="button">SUBMIT</button>
+            </div>
+        </form>
+
+        
+        <!--
+        <?php echo $this->getChildHtml('content') ?>
+        -->
+    </div>
+    </div>
+    
+    
+<script type="text/javascript">
+//<![CDATA[
+    var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+    //Validation.add('required-entry-email', 'Please enter an email address');
+    //new Varien.searchForm('footer-newsletter-validate-detail', 'footer-newsletter', 'Enter your email address');
+//]]>
+</script>
+
+
+</body>
+</html>

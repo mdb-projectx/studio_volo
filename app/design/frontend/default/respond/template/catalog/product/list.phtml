@@ -1,128 +1,96 @@
 <?php
 /**
  * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    design
- * @package     default_modern
- * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-?>
-<?php
-/**
- * Product list template
- *
- * @see Mage_Catalog_Block_Product_List
- */
-?>
-<?php
-    $_productCollection=$this->getLoadedProductCollection();
-    $_helper = $this->helper('catalog/output');
-?>
-<?php if(!$_productCollection->count()): ?>	
-<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+  *
+   * NOTICE OF LICENSE
+    *
+	 * This source file is subject to the Academic Free License (AFL 3.0)
+	  * that is bundled with this package in the file LICENSE_AFL.txt.
+	   * It is also available through the world-wide-web at this URL:
+	    * http://opensource.org/licenses/afl-3.0.php
+		 * If you did not receive a copy of the license and are unable to
+		  * obtain it through the world-wide-web, please send an email
+		   * to license@magentocommerce.com so we can send you a copy immediately.
+		    *
+			 * DISCLAIMER
+			  *
+			   * Do not edit or add to this file if you wish to upgrade Magento to newer
+			    * versions in the future. If you wish to customize Magento for your
+				 * needs please refer to http://www.magentocommerce.com for more information.
+				  *
+				   * @category    design
+				    * @package     default_modern
+					 * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+					  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+					   */
+					   ?>
+					   <?php
+					   /**
+					    * Product list template
+						 *
+						  * @see Mage_Catalog_Block_Product_List
+						   */
+						   ?>
+						   <?php
+						       $_productCollection=$this->getLoadedProductCollection();
+							       $_helper = $this->helper('catalog/output');
+								   ?>
+								   <?php if(!$_productCollection->count()): ?>	
+								       <div class="row row--whole cf">
+									           <div class="item">
+											               <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+														           </div>
+																       </div>
 
-<?php else: ?>
-    <?php echo $this->getToolbarBlock()->setTemplate('catalog/product/list/toolbar_top.phtml')->toHtml(); ?> 
-    <?php // List mode ?>
-    <?php if($this->getMode()!='grid'): ?>
-    <?php $_iterator = 0; ?>
-	<ul class="cf">
-    <?php foreach ($_productCollection as $_product): ?>
-        <li class="item<?php if( ++$_iterator == sizeof($_productCollection) ): ?> last<?php endif; ?>">
-            <?php // Product Image ?>
-            <a class="ro" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize(308,190); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" /><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(308,190); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /></a>
-            <?php // Product description ?>
-			<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>">
-			<span class="name"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></span> 
-			<?php /* <span class="oldprice">$<?php echo (float)$_product->getData('price_typical'); ?></span>  */ ?>
-			<div class="more">
-			<?php if ((int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty() > 0):?><label>Ready to Ship</label><?php endif; ?>
-			<span class="newprice"><?php echo (float)$this->getPriceHtml($_product, true) ?></span>
-			</div>
-			</a>
-			
-			<?php /*
-            <div class="product-shop">
-                <div class="f-fix">
-                    <?php $_productNameStripped = $this->stripTags($_product->getName(), null, true); ?>
-                    <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></a></h2>
-                    <?php if($_product->getRatingSummary()): ?>
-                    <?php echo $this->getReviewsSummaryHtml($_product) ?>
-                    <?php endif; ?>
-                    <?php echo $this->getPriceHtml($_product, true) ?>
-                    <?php if($_product->isSaleable()): ?>
-                        <p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
-                    <?php else: ?>
-                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
-                    <?php endif; ?>
-                    <div class="desc std">
-                        <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
-                        <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped ?>" class="link-learn"><?php echo $this->__('Learn More') ?></a>
-                    </div>
-                    <ul class="add-to-links">
-                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                            <li><a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
-                        <?php endif; ?>
-                        <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
-                            <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
-                        <?php endif; ?>
-                    </ul>
-                </div>
-            </div>
-			*/ ?>
-        </li>
-    <?php endforeach; ?>
-    </ul>
-    <script type="text/javascript">decorateList('products-list', 'none-recursive')</script>
+																	   <?php else: ?>
+																	       <?php echo $this->getToolbarBlock()->setTemplate('catalog/product/list/toolbar_top.phtml')->toHtml(); ?> 
+																		       
 
-    <?php else: ?>
+																			       <?php $_collectionSize = $_productCollection->count() ?>
+																				       <?php $_columnCount = $this->getColumnCount(); ?>
+																							<?php $_iterator = 0; ?>
+																							        <div class="row row--whole sm-row--halves md-row--thirds cf productgrid">
+																											<?php $i=0; foreach ($_productCollection as $_product): ?>
+																											            <div class="item">
+																														            <?php // Product Image
+																																	                $image1 = '';
+																																					                $image2 = '';
+																																									                $product = Mage::getModel('catalog/product')->load($_product->getId());
+																																													                $count = 0;
+																																																	                foreach ($product->getMediaGalleryImages() as $image) { 
+																																																					                      if($count === 0) {
+																																																											                        //$image1 = $image->getUrl();  
+																																																																	                        $image1 = (string)$this->helper('catalog/image')->init($product, 'image', $image->getFile())->resize(400, 267);             
+																																																																							                        $image2 = (string)$this->helper('catalog/image')->init($product, 'image', $image->getFile())->resize(400, 267);                        
+																																																																													                    } elseif ($count === 1) {                
+																																																																																		                          //$image2 = $image->getUrl();
+																																																																																								                          $image2 = (string)$this->helper('catalog/image')->init($product, 'image', $image->getFile())->resize(400, 267);
+																																																																																														                      } else {
+																																																																																																				                        break;   
+																																																																																																										                    }
+																																																																																																															                    $count++;
+																																																																																																																				                }
+																																																																																																																								            ?>    
+																																																																																																																											            <a class="ro" href="<?php echo $_product->getProductUrl() ?>" class="product-image"><img src="<?php echo $image2; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /><img src="<?php echo $image1; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" /></a>
+																																																																																																																														            <?php // Product description ?>
+																																																																																																																																				<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>">
+																																																																																																																																							<span class="name"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></span> 
+																																																																																																																																										<?php /* <span class="oldprice">$<?php echo (float)$_product->getData('price_typical'); ?></span> */ ?>
+																																																																																																																																													<div class="more">
+																																																																																																																																																<span class="newprice"><?php echo $this->getPriceHtml($_product, true) ?></span>
+																																																																																																																																																			<?php $delivery = Mage::getModel('catalog/product')->load($_product->getId())->getData('delivery_time'); if (trim($delivery) == '1week' || trim($delivery) == '1 week'):?>
+																																																																																																																																																						<?php if ((int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty() > 0):?><label>Ready to Ship</label><?php endif; ?>
+																																																																																																																																																									<?php endif; ?>
+																																																																																																																																																												</div>
+																																																																																																																																																															</a>
+																																																																																																																																																															            </div>  
+																																																																																																																																																																				<?php endforeach ?>
+																																																																																																																																																																						</div>
 
-    <?php // Grid Mode ?>
+																																																																																																																																																																						    <div class="toolbar-bottom">
+																																																																																																																																																																							        <?php echo $this->getToolbarBlock()->setTemplate('catalog/product/list/toolbar_bottom.phtml')->toHtml(); ?>
+																																																																																																																																																																									    </div>
+																																																																																																																																																																											
+																																																																																																																																																																											<?php endif; ?>
 
-    <?php $_collectionSize = $_productCollection->count() ?>
-    <?php $_columnCount = $this->getColumnCount(); ?>
-		<?php $_iterator = 0; ?>
-        <ul class="cf">    
-		<?php $i=0; foreach ($_productCollection as $_product): ?>
-            <li>
-            <?php // Product Image ?>
-            <a class="ro" href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(308,190); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /><img src="<?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize(308,190); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>" /></a>
-            <?php // Product description ?>
-			<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $_productNameStripped; ?>">
-			<span class="name"><?php echo $_helper->productAttribute($_product, $_product->getName() , 'name'); ?></span> 
-			<?php /* <span class="oldprice">$<?php echo (float)$_product->getData('price_typical'); ?></span> */ ?>
-			<div class="more">
-			<span class="newprice"><?php echo $this->getPriceHtml($_product, true) ?></span>
-			<?php $delivery = Mage::getModel('catalog/product')->load($_product->getId())->getData('delivery_time'); if (trim($delivery) == '1week' || trim($delivery) == '1 week'):?>
-			<?php if ((int)Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getQty() > 0):?><label>Ready to Ship</label><?php endif; ?>
-			<?php endif; ?>
-			</div>
-			</a>
-            </li>  
-		<?php endforeach ?>
-		</ul>
-    <?php endif; ?>
-
-    <div class="toolbar-bottom">
-        <?php echo $this->getToolbarBlock()->setTemplate('catalog/product/list/toolbar_bottom.phtml')->toHtml(); ?>
-    </div>
-	
-<?php endif; ?>
 

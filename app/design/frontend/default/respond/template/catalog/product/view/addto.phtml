@@ -28,15 +28,29 @@
 <?php $_product = $this->getProduct(); ?>
 <?php $_wishlistSubmitUrl = $this->helper('wishlist')->getAddUrl($_product); ?>
 
-<ul class="add-to-links">
 <?php if ($this->helper('wishlist')->isAllow()) : ?>
-    <li><a href="<?php echo $_wishlistSubmitUrl ?>" onclick="productAddToCartForm.submitLight(this, this.href); return false;" class="link-wishlist"><?php echo $this->__('+ Add to Wishlist') ?></a></li>
+    <div><a href="<?php echo $_wishlistSubmitUrl ?>" onclick="productAddToCartForm.submitLight(this, this.href); return false;" class="link-wishlist "><?php echo $this->__('+ Add to Wishlist') ?></a></div>
 <?php endif; ?>
-    <li><a href="#"><?php echo $this->__('+ Share') ?></a></li>
+    <div class="social-wrapper"><a href="#" class=""><?php echo $this->__('+ Share') ?></a>
+    
+		<div class="social">
+			<div class="buttons">
+					<div class="social-button">
+							<div class="fb-like" data-href="<?php echo (Mage::helper("core/url")->getCurrentUrl()); ?>" data-send="false" data-layout="button_count" data-width="92" data-show-faces="false"></div>
+					</div>
+					<div class="social-button">
+							<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-size="92">Tweet</a>
+					</div>
+					<div class="social-button">
+							<a href="http://pinterest.com/pin/create/button/?media=<?php echo $this->helper('catalog/image')->init($_product, 'image')->resize(); ?>" class="pin-it-button" count-layout="horizontal" target="_new"><img border="0" src="https://assets.pinterest.com/images/PinExt.png" title="Pin It" /></a>
+					</div>
+					<div class="social-button">
+							<a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
+					</div>
+			</div>
+		</div>
+    </div>
 <?php
     $_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product);
 ?>
-<?php if($_compareUrl) : ?>
-    <li><span class="separator">|</span> <a href="<?php echo $_compareUrl ?>" class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
-<?php endif; ?>
-</ul>
+

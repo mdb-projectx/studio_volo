@@ -1,101 +1,98 @@
 <?php
 /**
  * Magento
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License (AFL 3.0)
- * that is bundled with this package in the file LICENSE_AFL.txt.
- * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@magentocommerce.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.magentocommerce.com for more information.
- *
- * @category    design
- * @package     base_default
- * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
- * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
- */
-?>
-<div id="related" class="cf">
-	<?php if($this->getItems()->getSize()): ?>
-		<div class="recommended cf">
-			<h3>Recommended Items</h3>
-			<ul>
-				<?php $i = 0; foreach($this->getItems() as $key=>$_item): ?>
-					<?php if ($i < 3): ?>
-					<li>
-						<p><a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(235,145); ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a></p>
-						<p>
-							<a href="<?php echo $_item->getProductUrl() ?>">
-								<span class="name"><?php echo $this->htmlEscape($_item->getName()) ?></span>
-<!--
-								<span class="old">$<?php echo (float)$_item->getData('price_typical'); ?></span>
-								<span class="new"><?php echo $this->getPriceHtml($_item, true, '-related') ?></span>
--->
-							</a>
-						</p>
-					</li>
-					<?php $i++; ?>
-					<?php else: break; endif; ?>
-				<?php endforeach ?>
-			</ul>
-		</div>			
-	<?php endif ?>
-	
-	<?php 
-	$_product = $this->getProduct(); 
-	$cats = $_product->getCategoryIds();
-	foreach ($cats as $category_id) {
-		$_cat = Mage::getModel('catalog/category')->load($category_id);
-		if($_cat->getParentCategory()->getName() == 'Collections') { ?>
-		
-			<div class="collection">
-				<h3>Part of the Collection</h3>
-				<ul>
-				<li>
-				<?php if ($_cat->getThumbnail()): ?>
-					<p><a href="<?php echo $_cat->getURL(); ?>"><img src="<?php echo Mage::getBaseUrl('media').'catalog/category/'.$_cat->getThumbnail(); ?>" alt="<?php echo $_cat->getName(); ?><" /></a></p>
-				<?php endif; ?>
-				<p><a href="<?php echo $_cat->getURL(); ?>"><?php echo $_cat->getName(); ?></a></p>
-				</li>
-				</ul>
-			</div>
+  *
+   * NOTICE OF LICENSE
+    *
+	 * This source file is subject to the Academic Free License (AFL 3.0)
+	  * that is bundled with this package in the file LICENSE_AFL.txt.
+	   * It is also available through the world-wide-web at this URL:
+	    * http://opensource.org/licenses/afl-3.0.php
+		 * If you did not receive a copy of the license and are unable to
+		  * obtain it through the world-wide-web, please send an email
+		   * to license@magentocommerce.com so we can send you a copy immediately.
+		    *
+			 * DISCLAIMER
+			  *
+			   * Do not edit or add to this file if you wish to upgrade Magento to newer
+			    * versions in the future. If you wish to customize Magento for your
+				 * needs please refer to http://www.magentocommerce.com for more information.
+				  *
+				   * @category    design
+				    * @package     base_default
+					 * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+					  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+					   */
+					   ?>
 
-		<?php
-			break;
-		}
-	}
-	?>
-</div>
-		
-		
-		<?php /*
-        <?php foreach($this->getItems() as $_item): ?>
-            <li class="item">
-                <?php if(!$_item->isComposite() && $_item->isSaleable()): ?>
-                    <?php if (!$_item->getRequiredOptions()): ?>
-                        <input type="checkbox" class="checkbox related-checkbox" id="related-checkbox<?php echo $_item->getId() ?>" name="related_products[]" value="<?php echo $_item->getId() ?>" />
-                    <?php endif; ?>
-                <?php endif; ?>
-                <div class="product">
-                    <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50) ?>" width="50" height="50" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
-                    <div class="product-details">
-                        <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
-                        <?php echo $this->getPriceHtml($_item, true, '-related') ?>
-                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
-                            <a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            </li>
-        <?php endforeach ?>
-		*/ ?>
-		
+					   <div class="related">
+					   <?php if($this->getItems()->getSize()): ?>
+					   <div class="row row--whole cf">
+					       <div class="item">
+						           <h5>Recommended</h5>
+								       </div>
+									   </div>
+									   <?php else: ?>
+									         
+											     <?php 
+												         $_product = $this->getProduct(); 
+														         $cats = $_product->getCategoryIds();
+																         foreach ($cats as $category_id) {
+																		               $_cat = Mage::getModel('catalog/category')->load($category_id);
+																					               if($_cat->getParentCategory()->getName() == 'Collections') { ?>
+																									     <div class="row row--whole cf">
+																										     <div class="item">
+																											         <h5>Recommended</h5>
+																													     </div>
+																														 </div>
+																														     <?php
+																															                 break;
+																																			             } 
+																																						         }?>
+																																								 <?php endif; ?>    
+																																								 <div class="row row--halves md-row--thirds lg-row--fifths cf">
+																																								     <?php if($this->getItems()->getSize()): ?>
+																																									         <?php $i = 0; foreach($this->getItems() as $key=>$_item): ?>
+																																											             <div class="item">
+																																														                 <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>">
+																																																		                     
+																																																							                     <!--<img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(235,145); ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" />-->
+																																																												                         
+																																																																		             <?php // Product Image
+																																																																					                 $image1 = '';
+																																																																									                 $product = Mage::getModel('catalog/product')->load($_item->getId());
+																																																																													                 foreach ($product->getMediaGalleryImages() as $image) { 
+																																																																																	                       $image1 = (string)$this->helper('catalog/image')->init($product, 'image', $image->getFile())->resize(400, 267); 
+																																																																																						                       break;  
+																																																																																											                   }
+																																																																																															               ?>    
+																																																																																																		               <img class="product-image" src="<?php echo $image1; ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" />
+																																																																																																					                           
+																																																																																																											                       
+																																																																																																																                       
+																																																																																																																					                       
+																																																																																																																										                   <p class="product-name"><?php echo $this->htmlEscape($_item->getName()) ?></p></a>
+																																																																																																																														               </div>
+																																																																																																																																	           <?php endforeach ?>
+																																																																																																																																			       <?php endif; ?>    
+																																																																																																																																				       <?php 
+																																																																																																																																					           $_product = $this->getProduct(); 
+																																																																																																																																							           $cats = $_product->getCategoryIds();
+																																																																																																																																									           foreach ($cats as $category_id) {
+																																																																																																																																												             $_cat = Mage::getModel('catalog/category')->load($category_id);
+																																																																																																																																															             if($_cat->getParentCategory()->getName() == 'Collections') { ?>
+																																																																																																																																																		                   <div class="item">
+																																																																																																																																																						                   <a href="<?php echo $_cat->getURL(); ?>">
+																																																																																																																																																										                   <?php if ($_cat->getThumbnail()): ?>
+																																																																																																																																																														                       <img src="<?php echo Mage::getBaseUrl('media').'catalog/category/'.$_cat->getThumbnail(); ?>" alt="<?php echo $_cat->getName(); ?>" />
+																																																																																																																																																																			                   <?php endif; ?>
+																																																																																																																																																																							                   <p class="product-name"><a href="<?php echo $_cat->getURL(); ?>"><?php echo $_cat->getName(); ?></a></p>
+																																																																																																																																																																											                   </div>
+																																																																																																																																																																															               <?php
+																																																																																																																																																																																		                   break;
+																																																																																																																																																																																						               }
+																																																																																																																																																																																									           }
+																																																																																																																																																																																											       ?>
+																																																																																																																																																																																												   </div>
+																																																																																																																																																																																												   </div>
+

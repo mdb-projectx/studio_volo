@@ -1,0 +1,75 @@
+$white: #FFF;
+$darkest-grey: #313131;
+$dark-grey: #3d4446;
+$light-grey: #a4a4a4;
+$lighter-grey: #c5c5c5;
+$lightest-grey: #d5d5d5;
+$grey: #827e7b;
+
+$border-width: 2px;
+
+
+
+$dark-grey: #444;
+$dark-blue: #1e327a;
+$blue: #2a68a7;
+$light-blue: #b5cfe8;
+$beige: #cac1ae;
+$black: #000;
+
+$font-primary: Helvetica, Arial, sans-serif;
+$font-secondary: "Orator Std", monospace;
+$font-size-small: 0.8em;
+
+$max-width-outer: 1300px;
+$max-width-inner: 1200px;
+
+$bp-small: 600px;
+$bp-med: 800px;
+$bp-large: 1200px;
+
+$pad: 1em;
+
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none; 
+        opacity: 0;
+    }
+
+    1% {
+        display: block; 
+        opacity: 0;
+    }
+
+    100% {
+        display: block; 
+        opacity: 1;
+    }
+}
