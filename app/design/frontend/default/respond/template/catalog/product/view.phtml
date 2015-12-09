@@ -1,577 +1,447 @@
 <?php
 /**
- * Magento
-  *
-   * NOTICE OF LICENSE
-    *
-	 * This source file is subject to the Academic Free License (AFL 3.0)
-	  * that is bundled with this package in the file LICENSE_AFL.txt.
-	   * It is also available through the world-wide-web at this URL:
-	    * http://opensource.org/licenses/afl-3.0.php
-		 * If you did not receive a copy of the license and are unable to
-		  * obtain it through the world-wide-web, please send an email
-		   * to license@magentocommerce.com so we can send you a copy immediately.
-		    *
-			 * DISCLAIMER
-			  *
-			   * Do not edit or add to this file if you wish to upgrade Magento to newer
-			    * versions in the future. If you wish to customize Magento for your
-				 * needs please refer to http://www.magentocommerce.com for more information.
-				  *
-				   * @categorydesign
-				    * @package default_modern
-					 * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
-					  * @license http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-					   */
-					   /**
-					    * Product view template
-						 *
-						  * @see Mage_Catalog_Block_Product_View
-						   * @see Mage_Review_Block_Product_View
-						    */
-							?>
+* Magento
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License (AFL 3.0)
+* that is bundled with this package in the file LICENSE_AFL.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/afl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@magentocommerce.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade Magento to newer
+* versions in the future. If you wish to customize Magento for your
+* needs please refer to http://www.magentocommerce.com for more information.
+*
+* @categorydesign
+* @package default_modern
+* @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+* @license http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+*/
+/**
+* Product view template
+*
+* @see Mage_Catalog_Block_Product_View
+* @see Mage_Review_Block_Product_View
+*/
+?>
 
-							<?php
-							$_helper = $this->helper('catalog/output'); ?>
-							<?php
-							$_product = $this->getProduct(); ?>
-							   <?php /*
-							   $categoryIds = $_product->getCategoryIds();
-							   if (isset($categoryIds[0])){
-								 $category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
-								 $categoryName = $category->getName();
-							   } else {
-								 $categoryName = '';
-							   } */
-							   ?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<?php /*
+$categoryIds = $_product->getCategoryIds();
+if (isset($categoryIds[0])){
+  $category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
+  $categoryName = $category->getName();
+} else {
+  $categoryName = '';
+} */
+?>
 
-							   <script type="text/javascript">
-							      if(location.hostname.substring(0,7) != 'staging') {
-									mixpanel.track('View Product', { 'Product Type': '<?php
-									echo $_product->getData('featured_name') ?>'});
-									   } else {
-//										 console.log('mixpanel.track('View Product', { 'Product Type': '<?php
-//										 echo $_product->getData('featured_name') ?>'});');
-										    }
+<script type="text/javascript">
+    if(location.hostname.substring(0,7) != 'staging') {
+	          mixpanel.track('View Product', { 'Product Type': '<?php echo $_product->getData('featured_name') ?>'});
+			      } else {
+					        // console.log('mixpanel.track('View Product', { 'Product Type': '<?php echo $_product->getData('featured_name') ?>'});');
+							    }
 
-											   function testfunction() {
-												  var qty = document.getElementById("qty").value;
-												   dataLayer.push({
-													  'event': 'addToCart',
-													     'ecommerce': {
-														    'currencyCode': 'USD',
-															 'add': {// 'add' actionFieldObject measures.
-															    'products': [{//  adding a product to a shopping cart.
-																   'name': '<?php
-																   echo $_product->getData('featured_name') ?>',
-																      'id': '<?php
-																	  echo $_product->getData('sku') ?>',
-																	     'price': '<?php
-																		 echo $_product->getPrice() ?>',
-																		    'brand': '',
-																			   'category': '<?php
-																			   echo $categoryName; ?>',
-																			      'variant': '',
-																				  'quantity': qty
-																				     }]
-																					    }
-																						 }
-																						  });
-												      }
+								    function testfunction() {
+									          fbq('track', 'AddToCart');
 
-													     /*
-														    dataLayer = [];
+											          var qty = document.getElementById("qty").value;
+													          dataLayer.push({
+																        'event': 'addToCart',
+																		        'ecommerce': {
+																				          'currencyCode': 'USD',
+																						          'add': {// 'add' actionFieldObject measures.
+																								          'products': [{//  adding a product to a shopping cart.
+																										          'name': '<?php echo $_product->getData('featured_name') ?>',
+																												          'id': '<?php echo $_product->getData('sku') ?>',
+																														          'price': '<?php echo $_product->getPrice() ?>',
+																																          'brand': '',
+																																		          'category': '<?php echo $categoryName; ?>',
+																																				          'variant': '',
+																																						          'quantity': qty
+																																								          }]
+																																										          }
+																																												          }
+																																														          });
+															      }
 
-															   // Measure a view of product details. This example assumes the detail view occurs on pageload,
-															      // and also tracks a standard pageview of the details page.
+																      /*
+																	      dataLayer = [];
 
-																     dataLayer.push({
-																	      'ecommerce': {
-																			 'detail': {
-																			    'products': [{
-																				     'name': '<?php
-																					 echo $_product->getData('featured_name') ?>', // Name or ID is required.
-																					    'id': '<?php
-																						echo $_product->getData('sku'); ?>',
-																						   'price': '<?php
-																						   echo $_product->getPrice(); ?>',
-																						      'brand': '',
-																							     'category': '<?php
-																								 echo $categoryName; ?>',
-																								    'variant': ''
-																									  }]
-																									     }
-																										   }
-																										      });
-																	    */
+																		      // Measure a view of product details. This example assumes the detail view occurs on pageload,
+																			      // and also tracks a standard pageview of the details page.
 
-																		   function close() {
-																			 $j('#modal_wrap').hide();
-																			 $j('#modal_box').hide();
-																			 $j('#screen_filter').hide();
-																			    }
+																				      dataLayer.push({
+																						    'ecommerce': {
+																							      'detail': {
+																									    'products': [{
+																										      'name': '<?php
+																											      echo $_product->getData('featured_name') ?>', // Name or ID is required.
+																												      'id': '<?php
+																													      echo $_product->getData('sku'); ?>',
+																														      'price': '<?php
+																															      echo $_product->getPrice(); ?>',
+																																      'brand': '',
+																																	      'category': '<?php
+																																		      echo $categoryName; ?>',
+																																			      'variant': ''
+																																				      }]
+																																					      }
+																																						      }
+																																							      });
+																					      */
 
-																				   var optionsPrice = new Product.OptionsPrice(<?php
-																				   echo $this->getJsonConfig() ?>);
-																				      </script>
+																						      function close() {
+																								        $j('#modal_wrap').hide();
+																										        $j('#modal_box').hide();
+																												        $j('#screen_filter').hide();
+																														    }
 
-																					     <div class="outerwrapper">
-																						    <div class="wrapper">
+																															    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
 
-																							   <?php
-																							   echo $this->getChildHtml('media') ?>
-																							   <div class="item item--three-col item--last">
-																							   <form action="<?php
-																							   echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php
+																																    fbq('track', 'ViewContent');
+																																	</script>
 
-																							   if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php
-																								 endif; ?>>
-																								 <input type="hidden" name="product" value="<?php
-																								 echo $_product->getId() ?>" />
-																								 <input type="hidden" name="related_product" id="related-products-field" value="" />
-																								 <div id="price">
-																								 <!--
-																								 <p><strong><?php
-																								 echo $this->getChildHtml('product_type_data') ?></strong></p>
-																								 <p class="typical">Typical retail price <span>$<?php
-																								 echo (float)$_product->getData('price_typical'); ?></span>
-																								 -->
-																								 <?php
+																																	<div class="outerwrapper">
+																																	<div class="wrapper">
 
-																								 if (!$this->hasOptions()): ?>
-																								   <div class="add-to-box">
-																								   <?php
-																								   if ($_product->isSaleable()): ?>
-																									 <?php
-																									 echo $this->getChildHtml('addtocart') ?>
-																									 <?php
-																									 endif; ?>
+																																	<?php echo $this->getChildHtml('media') ?>
+																																	<div class="item item--three-col item--last">
+																																	<form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php
 
-																									 <div class="add-to-list">
-																									 <a href="/fabric-samples.html" id="sample-link">+ Free fabric samples</a>
-																									 <?php
-																									 echo $this->getChildHtml('addto') ?>
-																									 </div>
-																									 </div>
-																									 <?php
-																									 elseif (!$_product->isSaleable()): ?>
-																									 <div class="add-to-box">
-																									 <div class="add-to-list">
-																									 <?php
-																									 echo $this->getChildHtml('addto') ?>
-																									 </div>
-																									 </div>
-																									 <?php
-																									 endif; ?>
-																									 </div>
-																									 </form>
-																									 </div>
-																									 </div><!-- opened in media.phtml -->
+																																	if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php
+																																	  endif; ?>>
+																																	  <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+																																	  <input type="hidden" name="related_product" id="related-products-field" value="" />
+																																	  <div id="price">
+																																	  <!--
+																																	  <p><strong><?php echo $this->getChildHtml('product_type_data') ?></strong></p>
+																																	  <p class="typical">Typical retail price <span>$<?php echo (float)$_product->getData('price_typical'); ?></span>
+																																	  -->
+																																	  <?php
 
-																									    <!-- BEGIN -->
-																										   <div class="row row--whole cf acc">
-																										      <div class="item cf" style="margin-bottom: 0;">
-																											     <div class="accordion">
-																												    <div class="accordion__title active">
-																													   Description <i class="lnr lnr-chevron-down"></i>
-																													      </div>
-																														     <div class="accordion__content active">
+																																	  if (!$this->hasOptions()): ?>
+																																		<div class="add-to-box">
+																																		<?php
+																																		if ($_product->isSaleable()): ?>
+																																		  <?php echo $this->getChildHtml('addtocart') ?>
+																																		  <?php
+																																		  endif; ?>
 
-																															 <div class="row row--whole cf features">
-																															 <div class="item cf" style="margin: 1.5em 0 !important;">
-																															 <div class="subrow cf">
-																															 <div class="subitem subitem--seven-col subitem--last" style="float: none !important; margin: 0 auto !important; text-align: center;">
-																															 <div class="desc">
-																															 <p><?php
-																															 echo $_product->getData('description'); ?></p>
-																															 </div>
-																															 </div>
-																															 </div>
-																															 </div>
-																															 </div>
-																															 <?php /*
-																															 <div class="row row--whole md-row--halves cf features">
-																															 <div class="item cf">
-																															 <div class="subrow cf">
-																															 <div class="subitem subitem--five-col">
-																															 <div class="thumb">
-																															 <?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image')->resize(525,350);
-																															 if(!strstr($_img, 'placeholder')) { ?>
-																															   <div class="thumb">
-																															   <?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="'.$_img.'" alt="" /></a>'; ?>
-																															   </div>
-																															   <?php } ?>
-																															   </div>
-																															   </div>
-																															   <div class="subitem subitem--seven-col subitem--last">
-																															   <div class="desc">
-																															   <h5><?php echo $_product->getData('feature_title'); ?></h5>
-																															   <p><?php echo $_product->getData('feature_content'); ?></p>
-																															   </div>
-																															   </div>
-																															   </div>
-																															   </div>
+																																		  <div class="add-to-list">
+																																		  <a href="/fabric-samples.html" id="sample-link">+ Free fabric samples</a>
+																																		  <?php echo $this->getChildHtml('addto') ?>
+																																		  </div>
+																																		  </div>
+																																		  <?php
+																																		  elseif (!$_product->isSaleable()): ?>
+																																		  <div class="add-to-box">
+																																		  <div class="add-to-list">
+																																		  <?php echo $this->getChildHtml('addto') ?>
+																																		  </div>
+																																		  </div>
+																																		  <?php
+																																		  endif; ?>
+																																		  </div>
+																																		  </form>
+																																		  </div>
+																																		  </div><!-- opened in media.phtml -->
 
-																															   <div class="item cf">
-																															   <div class="subrow cf">
-																															   <div class="subitem subitem--five-col">
-																															   <div class="thumb">
-																															   <?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image2')->resize(525,350);
-																															   if(!strstr($_img, 'placeholder')) { ?>
-																																 <div class="thumb">
-																																 <?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="'.$_img.'" alt="" /></a>'; ?>
-																																 </div>
-																																 <?php } ?>
-																																 </div>
-																																 </div>
-																																 <div class="subitem subitem--seven-col subitem--last">
-																																 <div class="desc">
-																																 <h5><?php echo $_product->getData('feature_title2'); ?></h5>
-																																 <p><?php echo $_product->getData('feature_content2'); ?></p>
-																																 </div>
-																																 </div>
-																																 </div>
-																																 </div>
+																																		  <!-- BEGIN -->
+																																		  <div class="row row--whole cf acc">
+																																		  <div class="item cf" style="margin-bottom: 0;">
+																																		  <div class="accordion">
+																																		  <div class="accordion__title active">
+																																		  Description <i class="lnr lnr-chevron-down"></i>
+																																		  </div>
+																																		  <div class="accordion__content active">
 
-																																 <div class="item cf">
-																																 <div class="subrow cf">
-																																 <div class="subitem subitem--five-col">
-																																 <div class="thumb">
-																																 <?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image3')->resize(525,350);
-																																 if(!strstr($_img, 'placeholder')) { ?>
-																																   <div class="thumb">
-																																   <?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="'.$_img.'" alt="" /></a>'; ?>
-																																   </div>
-																																   <?php } ?>
-																																   </div>
-																																   </div>
-																																   <div class="subitem subitem--seven-col subitem--last">
-																																   <div class="desc">
-																																   <h5><?php echo $_product->getData('feature_title3'); ?></h5>
-																																   <p><?php echo $_product->getData('feature_content3'); ?></p>
-																																   </div>
-																																   </div>
-																																   </div>
-																																   </div>
+																																		  <div class="row row--whole cf features">
+																																		  <div class="item cf" style="margin: 1.5em 0 !important;">
+																																		  <div class="subrow cf">
+																																		  <div class="subitem subitem--seven-col subitem--last" style="float: none !important; margin: 0 auto !important; text-align: center;">
+																																		  <div class="desc">
+																																		  <p><?php echo $_product->getData('description'); ?></p>
+																																		  </div>
+																																		  </div>
+																																		  </div>
+																																		  </div>
+																																		  </div>
 
-																																   <div class="item cf">
-																																   <div class="subrow cf">
-																																   <div class="subitem subitem--five-col">
-																																   <div class="thumb">
-																																   <?php $_img = $this->helper('catalog/image')->init($_product, 'feature_image4')->resize(525,350);
-																																   if(!strstr($_img, 'placeholder')) { ?>
-																																	 <div class="thumb">
-																																	 <?php echo '<a href="'.$_img.'" class="nivoZoom"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="'.$_img.'" alt="" /></a>'; ?>
-																																	 </div>
-																																	 <?php } ?>
-																																	 </div>
-																																	 </div>
-																																	 <div class="subitem subitem--seven-col subitem--last">
-																																	 <div class="desc">
-																																	 <h5><?php echo $_product->getData('feature_title4'); ?></h5>
-																																	 <p><?php echo $_product->getData('feature_content4'); ?></p>
-																																	 </div>
-																																	 </div>
-																																	 </div>
-																																	 </div>
-																																	 </div>
-																																	 */ ?>
-																																	   <?php /* <div class="quote cf" style="border-top: 1px solid #ccc; padding-top: 2em;">
-																																	   <?php if($_product->getQuote()): ?>
-																																	   <?php if($_product->getQuote_avatar()) { ?>
-																																	   <div class="photo"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="<?php echo $this->helper('catalog/image')->init($_product, 'quote_avatar')->resize(75,75); ?>" alt="" /></div>
-																																	   <?php } ?>
-																																	   <h5><span class="name"><?php echo $_product->getData('quote_author'); ?></span><?php if($_product->getQuote_role()) { ?>, <?php echo $_product->getData('quote_role'); } ?></h5>
-																																	   <p>&ldquo;<?php echo $_product->getData('quote'); ?>&rdquo;</p>
-																																	   <?php endif; ?>
-																																	   </div> */ ?>
-																																	     </div>
-																																		   <?php
-																																		   $designer_image = '';
-																																		   try
-																																		   {
-																																			 $designer_image = $this->helper('catalog/image')->init($_product, 'designer_image');
-																																		   }
 
-																																		   catch(Exception $e)
-																																		   {
-																																		   }
+																																		  </div>
+																																		  <?php
+																																		  $designer_image = '';
+																																		  try
+																																		  {
+																																			$designer_image = $this->helper('catalog/image')->init($_product, 'designer_image');
+																																		  }
 
-																																		   if ($_product->getData('designer_quote') || $designer_image != ''): ?>
-																																			 <div class="accordion__title">
-																																			 Designer <i class="lnr lnr-chevron-down"></i>
-																																			 </div>
-																																			 <div class="accordion__content">
-																																			 <div class="quote cf">
-																																			 <?php
-																																			 if ($designer_image != '')
-																																			 { ?>
-																																			 <div class="photo"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="<?php
-																																			 echo $this->helper('catalog/image')->init($_product, 'designer_image')->resize(210, 210); ?>" alt="" /></div>
-																																			 <?php
-																																			 } ?>
-																																			 <?php
-																																			 if ($_product->getData('designer_quote'))
-																																			 { ?>
-																																			 <?php
-																																			 if ($_product->getData('designer_name'))
-																																			 { ?>
-																																			 <h5><span class="name"><?php
-																																			 echo $_product->getData('designer_name'); ?></span></h5>
-																																			 <?php
-																																			 } ?>
-																																			 <p><?php
-																																			 echo $_product->getData('designer_quote'); ?></p>
-																																			 <?php
-																																			 } ?>
-																																			 </div>
-																																			 </div>
-																																			 <?php
-																																			 endif; ?>
-																																			 <div class="accordion__title">
-																																			 Materials and Dimensions <i class="lnr lnr-chevron-down"></i>
-																																			 </div>
-																																			 <div class="accordion__content">
-																																			 <div class="specs cf">
-																																			 <table>
-																																			 <?php
+																																		  catch(Exception $e)
+																																		  {
+																																		  }
 
-																																			 if ($_product->getData('finish')): ?><tr><th>Finish</th><td><?php
-																																			   echo $_product->getData('finish'); ?></td></tr><?php
-																																			   endif ?>
-																																			   <?php
+																																		  if ($_product->getData('designer_quote') || $designer_image != ''): ?>
+																																			<div class="accordion__title">
+																																			Designer <i class="lnr lnr-chevron-down"></i>
+																																			</div>
+																																			<div class="accordion__content">
+																																			<div class="quote cf">
+																																			<?php
+																																			if ($designer_image != '')
+																																			{ ?>
+																																			<div class="photo"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="<?php echo $this->helper('catalog/image')->init($_product, 'designer_image')->resize(210, 210); ?>" alt="" /></div>
+																																			<?php
+																																			} ?>
+																																			<?php
+																																			if ($_product->getData('designer_quote'))
+																																			{ ?>
+																																			<?php
+																																			if ($_product->getData('designer_name'))
+																																			{ ?>
+																																			<h5><span class="name"><?php echo $_product->getData('designer_name'); ?></span></h5>
+																																			<?php
+																																			} ?>
+																																			<p><?php echo $_product->getData('designer_quote'); ?></p>
+																																			<?php
+																																			} ?>
+																																			</div>
+																																			</div>
+																																			<?php
+																																			endif; ?>
+																																			<div class="accordion__title">
+																																			Materials and Dimensions <i class="lnr lnr-chevron-down"></i>
+																																			</div>
+																																			<div class="accordion__content">
+																																			<div class="specs cf">
+																																			<table>
+																																			<?php
 
-																																			   if ($_product->getData('material')): ?><tr><th>Material</th><td><?php
-																																				 echo $_product->getData('material'); ?></td></tr><?php
-																																				 endif ?>
-																																				 <?php
+																																			if ($_product->getData('finish')): ?><tr><th>Finish</th><td><?php echo $_product->getData('finish'); ?></td></tr><?php
+																																			  endif ?>
+																																			  <?php
 
-																																				 if ($_product->getData('stackable')): ?><tr><th>Stackable</th><td><?php
-																																				   echo $_product->getData('stackable'); ?></td></tr><?php
-																																				   endif ?>
-																																				   <?php
+																																			  if ($_product->getData('material')): ?><tr><th>Material</th><td><?php echo $_product->getData('material'); ?></td></tr><?php
+																																				endif ?>
+																																				<?php
 
-																																				   if ($_product->getData('outdoor')): ?><tr><th>Outdoor</th><td><?php
-																																					 echo $_product->getData('outdoor'); ?></td></tr><?php
-																																					 endif ?>
-																																					 <?php
+																																				if ($_product->getData('stackable')): ?><tr><th>Stackable</th><td><?php echo $_product->getData('stackable'); ?></td></tr><?php
+																																				  endif ?>
+																																				  <?php
 
-																																					 if ($_product->getData('frame')): ?><tr><th>Frame</th><td><?php
-																																					   echo $_product->getData('frame'); ?></td></tr><?php
-																																					   endif ?>
-																																					   <?php
+																																				  if ($_product->getData('outdoor')): ?><tr><th>Outdoor</th><td><?php echo $_product->getData('outdoor'); ?></td></tr><?php
+																																					endif ?>
+																																					<?php
 
-																																					   if ($_product->getData('legs')): ?><tr><th>Legs</th><td><?php
-																																						 echo $_product->getData('legs'); ?></td></tr><?php
-																																						 endif ?>
-																																						 <?php
+																																					if ($_product->getData('frame')): ?><tr><th>Frame</th><td><?php echo $_product->getData('frame'); ?></td></tr><?php
+																																					  endif ?>
+																																					  <?php
 
-																																						 if ($_product->getData('suspension')): ?><tr><th>Suspension </th><td><?php
-																																						   echo $_product->getData('suspension'); ?></td></tr><?php
-																																						   endif ?>
-																																						   <?php
+																																					  if ($_product->getData('legs')): ?><tr><th>Legs</th><td><?php echo $_product->getData('legs'); ?></td></tr><?php
+																																						endif ?>
+																																						<?php
 
-																																						   if ($_product->getData('filling')): ?><tr><th>Filling</th><td><?php
-																																							 echo $_product->getData('filling'); ?></td></tr><?php
-																																							 endif ?>
-																																							 <?php
+																																						if ($_product->getData('suspension')): ?><tr><th>Suspension </th><td><?php echo $_product->getData('suspension'); ?></td></tr><?php
+																																						  endif ?>
+																																						  <?php
 
-																																							 if ($_product->getData('fabric')): ?><tr><th>Fabric</th><td><?php
-																																							   echo $_product->getData('fabric'); ?></td></tr><?php
-																																							   endif ?>
-																																							   <?php
+																																						  if ($_product->getData('filling')): ?><tr><th>Filling</th><td><?php echo $_product->getData('filling'); ?></td></tr><?php
+																																							endif ?>
+																																							<?php
 
-																																							   if ($_product->getData('care')): ?><tr><th>Care</th><td><?php
-																																								 echo $_product->getData('care'); ?></td></tr><?php
-																																								 endif ?>
-																																								 <?php
+																																							if ($_product->getData('fabric')): ?><tr><th>Fabric</th><td><?php echo $_product->getData('fabric'); ?></td></tr><?php
+																																							  endif ?>
+																																							  <?php
 
-																																								 if ($_product->getData('adjustable')): ?><tr><th>Adjustable</th><td><?php
-																																								   echo $_product->getData('adjustable'); ?></td></tr><?php
-																																								   endif ?>
-																																								   <?php
+																																							  if ($_product->getData('care')): ?><tr><th>Care</th><td><?php echo $_product->getData('care'); ?></td></tr><?php
+																																								endif ?>
+																																								<?php
 
-																																								   if ($_product->getData('bulb')): ?><tr><th>Bulb</th><td><?php
-																																									 echo $_product->getData('bulb'); ?></td></tr><?php
-																																									 endif ?>
-																																									 <?php
+																																								if ($_product->getData('adjustable')): ?><tr><th>Adjustable</th><td><?php echo $_product->getData('adjustable'); ?></td></tr><?php
+																																								  endif ?>
+																																								  <?php
 
-																																									 if ($_product->getData('switch')): ?><tr><th>Switch</th><td><?php
-																																									   echo $_product->getData('switch'); ?></td></tr><?php
-																																									   endif ?>
-																																									   <?php
+																																								  if ($_product->getData('bulb')): ?><tr><th>Bulb</th><td><?php echo $_product->getData('bulb'); ?></td></tr><?php
+																																									endif ?>
+																																									<?php
 
-																																									   if ($_product->getData('assembly')): ?><tr><th>Assembly</th><td><?php
-																																										 echo $_product->getData('assembly'); ?></td></tr><?php
-																																										 endif ?>
-																																										 <?php
+																																									if ($_product->getData('switch')): ?><tr><th>Switch</th><td><?php echo $_product->getData('switch'); ?></td></tr><?php
+																																									  endif ?>
+																																									  <?php
 
-																																										 if ($_product->getData('weight')): ?><tr><th>Weight</th><td><?php
-																																										   echo round($_product->getData('weight')); ?> lbs</td></tr><?php
-																																										   endif ?>
-																																										   <?php
+																																									  if ($_product->getData('assembly')): ?><tr><th>Assembly</th><td><?php echo $_product->getData('assembly'); ?></td></tr><?php
+																																										endif ?>
+																																										<?php
 
-																																										   if ($_product->getData('sku')): ?><tr><th>SKU</th><td><?php
-																																											 echo $_product->getData('sku'); ?></td></tr><?php
-																																											 endif ?>
-																																											 <?php
+																																										if ($_product->getData('weight')): ?><tr><th>Weight</th><td><?php echo round($_product->getData('weight')); ?> lbs</td></tr><?php
+																																										  endif ?>
+																																										  <?php
 
-																																											 if ($_product->getData('general_dimensions')): ?><tr><th>General Dimensions</th><td><?php
-																																											   echo $_product->getData('general_dimensions'); ?></td></tr><?php
-																																											   endif ?>
-																																											   <?php
+																																										  if ($_product->getData('sku')): ?><tr><th>SKU</th><td><?php echo $_product->getData('sku'); ?></td></tr><?php
+																																											endif ?>
+																																											<?php
 
-																																											   if ($_product->getData('seating_height')): ?><tr><th>Seating Height</th><td><?php
-																																												 echo $_product->getData('seating_height'); ?></td></tr><?php
-																																												 endif ?>
-																																												 <?php
+																																											if ($_product->getData('general_dimensions')): ?><tr><th>General Dimensions</th><td><?php echo $_product->getData('general_dimensions'); ?></td></tr><?php
+																																											  endif ?>
+																																											  <?php
 
-																																												 if ($_product->getData('packaging_dimensions')): ?><tr><th>Packaging Dimensions</th><td><?php
-																																												   echo $_product->getData('packaging_dimensions'); ?></td></tr><?php
-																																												   endif ?>
-																																												   </table>
-																																												   </div>
-																																												   </div>
-																																												   <div class="accordion__title">
-																																												   Shipping &amp; Returns <i class="lnr lnr-chevron-down"></i>
-																																												   </div>
-																																												   <div class="accordion__content">
-																																												   <div class="specs">
-																																												   <table>
-																																												   <tr><th>Leaves warehouse within</th><td><?php
-																																												   echo $_product->getData('delivery_time'); ?></td></tr>
-																																												   </table>
-																																												   </div>
-																																												   <?php
-																																												   echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_shipping_popup')->toHtml(); ?>
-																																												   <?php
-																																												   echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_return_popup')->toHtml(); ?>
-																																												   </div>
-																																												   </div>
-																																												   </div>
-																																												   </div>
-																																												   <script>
-																																												   $j('.accordion__title').click(function() {
-																																													   if(!$j(this).find('i').is(':visible')) {
-																																														 $j('.accordion__content').slideUp();
-																																														 $j('.accordion__title i').hide();
-																																														 $j(this).next('.accordion__content').stop(true,true).slideDown();
-																																														 $j(this).find('i').show();
-																																													   } else {
-																																														   $j('.accordion__content').slideUp();
-																																														     $j('.accordion__title i').hide();
-																																															   }
-																																															     });
-																																												   </script>
-																																												   <!-- END -->
-																																												   <?php
-																																												   echo $this->getChildHtml('catalog.product.related') ?>
-																																												   </div>
-																																												   </div>
+																																											  if ($_product->getData('seating_height')): ?><tr><th>Seating Height</th><td><?php echo $_product->getData('seating_height'); ?></td></tr><?php
+																																												endif ?>
+																																												<?php
 
-																																												   <script type="text/javascript">
+																																												if ($_product->getData('packaging_dimensions')): ?><tr><th>Packaging Dimensions</th><td><?php echo $_product->getData('packaging_dimensions'); ?></td></tr><?php
+																																												  endif ?>
+																																												  </table>
+																																												  </div>
+																																												  </div>
+																																												  <div class="accordion__title">
+																																												  Shipping &amp; Returns <i class="lnr lnr-chevron-down"></i>
+																																												  </div>
+																																												  <div class="accordion__content">
+																																												  <div class="specs">
+																																												  <table>
+																																												  <tr><th>Leaves warehouse within</th><td><?php
+																																												  echo $_product->getData('delivery_time'); ?></td></tr>
+																																												  </table>
+																																												  </div>
+																																												  <?php
+																																												  echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_shipping_popup')->toHtml(); ?>
+																																												  <?php
+																																												  echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_return_popup')->toHtml(); ?>
+																																												  </div>
+																																												  </div>
+																																												  </div>
+																																												  </div>
+																																												  <script>
+																																												      $j('.accordion__title').click(function() {
+																																														    if(!$j(this).find('i').is(':visible')) {
+																																															      $j('.accordion__content').slideUp();
+																																																      $j('.accordion__title i').hide();
+																																																	      $j(this).next('.accordion__content').stop(true,true).slideDown();
+																																																		      $j(this).find('i').show();
+																																																			      } else {
+																																																					    $j('.accordion__content').slideUp();
+																																																						    $j('.accordion__title i').hide();
+																																																							    }
+																																																								    });
+																																													  </script>
+																																													  <!-- END -->
+																																													  <?php
+																																													  echo $this->getChildHtml('catalog.product.related') ?>
+																																													  </div>
+																																													  </div>
 
-																																												   // <![CDATA[
+																																													  <script type="text/javascript">
 
-																																												   $j('.social-wrapper').on('mouseenter', function() {
-																																													   $j('.social').show();
-																																												   }).on('mouseleave', function() {
-																																													   $j('.social').hide();
-																																												   });
-																																												   $j('#share').click(function() {
-																																													   return false;
-																																													     });
+																																													  // <![CDATA[
 
-																																												   var productAddToCartForm = new VarienForm('product_addtocart_form');
-																																												   productAddToCartForm.submit = function(button, url) {
-																																													 if (this.validator.validate()) {
-																																													   var productQty = $j('#qty').val();
-																																													   var productPrice = $j('#product-price').html();
-																																													   productPrice = productPrice.replace('$', '');
-																																													   productPrice = parseFloat(productPrice);
-																																													   if(location.hostname.substring(0,7) != 'staging') {
-																																														 mixpanel.track('Add Product to Cart', { 'Product Type': '<?php
-																																														 echo str_replace("'", "'", $_product->getData('featured_name')); ?>', 'Price': productPrice, 'Quantity': productQty});
-																																													   } else {
-	//																																													 console.log('mixpanel.track('Add Product to Cart', { 'Product Type': '<?php
-	//																																													 echo str_replace("'", "'", $_product->getData('featured_name')); ?>', 'Price': productPrice, 'Quantity': productQty});');
-																																													   }
+																																													  $j('.social-wrapper').on('mouseenter', function() {
+																																														$j('.social').show();
+																																													  }).on('mouseleave', function() {
+																																														$j('.social').hide();
+																																													  });
+																																													  $j('#share').click(function() {
+																																														return false;
+																																													  });
 
-																																													   this.form.submit();
-																																													 }
-																																												   }.bind(productAddToCartForm);
-																																												   productAddToCartForm.submitLight = function(button, url){
-																																													 if(this.validator) {
-																																													   var nv = Validation.methods;
-																																													   delete Validation.methods['required-entry'];
-																																													   delete Validation.methods['validate-one-required'];
-																																													   delete Validation.methods['validate-one-required-by-name'];
-																																													   if (this.validator.validate()) {
-																																														 if (url) {
-																																														   this.form.action = url;
-																																														 }
+																																													  var productAddToCartForm = new VarienForm('product_addtocart_form');
+																																													  productAddToCartForm.submit = function(button, url) {
+																																														if (this.validator.validate()) {
+																																														  var productQty = $j('#qty').val();
+																																														  var productPrice = $j('#product-price').html();
+																																														  productPrice = productPrice.replace('$', '');
+																																														  productPrice = parseFloat(productPrice);
+																																														  if(location.hostname.substring(0,7) != 'staging') {
+																																															mixpanel.track('Add Product to Cart', { 'Product Type': '<?php
+																																															echo str_replace("'", "'", $_product->getData('featured_name')); ?>', 'Price': productPrice, 'Quantity': productQty});
+																																														  } else {
+																																															// console.log('mixpanel.track('Add Product to Cart', { 'Product Type': '<?php echo str_replace("'", "'", $_product->getData('featured_name')); ?>', 'Price': productPrice, 'Quantity': productQty});');
+																																														  }
 
-																																														 this.form.submit();
-																																													   }
+																																														  this.form.submit();
+																																														}
+																																													  }.bind(productAddToCartForm);
+																																													  productAddToCartForm.submitLight = function(button, url){
+																																														if(this.validator) {
+																																														  var nv = Validation.methods;
+																																														  delete Validation.methods['required-entry'];
+																																														  delete Validation.methods['validate-one-required'];
+																																														  delete Validation.methods['validate-one-required-by-name'];
+																																														  if (this.validator.validate()) {
+																																															if (url) {
+																																															  this.form.action = url;
+																																															}
 
-																																													   Object.extend(Validation.methods, nv);
-																																													 }
-																																												   }.bind(productAddToCartForm);
+																																															this.form.submit();
+																																														  }
 
-																																												   // Feature popups
+																																														  Object.extend(Validation.methods, nv);
+																																														}
+																																													  }.bind(productAddToCartForm);
 
-																																												   $j('body').nivoZoom();
-																																												   $j('.colorbox').colorbox();
+																																													  // Feature popups
 
-																																												   // Shipping/return popups
+																																													  $j('body').nivoZoom();
+																																													  $j('.colorbox').colorbox();
 
-																																												   $j(document).ready(function() {
-																																													 $j('#shipping-popup').colorbox({
-																																													   initialWidth:700,
-																																													   innerHeight:560,
-																																													   inline:true,
-																																													   scrolling:true,
-																																													   opacity:0.4,
-																																													   transition: 'none',
-																																													   href: '#shipping-content',
-																																													   onOpen: function() {  },
-																																													   onComplete: function() {
-																																														 var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
-																																														 /* $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;'); */
-																																														 $j('#cboxClose').addClass('show');
-																																														 $j('#colorbox').css('opacity', '1');
-																																														 $j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
-																																														 $j('#cboxLoadedContent').addClass('newsletter');
-																																														 $j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
-																																													   }
-																																													 });
-																																												   });
-																																												   $j(document).ready(function() {
-																																													 $j('#return-popup').colorbox({
-																																													   initialWidth:700,
-																																													   innerHeight:560,
-																																													   inline:true,
-																																													   scrolling:true,
-																																													   opacity:0.4,
-																																													   transition: 'none',
-																																													   href: '#return-content',
-																																													   onOpen: function() {  },
-																																													   onComplete: function() {
-																																														 var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
-																																														 /* $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;'); */
-																																														 $j('#cboxClose').addClass('show');
-																																														 $j('#colorbox').css('opacity', '1');
-																																														 $j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
-																																														 $j('#cboxLoadedContent').addClass('newsletter');
-																																														 $j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
-																																													   }
-																																													 });
-																																												   });
+																																													  // Shipping/return popups
 
-																																												   // ]]>
+																																													  $j(document).ready(function() {
+																																														$j('#shipping-popup').colorbox({
+																																														  initialWidth:700,
+																																														  innerHeight:560,
+																																														  inline:true,
+																																														  scrolling:true,
+																																														  opacity:0.4,
+																																														  transition: 'none',
+																																														  href: '#shipping-content',
+																																														  onOpen: function() {  },
+																																														  onComplete: function() {
+																																															var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
+																																															/* $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;'); */
+																																															$j('#cboxClose').addClass('show');
+																																															$j('#colorbox').css('opacity', '1');
+																																															$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+																																															$j('#cboxLoadedContent').addClass('newsletter');
+																																															$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+																																														  }
+																																														});
+																																													  });
+																																													  $j(document).ready(function() {
+																																														$j('#return-popup').colorbox({
+																																														  initialWidth:700,
+																																														  innerHeight:560,
+																																														  inline:true,
+																																														  scrolling:true,
+																																														  opacity:0.4,
+																																														  transition: 'none',
+																																														  href: '#return-content',
+																																														  onOpen: function() {  },
+																																														  onComplete: function() {
+																																															var width = $j(window).width()/2 - $j('#colorbox').width() / 2;
+																																															/* $j('#colorbox').css('cssText', 'left: ' + width + 'px !important; top: 200px !important;'); */
+																																															$j('#cboxClose').addClass('show');
+																																															$j('#colorbox').css('opacity', '1');
+																																															$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+																																															$j('#cboxLoadedContent').addClass('newsletter');
+																																															$j('#cboxContent').css('cssText', 'width: ' + $j('#cboxLoadedContent').width() + 'px !important;');
+																																														  }
+																																														});
+																																													  });
 
-																																												   </script>
+																																													  // ]]>
 
-																																												   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-																																												   <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
-																																												   <script type="text/javascript" src="http://platform.tumblr.com/v1/share.js"></script>
+																																													  </script>
+
+																																													  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+																																													  <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+																																													  <script type="text/javascript" src="http://platform.tumblr.com/v1/share.js"></script>
+
