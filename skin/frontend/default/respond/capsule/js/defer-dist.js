@@ -895,11 +895,14 @@ $j(document).ready(function() {
       var burgerContain = document.getElementsByClassName('b-container')[0];
       var burgerNav = document.getElementsByClassName('b-nav')[0];
 
-      burgerMenu.addEventListener('click', function toggleClasses() {
+          if (typeof(burgerMenu) != 'undefined' && element != null)
+			    {
+	  burgerMenu.addEventListener('click', function toggleClasses() {
         [body, burgerContain, burgerNav].forEach(function (el) {
           el.classList.toggle('open');
         });
       }, false);
+				}
 
     
     $j('.b-nav').on('click', 'a', function(e) {
