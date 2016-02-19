@@ -25,29 +25,6 @@
 					   */
 					   ?>
 
-					   <?php /*
-					   <!-- Facebook Conversion Code for Checkout on Capsule -->
-					   <script>(function() {
-						 var _fbq = window._fbq || (window._fbq = []);
-						 if (!_fbq.loaded) {
-						   var fbds = document.createElement('script');
-						   fbds.async = true;
-						   fbds.src = '//connect.facebook.net/en_US/fbds.js';
-						   var s = document.getElementsByTagName('script')[0];
-						   s.parentNode.insertBefore(fbds, s);
-						   _fbq.loaded = true;
-						 }
-					   })();
-					   window._fbq = window._fbq || [];
-					   window._fbq.push(['track', '6011977773621', {'value':'<?php echo $this->getOrderTotal(); ?>','currency':'USD'}]);
-					   </script>
-					   <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6011977773621&amp;cd[value]=<?php echo $this->getOrderTotal(); ?>&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
-					   */ ?>
-
-					   <script>
-					       fbq('track', 'Purchase', {value: '<?php echo $this->getOrderTotal(); ?>', currency: 'USD'});
-						   </script>
-
 						   <script>
 						   if(location.hostname.substring(0,7) != 'staging') {
 								mixpanel.track('Purchase',{ 'Order Value': '<?php echo $this->getOrderTotal(); ?>', 'Quantity': '<?php echo $this->getOrderQuantity(); ?>'});
@@ -243,7 +220,20 @@
 																																																																																																																																																																																									</div>
 																																																																																																																																																																																									</noscript>
 
-																																																																																																																																																																																									<img height="1" width="1" alt="" src="https://ct.pinterest.com/?tid=cPVivXkQVCu" class="tracker"/>
+
+
+       
+	   <script>
+	       fbq('track', 'Purchase', {
+			         content_ids: [<?php $i = 0; $len = count($items); ?><?php foreach($items as $item) { ?>'<?php echo $item->getSku(); ?>'<?php if($i != $len - 1) { ?>, <?php } ?><?php } ?>],
+					         content_type: 'product',
+							         value: '<?php echo $this->getOrderTotal(); ?>', 
+									         currency: 'USD'
+											     });
+		   </script>
+
+
+<img height="1" width="1" alt="" src="https://ct.pinterest.com/?tid=cPVivXkQVCu" class="tracker"/>
 																																																																																																																																																																																									                
 																																																																																																																																																																																													            </div>
 																																																																																																																																																																																																        </div>
