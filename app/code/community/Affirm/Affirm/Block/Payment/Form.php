@@ -1,0 +1,57 @@
+<?php
+class Affirm_Affirm_Block_Payment_Form extends Mage_Payment_Block_Form
+{
+      protected function _construct()
+	      {
+			        parent::_construct();
+					        // TODO(brian): refactor this into a 3 step process to make the state
+							        // change more explicit
+									        $this->replaceLabel();
+											    }
+
+												    protected function _toHtml()
+													    {
+														          // TODO(brian): extract this html block to a template
+																          // TODO(brian): extract css
+																		          $msg = "You'll complete your payment after you place your order.";
+
+																				          $html = "<ul class=\"form-list\" id=\"payment_form_affirm\" style=\"display:none;\">";
+																						          $html .= "<li class=\"form-alt\">";
+
+																								          // sub
+																										          $html .= "<div style=\"\">";
+
+																												          $html .= "You will complete your payment on the Affirm website. 0% financing, get approved instantly.";
+																														          $html .= "<br>";
+																																          $html .= "</div>";
+
+																																		          $html .= "</li>";
+																																				          $html .= "</ul>";
+																																						          $html .= '<span style="display:none">';
+																																								          $html .= Mage::getConfig()->getModuleConfig('Affirm_Affirm')->version;
+																																										          $html .= "</span>";
+
+																																												          return $html;
+																																														      }
+
+																																															      /* Replaces default label with custom image, conditionally displaying text
+																																																       * based on the Affirm product.
+																																																	        *
+																																																			     * Context: Payment Information step of Checkout flow
+																																																				      */
+																																																					      private function replaceLabel()
+																																																						      {
+																																																								        if (Mage::getStoreConfig('payment/affirm/plain_text_title_enabled') == false) {
+																																																										              $this->setMethodTitle('');
+																																																													              // TODO(brian): extract html to template
+																																																																              // TODO(brian): conditionally load based on env config option
+																																																																			              // This is a stopgap until the promo API is ready to go
+																																																																						              $logoSrc = "https://cdn1.affirm.com/images/badges/affirm-logo_78x54.png";
+																																																																									              $html = "<img src=\"" . $logoSrc . "\" width=\"39\" height=\"27\" class=\"v-middle\" />&nbsp;";
+																																																																												              $html.= "Buy with Monthly Payments";
+
+																																																																															              $this->setMethodLabelAfterHtml($html);
+																																																																																		          }
+																																																																																				      }
+}
+
