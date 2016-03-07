@@ -167,8 +167,9 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
         }
         $quote = $this->getOnepage()->getQuote();
         if (!$quote->hasItems() || $quote->getHasError()) {
-            $this->_redirect('checkout/cart');
-            return;
+           // $this->_redirect('checkout/cart');
+            $this->_redirect('checkout/onepage');
+			return;
         }
         if (!$quote->validateMinimumAmount()) {
             $error = Mage::getStoreConfig('sales/minimum_order/error_message') ?
