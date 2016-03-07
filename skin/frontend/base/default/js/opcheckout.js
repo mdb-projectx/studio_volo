@@ -885,7 +885,8 @@ Review.prototype = {
                     msg = msg.join("\n");
                 }
                 if (msg) {
-                    alert(msg);
+                alert(transport.responseText);
+				alert(msg);
                 }
             }
 
