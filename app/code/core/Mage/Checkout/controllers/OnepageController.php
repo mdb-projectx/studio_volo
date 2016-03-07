@@ -81,14 +81,14 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
             $this->_ajaxRedirectResponse();
             return true;
         }
-        /*
+        
 		$action = $this->getRequest()->getActionName();
         if (Mage::getSingleton('checkout/session')->getCartWasUpdated(true)
             && !in_array($action, array('index', 'progress'))) {
             $this->_ajaxRedirectResponse();
             return true;
         }
-*/
+
         return false;
     }
 
