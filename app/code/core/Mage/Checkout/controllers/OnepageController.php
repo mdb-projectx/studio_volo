@@ -81,13 +81,14 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
             $this->_ajaxRedirectResponse();
             return true;
         }
-        $action = $this->getRequest()->getActionName();
+        /*
+		$action = $this->getRequest()->getActionName();
         if (Mage::getSingleton('checkout/session')->getCartWasUpdated(true)
             && !in_array($action, array('index', 'progress'))) {
             $this->_ajaxRedirectResponse();
             return true;
         }
-
+*/
         return false;
     }
 
@@ -167,8 +168,8 @@ class Mage_Checkout_OnepageController extends Mage_Checkout_Controller_Action
         }
         $quote = $this->getOnepage()->getQuote();
         if (!$quote->hasItems() || $quote->getHasError()) {
-           // $this->_redirect('checkout/cart');
-            $this->_redirect('checkout/onepage');
+            $this->_redirect('checkout/cart');
+           // $this->_redirect('checkout/onepage');
 			return;
         }
         if (!$quote->validateMinimumAmount()) {
