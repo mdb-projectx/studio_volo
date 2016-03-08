@@ -839,7 +839,9 @@ Review.prototype = {
     },
 
     save: function(){
-        if (checkout.loadWaiting!=false) return;
+        console.log('a');
+
+		if (checkout.loadWaiting!=false) return;
         checkout.setLoadWaiting('review');
         var params = Form.serialize(payment.form);
         if (this.agreementsForm) {
