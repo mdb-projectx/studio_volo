@@ -838,7 +838,10 @@ Review.prototype = {
         this.agreementsForm = agreementsForm;
         this.onSave = this.nextStep.bindAsEventListener(this);
         this.onComplete = this.resetLoadWaiting.bindAsEventListener(this);
-    },
+    
+	alert(saveUrl + ' ' + successUrl);
+	
+	},
 
     save: function(){
 		//alert('review save ' + this.saveUrl);
