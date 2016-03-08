@@ -839,14 +839,16 @@ Review.prototype = {
         this.onSave = this.nextStep.bindAsEventListener(this);
         this.onComplete = this.resetLoadWaiting.bindAsEventListener(this);
     
-	alert(saveUrl + ' ' + successUrl);
+	//alert(saveUrl + ' ' + successUrl);
 	
 	},
 
     save: function(){
-		alert('review save ' + this.saveUrl + ' ' + saveUrl);
+	//	alert('review save ' + this.saveUrl + ' ' + saveUrl);
+console.log(this);
+return false;
 
-		if (checkout.loadWaiting!=false) return;
+if (checkout.loadWaiting!=false) return;
         checkout.setLoadWaiting('review');
         var params = Form.serialize(payment.form);
         if (this.agreementsForm) {
