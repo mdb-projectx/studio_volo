@@ -856,7 +856,7 @@ if (checkout.loadWaiting!=false) return;
         }
         params.save = true;
         var request = new Ajax.Request(
-            this.review.saveUrl,
+            this.saveUrl,
             {
                 method:'post',
                 parameters:params,
