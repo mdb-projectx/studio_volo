@@ -768,7 +768,7 @@ Payment.prototype = {
     },
 
     save: function(){
-        alert('payment save ' + this.saveUrl);
+        //alert('payment save ' + this.saveUrl);
 		
 		if (checkout.loadWaiting!=false) return;
         var validator = new Validation(this.form);
@@ -841,7 +841,7 @@ Review.prototype = {
     },
 
     save: function(){
-		alert('review save ' + this.saveUrl);
+		//alert('review save ' + this.saveUrl);
 
 		if (checkout.loadWaiting!=false) return;
         checkout.setLoadWaiting('review');
@@ -875,18 +875,18 @@ Review.prototype = {
                 response = {};
             }
             if (response.redirect) {
-                alert('1');
+        //        alert('1');
 				this.isSuccess = true;
                 location.href = response.redirect;
                 return;
             }
             if (response.success) {
-			    alert('2');
+		//	    alert('2');
                 this.isSuccess = true;
                 window.location=this.successUrl;
             }
             else{
-				alert('3');
+		//		alert('3');
                 var msg = response.error_messages;
                 if (typeof(msg)=='object') {
                     msg = msg.join("\n");
