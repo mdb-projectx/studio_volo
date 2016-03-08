@@ -768,7 +768,9 @@ Payment.prototype = {
     },
 
     save: function(){
-        if (checkout.loadWaiting!=false) return;
+        alert('payment save ' + this.saveUrl);
+		
+		if (checkout.loadWaiting!=false) return;
         var validator = new Validation(this.form);
         if (this.validate() && validator.validate()) {
             checkout.setLoadWaiting('payment');
@@ -839,7 +841,7 @@ Review.prototype = {
     },
 
     save: function(){
-        console.log('a');
+		alert('review save ' + this.saveUrl);
 
 		if (checkout.loadWaiting!=false) return;
         checkout.setLoadWaiting('review');
@@ -873,18 +875,18 @@ Review.prototype = {
                 response = {};
             }
             if (response.redirect) {
-                console.log('1');
+                alert('1');
 				this.isSuccess = true;
                 location.href = response.redirect;
                 return;
             }
             if (response.success) {
-			    console.log('2');
+			    alert('2');
                 this.isSuccess = true;
                 window.location=this.successUrl;
             }
             else{
-			  console.log('3');
+				alert('3');
                 var msg = response.error_messages;
                 if (typeof(msg)=='object') {
                     msg = msg.join("\n");
