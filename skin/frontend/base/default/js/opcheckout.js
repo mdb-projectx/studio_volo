@@ -844,9 +844,9 @@ Review.prototype = {
 	},
 
     save: function(){
-	//	alert('review save ' + this.saveUrl + ' ' + saveUrl);
-console.log(this);
-return false;
+		alert('review save ' + this.saveUrl + ' ' + this.review.saveUrl);
+//console.log(this);
+//return false;
 
 if (checkout.loadWaiting!=false) return;
         checkout.setLoadWaiting('review');
