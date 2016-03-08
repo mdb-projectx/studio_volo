@@ -844,7 +844,7 @@ Review.prototype = {
 	},
 
     save: function(){
-		alert('review save ' + this.saveUrl + ' ' + this.review.saveUrl);
+//		alert('review save ' + this.saveUrl + ' ' + this.review.saveUrl);
 //console.log(this);
 //return false;
 
@@ -856,7 +856,7 @@ if (checkout.loadWaiting!=false) return;
         }
         params.save = true;
         var request = new Ajax.Request(
-            this.saveUrl,
+            this.review.saveUrl,
             {
                 method:'post',
                 parameters:params,
