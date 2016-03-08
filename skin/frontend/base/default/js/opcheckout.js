@@ -871,21 +871,24 @@ Review.prototype = {
                 response = {};
             }
             if (response.redirect) {
-                this.isSuccess = true;
+                console.log('1');
+				this.isSuccess = true;
                 location.href = response.redirect;
                 return;
             }
             if (response.success) {
+			    console.log('2');
                 this.isSuccess = true;
                 window.location=this.successUrl;
             }
             else{
+			  console.log('3');
                 var msg = response.error_messages;
                 if (typeof(msg)=='object') {
                     msg = msg.join("\n");
                 }
                 if (msg) {
-                alert(transport.responseText);
+              //  alert(transport.responseText);
 				alert(msg);
                 }
             }
