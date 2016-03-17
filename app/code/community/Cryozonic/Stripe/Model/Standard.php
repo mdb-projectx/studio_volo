@@ -112,7 +112,7 @@ class Cryozonic_Stripe_Model_Standard extends Mage_Payment_Model_Method_Abstract
         // If the payment method has not yet been selected, skip this step
         $quote = $this->getSessionQuote();
         $paymentMethod = $quote->getPayment()->getMethod();
-        if (empty($paymentMethod)) return;
+        if (empty($paymentMethod) || $paymentMethod != "cryozonic_stripe") return;
 
         $customerStripeId = $this->getCustomerStripeId();
         $retrievedSecondsAgo = (time() - $this->customerLastRetrieved);
@@ -533,6 +533,9 @@ class Cryozonic_Stripe_Model_Standard extends Mage_Payment_Model_Method_Abstract
               "description" => "Order #".$order->getRealOrderId().' by '.$order->getCustomerName(),
               "capture" => $capture
             );
+
+            if (Mage::getStoreConfig('payment/cryozonic_stripe/receipt_email'))
+                $params["receipt_email"] = $this->getCustomerEmail();
 
             // If this is a saved card, pass the customer id too
             if (strpos($token,'card_') === 0)

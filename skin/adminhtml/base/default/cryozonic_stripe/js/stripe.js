@@ -82,7 +82,21 @@ var createStripeToken = function(done)
     }
     else if (avs_enabled)
     {
-        return done('You must first enter your billing address.')
+        // Scenario 1: When an admin places a MOTO order for a guest who has no saved address yet
+        var elementAddressStreet =  document.getElementById('order-billing_address_street0');
+        var elementAddressZip =  document.getElementById('order-billing_address_postcode');
+
+        if (typeof elementAddressStreet != 'undefined' && elementAddressStreet != null &&
+            typeof elementAddressZip != 'undefined' && elementAddressZip != null)
+        {
+            cardDetails.address_line1 = elementAddressStreet.value;
+            cardDetails.address_zip = elementAddressZip.value;
+        }
+        else
+        {
+            // Scenario 2: When adding a saved card from the front-end and the customer has no billing address
+            return done('You must first enter your billing address.')
+        }
     }
 
     var cardKey = JSON.stringify(cardDetails);
@@ -105,7 +119,7 @@ var createStripeToken = function(done)
                 IWD.OPC.Checkout.xhr = null;
                 IWD.OPC.Checkout.unlockPlaceOrder();
             }
-            alert(response.error.message);
+            done(response.error.message);
         }
         else
         {
@@ -129,10 +143,10 @@ function setStripeToken(token)
         input.setAttribute("class", 'cryozonic-stripejs-token');
         input.setAttribute("value", token);
         input.disabled = false; // Gets disabled when the user navigates back to shipping method
-        var form = document.getElementById('co-payment-form');
+        var form = document.getElementById('payment_form_cryozonic_stripe');
+        if (!form) form = document.getElementById('co-payment-form');
         if (!form) form = document.getElementById('order-billing_method_form');
         if (!form) form = document.getElementById('onestepcheckout-form');
-        if (!form) form = document.getElementById('payment_form_cryozonic_stripe');
         if (!form && typeof payment != 'undefined') form = document.getElementById(payment.formId);
         if (!form)
         {

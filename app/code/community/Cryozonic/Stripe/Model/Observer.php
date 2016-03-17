@@ -21,6 +21,7 @@ class Cryozonic_Stripe_Model_Observer
     public function sales_order_payment_place_end($observer)
     {
         $customer = $observer->getPayment()->getOrder()->getCustomer();
+        if (!$customer) return;
         $customerId = $customer->getId();
         $customerEmail = $customer->getEmail();
 
