@@ -64,7 +64,7 @@ class Mdb_Tracking_Model_Observer
                     case 'UPS':
                         $carrierTitle = 'United Parcel Service';
                         break;
-                    case 'EFW':
+                    case 'EFWW':
                         $carrierTitle = 'Estes Freight Forwarding';
                         break;
                     case 'SUN':
