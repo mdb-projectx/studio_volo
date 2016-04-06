@@ -30,7 +30,7 @@ class Mdb_Tracking_Model_Observer
 		$data=array();
         for ($row = $startRow; $row <= $highestRow; $row++)
         {
-			if ((trim($sheet->getCell('A'.$row)->getValue()) == 'VLCP01' || trim($sheet->getCell('A'.$row)->getValue()) == 'VLCP10') && trim($sheet->getCell('E'.$row)->getValue()) != '1.FREIGHT' && trim($sheet->getCell('E'.$row)->getValue()) != '1.SALESTAX' && intval($sheet->getCell('F'.$row)->getValue()) > 0)
+			if (trim($sheet->getCell('A'.$row)->getValue()) == 'CP33' && trim($sheet->getCell('E'.$row)->getValue()) != '1.FREIGHT' && trim($sheet->getCell('E'.$row)->getValue()) != '1.SALESTAX' && intval($sheet->getCell('F'.$row)->getValue()) > 0)
 			{
 				$custnum=trim($sheet->getCell('A'.$row)->getValue());
 				$ponum=str_replace('PO','',trim($sheet->getCell('B'.$row)->getValue()))+0;
