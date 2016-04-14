@@ -82,8 +82,14 @@ if($onCatalog) {
   </script>
 
 <?php if($onCatalog) { ?>
-<meta property="og:title" content="<?php echo htmlspecialchars( $_product->getData('featured_name')); ?>">
+<meta property="og:title" content="<?php echo htmlspecialchars( $_product->getData('featured_name')); ?> - Capsule">
 <meta property="og:description" content="<?php echo htmlspecialchars( $_product->getData('description')); ?>">
+<?php 
+foreach ($_product->getMediaGalleryImages() as $image) {
+  echo '<meta property="og:image" content="' .(string)$this->helper('catalog/image')->init($product, 'image', $image->getFile())->resize(1200, 800). '">';
+  break;
+} ?>
+
 <?php } else { ?>
 <meta property="og:title" content="Designer Furniture Online - Capsule" />
 <meta property="og:description" content="Designer products sell for huge markups over what they cost to make. But we skip the middlemen and work directly with designers and makers to offer great design at affordable prices." />
