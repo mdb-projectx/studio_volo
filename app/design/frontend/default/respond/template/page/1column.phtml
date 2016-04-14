@@ -40,10 +40,8 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
 <?php echo $this->getChildHtml('head') ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:locale" content="es_ES" />
-<meta property="og:title" content="Designer Furniture Online - Capsule" />
-<meta property="og:url" content="http://www.capsulehome.com" />
-<meta property="og:description" content="Designer products sell for huge markups over what they cost to make. But we skip the middlemen and work directly with designers and makers to offer great design at affordable prices." />
 <meta property="og:type" content="article" />
+<meta name="p:domain_verify" content="96710c60791fb053873690055d821026"/>
 
 <script type="text/javascript">
 dataLayer = [];
@@ -83,6 +81,13 @@ if($onCatalog) {
   <?php }  ?> 
   </script>
 
+<?php if($onCatalog) { ?>
+<meta property="og:title" content="<?php echo htmlspecialchars( $_product->getData('featured_name')); ?>">
+<meta property="og:description" content="<?php echo htmlspecialchars( $_product->getData('description')); ?>">
+<?php } else { ?>
+<meta property="og:title" content="Designer Furniture Online - Capsule" />
+<meta property="og:description" content="Designer products sell for huge markups over what they cost to make. But we skip the middlemen and work directly with designers and makers to offer great design at affordable prices." />
+<?php } ?>
   <script src="//use.typekit.net/uxs7tmg.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
   </head>
