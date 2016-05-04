@@ -21,7 +21,7 @@ class Affirm_Affirm_Block_Payment_Form extends Mage_Payment_Block_Form
 																								          // sub
 																										          $html .= "<div style=\"\">";
 
-																												          $html .= "You will complete your payment on the Affirm website. 0% financing, get approved instantly.";
+																												          $html .= "You will complete your payment on the Affirm website. 3, 6 or 12 month loans at 10-30% APR, receive a real-time decision.";
 																														          $html .= "<br>";
 																																          $html .= "</div>";
 
