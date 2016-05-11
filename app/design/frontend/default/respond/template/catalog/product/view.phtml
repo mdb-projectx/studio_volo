@@ -180,7 +180,9 @@
 																																			<?php
 																																			if ($designer_image != '')
 																																			{ ?>
+																																			<?php if($_product->getData('designer_link')) { echo '<a href="'.$_product->getData('designer_link').'">'; } ?>
 																																			<div class="photo"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="<?php echo $this->helper('catalog/image')->init($_product, 'designer_image')->resize(210, 210); ?>" alt="" /></div>
+																																			<?php if($_product->getData('designer_link')) { echo '</a>'; } ?>
 																																			<?php
 																																			} ?>
 																																			<?php
@@ -189,7 +191,9 @@
 																																			<?php
 																																			if ($_product->getData('designer_name'))
 																																			{ ?>
+																																			<?php if($_product->getData('designer_link')) { echo '<a href="'.$_product->getData('designer_link').'">'; } ?>
 																																			<h5><span class="name"><?php echo $_product->getData('designer_name'); ?></span></h5>
+																																			<?php if($_product->getData('designer_link')) { echo '</a>'; } ?>
 																																			<?php
 																																			} ?>
 																																			<p><?php echo $_product->getData('designer_quote'); ?></p>
