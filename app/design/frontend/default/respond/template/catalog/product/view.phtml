@@ -176,6 +176,36 @@
 																																			Designer <i class="lnr lnr-chevron-down"></i>
 																																			</div>
 																																			<div class="accordion__content">
+																																			
+																																			
+				
+<div class="row row--whole cf features">
+<div class="item cf" style="margin: 1.5em 0 !important;">
+<div class="subrow cf">
+<div class="subitem subitem--seven-col subitem--last" style="float: none !important; margin: 0 auto !important; text-align: left;">
+
+<?php if ($designer_image != '') { ?>
+<?php if($_product->getData('designer_link')) { echo '<a href="'.$_product->getData('designer_link').'">'; } ?>
+<div style="float: left; margin-right: 20px; max-width: 50%;"><img src="/skin/frontend/default/respond/images/blank.gif" data-src="<?php echo $this->helper('catalog/image')->init($_product, 'designer_image')->resize(210, 210); ?>" alt="" /></div>
+<?php if($_product->getData('designer_link')) { echo '</a>'; } ?>
+<?php } ?>
+
+<?php if ($_product->getData('designer_quote')) { ?>
+<?php if ($_product->getData('designer_name')) { ?>
+<?php if($_product->getData('designer_link')) { echo '<a href="'.$_product->getData('designer_link').'">'; } ?>
+<h5><span class="name"><?php echo $_product->getData('designer_name'); ?></span></h5>
+<?php if($_product->getData('designer_link')) { echo '</a>'; } ?>
+<?php } ?>
+<p><?php echo $_product->getData('designer_quote'); ?></p>
+<?php } ?>
+
+</div>
+</div>
+</div>
+</div>
+
+<!--
+																																			
 																																			<div class="quote cf">
 																																			<?php
 																																			if ($designer_image != '')
@@ -198,10 +228,12 @@
 																																			} ?>
 																																			<p><?php echo $_product->getData('designer_quote'); ?></p>
 																																			<?php
-																																			} ?>
+} ?>
 																																			</div>
-																																			</div>
-																																			<?php
+-->
+
+</div>
+<?php
 																																			endif; ?>
 																																			<div class="accordion__title">
 																																			Materials and Dimensions <i class="lnr lnr-chevron-down"></i>
