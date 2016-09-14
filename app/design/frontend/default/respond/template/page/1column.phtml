@@ -60,6 +60,7 @@ if($module == 'checkout' && $controller == 'cart' && $action == 'index')
 	//Push products to productlist in datalayer
 
 	dataLayer.push({
+		'email': '',
 		'PageType': 'BasketPage',
 			'ProductBasketProducts': [	
 					<?php $i = 0; $len = count($items); ?>
