@@ -26,6 +26,10 @@
 					   ?>
 
 						   <script>
+						   dataLayer.push({
+							 'PageType': 'TransactionPage', 
+							 'email': ''
+							});
 						   if(location.hostname.substring(0,7) != 'staging') {
 								mixpanel.track('Purchase',{ 'Order Value': '<?php echo $this->getOrderTotal(); ?>', 'Quantity': '<?php echo $this->getOrderQuantity(); ?>'});
 						   } else {
