@@ -47,6 +47,38 @@ xmlns:fb="http://www.facebook.com/2008/fbml">
 dataLayer = [];
 
 <?php
+$request = $this->getRequest();
+$module = $request->getModuleName();
+$controller = $request->getControllerName();
+$action = $request->getActionName();
+if($module == 'checkout' && $controller == 'cart' && $action == 'index')
+	{
+	  $cartHelper = Mage::getSingleton('checkout/session')->getQuote();
+	  $items = $cartHelper->getAllVisibleItems();
+	?>
+
+	//Push products to productlist in datalayer
+
+	dataLayer.push({
+		'PageType': 'BasketPage',
+			'ProductBasketProducts': [	
+					<?php $i = 0; $len = count($items); ?>
+							<?php foreach ($items as $item) { ?>					
+										{
+														'id': '<?php echo $item->getSku(); ?>',
+																		'price': '<?php echo $item->getPrice(); ?>',		
+																						'quantity': <?php echo $item->getQty(); ?>
+																									}<?php if($i != $len - 1) { ?>,<?php } ?>
+																												<?php 
+																																$i++; 
+																																			} ?>							
+																																				]						
+	});
+		
+	<?php } ?>
+
+
+<?php
 $onCatalog = false;
 if(Mage::registry('current_product')) {
   $onCatalog = true;
