@@ -32,6 +32,7 @@
 					   <link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
 					   <link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
 
+
 					   <!--[if lt IE 7]>
 					   <script type="text/javascript">
 					   //<![CDATA[
@@ -43,6 +44,7 @@
 							   <?php echo $this->getCssJsHtml() ?>
 
 							   <script>
+							   var dataLayer = [];
 							   <?php if (Mage::getSingleton('customer/session')->isLoggedIn()) {
 								  
 								      /* Get the customer data */
@@ -50,9 +52,9 @@
 										      /* Get the customer's email address */
 											      $customerEmail = $customer->getEmail();
 													
-														echo 'var userID = "'.$customerEmail.'";';
+								echo 'dataLayer.push({"userID":"'.$customerEmail.'"});';
 							   } else {
-									echo 'var userID = "";';
+									echo 'dataLayer.push({"userID":""});';
 							   } ?>
 							   </script>
 
