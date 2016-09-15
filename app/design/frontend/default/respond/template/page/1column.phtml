@@ -100,6 +100,11 @@ if($onCatalog) {
   dataLayer.push({
 	'PageType': 'ProductPage',
 	'ProductID': '<?php echo $_product->getData('sku'); ?>',
+	'google_tag_params': {
+		'ecomm_prodid': '<?php echo $_product->getData('sku'); ?>',
+		'ecomm_pagetype': 'product',
+		'ecomm_totalvalue': '<?php echo $_product->getPrice(); ?>'
+	},
 	'ecommerce': {
 	  'detail': {
 		'products': [{
