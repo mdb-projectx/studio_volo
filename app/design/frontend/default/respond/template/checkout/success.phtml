@@ -26,10 +26,6 @@
 					   ?>
 
 						   <script>
-						   dataLayer.push({
-							 'PageType': 'TransactionPage', 
-							 'email': ''
-							});
 						   if(location.hostname.substring(0,7) != 'staging') {
 								mixpanel.track('Purchase',{ 'Order Value': '<?php echo $this->getOrderTotal(); ?>', 'Quantity': '<?php echo $this->getOrderQuantity(); ?>'});
 						   } else {
@@ -135,14 +131,11 @@
 																																																																																																																																																																																// Send transaction data with a pageview if available
 																																																																																																																																																																																		// when the page loads. Otherwise, use an event when the transaction
 																																																																																																																																																																																				// data becomes available.
-																																																																																																																																																																																						$j(document).ready(function() {
-																																																																																																																																																																																									dataLayer.push({
-																'google_tag_params': {
-																  'ecomm_pagetype': 'purchase',
-																  'ecomm_totalvalue': '<?php echo $order->grand_total ?>',
-																					   },
-																'ecommerce': {
-																																																																																																																																																																																																	'purchase': {
+																																																																																																																																					$j(document).ready(function() {
+		dataLayer.push({
+		  'PageType': 'TransactionPage',
+		  'ecommerce': {
+			'purchase': {
 																																																																																																																																																																																																					  'actionField': {
 																																																																																																																																																																																																											'id': '<?php echo $orderId; ?>',     
 																																																																																																																																																																																																																'affiliation': 'Capsule',
@@ -214,13 +207,13 @@
 																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			} ?> 
 
 																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			]
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						  
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																									});
+																																																																																																																																				
 																																																																																																																																																																																											});
 																																																																																																																																																																																									
 																																																																																																																																																																																									/* ]]> */
+																																																																																																																																																																																									});
 																																																																																																																																																																																									</script>
-																																																																																																																																																																																									<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">;
+																																																																																																																																																																																									<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
 																																																																																																																																																																																									</script>
 																																																																																																																																																																																									<noscript>
 																																																																																																																																																																																									<div style="display:inline;">
