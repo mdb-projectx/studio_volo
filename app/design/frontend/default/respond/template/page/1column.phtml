@@ -98,6 +98,8 @@ if($onCatalog) {
   // Measure a view of product details. This example assumes the detail view occurs on pageload,
   // and also tracks a standard pageview of the details page.
   dataLayer.push({
+	'PageType': 'ProductPage',
+	'ProductID': '<?php echo $_product->getData('sku'); ?>',
 	'ecommerce': {
 	  'detail': {
 		'products': [{
