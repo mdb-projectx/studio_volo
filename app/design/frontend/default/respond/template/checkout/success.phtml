@@ -137,7 +137,29 @@
 																																																																																																																																																																																				// data becomes available.
 																																																																																																																																																																																						$j(document).ready(function() {
 																																																																																																																																																																																									dataLayer.push({
-																																																																																																																																																																																												  'ecommerce': {
+																'google_tag_params': {
+																  'ecomm_pagetype': 'purchase',
+																  'ecomm_totalvalue': '<?php echo $order->grand_total ?>',
+																  'ecomm_prodid': [
+																	 <?php $i = 0; $len = count($items); ?>
+																	  +				  <?php foreach($items as $item) { ?>
+																	   +					<?php 
+																	    +						$_product = Mage::getModel('catalog/product')->loadByAttribute('sku',$item->getSku()); 
+																		 +						$categoryIds = $_product->getCategoryIds();
+																		  +						if (isset($categoryIds[0])){
+																			 +							$category = Mage::getModel('catalog/category')->setStoreId(Mage::app()->getStore()->getId())->load($categoryIds[0]);
+																			  +							$categoryName = $category->getName();
+																			   +						} else {
+																				  +							$categoryName = '';
+																				   +						}
+																				    +					?>
+																					'<?php echo $item->getSku(); ?>'
+																					<?php if($i != $len - 1) { ?>,<?php } ?>
+																					 +					<?php 
+																					  +					$i++; 
+																					   +					} ?> 
+																					   ]},
+																'ecommerce': {
 																																																																																																																																																																																																	'purchase': {
 																																																																																																																																																																																																					  'actionField': {
 																																																																																																																																																																																																											'id': '<?php echo $orderId; ?>',     
